@@ -67,4 +67,4 @@ jobs:
         uses: stefanprodan/helm-gh-pages@v1.4.1
         with:
           token: ${{ secrets.ACCESS_TOKEN_GITHUB }}
-          charts_dir: stable
+          charts_dir: charts
