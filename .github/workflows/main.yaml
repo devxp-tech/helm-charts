@@ -59,6 +59,8 @@ jobs:
   release:
     needs:
       - lint-chart
+      - kubeval-chart
+      - install-chart
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
