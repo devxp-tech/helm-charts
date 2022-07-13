@@ -24,6 +24,7 @@ jobs:
         k8s:
           - v1.16.8
           - v1.17.4
+      permissions: write
     steps:
       - name: Checkout
         uses: actions/checkout@v1
