@@ -17,6 +17,8 @@ jobs:
 
   kubeval-chart:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     needs:
       - lint-chart
     strategy:
@@ -32,6 +34,7 @@ jobs:
         env:
           KUBERNETES_VERSION: ${{ matrix.k8s }}
         run: .github/kubeval.sh
+
 
   install-chart:
     name: install-chart
