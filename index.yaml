@@ -11,4 +11,15 @@ entries:
     urls:
     - https://github.com/devxp-tech/helm-charts/releases/download/app1-0.1.0/app1-0.1.0.tgz
     version: 0.1.0
-generated: "2022-07-13T19:09:12.794660985Z"
+  example:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-07-13T19:22:51.223521727Z"
+    description: A Helm chart for Kubernetes
+    digest: 578683701b509ad5a8bf0e5a9d50401413476a3cb1e3531862b68d2fa874ab00
+    name: example
+    type: application
+    urls:
+    - https://github.com/devxp-tech/helm-charts/releases/download/example-0.1.0/example-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-07-13T19:22:51.223526527Z"
