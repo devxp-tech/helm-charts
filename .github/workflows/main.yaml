@@ -1,7 +1,7 @@
 name: main
 on:
   push:
-    branches: [ main ] 
+    branches: [main]
 
 jobs:
   lint-chart:
@@ -10,30 +10,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Run chart-testing (lint)
-        uses: helm/chart-testing-action@master
+        uses: helm/chart-testing-action@main
         with:
           command: lint
           config: .github/ct.yaml
-  lint-docs:
-    runs-on: ubuntu-latest
-    needs: lint-chart
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-      - name: Run helm-docs
-        run: .github/helm-docs.sh
+
   kubeval-chart:
     runs-on: ubuntu-latest
     needs:
       - lint-chart
-      - lint-docs
     strategy:
       matrix:
         k8s:
-          - v1.12.10
-          - v1.13.12
-          - v1.14.10
-          - v1.15.11
           - v1.16.8
           - v1.17.4
     steps:
@@ -43,31 +31,63 @@ jobs:
         env:
           KUBERNETES_VERSION: ${{ matrix.k8s }}
         run: .github/kubeval.sh
+
   install-chart:
     name: install-chart
     runs-on: ubuntu-latest
     needs:
       - lint-chart
-      - lint-docs
       - kubeval-chart
     strategy:
       matrix:
         k8s:
-          - v1.12.10
-          - v1.13.12
-          - v1.14.10
-          - v1.15.7
           - v1.16.4
           - v1.17.2
     steps:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Create kind ${{ matrix.k8s }} cluster
-        uses: helm/kind-action@master
+        uses: helm/kind-action@main
         with:
           node_image: kindest/node:${{ matrix.k8s }}
       - name: Run chart-testing (install)
-        uses: helm/chart-testing-action@master
+        uses: helm/chart-testing-action@main
         with:
           command: install
           config: .github/ct.yaml
+
+  release:
+    # depending on default permission settings for your org (contents being read-only or read-write for workloads), you will have to add permissions
+    # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token
+    needs:
+      - lint-chart
+      - kubeval-chart
+      - install-chart
+
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+
+      - name: Install Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.8.1
+
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.4.0
+        env:
+          CR_TOKEN: "${{ secrets.ACCESS_TOKEN_GITHUB }}"
+        with:
+          charts_dir: charts
+          config: cr.yaml
+          charts_repo_url: https://devxp-tech.github.io/charts
