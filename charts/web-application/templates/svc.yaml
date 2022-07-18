@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "web-application.fullname" . }}-svc
+  namespace: {{ include "web-application.fullname" . }}
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: {{ include "web-application.fullname" . }}.diegoluisi.eti.br
+  labels:
+    app: {{ include "web-application.fullname" . }}
+    version: 0.0.1
+    backstage.io/kubernetes-id: {{ include "web-application.fullname" . }}
+spec:
+  type: ClusterIP
+  ports:
+  - name: tcp-node
+    port: 8080
+  selector:
+    app: {{ include "web-application.fullname" . }}

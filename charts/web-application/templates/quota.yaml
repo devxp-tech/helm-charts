@@ -1,0 +1,16 @@
+---
+kind: ResourceQuota
+apiVersion: v1
+metadata:
+  name: {{ include "web-application.fullname" . }}-quota
+  namespace: {{ include "web-application.fullname" . }}
+  labels:
+    kubernetes.io/metadata.name: {{ include "web-application.fullname" . }}
+    backstage.io/kubernetes-id: {{ include "web-application.fullname" . }}
+    istio-injection: enabled
+spec:
+  hard:
+    requests.cpu: "1"
+    requests.memory: 1Gi
+    limits.cpu: "2"
+    limits.memory: 2Gi

@@ -1,0 +1,13 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: {{ include "web-application.fullname" . }}-destrule
+spec:
+  host: {{ include "web-application.fullname" . }}-svc
+  subsets:
+  - name: canary   # referenced in canary.trafficRouting.istio.destinationRule.canarySubsetName
+    labels:        # labels will be injected with canary rollouts-pod-template-hash value
+      app: {{ include "web-application.fullname" . }}
+  - name: stable   # referenced in canary.trafficRouting.istio.destinationRule.stableSubsetName
+    labels:        # labels will be injected with canary rollouts-pod-template-hash value
+      app: {{ include "web-application.fullname" . }}

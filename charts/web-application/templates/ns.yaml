@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ include "web-application.fullname" . }}
+  labels:
+    kubernetes.io/metadata.name: {{ include "web-application.fullname" . }}
+    backstage.io/kubernetes-id: {{ include "web-application.fullname" . }}
+    istio-injection: enabled
+spec:
+  finalizers:
+  - kubernetes

@@ -1,0 +1,11 @@
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: {{ include "web-application.fullname" . }}-strict
+  namespace: istioinaction
+spec:
+  selector:
+    matchLabels:
+      app: {{ include "web-application.fullname" . }}
+  mtls:
+    mode: STRICT
