@@ -14,6 +14,6 @@ spec:
   type: ClusterIP
   ports:
   - name: tcp-node
-    port: 8080
+    port: {{ .Values.service.port }}
   selector:
     app: {{ include "web-application.fullname" . }}
