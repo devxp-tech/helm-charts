@@ -3,7 +3,7 @@ entries:
   app1:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-20T13:35:58.348979704Z"
+    created: "2022-07-20T13:52:27.442181918Z"
     description: A Helm chart for Kubernetes
     digest: f551fa736cc60a319588327461c88e1391d72c4c5876232575b055f121deb315
     name: app1
@@ -13,9 +13,9 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-20T13:35:58.348487804Z"
+    created: "2022-07-20T13:52:27.441621814Z"
     description: A Helm chart for Kubernetes
-    digest: ac6f6dcdf079d3813a413b74f84f59311dbeb6a7ec647542560ca5c0766f16a7
+    digest: 1c4ef5cb8738363386f62217b32164824350ded23e6d775a2cf5e6089bd30d9c
     name: app1
     type: application
     urls:
@@ -24,9 +24,9 @@ entries:
   example:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-20T13:35:58.349439905Z"
+    created: "2022-07-20T13:52:27.442677122Z"
     description: A Helm chart for Kubernetes
-    digest: bd819aa6c88d820cd1fe57eff8855a56645c8f613cb717ed9cd77307054fdb2e
+    digest: 9178c434f3f6cdf46811291259c2d295f3f2d6146332b0ba78a528c1df850c1a
     name: example
     type: application
     urls:
@@ -35,12 +35,12 @@ entries:
   web-application:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-20T13:35:58.349935006Z"
+    created: "2022-07-20T13:52:27.443245527Z"
     description: A Helm chart for Kubernetes
-    digest: 08d9c0584d30242275e10732b057cbb5e39215dec7064bd4d8b616c86c26e3a6
+    digest: f6045b7ad12bd58b026c27ab2203b7af8b799382344c356a0d7117d97834e066
     name: web-application
     type: application
     urls:
     - https://devxp-tech.github.io/helm-charts/web-application-0.1.0.tgz
     version: 0.1.0
-generated: "2022-07-20T13:35:58.347773203Z"
+generated: "2022-07-20T13:52:27.440950709Z"
