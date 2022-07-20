@@ -52,7 +52,7 @@ spec:
       serviceAccountName: {{ include "web-application.fullname" . }}-sa
       containers:
       - name: {{ include "web-application.fullname" . }}
-        image: diegoluisi/{{ include "web-application.fullname" . }}:latest
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         imagePullPolicy: IfNotPresent
         resources:
           requests:
