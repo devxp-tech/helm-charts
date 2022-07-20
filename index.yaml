@@ -3,7 +3,7 @@ entries:
   app1:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-20T13:52:27.442181918Z"
+    created: "2022-07-20T13:56:15.443610018Z"
     description: A Helm chart for Kubernetes
     digest: f551fa736cc60a319588327461c88e1391d72c4c5876232575b055f121deb315
     name: app1
@@ -13,9 +13,9 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-20T13:52:27.441621814Z"
+    created: "2022-07-20T13:56:15.443120112Z"
     description: A Helm chart for Kubernetes
-    digest: 1c4ef5cb8738363386f62217b32164824350ded23e6d775a2cf5e6089bd30d9c
+    digest: b2fd65e051d81ac35a109743cf76e98061c81c9de520d4c88a58cc03b615be8d
     name: app1
     type: application
     urls:
@@ -24,9 +24,9 @@ entries:
   example:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-20T13:52:27.442677122Z"
+    created: "2022-07-20T13:56:15.444054525Z"
     description: A Helm chart for Kubernetes
-    digest: 9178c434f3f6cdf46811291259c2d295f3f2d6146332b0ba78a528c1df850c1a
+    digest: d2e2390353ca5ac431bbdbfc7e53ee3c64dc805b96fd82a0d3abcde538a42b73
     name: example
     type: application
     urls:
@@ -35,7 +35,17 @@ entries:
   web-application:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-20T13:52:27.443245527Z"
+    created: "2022-07-20T13:56:15.444975538Z"
+    description: A Helm chart for Kubernetes
+    digest: 2602647a36f03a8a28721a552bded4a481b558364edd5f567cd9a0a777079f87
+    name: web-application
+    type: application
+    urls:
+    - https://devxp-tech.github.io/helm-charts/web-application-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-07-20T13:56:15.444518431Z"
     description: A Helm chart for Kubernetes
     digest: f6045b7ad12bd58b026c27ab2203b7af8b799382344c356a0d7117d97834e066
     name: web-application
@@ -43,4 +53,4 @@ entries:
     urls:
     - https://devxp-tech.github.io/helm-charts/web-application-0.1.0.tgz
     version: 0.1.0
-generated: "2022-07-20T13:52:27.440950709Z"
+generated: "2022-07-20T13:56:15.441405287Z"
