@@ -6,7 +6,7 @@ metadata:
   namespace: {{ include "web-application.fullname" . }}
   labels:
     app: {{ include "web-application.fullname" . }}
-    version: 0.0.1
+    version: "{{ .Values.image.tag | default .Chart.AppVersion }}"
     backstage.io/kubernetes-id: {{ include "web-application.fullname" . }}
 spec:
   gateways:
