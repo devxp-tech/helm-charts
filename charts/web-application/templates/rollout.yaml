@@ -10,6 +10,13 @@ spec:
         startingStep: 1   # index of step list, of when to start this analysis
         templates:
         - templateName: istio-success-rate
+        args:             # arguments allow AnalysisTemplates to be re-used
+        - name: service
+          value: {{ include "web-application.fullname" . }}-svc
+        - name: namespace
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
       trafficRouting:
         istio:
           virtualService:
