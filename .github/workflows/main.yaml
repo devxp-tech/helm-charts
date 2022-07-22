@@ -56,17 +56,39 @@ jobs:
   #         command: install
   #         config: .github/ct.yaml
 
+  # release:
+  #   needs:
+  #     - lint-chart
+  #     - kubeval-chart
+  #     # - install-chart
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Publish Helm charts
+  #       uses: stefanprodan/helm-gh-pages@v1.4.1
+  #       with:
+  #         token: ${{ secrets.ACCESS_TOKEN_GITHUB }}
+  #         charts_dir: charts
+
+
   release:
     needs:
       - lint-chart
       - kubeval-chart
       # - install-chart
     runs-on: ubuntu-latest
+    # depending on default permission settings for your org (contents being read-only or read-write for workloads), you will have to add permissions
+    # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Publish Helm charts
-        uses: stefanprodan/helm-gh-pages@v1.4.1
+        uses: stefanprodan/helm-gh-pages@v1.5.0
         with:
           token: ${{ secrets.ACCESS_TOKEN_GITHUB }}
           charts_dir: charts
