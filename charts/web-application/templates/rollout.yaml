@@ -6,6 +6,10 @@ spec:
   replicas: 4
   strategy:
     canary: #Indicates that the rollout should use the Canary strategy
+      analysis:
+        startingStep: 1   # index of step list, of when to start this analysis
+        templates:
+        - templateName: istio-success-rate
       trafficRouting:
         istio:
           virtualService:
