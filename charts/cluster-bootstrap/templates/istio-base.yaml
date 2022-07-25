@@ -19,7 +19,7 @@ spec:
       {{- with .Values.istioBase.values }}
       values: |-
       {{- toYaml . | nindent 8 }}
-      {{ end -}}
+      {{- end }}
     repoURL: https://istio-release.storage.googleapis.com/charts
     targetRevision: 1.14.1
   syncPolicy:
