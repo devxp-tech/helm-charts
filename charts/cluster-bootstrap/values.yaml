@@ -5,8 +5,8 @@
 global:
   application:
     cluster:
-      host: ""
-      alias: ""
+      name: ""
+      server: ""
     project: default
 
 sealedSecrets:

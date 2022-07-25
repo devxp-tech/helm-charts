@@ -16,6 +16,10 @@ spec:
     helm:
       valueFiles:
       - values.yaml
+      {{- with .Values.certManager.values }}
+      values: |-
+      {{- toYaml . | nindent 8 }}
+      {{ end -}}
     repoURL: https://charts.jetstack.io
     targetRevision: 1.9.0
   syncPolicy:
