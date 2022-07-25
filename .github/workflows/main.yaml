@@ -58,6 +58,7 @@ jobs:
 
 
   release:
+    name: Lint Charts
     needs:
       - lint-chart
       - kubeval-chart
@@ -85,6 +86,10 @@ jobs:
         uses: helm/chart-releaser-action@v1.4.0
         env:
           CR_TOKEN: ${{ secrets.ACCESS_TOKEN_GITHUB }}
+        with:
+          charts_dir: charts
+          config: cr.yaml
+          charts_repo_url: https://devxp-tech.github.io/helm-charts/
 
       # - name: Publish Helm charts
       #   uses: stefanprodan/helm-gh-pages@v1.5.0
