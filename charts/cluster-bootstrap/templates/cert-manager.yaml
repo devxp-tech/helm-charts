@@ -2,14 +2,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cert-manager-{{ .Values.global.application.cluster.alias }}
+  name: cert-manager-{{ .Values.global.application.cluster.name }}
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     namespace: {{ .Values.certManager.namespace }}
-    server: {{ .Values.global.application.cluster.host }}
+    server: {{ .Values.global.application.cluster.server }}
   project: {{ .Values.global.application.project }}
   source:
     chart: cert-manager
