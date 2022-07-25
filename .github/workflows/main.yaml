@@ -3,8 +3,8 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "charts/**"
+    # paths:
+    #   - "charts/**"
 
 jobs:
   lint-chart:
