@@ -5,8 +5,8 @@
 global:
   application:
     cluster:
-      name: ""
-      server: ""
+      name: "in-cluster"
+      server: "https://kubernetes.default.svc"
     project: default
 
 sealedSecrets:
