@@ -6,10 +6,6 @@ metadata:
   labels:
     kubernetes.io/metadata.name: {{ .Values.istioBase.namespace }}
   name: {{ .Values.istioBase.namespace }}
-spec:
-  finalizers:
-  - kubernetes
-  - resources-finalizer.argocd.argoproj.io
 
 ---
 apiVersion: argoproj.io/v1alpha1
