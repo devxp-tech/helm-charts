@@ -1,21 +1,21 @@
-{{- if .Values.sealedSecrets.enabled }}
+{{- if .Values.istioBase.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sealed-secrets
+  name: istio
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: sealed-secrets
+    namespace: istio-system
     server: {{ .Values.global.application.cluster }}
   project: {{ .Values.global.application.project }}
   source:
-    chart: sealed-secrets
+    chart: base
     helm:
       valueFiles:
       - values.yaml
-    repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 1.0.10
+    repoURL: https://istio-release.storage.googleapis.com/charts
+    targetRevision: 1.14.1
 {{- end }}
