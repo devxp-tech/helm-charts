@@ -8,7 +8,9 @@ global:
 
 sealedSecrets:
   enabled: true
+  namespace: sealed-secrets
 
 istioBase:
   enabled: true
+  namespace: istio-system
 

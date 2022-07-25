@@ -1,4 +1,17 @@
 {{- if .Values.istioBase.enabled }}
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: {{ .Values.istioBase.namespace }}
+  name: {{ .Values.istioBase.namespace }}
+spec:
+  finalizers:
+  - kubernetes
+  - resources-finalizer.argocd.argoproj.io
+
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -8,7 +21,7 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: istio-system
+    namespace: {{ .Values.istioBase.namespace }}
     server: {{ .Values.global.application.cluster }}
   project: {{ .Values.global.application.project }}
   source:
