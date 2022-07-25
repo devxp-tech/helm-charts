@@ -30,13 +30,13 @@ jobs:
       - name: Run chart-testing (list-changed)
         id: list-changed
         run: |
-          changed=$(ct list-changed --target-branch ${{ github.event.repository.default_branch }})
+          changed=$(ct list-changed --target-branch main
           if [[ -n "$changed" ]]; then
             echo "::set-output name=changed::true"
           fi
 
       - name: Run chart-testing (lint)
-        run: ct lint --target-branch ${{ github.event.repository.default_branch }}
+        run: ct lint --target-branch main
 
       - name: Create kind cluster
         uses: helm/kind-action@v1.2.0
@@ -64,7 +64,7 @@ jobs:
         run: .github/kubeval.sh
 
   release:
-    name: Create Chart Release
+    name: Chart Release
     needs:
       - lint-test
       - kubeval-chart
