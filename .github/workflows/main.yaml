@@ -3,8 +3,8 @@ on:
   push:
     branches:
       - main
-    # paths:
-    #   - "charts/**"
+    paths:
+      - "charts/**"
 
 jobs:
   lint-chart:
@@ -74,42 +74,3 @@ jobs:
   #       with:
   #         command: install
   #         config: .github/ct.yaml
-
-
-  # release:
-  #   name: Chart Release
-  #   needs:
-  #     - lint-chart
-  #     - kubeval-chart
-  #     # - install-chart
-  #   runs-on: ubuntu-latest
-  #   # depending on default permission settings for your org (contents being read-only or read-write for workloads), you will have to add permissions
-  #   # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token
-  #   permissions:
-  #     contents: write
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
-
-  #     - name: Configure Git
-  #       run: |
-  #         git config user.name "$GITHUB_ACTOR"
-  #         git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-
-  #     - name: Install Helm
-  #       uses: azure/setup-helm@v1
-  #       with:
-  #         version: v3.8.1
-
-  #     - name: Run chart-releaser
-  #       uses: helm/chart-releaser-action@v1.2.1
-  #       with:
-  #         config: "./.github/configs/cr.yaml"
-  #       env:
-  #         CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-
-  #     - name: Publish Helm charts
-  #       uses: stefanprodan/helm-gh-pages@v1.5.0
-  #       with:
-  #         token: ${{ secrets.ACCESS_TOKEN_GITHUB }}
-  #         charts_dir: charts
