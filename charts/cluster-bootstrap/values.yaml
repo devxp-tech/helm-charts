@@ -17,3 +17,6 @@ istioBase:
   enabled: true
   namespace: istio-system
 
+certManager:
+  enabled: true
+  namespace: cert-manager
