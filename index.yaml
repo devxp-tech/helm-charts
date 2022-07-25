@@ -24,6 +24,16 @@ entries:
   cluster-bootstrap:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2022-07-25T18:25:36.397483444Z"
+    description: Helm Charts to Kubernetes Cluster Bootstrap
+    digest: 96e931bad177e617beae2e0c90571b35d3ed229484f6c8eeca3e9c4f38c8241e
+    name: cluster-bootstrap
+    type: application
+    urls:
+    - https://github.com/devxp-tech/helm-charts/releases/download/cluster-bootstrap-0.1.10/cluster-bootstrap-0.1.10.tgz
+    version: 0.1.10
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2022-07-25T18:17:00.632035526Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: a27dcaf0f81e5cc22a16b0d8b45f4eecf30ecdc539a644df1d5d4e1037ba612a
@@ -204,4 +214,4 @@ entries:
     urls:
     - https://devxp-tech.github.io/helm-charts/web-application-0.1.0.tgz
     version: 0.1.0
-generated: "2022-07-25T18:17:00.632096427Z"
+generated: "2022-07-25T18:25:36.397535344Z"
