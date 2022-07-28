@@ -20,30 +20,11 @@ jobs:
           command: lint
           config: .github/config/ct.yaml
 
-  lint-docs:
-    runs-on: ubuntu-latest
-    needs:
-      - lint-chart
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Generate Helm Docs
-        uses: docker://jnorwood/helm-docs:v1.7.0
-        with:
-          entrypoint: /usr/bin/helm-docs
-          args: --chart-search-root /github/workspace
-      - name: commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4.13.1
-        with:
-          commit_message: "[skip ci] :robot: Update Docs"
-          repository: .
-
   kubeval-chart:
     name: Chart Validator
     runs-on: ubuntu-latest
     needs:
       - lint-chart
-      - lint-docs
     strategy:
       matrix:
         k8s:
@@ -94,7 +75,6 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - lint-chart
-      - lint-docs
       - kubeval-chart
     steps:
       - name: Checkout
@@ -170,3 +150,21 @@ jobs:
           else
             echo "nothing to do!!!"
           fi
+
+  generate-docs:
+    runs-on: ubuntu-latest
+    needs:
+      - artifacts
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Generate Helm Docs
+        uses: docker://jnorwood/helm-docs:v1.7.0
+        with:
+          entrypoint: /usr/bin/helm-docs
+          args: --chart-search-root /github/workspace
+      - name: commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4.13.1
+        with:
+          commit_message: "[skip ci] :robot: Update Docs"
+          repository: .
