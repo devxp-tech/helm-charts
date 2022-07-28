@@ -38,6 +38,9 @@ jobs:
         k8s:
           - v1.16.8
           - v1.17.4
+          - v1.20.15
+          - v1.21.13
+          - v1.22.10
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -74,3 +77,85 @@ jobs:
   #       with:
   #         command: install
   #         config: .github/ct.yaml
+
+
+  release:
+    runs-on: ubuntu-latest
+    needs:
+      - lint-chart
+      - lint-docs
+      - kubeval-chart
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@main
+        env:
+          CR_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+
+
+  artifacts:
+    runs-on: ubuntu-latest
+    needs:
+      - release
+    steps:
+      - name: checkout artifacts branch
+        uses: actions/checkout@v3
+        with:
+          ref: artifacts
+      - name: git setup
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
+      - name: download artifacts
+        run: |
+          gh release list | awk '{print$1}' | while read line; do gh release download $line || true; done
+          git add .
+          git commit -m ":robot: [github actions actor] update artifact list"
+          git push
+      - name: Install Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.8.1
+      - name: generate updated index.yaml
+        run: |
+          helm repo index . --url "https://raw.githubusercontent.com/devxp-tech/helm-charts/artifacts/"
+      - name: persist index.yaml
+        uses: actions/upload-artifact@v2
+        with:
+          name: gh-pages
+          path: ./index.yaml
+          if-no-files-found: error
+  index:
+    name: index-update
+    runs-on: ubuntu-latest
+    needs:
+      - artifacts
+    steps:
+      - name: chekcout gh-pages
+        uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+      - name: git setup
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
+      - uses: actions/download-artifact@v2
+        with:
+          name: gh-pages
+      - name: commit new index.yaml
+        run: |
+          if [[ $(git diff) ]];
+          then
+            git add index.yaml
+            git commit -m "[ci skip] :robot: [github actions actor] - update index.yaml"
+            git push
+          else
+            echo "nothing to do!!!"
+          fi
