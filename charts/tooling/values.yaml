@@ -10,8 +10,11 @@ global:
     project: default
 
 sealedSecrets:
+  # -- default sealedSecrets
   enabled: true
+  # -- enabled sealedSecrets deployment
   namespace: sealed-secrets
+  # -- default namespace to deploy sealed-secrets
 
 istioBase:
   enabled: true
