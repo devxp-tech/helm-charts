@@ -3,6 +3,7 @@
 ## @devxp-tech - Helm Charts Repository
 
 [![main](https://github.com/devxp-tech/helm-charts/actions/workflows/main.yaml/badge.svg)](https://github.com/devxp-tech/helm-charts/actions/workflows/main.yaml)
+[![pages-build-deployment](https://github.com/devxp-tech/helm-charts/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/devxp-tech/helm-charts/actions/workflows/pages/pages-build-deployment)
 
 ### 🖊️ Code of Conduct
 
