@@ -16,7 +16,7 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         run: |
           make snyk-report
-          git config --global user.email 'ci@argoproj.com'
+          git config --global user.email 'ci@devxp-tech.io'
           git config --global user.name 'CI'
           git add docs/snyk/index.md
           git add docs/snyk/*/*.html
