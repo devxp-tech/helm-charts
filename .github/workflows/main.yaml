@@ -12,16 +12,16 @@ jobs:
   lint-chart:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Lint 🛎️
         uses: actions/checkout@v1
-      - name: Run chart-testing (lint)
+      - name: Run Chart Lint 🔎
         uses: helm/chart-testing-action@main
         with:
           command: lint
           config: .github/config/ct.yaml
 
   kubeval-chart:
-    name: Chart Validator
+    name: Chart Validator 🔎
     runs-on: ubuntu-latest
     needs:
       - lint-chart
@@ -34,9 +34,9 @@ jobs:
           - v1.21.13
           - v1.22.10
     steps:
-      - name: Checkout
+      - name: Checkout Kubeval 🛎️
         uses: actions/checkout@v1
-      - name: Run kubeval
+      - name: Run kubeval 🔎
         env:
           KUBERNETES_VERSION: ${{ matrix.k8s }}
         run: .github/kubeval.sh
@@ -77,13 +77,13 @@ jobs:
       - lint-chart
       - kubeval-chart
     steps:
-      - name: Checkout
+      - name: Checkout Release 🛎️
         uses: actions/checkout@v1
-      - name: Configure Git
+      - name: Git Setup 🔨
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-      - name: Run chart-releaser
+      - name: Run chart-releaser 📈
         uses: helm/chart-releaser-action@main
         env:
           CR_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
@@ -94,45 +94,45 @@ jobs:
     needs:
       - release
     steps:
-      - name: checkout artifacts branch
+      - name: Checkout Artifacts 🛎️
         uses: actions/checkout@v3
         with:
           ref: artifacts
-      - name: git setup
+      - name: Git setup 🔨
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
           echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
-      - name: download artifacts
+      - name: Download artifacts 📦
         run: |
           gh release list | awk '{print$1}' | while read line; do gh release download $line || true; done
           git add .
           git commit -m ":robot: [github actions actor] update artifact list"
           git push
-      - name: Install Helm
+      - name: Install Helm ☸️
         uses: azure/setup-helm@v1
         with:
           version: v3.8.1
-      - name: generate updated index.yaml
+      - name: Generate updated index.yaml 📦
         run: |
           helm repo index . --url "https://raw.githubusercontent.com/devxp-tech/helm-charts/artifacts/"
-      - name: persist index.yaml
+      - name: Persist index.yaml 📦
         uses: actions/upload-artifact@v2
         with:
           name: gh-pages
           path: ./index.yaml
           if-no-files-found: error
   index:
-    name: index-update
+    name: index-update 📦
     runs-on: ubuntu-latest
     needs:
       - artifacts
     steps:
-      - name: chekcout gh-pages
+      - name: Chekcout gh-pages 🛎️
         uses: actions/checkout@v3
         with:
           ref: gh-pages
-      - name: git setup
+      - name: git setup 🔨
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
@@ -140,7 +140,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: gh-pages
-      - name: commit new index.yaml
+      - name: Commit new index.yaml 📦
         run: |
           if [[ $(git diff) ]];
           then
@@ -156,14 +156,14 @@ jobs:
     needs:
       - index
     steps:
-      - name: Checkout
+      - name: Checkout Docs 🛎️
         uses: actions/checkout@v2
-      - name: Generate Helm Docs
+      - name: Generate Helm Docs 📦
         uses: docker://jnorwood/helm-docs:v1.7.0
         with:
           entrypoint: /usr/bin/helm-docs
           args: --chart-search-root /github/workspace
-      - name: commit changes
+      - name: Commit changes 📦
         uses: stefanzweifel/git-auto-commit-action@v4.13.1
         with:
           commit_message: "[skip ci] :robot: Update Docs :zap:"
