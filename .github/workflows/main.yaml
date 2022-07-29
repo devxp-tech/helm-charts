@@ -10,6 +10,7 @@ on:
 
 jobs:
   lint-chart:
+    name: Chart Lint 🔎
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Lint 🛎️
@@ -72,6 +73,7 @@ jobs:
 
 
   release:
+    name: Chart Release 📦
     runs-on: ubuntu-latest
     needs:
       - lint-chart
@@ -90,6 +92,7 @@ jobs:
 
 
   artifacts:
+    name: Generate Artifacts 📦
     runs-on: ubuntu-latest
     needs:
       - release
@@ -122,8 +125,9 @@ jobs:
           name: gh-pages
           path: ./index.yaml
           if-no-files-found: error
+
   index:
-    name: index-update 📦
+    name: Index Update 📝
     runs-on: ubuntu-latest
     needs:
       - artifacts
@@ -140,7 +144,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: gh-pages
-      - name: Commit new index.yaml 📦
+      - name: Commit New index.yaml 📝
         run: |
           if [[ $(git diff) ]];
           then
@@ -152,6 +156,7 @@ jobs:
           fi
 
   generate-docs:
+    name: Docs Generate 📝
     runs-on: ubuntu-latest
     needs:
       - index
