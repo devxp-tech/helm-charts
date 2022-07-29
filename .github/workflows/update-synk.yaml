@@ -1,4 +1,4 @@
-name: Snyk report update
+name: snyk
 on:
   schedule:
     - cron: '0 0 * * 0' # midnight every Sunday

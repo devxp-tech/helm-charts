@@ -1,4 +1,4 @@
-name: main
+name: datree
 on:
   workflow_dispatch:
 
