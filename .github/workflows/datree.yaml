@@ -8,7 +8,7 @@ on:
 
 jobs:
   datree:
-    name: Validate Helm charts
+    name: Validate Helm charts 🔒
     runs-on: ubuntu-latest
     container:
       image: dtzar/helm-kubectl:3.6.3
