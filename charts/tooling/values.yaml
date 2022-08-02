@@ -1,4 +1,4 @@
-# Default values for tooling.
+# Default values for cluster-bootstrap.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -10,16 +10,50 @@ global:
     project: default
 
 sealedSecrets:
-  # -- default sealedSecrets
   enabled: true
-  # -- enabled sealedSecrets deployment
-  namespace: sealed-secrets
-  # -- default namespace to deploy sealed-secrets
+  namespace: kube-system
 
 istioBase:
   enabled: true
   namespace: istio-system
 
+istiod:
+  enabled: true
+  namespace: istio-system
+
+istioGateway:
+  enabled: true
+  namespace: istio-ingress
+  gateways:
+    public:
+      enabled: true
+      servers: []
+      - port:
+          number: 443
+          name: https
+          protocol: HTTPS
+        tls:
+          mode: SIMPLE
+          credentialName: istio-certs
+        hosts:
+          - "*.diegoluisi.eti.br"
+    # private:
+    #   enabled: false
+    #   servers: []
+    #   - port:
+    #       number: 443
+    #       name: https
+    #       protocol: HTTPS
+    #     tls:
+    #       mode: SIMPLE
+    #       credentialName: ops-cert-secret
+    #     hosts:
+    #       - "*.diegoluisi.local"
+
 certManager:
   enabled: true
   namespace: cert-manager
+
+prometheus:
+  enabled: true
+  namespace: monitoring

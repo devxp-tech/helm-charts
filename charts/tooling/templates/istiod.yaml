@@ -1,22 +1,22 @@
-{{- if .Values.istioBase.enabled }}
+{{- if .Values.istiod.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: istio-{{ .Values.global.application.cluster.name }}
+  name: istiod-{{ .Values.global.application.cluster.name }}
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: {{ .Values.istioBase.namespace }}
+    namespace: {{ .Values.istiod.namespace }}
     server: {{ .Values.global.application.cluster.server }}
   project: {{ .Values.global.application.project }}
   source:
-    chart: base
+    chart: istiod
     helm:
       valueFiles:
       - values.yaml
-      {{- with .Values.istioBase.values }}
+      {{- with .Values.istiod.values }}
       values: |-
       {{- toYaml . | nindent 8 }}
       {{- end }}
