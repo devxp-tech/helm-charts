@@ -1,8 +1,8 @@
-{{- if .Values.istioGateway.enabled }}
+{{- if .Values.istioGateway.public.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: istio-gateway-{{ .Values.global.application.cluster.name }}
+  name: istio-gateway-pub-{{ .Values.global.application.cluster.name }}
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -16,7 +16,7 @@ spec:
     helm:
       valueFiles:
       - values.yaml
-      {{- with .Values.istioGateway.values }}
+      {{- with .Values.istioGateway.public.values }}
       values: |-
       {{- toYaml . | nindent 8 }}
       {{- end }}
@@ -29,8 +29,6 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-
-{{- if .Values.istioGateway.gateways.public.enabled }}
 ---
 apiVersion: networking.istio.io/v1beta1
 kind: Gateway
@@ -47,31 +45,8 @@ spec:
       number: 80
       name: http
       protocol: HTTP
-  {{- with .Values.istioGateway.gateways.public.servers }}
+  {{- with .Values.istioGateway.public.gateway.servers }}
   {{- toYaml . | nindent 2 }}
   {{- end }}
-{{- end }}
-
-{{- if .Values.istioGateway.gateways.private.enabled }}
----
-apiVersion: networking.istio.io/v1beta1
-kind: Gateway
-metadata:
-  name: istio-gateway
-  namespace: istio-ingress
-spec:
-  selector:
-    app: istio-ingress
-  servers:
-  - hosts:
-    - "*"
-    port:
-      number: 80
-      name: http
-      protocol: HTTP
-  {{- with .Values.istioGateway.gateways.private.servers }}
-  {{- toYaml . | nindent 2 }}
-  {{- end }}
-{{- end }}
 
 {{- end }}

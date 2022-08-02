@@ -22,12 +22,15 @@ istiod:
   namespace: istio-system
 
 istioGateway:
-  enabled: true
   namespace: istio-ingress
-  gateways:
-    public:
-      enabled: true
-      servers: []
+  public:
+    enabled: true
+    values:
+      service:
+        annotations:
+          alb.ingress.kubernetes.io/scheme: internet-facing
+    gateway:
+      servers:
       - port:
           number: 443
           name: https
@@ -37,18 +40,23 @@ istioGateway:
           credentialName: istio-certs
         hosts:
           - "*.diegoluisi.eti.br"
-    # private:
-    #   enabled: false
-    #   servers: []
-    #   - port:
-    #       number: 443
-    #       name: https
-    #       protocol: HTTPS
-    #     tls:
-    #       mode: SIMPLE
-    #       credentialName: ops-cert-secret
-    #     hosts:
-    #       - "*.diegoluisi.local"
+  private:
+    enabled: true
+    values:
+      service:
+        annotations:
+          alb.ingress.kubernetes.io/scheme: internal
+    gateway:
+      servers:
+      - port:
+          number: 443
+          name: https
+          protocol: HTTPS
+        tls:
+          mode: SIMPLE
+          credentialName: istio-certs
+        hosts:
+          - "*.diegoluisi.local"
 
 certManager:
   enabled: true
