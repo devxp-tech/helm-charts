@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+  docs:
+    image: jnorwood/helm-docs:v1.7.0
+    working_dir: /app
+    volumes:
+      - .:/app
