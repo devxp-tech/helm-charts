@@ -1,6 +1,6 @@
 # tooling
 
-![Version: 0.1.6](https://img.shields.io/badge/Version-0.1.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.0](https://img.shields.io/badge/AppVersion-1.16.0-informational?style=flat-square)
+![Version: 0.1.7](https://img.shields.io/badge/Version-0.1.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.0](https://img.shields.io/badge/AppVersion-1.16.0-informational?style=flat-square)
 
 Helm Charts to Kubernetes Cluster Bootstrap
 
@@ -31,7 +31,6 @@ Helm Charts to Kubernetes Cluster Bootstrap
 | istioGateway.public.gateway.servers[0].port.protocol | string | `"HTTPS"` |  |
 | istioGateway.public.gateway.servers[0].tls.credentialName | string | `"istio-certs"` |  |
 | istioGateway.public.gateway.servers[0].tls.mode | string | `"SIMPLE"` |  |
-| istioGateway.public.values.service.annotations."alb.ingress.kubernetes.io/scheme" | string | `"internet-facing"` |  |
 | istiod.enabled | bool | `true` |  |
 | istiod.namespace | string | `"istio-system"` |  |
 | prometheus.enabled | bool | `true` |  |
