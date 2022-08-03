@@ -26,6 +26,7 @@ Helm Charts to Kubernetes Cluster Bootstrap
 | istioGateway.private.values.service.annotations."alb.ingress.kubernetes.io/scheme" | string | `"internal"` |  |
 | istioGateway.public.enabled | bool | `true` |  |
 | istioGateway.public.gateway.servers | list | `[]` |  |
+| istioGateway.public.values | object | `{}` | this prop is used to inject values to gateway in public chart |
 | istiod.enabled | bool | `true` |  |
 | istiod.namespace | string | `"istio-system"` |  |
 | prometheus.enabled | bool | `true` |  |

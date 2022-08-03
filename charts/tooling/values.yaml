@@ -25,6 +25,7 @@ istioGateway:
   namespace: istio-ingress
   public:
     enabled: true
+    # -- this prop is used to inject values to gateway in public chart
     values: {}
     gateway:
       servers: []
