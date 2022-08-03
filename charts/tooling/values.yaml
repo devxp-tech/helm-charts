@@ -26,16 +26,16 @@ istioGateway:
   public:
     enabled: true
     gateway:
-      servers:
-      - port:
-          number: 443
-          name: https
-          protocol: HTTPS
-        tls:
-          mode: SIMPLE
-          credentialName: istio-certs
-        hosts:
-          - "*.diegoluisi.eti.br"
+      servers: []
+      # - port:
+      #     number: 443
+      #     name: https
+      #     protocol: HTTPS
+      #   tls:
+      #     mode: SIMPLE
+      #     credentialName: istio-certs
+      #   hosts:
+      #     - "*.diegoluisi.eti.br"
   private:
     enabled: true
     values:

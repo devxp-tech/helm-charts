@@ -1,6 +1,6 @@
 # tooling
 
-![Version: 0.1.10](https://img.shields.io/badge/Version-0.1.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.0](https://img.shields.io/badge/AppVersion-1.16.0-informational?style=flat-square)
+![Version: 0.1.11](https://img.shields.io/badge/Version-0.1.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.0](https://img.shields.io/badge/AppVersion-1.16.0-informational?style=flat-square)
 
 Helm Charts to Kubernetes Cluster Bootstrap
 
@@ -25,12 +25,7 @@ Helm Charts to Kubernetes Cluster Bootstrap
 | istioGateway.private.gateway.servers[0].tls.mode | string | `"SIMPLE"` |  |
 | istioGateway.private.values.service.annotations."alb.ingress.kubernetes.io/scheme" | string | `"internal"` |  |
 | istioGateway.public.enabled | bool | `true` |  |
-| istioGateway.public.gateway.servers[0].hosts[0] | string | `"*.diegoluisi.eti.br"` |  |
-| istioGateway.public.gateway.servers[0].port.name | string | `"https"` |  |
-| istioGateway.public.gateway.servers[0].port.number | int | `443` |  |
-| istioGateway.public.gateway.servers[0].port.protocol | string | `"HTTPS"` |  |
-| istioGateway.public.gateway.servers[0].tls.credentialName | string | `"istio-certs"` |  |
-| istioGateway.public.gateway.servers[0].tls.mode | string | `"SIMPLE"` |  |
+| istioGateway.public.gateway.servers | list | `[]` |  |
 | istiod.enabled | bool | `true` |  |
 | istiod.namespace | string | `"istio-system"` |  |
 | prometheus.enabled | bool | `true` |  |
