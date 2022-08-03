@@ -25,10 +25,10 @@ istioGateway:
   namespace: istio-ingress
   public:
     enabled: true
-    values:
-      service:
-        annotations:
-          alb.ingress.kubernetes.io/scheme: internet-facing
+    # values:
+    #   service:
+    #     annotations:
+    #       alb.ingress.kubernetes.io/scheme: internet-facing
     gateway:
       servers:
       - port:
