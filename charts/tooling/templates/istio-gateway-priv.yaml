@@ -37,7 +37,7 @@ metadata:
   namespace: istio-ingress
 spec:
   selector:
-    app: istio-ingress
+    app: {{ default "istio-ingress-priv" .Values.istioGateway.private.values.name }}
   servers:
   - hosts:
     - "*"
