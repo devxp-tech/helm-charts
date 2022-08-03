@@ -25,6 +25,7 @@ istioGateway:
   namespace: istio-ingress
   public:
     enabled: true
+    values: {}
     gateway:
       servers: []
       # - port:
