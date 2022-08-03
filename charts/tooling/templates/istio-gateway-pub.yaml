@@ -21,7 +21,7 @@ spec:
       {{- toYaml . | nindent 8 }}
       {{- end }}
     repoURL: https://istio-release.storage.googleapis.com/charts
-    targetRevision: 1.14.2
+    targetRevision: 1.14.1
   syncPolicy:
     automated:
       allowEmpty: true
