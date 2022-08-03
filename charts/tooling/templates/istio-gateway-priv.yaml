@@ -12,6 +12,8 @@ spec:
     server: {{ .Values.global.application.cluster.server }}
   project: {{ .Values.global.application.project }}
   source:
+    repoURL: https://istio-release.storage.googleapis.com/charts
+    targetRevision: 1.14.2
     chart: gateway
     helm:
       valueFiles:
@@ -20,8 +22,6 @@ spec:
       values: |-
       {{- toYaml . | nindent 8 }}
       {{- end }}
-    repoURL: https://istio-release.storage.googleapis.com/charts
-    targetRevision: 1.14.1
   syncPolicy:
     automated:
       allowEmpty: true
@@ -33,7 +33,7 @@ spec:
 apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
-  name: istio-gateway
+  name: istio-gateway-priv
   namespace: istio-ingress
 spec:
   selector:
