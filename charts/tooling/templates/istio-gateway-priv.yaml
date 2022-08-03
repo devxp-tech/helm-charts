@@ -13,7 +13,7 @@ spec:
   project: {{ .Values.global.application.project }}
   source:
     repoURL: https://istio-release.storage.googleapis.com/charts
-    targetRevision: 1.14.2
+    targetRevision: 1.14.1
     chart: gateway
     helm:
       valueFiles:
