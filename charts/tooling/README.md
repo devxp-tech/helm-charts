@@ -1,6 +1,6 @@
 # tooling
 
-![Version: 0.1.11](https://img.shields.io/badge/Version-0.1.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.0](https://img.shields.io/badge/AppVersion-1.16.0-informational?style=flat-square)
+![Version: 0.1.12](https://img.shields.io/badge/Version-0.1.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.0](https://img.shields.io/badge/AppVersion-1.16.0-informational?style=flat-square)
 
 Helm Charts to Kubernetes Cluster Bootstrap
 
@@ -29,6 +29,11 @@ Helm Charts to Kubernetes Cluster Bootstrap
 | istioGateway.public.values | object | `{}` | this prop is used to inject values to gateway in public chart |
 | istiod.enabled | bool | `true` |  |
 | istiod.namespace | string | `"istio-system"` |  |
+| loki.enabled | bool | `true` |  |
+| loki.namespace | string | `"monitoring"` |  |
+| loki.values.fullnameOverride | string | `"loki"` |  |
+| loki.values.global.clusterDomain | string | `"lgsk8sp1.grupologos.local"` |  |
+| loki.values.global.dnsService | string | `"coredns"` |  |
 | prometheus.enabled | bool | `true` |  |
 | prometheus.namespace | string | `"monitoring"` |  |
 | sealedSecrets.enabled | bool | `true` |  |
