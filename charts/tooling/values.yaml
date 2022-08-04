@@ -88,9 +88,9 @@ kubeStateMetrics:
 
 metricsServer:
   enabled: true
-#   namespace: kube-system
-#   values:
-#     fullnameOverride: metrics-server
+  namespace: kube-system
+  values:
+    fullnameOverride: metrics-server
 
 promtail:
   enabled: true

@@ -20,8 +20,8 @@ spec:
       values: |-
       {{- toYaml . | nindent 8 }}
       {{- end }}
-    repoURL: https://kubernetes-sigs.github.io/metrics-server/
-    targetRevision: 3.8.2
+    repoURL: https://charts.bitnami.com/bitnami
+    targetRevision: 0.55.0
   syncPolicy:
     automated:
       allowEmpty: true
