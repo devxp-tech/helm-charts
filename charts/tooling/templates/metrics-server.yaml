@@ -16,7 +16,7 @@ spec:
     helm:
       valueFiles:
       - values.yaml
-      {{- with .Values.metrics-server.values }}
+      {{- with .Values.metricsServer.values }}
       values: |-
       {{- toYaml . | nindent 8 }}
       {{- end }}
