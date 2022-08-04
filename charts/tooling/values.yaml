@@ -60,6 +60,15 @@ certManager:
   enabled: true
   namespace: cert-manager
 
+loki:
+  enabled: true
+  namespace: monitoring
+  values:
+    fullnameOverride: loki
+    global:
+      dnsService: coredns
+      clusterDomain: lgsk8sp1.grupologos.local
+
 prometheus:
   enabled: true
   namespace: monitoring
