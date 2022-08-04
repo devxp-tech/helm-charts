@@ -1,6 +1,6 @@
 # tooling
 
-![Version: 0.1.25](https://img.shields.io/badge/Version-0.1.25-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.1.0](https://img.shields.io/badge/AppVersion-1.1.0-informational?style=flat-square)
+![Version: 0.1.26](https://img.shields.io/badge/Version-0.1.26-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.1.0](https://img.shields.io/badge/AppVersion-1.1.0-informational?style=flat-square)
 
 Helm Charts to Bootstrap Kubernetes Cluster
 
@@ -52,6 +52,8 @@ Helm Charts to Bootstrap Kubernetes Cluster
 | loki.values.global.dnsService | string | `"coredns"` |  |
 | metricsServer.enabled | bool | `true` |  |
 | metricsServer.namespace | string | `"kube-system"` |  |
+| metricsServer.values.extraArgs[0] | string | `"--kubelet-insecure-tls=true"` |  |
+| metricsServer.values.extraArgs[1] | string | `"--kubelet-preferred-address-types=InternalIP"` |  |
 | metricsServer.values.fullnameOverride | string | `"metrics-server"` |  |
 | prometheus.enabled | bool | `true` |  |
 | prometheus.namespace | string | `"monitoring"` |  |
