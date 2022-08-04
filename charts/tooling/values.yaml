@@ -80,17 +80,17 @@ kiali:
       create: true
       namespace: kiali-operator
 
-kubeStateMetrics:
-  enabled: false
-  namespace: kube-system
-  values:
-    fullnameOverride: kube-state-metrics
+# kubeStateMetrics:
+#   enabled: false
+#   namespace: kube-system
+#   values:
+#     fullnameOverride: kube-state-metrics
 
-metricsServer:
-  enabled: false
-  namespace: kube-system
-  values:
-    fullnameOverride: metrics-server
+# metricsServer:
+#   enabled: false
+#   namespace: kube-system
+#   values:
+#     fullnameOverride: metrics-server
 
 promtail:
   enabled: true
