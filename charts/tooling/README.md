@@ -1,6 +1,6 @@
 # tooling
 
-![Version: 0.1.19](https://img.shields.io/badge/Version-0.1.19-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.1.0](https://img.shields.io/badge/AppVersion-1.1.0-informational?style=flat-square)
+![Version: 0.1.20](https://img.shields.io/badge/Version-0.1.20-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.1.0](https://img.shields.io/badge/AppVersion-1.1.0-informational?style=flat-square)
 
 Helm Charts to Kubernetes Cluster Bootstrap
 
@@ -37,16 +37,12 @@ Helm Charts to Kubernetes Cluster Bootstrap
 | kiali.values.includeCRDs | bool | `true` |  |
 | kiali.values.releaseName | string | `"kiali-operator"` |  |
 | kubeStateMetrics.enabled | bool | `false` |  |
-| kubeStateMetrics.namespace | string | `"kube-system"` |  |
-| kubeStateMetrics.values.fullnameOverride | string | `"kube-state-metrics"` |  |
 | loki.enabled | bool | `true` |  |
 | loki.namespace | string | `"monitoring"` |  |
 | loki.values.fullnameOverride | string | `"loki"` |  |
 | loki.values.global.clusterDomain | string | `"lgsk8sp1.grupologos.local"` |  |
 | loki.values.global.dnsService | string | `"coredns"` |  |
-| metricsServer.enabled | bool | `false` |  |
-| metricsServer.namespace | string | `"kube-system"` |  |
-| metricsServer.values.fullnameOverride | string | `"metrics-server"` |  |
+| metricsServer.enabled | bool | `true` |  |
 | prometheus.enabled | bool | `true` |  |
 | prometheus.namespace | string | `"monitoring"` |  |
 | promtail.enabled | bool | `true` |  |
