@@ -92,8 +92,8 @@ metricsServer:
   values:
     fullnameOverride: metrics-server
     extraArgs:
-    - --kubelet-insecure-tls=true
-    - --kubelet-preferred-address-types=InternalIP
+      - --kubelet-insecure-tls=true
+      - --kubelet-preferred-address-types=InternalIP
 
 promtail:
   enabled: true
