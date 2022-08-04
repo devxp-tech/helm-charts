@@ -145,6 +145,17 @@ entries:
   tooling:
   - apiVersion: v2
     appVersion: 1.1.0
+    created: "2022-08-04T14:16:46.076796608Z"
+    description: Helm Charts to Kubernetes Cluster Bootstrap
+    digest: 521105be8329035616de81b200b5c9e39d60000e5061058cd5f715230bcee2bc
+    icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
+    name: tooling
+    type: application
+    urls:
+    - https://github.com/devxp-tech/helm-charts/releases/download/tooling-0.1.22/tooling-0.1.22.tgz
+    version: 0.1.22
+  - apiVersion: v2
+    appVersion: 1.1.0
     created: "2022-08-04T14:14:20.525590022Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: d8369445717e2bd49f44f9187563e0b13f2edd7e8bc541eed70f841cde6054e2
@@ -394,4 +405,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/devxp-tech/helm-charts/artifacts/web-application-0.1.8.tgz
     version: 0.1.8
-generated: "2022-08-04T14:14:20.500619458Z"
+generated: "2022-08-04T14:16:46.077079409Z"
