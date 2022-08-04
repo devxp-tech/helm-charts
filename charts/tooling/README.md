@@ -1,6 +1,6 @@
 # tooling
 
-![Version: 0.1.17](https://img.shields.io/badge/Version-0.1.17-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.1.0](https://img.shields.io/badge/AppVersion-1.1.0-informational?style=flat-square)
+![Version: 0.1.18](https://img.shields.io/badge/Version-0.1.18-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.1.0](https://img.shields.io/badge/AppVersion-1.1.0-informational?style=flat-square)
 
 Helm Charts to Kubernetes Cluster Bootstrap
 
@@ -36,6 +36,9 @@ Helm Charts to Kubernetes Cluster Bootstrap
 | kiali.values.cr.namespace | string | `"kiali-operator"` |  |
 | kiali.values.includeCRDs | bool | `true` |  |
 | kiali.values.releaseName | string | `"kiali-operator"` |  |
+| kubeStateMetrics.enabled | bool | `true` |  |
+| kubeStateMetrics.namespace | string | `"kube-system"` |  |
+| kubeStateMetrics.values.fullnameOverride | string | `"kube-state-metrics"` |  |
 | loki.enabled | bool | `true` |  |
 | loki.namespace | string | `"monitoring"` |  |
 | loki.values.fullnameOverride | string | `"loki"` |  |
