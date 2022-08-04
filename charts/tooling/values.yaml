@@ -69,6 +69,12 @@ loki:
       dnsService: coredns
       clusterDomain: lgsk8sp1.grupologos.local
 
+promtail:
+  enabled: true
+  namespace: monitoring
+  values:
+    fullnameOverride: promtail
+
 prometheus:
   enabled: true
   namespace: monitoring
