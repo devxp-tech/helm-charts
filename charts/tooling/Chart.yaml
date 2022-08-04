@@ -3,7 +3,7 @@ name: tooling
 description: Helm Charts to Bootstrap Kubernetes Cluster
 icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
 type: application
-version: 0.1.25
+version: 0.1.26
 appVersion: 1.1.0
 maintainers:
   - name: diegoluisi
