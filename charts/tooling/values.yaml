@@ -78,7 +78,13 @@ kiali:
     releaseName: kiali-operator
     cr:
       create: true
-      namespace: istio-system
+      namespace: kiali-operator
+
+metricsServer:
+  enabled: true
+  namespace: kube-system
+  values:
+    fullnameOverride: metrics-server
 
 promtail:
   enabled: true
