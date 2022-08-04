@@ -110,8 +110,8 @@ jobs:
       - name: Download artifacts 📦
         run: |
           gh release list | awk '{print$1}' | while read line; do gh release download $line || true; done
+          git add .
           if [[ $(git diff) ]]; then
-            git add .
             git commit -m ":robot: [github actions actor] update artifact list"
             git push
           else
