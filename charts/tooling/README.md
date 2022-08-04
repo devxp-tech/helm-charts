@@ -1,6 +1,6 @@
 # tooling
 
-![Version: 0.1.15](https://img.shields.io/badge/Version-0.1.15-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.0](https://img.shields.io/badge/AppVersion-1.16.0-informational?style=flat-square)
+![Version: 0.1.16](https://img.shields.io/badge/Version-0.1.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.0](https://img.shields.io/badge/AppVersion-1.16.0-informational?style=flat-square)
 
 Helm Charts to Kubernetes Cluster Bootstrap
 
@@ -10,6 +10,7 @@ Helm Charts to Kubernetes Cluster Bootstrap
 |-----|------|---------|-------------|
 | certManager.enabled | bool | `true` |  |
 | certManager.namespace | string | `"cert-manager"` |  |
+| global.application.cluster.domain | string | `".diegoluisi.eti.br"` |  |
 | global.application.cluster.name | string | `"in-cluster"` |  |
 | global.application.cluster.server | string | `"https://kubernetes.default.svc"` |  |
 | global.application.project | string | `"default"` |  |
@@ -29,6 +30,12 @@ Helm Charts to Kubernetes Cluster Bootstrap
 | istioGateway.public.values | object | `{}` | this prop is used to inject values to gateway in public chart |
 | istiod.enabled | bool | `true` |  |
 | istiod.namespace | string | `"istio-system"` |  |
+| kiali.enabled | bool | `true` |  |
+| kiali.namespace | string | `"kiali-operator"` |  |
+| kiali.values.cr.create | bool | `true` |  |
+| kiali.values.cr.namespace | string | `"istio-system"` |  |
+| kiali.values.includeCRDs | bool | `true` |  |
+| kiali.values.releaseName | string | `"kiali-operator"` |  |
 | loki.enabled | bool | `true` |  |
 | loki.namespace | string | `"monitoring"` |  |
 | loki.values.fullnameOverride | string | `"loki"` |  |
