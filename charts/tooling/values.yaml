@@ -81,10 +81,10 @@ kiali:
       namespace: kiali-operator
 
 kubeStateMetrics:
-  enabled: false
-#   namespace: kube-system
-#   values:
-#     fullnameOverride: kube-state-metrics
+  enabled: true
+  namespace: kube-system
+  values:
+    fullnameOverride: kube-state-metrics
 
 metricsServer:
   enabled: true
