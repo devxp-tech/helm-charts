@@ -7,6 +7,7 @@ global:
     cluster:
       name: "in-cluster"
       server: "https://kubernetes.default.svc"
+      domain: ".diegoluisi.eti.br"
     project: default
 
 sealedSecrets:
@@ -68,6 +69,16 @@ loki:
     global:
       dnsService: coredns
       clusterDomain: lgsk8sp1.grupologos.local
+
+kiali:
+  enabled: true
+  namespace: kiali-operator
+  values:
+    includeCRDs: true
+    releaseName: kiali-operator
+    cr:
+      create: true
+      namespace: istio-system
 
 promtail:
   enabled: true

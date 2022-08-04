@@ -1,0 +1,51 @@
+{{- if .Values.kiali.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kiali-{{ .Values.global.application.cluster.name }}
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: {{ .Values.kiali.namespace }}
+    server: {{ .Values.global.application.cluster.server }}
+  project: {{ .Values.global.application.project }}
+  source:
+    chart: kiali-operator
+    helm:
+      valueFiles:
+      - values.yaml
+      {{- with .Values.kiali.values }}
+      values: |-
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+    repoURL: https://kiali.org/helm-charts
+    targetRevision: 1.53.0
+  syncPolicy:
+    automated:
+      allowEmpty: true
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: kiali
+  namespace: {{ .Values.kiali.namespace }}
+spec:
+  hosts:
+  - {{ printf "kiali%s" .Values.global.application.cluster.domain | quote }}
+  gateways:
+  - istio-system/istio-gateway
+  http:
+  - route:
+    - destination:
+        port:
+          number: 20001
+        host: kiali
+
+{{- end }}
