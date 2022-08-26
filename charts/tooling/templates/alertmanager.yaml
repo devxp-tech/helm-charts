@@ -1,0 +1,32 @@
+{{- if .Values.alertmanager.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: alertmanager-{{ .Values.global.application.cluster.name }}
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: {{ .Values.alertmanager.namespace }}
+    server: {{ .Values.global.application.cluster.server }}
+  project: {{ .Values.global.application.project }}
+  source:
+    chart: alertmanager
+    helm:
+      valueFiles:
+      - values.yaml
+      {{- with .Values.alertmanager.values }}
+      values: |-
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 0.55.0
+  syncPolicy:
+    automated:
+      allowEmpty: true
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+{{- end }}

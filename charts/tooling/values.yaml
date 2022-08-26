@@ -62,7 +62,7 @@ certManager:
   namespace: cert-manager
 
 loki:
-  enabled: true
+  enabled: false
   namespace: monitoring
   values:
     fullnameOverride: loki
