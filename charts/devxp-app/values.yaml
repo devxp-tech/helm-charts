@@ -34,6 +34,8 @@ autoscaling:
   minReplicas: 1
   # --maxReplicas is the number of maximum scaling pods
   maxReplicas: 2
+  # --targetCPUUtilizationPercentage is the percentage of CPU utilization do Scaling
+  targetCPUUtilizationPercentage: 70
 
   # --image is the object to specify the image to run in the deployment
 image:
