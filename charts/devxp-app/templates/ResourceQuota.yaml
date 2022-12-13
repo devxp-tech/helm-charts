@@ -1,8 +1,9 @@
+{{- if .Values.ResourceQuota.enabled }}
 ---
 kind: ResourceQuota
 apiVersion: v1
 metadata:
-  name: {{ .Values.name }}-quota
+  name: {{ .Values.name }}
   namespace: {{ .Values.name }}
   labels:
     kubernetes.io/metadata.name: {{ .Values.name }}
@@ -14,3 +15,4 @@ spec:
     requests.memory: 1Gi
     limits.cpu: "2"
     limits.memory: 2Gi
+{{- end }}
