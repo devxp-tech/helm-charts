@@ -38,4 +38,5 @@ image:
   pullPolicy: IfNotPresent
   # --especify the tag of your image to deploy
   tag: "latest"
+  
 imagePullSecrets: []

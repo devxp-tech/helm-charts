@@ -6,8 +6,6 @@ spec:
   # replicas: 1
   strategy:
     canary: #Indicates that the rollout should use the Canary strategy
-      # canaryService: {{ .Values.name }}-canary  # required
-      # stableService: {{ .Values.name }}-stable  # required
       trafficRouting:
         istio:
           virtualService:
@@ -54,7 +52,7 @@ spec:
       serviceAccountName: {{ .Values.name }}
       containers:
       - name: {{ .Values.name }}
-        image: {{ include "image" . | quote }}
+        image: {{ .Values.image }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         resources:
           requests:
