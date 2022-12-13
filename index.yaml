@@ -142,6 +142,17 @@ entries:
     urls:
     - https://raw.githubusercontent.com/devxp-tech/helm-charts/artifacts/cluster-bootstrap-0.1.0.tgz
     version: 0.1.0
+  devxp-app:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-12-13T14:53:08.585284329Z"
+    description: A Helm chart for Kubernetes
+    digest: 150bc30e1bffe40a4996bf39cc8e038931eb652ced7d6b9a9943d00fac19d25a
+    name: devxp-app
+    type: application
+    urls:
+    - https://github.com/devxp-tech/helm-charts/releases/download/devxp-app-0.1.0/devxp-app-0.1.0.tgz
+    version: 0.1.0
   tooling:
   - apiVersion: v2
     appVersion: 1.1.0
@@ -497,4 +508,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/devxp-tech/helm-charts/artifacts/web-application-0.1.8.tgz
     version: 0.1.8
-generated: "2022-08-26T11:10:13.735610316Z"
+generated: "2022-12-13T14:53:08.778861467Z"
