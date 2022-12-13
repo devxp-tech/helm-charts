@@ -44,7 +44,7 @@ spec:
     metadata:
       labels:
         app: {{ .Values.name }}
-        version: {{ .Values.version }}
+        version: {{ .Values.image.tag }}
         backstage.io/kubernetes-id: {{ .Values.name }}
       annotations:
         sidecar.istio.io/proxyCPU: "50m"
