@@ -20,6 +20,12 @@ ServiceAccount:
   # --Annotations to add to the service account
   annotations: {}
 
+PeerAuthentication:
+  enabled: true
+
+ingress:
+  enabled: true
+
 # --autoscaling is the main object of autoscaling
 autoscaling:
   # --enabled is the flag to sinalize this funcionality is enabled
