@@ -57,7 +57,7 @@ spec:
       {{- end }}
       containers:
       - name: {{ .Values.name }}
-        image: {{ printf "%s:%s" .Values.image.registry  .Values.image.tag }}
+        image: {{ .Values.image.registry }}:{{ .Values.image.tag }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         resources: {{ toYaml .Values.resources | nindent 12 }}
         ports:
