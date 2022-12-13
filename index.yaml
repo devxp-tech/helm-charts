@@ -145,6 +145,16 @@ entries:
   devxp-app:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2022-12-13T15:12:50.1782584Z"
+    description: A Helm chart for Kubernetes
+    digest: 3f289bcada28ba89a318f0c316149fe93787d1e70df9bb850c18107fd07836e1
+    name: devxp-app
+    type: application
+    urls:
+    - https://github.com/devxp-tech/helm-charts/releases/download/devxp-app-0.1.1/devxp-app-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2022-12-13T14:53:30.650489112Z"
     description: A Helm chart for Kubernetes
     digest: 150bc30e1bffe40a4996bf39cc8e038931eb652ced7d6b9a9943d00fac19d25a
@@ -508,4 +518,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/devxp-tech/helm-charts/artifacts/web-application-0.1.8.tgz
     version: 0.1.8
-generated: "2022-12-13T14:53:30.641823152Z"
+generated: "2022-12-13T15:12:50.178366204Z"
