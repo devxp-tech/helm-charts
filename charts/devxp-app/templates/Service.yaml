@@ -8,7 +8,7 @@ metadata:
     external-dns.alpha.kubernetes.io/hostname: {{ .Values.name }}.diegoluisi.eti.br
   labels:
     app: {{ .Values.name }}
-    # version: 0.0.1
+    version: {{ .Values.version }}
     backstage.io/kubernetes-id: {{ .Values.name }}
 spec:
   type: ClusterIP
