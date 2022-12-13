@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.1.5](https://img.shields.io/badge/Version-0.1.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.1.7](https://img.shields.io/badge/Version-0.1.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -14,6 +14,7 @@ Helm Charts for default DevXP-Tech Application
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| PeerAuthentication.enabled | bool | `true` |  |
 | ResourceQuota | object | `{"enabled":true}` | ResourceQuota provides constraints that limit aggregate resource consumption per namespace |
 | ResourceQuota.enabled | bool | `true` | Specifies whether a resource quota should be created |
 | ServiceAccount | object | `{"annotations":{},"enabled":true}` | A service account provides an identity for processes that run in a Pod, about more: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/ |
@@ -26,6 +27,7 @@ Helm Charts for default DevXP-Tech Application
 | image.pullPolicy | string | `"IfNotPresent"` | pullPolicy is the prop to setup the behavior of pull police. options is: IfNotPresent \| allways |
 | image.repository | string | `""` | repository: is the registry of your application ex:556684128444.dkr.ecr.us-east-1.amazonaws.com/YOU-APP-ECR-REPO-NAME if empty this helm will auto generate the image using aws.registry/values.name:values.image.tag |
 | image.tag | string | `"latest"` | especify the tag of your image to deploy |
+| ingress.enabled | bool | `true` |  |
 | name | string | `""` | name is the github repository name of this application deploy |
 | port | int | `8080` | port is the port your application runs under |
 | resources.limits.cpu | string | `"100m"` |  |
