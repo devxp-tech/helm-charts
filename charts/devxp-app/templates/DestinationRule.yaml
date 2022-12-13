@@ -4,7 +4,7 @@ metadata:
   name: {{ .Values.name }}
   namespace: {{ include "namespace" . }}
 spec:
-  host: {{ .Values.name }}.{{ .Values.namespace }}.svc.lgsk8sp1.grupologos.local
+  host: {{ .Values.name }}.{{ include "namespace" . }}.svc.lgsk8sp1.grupologos.local
   subsets:
   - name: canary   # referenced in canary.trafficRouting.istio.destinationRule.canarySubsetName
     labels:        # labels will be injected with canary rollouts-pod-template-hash value
