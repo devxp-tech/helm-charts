@@ -6,7 +6,7 @@ metadata:
   namespace: {{ .Values.name }}
   labels:
     app: {{ .Values.name }}
-    version: 0.0.1
+    version: {{ .Values.version }}
     backstage.io/kubernetes-id: {{ .Values.name }}
 spec:
   gateways:

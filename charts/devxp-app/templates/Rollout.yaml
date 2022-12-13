@@ -43,19 +43,19 @@ spec:
     metadata:
       labels:
         app: {{ .Values.name }}
-        version: ae28704b
+        version: {{ .Values.version }}
         backstage.io/kubernetes-id: {{ .Values.name }}
-      annotations:
-        sidecar.istio.io/proxyCPU: "50m"
-        sidecar.istio.io/proxyMemory: "64Mi"
-        sidecar.istio.io/proxyCPULimit: "100m"
-        sidecar.istio.io/proxyMemoryLimit: "64Mi"
+      # annotations:
+      #   sidecar.istio.io/proxyCPU: "50m"
+      #   sidecar.istio.io/proxyMemory: "64Mi"
+      #   sidecar.istio.io/proxyCPULimit: "100m"
+      #   sidecar.istio.io/proxyMemoryLimit: "64Mi"
     spec:
-      serviceAccountName: {{ .Values.name }}-sa
+      serviceAccountName: {{ .Values.name }}
       containers:
       - name: {{ .Values.name }}
-        image: diegoluisi/{{ .Values.name }}:latest
-        imagePullPolicy: IfNotPresent
+        image: {{ include "image" . | quote }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         resources:
           requests:
             cpu: "50m"
@@ -65,16 +65,16 @@ spec:
             memory: "128Mi"
         ports:
         - name: http
-          containerPort: 8080
+          containerPort: {{ .Values.port }}
         readinessProbe:
           httpGet:
-            port: 8080
+            port: {{ .Values.port }}
             path: /health-check/readiness
           initialDelaySeconds: 15
           periodSeconds: 10
         livenessProbe:
           httpGet:
-            port: 8080
+            port: {{ .Values.port }}
             path: /health-check/liveness
           initialDelaySeconds: 15
           periodSeconds: 10
