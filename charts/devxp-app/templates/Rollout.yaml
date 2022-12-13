@@ -4,7 +4,7 @@ metadata:
   name: {{ .Values.name }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ default 1 .Values.replicaCount }}
   {{- end }}
   strategy:
     canary: #Indicates that the rollout should use the Canary strategy
@@ -56,7 +56,7 @@ spec:
       {{- end }}
       containers:
       - name: {{ .Values.name }}
-        image: {{ .Values.image.tag }}
+        image: {{ printf "%s:%s" .Values.image.registry  .Values.image.tag }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         resources: {{ toYaml .Values.resources | nindent 12 }}
         ports:
