@@ -31,9 +31,9 @@ autoscaling:
   # --enabled is the flag to sinalize this funcionality is enabled
   enabled: true
   # --minReplicas is the number of mim pods to be running
-  minReplicas: 1
+  minReplicas: 2
   # --maxReplicas is the number of maximum scaling pods
-  maxReplicas: 2
+  maxReplicas: 4
   # --targetCPUUtilizationPercentage is the percentage of CPU utilization do Scaling
   targetCPUUtilizationPercentage: 70
 
