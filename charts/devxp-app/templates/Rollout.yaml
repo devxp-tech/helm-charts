@@ -54,13 +54,7 @@ spec:
       - name: {{ .Values.name }}
         image: {{ .Values.image }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        resources:
-          requests:
-            cpu: "50m"
-            memory: "64Mi"
-          limits:
-            cpu: "100m"
-            memory: "128Mi"
+        resources: {{ toYaml .Values.resources | nindent 12 }}
         ports:
         - name: http
           containerPort: {{ .Values.port }}
