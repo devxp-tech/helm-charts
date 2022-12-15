@@ -55,3 +55,19 @@ resources:
   limits:
     cpu: "100m"
     memory: "128Mi"
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+env: []
+  # examples:
+  # please note that when the value is a number, you must quote the value to cast to string!
+  # - name: ENVIROMENT
+  #   value: dev
+
+envFrom: []
+  # examples:
+  # please note that when the value is a number, you must quote the value to cast to string!
+  # - configMapRef
+  #     name: postgres-configs

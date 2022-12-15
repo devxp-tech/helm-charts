@@ -46,11 +46,6 @@ spec:
         app: {{ .Values.name }}
         version: {{ .Values.image.tag }}
         backstage.io/kubernetes-id: {{ .Values.name }}
-      # annotations:
-      #   sidecar.istio.io/proxyCPU: "50m"
-      #   sidecar.istio.io/proxyMemory: "64Mi"
-      #   sidecar.istio.io/proxyCPULimit: "100m"
-      #   sidecar.istio.io/proxyMemoryLimit: "64Mi"
     spec:
       {{- if not .Values.ServiceAccount.enabled }}
       serviceAccountName: {{ .Values.name }}
@@ -59,7 +54,8 @@ spec:
       - name: {{ .Values.name }}
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        resources: {{ toYaml .Values.resources | nindent 12 }}
+        env: {{- include "env" . | nindent 12 }}
+        envFrom: {{- include "env" . | nindent 12 }}
         ports:
         - name: http
           containerPort: {{ .Values.port }}
@@ -75,5 +71,9 @@ spec:
             path: /health-check/liveness
           initialDelaySeconds: 15
           periodSeconds: 10
+        resources: {{ toYaml .Values.resources | nindent 12 }}
+      nodeSelector: {{ toYaml (default dict .Values.nodeSelector) | nindent 8 }}
+      affinity: {{ toYaml (default dict .Values.affinity) | nindent 8 }}
+      tolerations: {{ toYaml (default list .Values.tolerations)  | nindent 8 }}
   minReadySeconds: 30
   revisionHistoryLimit: 3
