@@ -104,3 +104,7 @@ promtail:
 prometheus:
   enabled: true
   namespace: monitoring
+
+alertmanager:
+  enabled: true
+  namespace: monitoring

@@ -71,6 +71,3 @@ envFrom: []
   # please note that when the value is a number, you must quote the value to cast to string!
   # - configMapRef
   #     name: postgres-configs
-
-readinessProbe: []
-livenessProbe: []
