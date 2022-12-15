@@ -54,8 +54,14 @@ spec:
       - name: {{ .Values.name }}
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        env: {{- include "env" . | nindent 12 }}
-        envFrom: {{- include "envFrom" . | nindent 12 }}
+        env:
+        {{- with .Values.envFrom }}
+          {{- toYaml . | nindent 8 }}
+        {{- end }}
+        envFrom:
+        {{- with .Values.envFrom }}
+          {{- toYaml . | nindent 8 }}
+        {{- end }}
         ports:
         - name: http
           containerPort: {{ .Values.port }}
