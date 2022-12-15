@@ -56,6 +56,23 @@ resources:
     cpu: "100m"
     memory: "128Mi"
 
+probe:
+  enabled: true
+
+livenessProbe:
+  httpGet:
+    path: /health-check/liveness
+    port: 8080
+  initialDelaySeconds: 15
+  periodSeconds: 10
+
+readinessProbe:
+  httpGet:
+    path: /health-check/readiness
+    port: 8080
+  initialDelaySeconds: 15
+  periodSeconds: 10
+
 nodeSelector: {}
 tolerations: []
 affinity: {}
@@ -71,3 +88,4 @@ envFrom: []
   # please note that when the value is a number, you must quote the value to cast to string!
   # - configMapRef
   #     name: postgres-configs
+
