@@ -55,7 +55,7 @@ spec:
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env: {{- include "env" . | nindent 12 }}
-        envFrom: {{- include "env" . | nindent 12 }}
+        envFrom: {{- include "envFrom" . | nindent 12 }}
         ports:
         - name: http
           containerPort: {{ .Values.port }}
