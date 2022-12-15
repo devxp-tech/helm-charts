@@ -5,6 +5,8 @@
 # --name is the github repository name of this application deploy
 name: ""
 
+service:
+  port: 80
 # --port is the port your application runs under
 port: 8080
 
