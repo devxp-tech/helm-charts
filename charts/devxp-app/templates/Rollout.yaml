@@ -65,9 +65,9 @@ spec:
         ports:
         - name: http
           containerPort: {{ .Values.port }}
-        readinessProbe: {{ toYaml .Values.readinessProbe | nindent 12 }}
-        livenessProbe: {{ toYaml .Values.resources | nindent 12 }}
         resources: {{ toYaml .Values.resources | nindent 12 }}
+        livenessProbe: {{ toYaml .Values.livenessProbe | nindent 12 }}
+        readinessProbe: {{ toYaml .Values.readinessProbe | nindent 12 }}
       nodeSelector: {{ toYaml (default dict .Values.nodeSelector) | nindent 8 }}
       affinity: {{ toYaml (default dict .Values.affinity) | nindent 8 }}
       tolerations: {{ toYaml (default list .Values.tolerations)  | nindent 8 }}
