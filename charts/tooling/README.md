@@ -14,6 +14,8 @@ Helm Charts to Bootstrap Kubernetes Cluster
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| alertmanager.enabled | bool | `true` |  |
+| alertmanager.namespace | string | `"monitoring"` |  |
 | certManager.enabled | bool | `true` |  |
 | certManager.namespace | string | `"cert-manager"` |  |
 | global.application.cluster.domain | string | `".diegoluisi.eti.br"` |  |

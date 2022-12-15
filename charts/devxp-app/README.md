@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.1.24](https://img.shields.io/badge/Version-0.1.24-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.1.25](https://img.shields.io/badge/Version-0.1.25-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -32,11 +32,9 @@ Helm Charts for default DevXP-Tech Application
 | image.repository | string | `""` | repository: is the registry of your application ex:556684128444.dkr.ecr.us-east-1.amazonaws.com/YOU-APP-ECR-REPO-NAME if empty this helm will auto generate the image using aws.registry/values.name:values.image.tag |
 | image.tag | string | `"latest"` | especify the tag of your image to deploy |
 | ingress.enabled | bool | `true` |  |
-| livenessProbe | list | `[]` |  |
 | name | string | `""` | name is the github repository name of this application deploy |
 | nodeSelector | object | `{}` |  |
 | port | int | `8080` | port is the port your application runs under |
-| readinessProbe | list | `[]` |  |
 | resources.limits.cpu | string | `"100m"` |  |
 | resources.limits.memory | string | `"128Mi"` |  |
 | resources.requests.cpu | string | `"50m"` |  |
