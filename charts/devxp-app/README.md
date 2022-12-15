@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.1.27](https://img.shields.io/badge/Version-0.1.27-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.1.28](https://img.shields.io/badge/Version-0.1.28-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -48,6 +48,7 @@ Helm Charts for default DevXP-Tech Application
 | resources.limits.memory | string | `"128Mi"` |  |
 | resources.requests.cpu | string | `"50m"` |  |
 | resources.requests.memory | string | `"64Mi"` |  |
+| service.port | int | `80` |  |
 | tolerations | list | `[]` |  |
 
 ----------------------------------------------
