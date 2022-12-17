@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ .Values.name }}
-  namespace: {{ .Values.name }}
+  namespace: {{ include "namespace" . }}
   annotations:
     external-dns.alpha.kubernetes.io/hostname: {{ .Values.name }}.diegoluisi.eti.br
   labels:
@@ -15,5 +15,6 @@ spec:
   ports:
   - name: tcp-node
     port: {{ .Values.service.port }}
+    targetPort:  {{ .Values.port }}
   selector:
     app: {{ .Values.name }}
