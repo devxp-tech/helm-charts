@@ -1,3 +1,4 @@
+{{- if .Values.rollout.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
@@ -75,3 +76,4 @@ spec:
       tolerations: {{ toYaml (default list .Values.tolerations)  | nindent 8 }}
   minReadySeconds: 30
   revisionHistoryLimit: 3
+{{- end }}

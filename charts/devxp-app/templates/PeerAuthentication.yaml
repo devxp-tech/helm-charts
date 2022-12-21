@@ -1,4 +1,5 @@
-{{- if .Values.PeerAuthentication.enabled }}
+{{- if .Values.ingress.enabled }}
+  {{- if .Values.PeerAuthentication.enabled }}
 apiVersion: security.istio.io/v1beta1
 kind: PeerAuthentication
 metadata:
@@ -10,4 +11,5 @@ spec:
       app: {{ .Values.name }}
   mtls:
     mode: STRICT
+  {{- end }}
 {{- end }}
