@@ -14,31 +14,35 @@ Helm Charts for default DevXP-Tech Application
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| PeerAuthentication.enabled | bool | `true` |  |
-| ResourceQuota | object | `{"enabled":true}` | ResourceQuota provides constraints that limit aggregate resource consumption per namespace |
+| PeerAuthentication | object | `{"enabled":true}` | PeerAuthentication defines how traffic will be tunneled (or not) to the sidecar. |
+| PeerAuthentication.enabled | bool | `true` | enable PeerAuthentication |
+| ResourceQuota | object | `{"enabled":true,"hard":{"limits.cpu":"2","limits.memory":"2Gi","requests.cpu":"1","requests.memory":"1Gi"}}` | ResourceQuota provides constraints that limit aggregate resource consumption per namespace |
 | ResourceQuota.enabled | bool | `true` | Specifies whether a resource quota should be created |
-| ServiceAccount | object | `{"annotations":{},"enabled":true}` | A service account provides an identity for processes that run in a Pod, about more: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/ |
+| ServiceAccount | object | `{"annotations":{},"enabled":true}` | ServiceAccount A service account provides an identity for processes that run in a Pod, about more: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/ |
 | ServiceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | ServiceAccount.enabled | bool | `true` | Specifies whether a service account should be created |
 | affinity | object | `{}` |  |
+| application.port | int | `8080` | port is the port your application runs under |
 | autoscaling | object | `{"enabled":true,"maxReplicas":4,"minReplicas":2,"targetCPUUtilizationPercentage":70}` | autoscaling is the main object of autoscaling |
 | autoscaling.enabled | bool | `true` | enabled is the flag to sinalize this funcionality is enabled |
 | autoscaling.maxReplicas | int | `4` | maxReplicas is the number of maximum scaling pods |
 | autoscaling.minReplicas | int | `2` | minReplicas is the number of mim pods to be running |
 | autoscaling.targetCPUUtilizationPercentage | int | `70` | targetCPUUtilizationPercentage is the percentage of CPU utilization do Scaling |
+| cluster | string | `"lgsk8sp1.grupologos.local"` | cluster Set Cluster Name |
+| domain | string | `"diegoluisi.eti.br"` | domain Set Default Domain |
 | env | list | `[]` |  |
 | envFrom | list | `[]` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | pullPolicy is the prop to setup the behavior of pull police. options is: IfNotPresent \| allways |
 | image.repository | string | `""` | repository: is the registry of your application ex:556684128444.dkr.ecr.us-east-1.amazonaws.com/YOU-APP-ECR-REPO-NAME if empty this helm will auto generate the image using aws.registry/values.name:values.image.tag |
 | image.tag | string | `"latest"` | especify the tag of your image to deploy |
-| ingress.enabled | bool | `true` |  |
+| ingress | object | `{"enabled":true}` | ingress Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. |
+| ingress.enabled | bool | `true` | enable ingress |
 | livenessProbe.httpGet.path | string | `"/health-check/liveness"` |  |
 | livenessProbe.httpGet.port | int | `8080` |  |
 | livenessProbe.initialDelaySeconds | int | `15` |  |
 | livenessProbe.periodSeconds | int | `10` |  |
 | name | string | `""` | name is the github repository name of this application deploy |
 | nodeSelector | object | `{}` |  |
-| port | int | `8080` | port is the port your application runs under |
 | probe.enabled | bool | `true` |  |
 | readinessProbe.httpGet.path | string | `"/health-check/readiness"` |  |
 | readinessProbe.httpGet.port | int | `8080` |  |
@@ -48,7 +52,10 @@ Helm Charts for default DevXP-Tech Application
 | resources.limits.memory | string | `"128Mi"` |  |
 | resources.requests.cpu | string | `"50m"` |  |
 | resources.requests.memory | string | `"64Mi"` |  |
-| service.port | int | `80` |  |
+| rollout | object | `{"enabled":true}` | ResourceQuota provides constraints that limit aggregate resource consumption per namespace |
+| rollout.enabled | bool | `true` | Specifies whether a resource quota should be created |
+| service | object | `{"port":80}` | service An abstract way to expose an application running on a set of Pods as a network service. |
+| service.port | int | `80` | port is the port your application runs under |
 | tolerations | list | `[]` |  |
 
 ----------------------------------------------
