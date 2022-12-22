@@ -14,6 +14,7 @@ spec:
   - istio-system/istio-ingressgateway
   hosts:
   - {{ .Values.name }}.{{ .Values.domain }}
+  http:
   - name: primary
     route:
     - destination:
