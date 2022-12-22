@@ -65,7 +65,7 @@ spec:
         {{- end }}
         ports:
         - name: http
-          containerPort: {{ .Values.port }}
+          containerPort: {{ .Values.container.port }}
         resources: {{ toYaml .Values.resources | nindent 12 }}
         {{- if not .Values.probe.enabled }}
         livenessProbe: {{ toYaml .Values.livenessProbe | nindent 12 }}
