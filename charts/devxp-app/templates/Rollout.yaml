@@ -55,8 +55,8 @@ spec:
       - name: {{ .Values.name }}
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        imagePullSecrets:
-          - name: {{ .Values.imagePullSecrets.name }}
+      imagePullSecrets:
+        - name: {{ .Values.imagePullSecrets.name }}
         env:
         {{- with .Values.env }}
           {{- toYaml . | nindent 8 }}
