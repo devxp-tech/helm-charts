@@ -11,7 +11,7 @@ cluster: lgsk8sp1.grupologos.local
 # --domain Set Default Domain
 domain: diegoluisi.eti.br
 
-application:
+container:
 # --port is the port your application runs under
   port: 8080
 
