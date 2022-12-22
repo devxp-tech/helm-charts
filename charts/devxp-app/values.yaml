@@ -74,6 +74,8 @@ image:
   # --especify the tag of your image to deploy
   tag: "latest"
 
+imagePullSecrets:
+  name: ghcr-secret
 
 resources:
   requests:
