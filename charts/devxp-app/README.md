@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.1.36](https://img.shields.io/badge/Version-0.1.36-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.1.37](https://img.shields.io/badge/Version-0.1.37-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -55,6 +55,7 @@ Helm Charts for default DevXP-Tech Application
 | resources.requests.memory | string | `"64Mi"` |  |
 | rollout | object | `{"enabled":true}` | ResourceQuota provides constraints that limit aggregate resource consumption per namespace |
 | rollout.enabled | bool | `true` | Specifies whether a resource quota should be created |
+| sealedSecrets | string | `"AgC/rR4wh04d2uNrvV78W9Gx1Gpt92jY3QtdVjV2Vl3mdk5T/IvuU6zFbsE06KNzyfBgczUyOPWSnJKDo8h88NHf02CvZLanjBsI5YbuvyIM5/Vjq5QYAb6iiAamRajAreqTqzY/b8oIAqDfK53hbQy0PteF5Xj/TVJ4bkiKROBoBPTVFPH4Af4QMVzfmyeuSSfyDd7FWNn4cahBPXjCA57fxeCQnboMfpUdpOoaNtHF3aPwlAYvZpPFZ2kVx52T1v659DWWhBINqPtoy7fgSeYWLsvZSrHBx8+EQcAuZ01Z2jfxMig2PEW/anG+wB203sJOlMk2Ot6VN3TiOodR1PrIypFzYmg7l4kRU+AjctTZc8RwEb/Jgfa/sE7G0GhUTDqrNB8etX7sYFCiX9W/L75TNlS0z+bzfYpe61fFX2yYO6mbO39bNTetRE2OaQNMGOTSzJVrZ1EolN8UJzmLAgkbezuPoTs+V1DaIVzP2vVdOXtR6ifrbFiyPpH953+SMK19fP2i8p8ledHXAsvOep/zTWMatSJ4wmrs9CiggMvpQ1GdNwVP6mHnsUVKolFMtWLhPQR4J1waRMgQflj7Mt2ZF9CMCYf56pGWv9fQZoqDJvm6XN2Cb+TLY0ukCJWU++c7U6xtsbx8v/DtY9G3EjiTCWb/ex6EgXAqB9HVgVaYmMmlCSCBbZNF8btFoRLv5RCAdoV6HWe+EL0W4EGNySJYuVJ/771tYx0l48jshVmrcMJzt1JjYI/3+Jnpuoi6rYnjYclp0rjlz+TUOO1UCbGIPAoZcxBRZ0InTBtgmAqZX6ozzwCfansbxmDlgKbSHcrvw3e45A=="` |  |
 | service | object | `{"port":80}` | service An abstract way to expose an application running on a set of Pods as a network service. |
 | service.port | int | `80` | port is the port your application runs under |
 | tolerations | list | `[]` |  |
