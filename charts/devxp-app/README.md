@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.1.33](https://img.shields.io/badge/Version-0.1.33-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.1.34](https://img.shields.io/badge/Version-0.1.34-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -22,13 +22,13 @@ Helm Charts for default DevXP-Tech Application
 | ServiceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | ServiceAccount.enabled | bool | `true` | Specifies whether a service account should be created |
 | affinity | object | `{}` |  |
-| application.port | int | `8080` | port is the port your application runs under |
 | autoscaling | object | `{"enabled":true,"maxReplicas":4,"minReplicas":2,"targetCPUUtilizationPercentage":70}` | autoscaling is the main object of autoscaling |
 | autoscaling.enabled | bool | `true` | enabled is the flag to sinalize this funcionality is enabled |
 | autoscaling.maxReplicas | int | `4` | maxReplicas is the number of maximum scaling pods |
 | autoscaling.minReplicas | int | `2` | minReplicas is the number of mim pods to be running |
 | autoscaling.targetCPUUtilizationPercentage | int | `70` | targetCPUUtilizationPercentage is the percentage of CPU utilization do Scaling |
 | cluster | string | `"lgsk8sp1.grupologos.local"` | cluster Set Cluster Name |
+| container.port | int | `8080` | port is the port your application runs under |
 | domain | string | `"diegoluisi.eti.br"` | domain Set Default Domain |
 | env | list | `[]` |  |
 | envFrom | list | `[]` |  |
