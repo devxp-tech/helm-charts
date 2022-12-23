@@ -3,10 +3,10 @@
 apiVersion: s3.aws.crossplane.io/v1beta1
 kind: Bucket
 metadata:
-  name: devxp-tech-backstage-techdocs
-  namespace: backstage
+  name: devxp-{{ .Values.name }}
+  namespace: {{ include "namespace" . }}
   labels:
-    backstage.io/kubernetes-id: backstage
+    backstage.io/kubernetes-id: {{ .Values.name }}
 spec:
   forProvider:
     acl: private
