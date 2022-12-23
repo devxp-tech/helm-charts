@@ -9,9 +9,9 @@ metadata:
     backstage.io/kubernetes-id: {{ .Values.name }}
 spec:
   forProvider:
-    acl: private
-    locationConstraint: us-east-1
-    objectLockEnabledForBucket: false
+    acl: {{ .Values.Bucket.acl }}
+    locationConstraint: {{ .Values.Bucket.locationConstraint }}
+    objectLockEnabledForBucket: {{ .Values.Bucket.objectLockEnabledForBucket }}
   providerConfigRef:
-    name: default
+    name: {{ .Values.providerConfigRef }}
 {{- end }}
