@@ -8,11 +8,5 @@ metadata:
   labels:
     kubernetes.io/metadata.name: {{ .Values.name }}
     backstage.io/kubernetes-id: {{ .Values.name }}
-    istio-injection: enabled
-spec:
-  hard:
-    requests.cpu: "1"
-    requests.memory: 1Gi
-    limits.cpu: "2"
-    limits.memory: 2Gi
+spec: {{ toYaml .Values.ResourceQuota.resources | nindent 2 }}
 {{- end }}
