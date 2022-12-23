@@ -1,2 +1,2 @@
-s3:
+Bucket:
   enabled: false
