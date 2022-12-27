@@ -18,11 +18,11 @@ spec:
   - name: primary
     route:
     - destination:
-        host: {{ .Values.name }}.{{ .Values.name }}.svc.{{ .Values.cluster }}
+        host: {{ .Values.name }}.{{ .Values.name }} #.svc.{{ .Values.cluster }}
         subset: stable
       weight: 100
     - destination:
-        host: {{ .Values.name }}.{{ .Values.name }}.svc.{{ .Values.cluster }}
+        host: {{ .Values.name }}.{{ .Values.name }} #.svc.{{ .Values.cluster }}
         subset: canary  # referenced in canary.trafficRouting.istio.destinationRule.canarySubsetName
       weight: 0
 {{- end }}
