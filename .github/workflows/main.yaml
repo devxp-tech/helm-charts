@@ -43,14 +43,14 @@ jobs:
         run: .github/kubeval.sh
 
   sonarqube:
-    name: SonarQube Scan 🔍
+    name: SonarQube Scan 🔎
     runs-on: ubuntu-latest
     needs:
       - lint-chart
       - kubeval-chart
     steps:
     - uses: actions/checkout@master
-    - name: SonarQube Scan 🔍
+    - name: SonarQube Scan 🔎
       uses: kitabisa/sonarqube-action@v1.2.0
       with:
         host: ${{ secrets.SONARQUBE_HOST }}
