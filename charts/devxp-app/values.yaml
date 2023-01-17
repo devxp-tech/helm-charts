@@ -54,6 +54,10 @@ ingress:
   # -- enable ingress
   enabled: true
 
+migration:
+  # -- enable liquibase migration
+  enabled: false
+
 # --autoscaling is the main object of autoscaling
 autoscaling:
   # --enabled is the flag to sinalize this funcionality is enabled

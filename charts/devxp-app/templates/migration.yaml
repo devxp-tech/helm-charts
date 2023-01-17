@@ -1,0 +1,38 @@
+{{- if .Values.migration.enabled }}
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ .Values.name }}-migration
+  namespace: {{ include "namespace" . }}
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+spec:
+  ttlSecondsAfterFinished: 120
+  template:
+    spec:
+      containers:
+        - image: diegoluisi/{{ .Values.name }}-migraton:latest
+          name: {{ .Values.name }}-migration
+          env:
+            - name: POSTGRES_HOST
+              value: postgresql
+            - name: POSTGRES_DB
+              value: teste-loki
+            - name: POSTGRES_USERNAME
+              value: teste-loki
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secrets
+                  key: POSTGRES_PASSWORD
+          resources:
+            requests:
+              cpu: 50m
+              memory: 100Mi
+            limits:
+              cpu: 100m
+              memory: 200Mi
+      restartPolicy: Never
+{{- end }}
