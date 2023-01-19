@@ -13,6 +13,9 @@ spec:
   ttlSecondsAfterFinished: 120
   template:
     spec:
+      metadata:
+        annotations:
+          sidecar.istio.io/inject: "false"
       containers:
         - image: diegoluisi/{{ .Values.name }}-migraton:latest
           name: {{ .Values.name }}-migration
