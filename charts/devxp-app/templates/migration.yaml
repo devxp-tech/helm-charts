@@ -8,6 +8,7 @@ metadata:
   annotations:
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+    sidecar.istio.io/inject: "false"
 spec:
   ttlSecondsAfterFinished: 120
   template:
