@@ -12,10 +12,13 @@ metadata:
 spec:
   ttlSecondsAfterFinished: 120
   template:
+    metadata:
+      labels:
+        app: {{ .Values.name }}
+      annotations:
+        sidecar.istio.io/inject: "false"
     spec:
-      metadata:
-        annotations:
-          sidecar.istio.io/inject: "false"
+      restartPolicy: Never
       containers:
         - image: diegoluisi/{{ .Values.name }}-migraton:latest
           name: {{ .Values.name }}-migration
@@ -38,5 +41,4 @@ spec:
             limits:
               cpu: 100m
               memory: 200Mi
-      restartPolicy: Never
 {{- end }}

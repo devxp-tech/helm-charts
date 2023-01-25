@@ -11,6 +11,9 @@ cluster: lgsk8sp1.grupologos.local
 # --domain Set Default Domain
 domain: diegoluisi.eti.br
 
+istioInjection:
+  enabled: true
+
 container:
 # --port is the port your application runs under
   port: 8080
@@ -19,6 +22,7 @@ container:
 service:
 # --port is the port your application runs under
   port: 80
+
 
 
 # --ResourceQuota provides constraints that limit aggregate resource consumption per namespace
