@@ -1,4 +1,4 @@
-{{- if .Values.rollout.enabled }}
+{{- if .Values.argoRollouts.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
@@ -8,8 +8,14 @@ spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ default 1 .Values.replicaCount }}
   {{- end }}
+  revisionHistoryLimit: {{ default 5 .Values.argoRollouts.revisionHistoryLimit }}
   strategy:
     canary: #Indicates that the rollout should use the Canary strategy
+      {{- if .Values.argoRollouts.strategy.dynamicStableScale }}
+      dynamicStableScale: true
+      {{- else }}
+      steps: {{toYaml .Values.argoRollouts.strategy.steps | nindent 8 }}
+      {{- end }}
       trafficRouting:
         istio:
           virtualService:
@@ -22,22 +28,6 @@ spec:
             stableSubsetName: stable    # required
       maxSurge: "25%"
       maxUnavailable: 0
-      steps:
-      - setWeight: 5
-      - pause:
-          duration: 10s
-      - setWeight: 20
-      - pause:
-          duration: 10s
-      - setWeight: 40
-      - pause:
-          duration: 10s
-      - setWeight: 60
-      - pause:
-          duration: 10s
-      - setWeight: 80
-      - pause:
-          duration: 10s
   selector:
     matchLabels:
       app: {{ .Values.name }}
