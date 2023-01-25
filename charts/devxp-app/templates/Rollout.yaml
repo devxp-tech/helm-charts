@@ -67,5 +67,4 @@ spec:
       affinity: {{ toYaml (default dict .Values.affinity) | nindent 8 }}
       tolerations: {{ toYaml (default list .Values.tolerations)  | nindent 8 }}
   minReadySeconds: 30
-  revisionHistoryLimit: 3
 {{- end }}
