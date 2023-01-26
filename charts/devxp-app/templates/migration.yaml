@@ -19,6 +19,16 @@ spec:
         sidecar.istio.io/inject: "false"
     spec:
       restartPolicy: Never
+      volumes:
+        - name: files
+          emptyDir: {}
+      initContainers:
+        - name: {{ .Values.name }}-copy-files
+          image:  {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          command: ['sh', '-c', "cp migration.yaml /tmp/files"]
+          volumeMounts:
+            - name: files
+              mountPath: /tmp/files
       containers:
         - image: diegoluisi/{{ .Values.name }}-migraton:latest
           name: {{ .Values.name }}-migration
@@ -31,7 +41,10 @@ spec:
               --username=${POSTGRES_USER} \
               --password=${POSTGRES_PASSWORD} \
               --classpath=/liquibase/changelog \
-              --changeLogFile=migrations.yaml update 
+              --changeLogFile=migrations.yaml update
+          volumeMounts:
+            - name: files
+              mountPath: /tmp/files
           env:
             - name: POSTGRES_HOST
               valueFrom:
