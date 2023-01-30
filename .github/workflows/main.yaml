@@ -182,7 +182,7 @@ jobs:
       - index
     steps:
       - name: Checkout Docs 🛎️
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Generate Helm Docs 📦
         uses: docker://jnorwood/helm-docs:v1.7.0
         with:
