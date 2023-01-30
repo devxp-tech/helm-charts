@@ -140,7 +140,7 @@ jobs:
         run: |
           helm repo index . --url "https://raw.githubusercontent.com/devxp-tech/helm-charts/artifacts/"
       - name: Persist index.yaml 📦
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: gh-pages
           path: ./index.yaml
@@ -161,7 +161,7 @@ jobs:
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
           echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: gh-pages
       - name: Commit New index.yaml 📝
