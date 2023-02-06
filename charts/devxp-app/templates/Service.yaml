@@ -12,6 +12,7 @@ metadata:
     backstage.io/kubernetes-id: {{ .Values.name }}
 spec:
   type: ClusterIP
+  externalTrafficPolicy: Local
   ports:
   - name: tcp-node
     port: {{ .Values.service.port }}
