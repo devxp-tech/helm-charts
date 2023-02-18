@@ -13,7 +13,7 @@ spec:
   gateways:
   - istio-system/istio-ingressgateway
   hosts:
-  - {{ .Values.name }}.{{ .Values.domain }}
+  - {{ .Values.name }}.{{ .Values.network.domain }}
   http:
   - name: primary
     route:

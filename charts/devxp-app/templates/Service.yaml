@@ -14,7 +14,7 @@ spec:
   type: ClusterIP
   ports:
   - name: tcp-node
-    port: {{ .Values.service.port }}
+    port: {{ .Values.network.service.port }}
     targetPort:  {{ .Values.container.port }}
   selector:
     app: {{ .Values.name }}
