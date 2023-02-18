@@ -14,6 +14,7 @@ network:
   domain: diegoluisi.eti.br
   # --service An abstract way to expose an application running on a set of Pods as a network service.
   service:
+    type: ClusterIP
   # --port is the port your application runs under
     port: 80
 
