@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.1.60](https://img.shields.io/badge/Version-0.1.60-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.1.61](https://img.shields.io/badge/Version-0.1.61-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -31,7 +31,6 @@ Helm Charts for default DevXP-Tech Application
 | autoscaling.targetCPUUtilizationPercentage | int | `70` | targetCPUUtilizationPercentage is the percentage of CPU utilization do Scaling |
 | cluster | string | `"lgsk8sp1.grupologos.local"` | cluster Set Cluster Name |
 | container.port | int | `8080` | port is the port your application runs under |
-| domain | string | `"diegoluisi.eti.br"` | domain Set Default Domain |
 | env | list | `[]` |  |
 | envFrom | list | `[]` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | pullPolicy is the prop to setup the behavior of pull police. options is: IfNotPresent \| allways |
@@ -40,13 +39,17 @@ Helm Charts for default DevXP-Tech Application
 | imagePullSecrets.name | string | `"ghcr-secret"` |  |
 | ingress | object | `{"enabled":true}` | ingress Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. |
 | ingress.enabled | bool | `true` | enable ingress |
-| istioInjection | string | `"enabled"` |  |
+| istioInjection | string | `"enabled"` | istioInjection enable istio injection |
 | livenessProbe.httpGet.path | string | `"/health-check/liveness"` |  |
 | livenessProbe.httpGet.port | int | `8080` |  |
 | livenessProbe.initialDelaySeconds | int | `15` |  |
 | livenessProbe.periodSeconds | int | `10` |  |
 | migration.enabled | bool | `false` | enable liquibase migration |
 | name | string | `""` | name is the github repository name of this application deploy |
+| network | object | `{"domain":"diegoluisi.eti.br","service":{"port":80}}` | Network |
+| network.domain | string | `"diegoluisi.eti.br"` | domain Set Default Domain |
+| network.service | object | `{"port":80}` | service An abstract way to expose an application running on a set of Pods as a network service. |
+| network.service.port | int | `80` | port is the port your application runs under |
 | nodeSelector | object | `{}` |  |
 | probe.enabled | bool | `true` |  |
 | readinessProbe.httpGet.path | string | `"/health-check/readiness"` |  |
@@ -59,8 +62,6 @@ Helm Charts for default DevXP-Tech Application
 | resources.requests.memory | string | `"64Mi"` |  |
 | sealedSecrets.enabled | bool | `true` |  |
 | sealedSecrets.encryptedData | string | `"AgDGBqpFurhI5BktCG/olnD7r2MuhAel/zkL1IL0BxrcaDUmR8JUf3TEkMqKbiRgb9iKYcwX7zVOXI4xDJeiyWyWDbckn8Yc+RBTw7qpKhh3kMUasPVo9blEcrKq4HjSEAEKapegBDT+H1LhjUToDoqwXVmGFEVYpiHtb0OA0OCtUuDZ2dYD4cLpMSVgZ/8hRfilRdD4PqXD+k1NEVZfRgKGl9fV0mazKm9e7w0rRI1brryhWx9+VZcvSi6RLHiELX7VOObxxjQ0W4gCuHKDRztgHoNDR+KVNum6YpVz8vOXQ/XpBxlASundsryNBAVcPwv0HYQDmsNFfMwXaLkLA+Hg6frWXi1CJvSrJc45U8RQ2sAfbCN6QQw1r6O+Lgqc2hmWnx3RzOva6zIq2UqUNRDrKxn99zZUCU4GpmVLFnj08ogq0p86zUXqzA6o1Qz1KRZu2S0QaQQyMquN4vqByXRfbXrgG5rtQRALsRG3o7q7OfOoy1sa1mF6kMyktpbawE7eT0k0FGPdjEtgg5FzLD88pj5OphL1aNTVzgSLVMpT0KY8GHVlB5AlMxz+ilB0bfSs+S5fGsY5u4iOpUAioAQ2lZH/aK8tMMug4pCRsYvDD6AUWlCupzGHhjVNeWDvhGpUG8anpr0htCxqLAGLJaMGV/hcuwbRzdxgKbPjqd/HFpzwi9ZN17IN1vtQhGm3xR781WTBAeLzU7XykzLh8VuUPhS6c8vdNsXXXYubSXrCAddAycXc5YThp/TzfOlPzn/3kkQZZRKUs3Qp393djTaEG75W/CpnQXG4Pnvk9a4swUCm2ZwNYCZdCjBccutcahlKa8mNG4sDeYbpLOG4ZICo2MuKNoJG2DqmemSUGKeThSyhW8v2CjoKqKhGSKbpUjI43c5dK4TueC88DYMZGX2TF5yOtXwmQbjsutAd3n2ELujLpg=="` |  |
-| service | object | `{"port":80}` | service An abstract way to expose an application running on a set of Pods as a network service. |
-| service.port | int | `80` | port is the port your application runs under |
 | tolerations | list | `[]` |  |
 
 ----------------------------------------------
