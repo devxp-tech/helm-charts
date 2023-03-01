@@ -2,10 +2,9 @@ name: teste-loki
 image:
   repository: ghcr.io/devxp-tech/teste-loki
   tag: b289a6c9
-  network:
-    domain: diegoluisi.eti.br
-    service:
-      type: ClusterIP
+network:
+  service:
+    type: NodePort
 deployment:
   enabled: true
 argoRollouts:

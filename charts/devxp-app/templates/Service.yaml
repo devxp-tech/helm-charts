@@ -12,9 +12,18 @@ metadata:
     backstage.io/kubernetes-id: {{ .Values.name }}
 spec:
   type: {{ .Values.network.service.type }}
+  selector:
+    app: {{ .Values.name }}
+  {{- if eq .Values.network.service.type "ClusterIP" }}
   ports:
   - name: tcp-node
     port: {{ .Values.network.service.port }}
     targetPort:  {{ .Values.container.port }}
-  selector:
-    app: {{ .Values.name }}
+    protocol: TCP
+  {{- end }}
+  {{- if eq .Values.network.service.type "NodePort" }}
+  ports:
+    - port: {{ .Values.network.service.port }}
+      targetPort: {{ .Values.container.port }}
+      nodePort: 30007
+  {{- end }}
