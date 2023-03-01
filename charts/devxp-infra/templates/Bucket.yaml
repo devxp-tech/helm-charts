@@ -1,4 +1,4 @@
-{{- if .Values.Bucket.enabled }}
+{{- if .Values.bucket.enabled }}
 ---
 apiVersion: s3.aws.crossplane.io/v1beta1
 kind: Bucket
