@@ -1,4 +1,4 @@
-{{- if .Values.ResourceQuota.enabled }}
+{{- if .Values.quota.enabled }}
 ---
 kind: ResourceQuota
 apiVersion: v1
@@ -8,5 +8,5 @@ metadata:
   labels:
     kubernetes.io/metadata.name: {{ .Values.name }}
     backstage.io/kubernetes-id: {{ .Values.name }}
-spec: {{ toYaml .Values.ResourceQuota.resources | nindent 2 }}
+spec: {{ toYaml .Values.quota.resources | nindent 2 }}
 {{- end }}

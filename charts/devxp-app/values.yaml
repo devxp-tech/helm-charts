@@ -34,7 +34,7 @@ ServiceAccount:
   annotations: {}
 
 # --PeerAuthentication defines how traffic will be tunneled (or not) to the sidecar.
-PeerAuthentication:
+peerAuthentication:
   # --enable PeerAuthentication
   enabled: true
 
@@ -136,7 +136,7 @@ argoRollouts:
           duration: 10s
 
 # --ResourceQuota provides constraints that limit aggregate resource consumption per namespace
-ResourceQuota:
+quota:
   # --Specifies whether a resource quota should be created
   enabled: true
   resources:
