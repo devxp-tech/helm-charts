@@ -8,6 +8,8 @@ image:
       type: ClusterIP
 deployment:
   enabled: true
+argoRollouts:
+  enabled: false
 sealedSecrets:
   enabled: false
 quota:
@@ -17,6 +19,4 @@ istioInjection:
 ingress:
   enabled: false
 autoscaling:
-  enabled: false
-argoRollouts:
   enabled: false
