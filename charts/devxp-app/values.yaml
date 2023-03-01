@@ -19,7 +19,8 @@ network:
     port: 80
 
 # --istioInjection enable istio injection
-istioInjection: enabled
+istioInjection:
+  enabled: true
 
 # --ingress Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster.
 ingress:

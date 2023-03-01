@@ -6,30 +6,17 @@ image:
     domain: diegoluisi.eti.br
     service:
       type: ClusterIP
+deployment:
+  enabled: true
 sealedSecrets:
   enabled: false
 quota:
   enabled: false
-istioInjection: false
-ingress:
+istioInjection:
   enabled: false
-PeerAuthentication:
+ingress:
   enabled: false
 autoscaling:
   enabled: false
-livenessProbe:
-  httpGet:
-    path: /health-check/liveness
-    port: 8080
-  initialDelaySeconds: 15
-  periodSeconds: 10
-readinessProbe:
-  httpGet:
-    path: /health-check/readiness
-    port: 8080
-  initialDelaySeconds: 15
-  periodSeconds: 10
 argoRollouts:
   enabled: false
-deployment:
-  enabled: true

@@ -6,7 +6,9 @@ metadata:
   labels:
     kubernetes.io/metadata.name: {{ .Values.name }}
     backstage.io/kubernetes-id: {{ .Values.name }}
-    istio-injection: {{ .Values.istioInjection }}
+    {{- if .Values.istioInjection.enabled }}
+    istio-injection: enabled
+    {{- end }}
 spec:
   finalizers:
   - kubernetes
