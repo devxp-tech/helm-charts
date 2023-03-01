@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.1.62](https://img.shields.io/badge/Version-0.1.62-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.1.64](https://img.shields.io/badge/Version-0.1.64-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -14,10 +14,6 @@ Helm Charts for default DevXP-Tech Application
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| PeerAuthentication | object | `{"enabled":true}` | PeerAuthentication defines how traffic will be tunneled (or not) to the sidecar. |
-| PeerAuthentication.enabled | bool | `true` | enable PeerAuthentication |
-| ResourceQuota | object | `{"enabled":true,"resources":{"hard":{"limits.cpu":"2","limits.memory":"2Gi","requests.cpu":"1","requests.memory":"1Gi"}}}` | ResourceQuota provides constraints that limit aggregate resource consumption per namespace |
-| ResourceQuota.enabled | bool | `true` | Specifies whether a resource quota should be created |
 | ServiceAccount | object | `{"annotations":{},"enabled":true}` | ServiceAccount A service account provides an identity for processes that run in a Pod, about more: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/ |
 | ServiceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | ServiceAccount.enabled | bool | `true` | Specifies whether a service account should be created |
@@ -39,7 +35,7 @@ Helm Charts for default DevXP-Tech Application
 | imagePullSecrets.name | string | `"ghcr-secret"` |  |
 | ingress | object | `{"enabled":true}` | ingress Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. |
 | ingress.enabled | bool | `true` | enable ingress |
-| istioInjection | string | `"enabled"` | istioInjection enable istio injection |
+| istioInjection | object | `{"enabled":true}` | istioInjection enable istio injection |
 | livenessProbe.httpGet.path | string | `"/health-check/liveness"` |  |
 | livenessProbe.httpGet.port | int | `8080` |  |
 | livenessProbe.initialDelaySeconds | int | `15` |  |
@@ -51,7 +47,11 @@ Helm Charts for default DevXP-Tech Application
 | network.service | object | `{"port":80,"type":"ClusterIP"}` | service An abstract way to expose an application running on a set of Pods as a network service. |
 | network.service.port | int | `80` | port is the port your application runs under |
 | nodeSelector | object | `{}` |  |
+| peerAuthentication | object | `{"enabled":true}` | PeerAuthentication defines how traffic will be tunneled (or not) to the sidecar. |
+| peerAuthentication.enabled | bool | `true` | enable PeerAuthentication |
 | probe.enabled | bool | `true` |  |
+| quota | object | `{"enabled":true,"resources":{"hard":{"limits.cpu":"2","limits.memory":"2Gi","requests.cpu":"1","requests.memory":"1Gi"}}}` | ResourceQuota provides constraints that limit aggregate resource consumption per namespace |
+| quota.enabled | bool | `true` | Specifies whether a resource quota should be created |
 | readinessProbe.httpGet.path | string | `"/health-check/readiness"` |  |
 | readinessProbe.httpGet.port | int | `8080` |  |
 | readinessProbe.initialDelaySeconds | int | `15` |  |
