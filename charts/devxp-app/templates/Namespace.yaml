@@ -6,6 +6,9 @@ metadata:
   labels:
     kubernetes.io/metadata.name: {{ .Values.name }}
     backstage.io/kubernetes-id: {{ .Values.name }}
+    app.kubernetes.io/managed-by: Helm
+    meta.helm.sh/release-name: {{ .Values.name }}
+    meta.helm.sh/release-namespace: {{ .Values.name }}
     {{- if .Values.istioInjection.enabled }}
     istio-injection: enabled
     {{- end }}
