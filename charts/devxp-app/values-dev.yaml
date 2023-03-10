@@ -1,0 +1,101 @@
+# Default values for devxp-app.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# --name is the github repository name of this application deploy
+name: ""
+
+network:
+  service:
+    type: NodePort
+resources:
+  requests:
+    cpu: "200m"
+    memory: "256Mi"
+  limits:
+    cpu: "400m"
+    memory: "512Mi"
+deployment:
+  enabled: true
+argoRollouts:
+  enabled: false
+sealedSecrets:
+  enabled: false
+quota:
+  enabled: false
+istioInjection:
+  enabled: false
+ingress:
+  enabled: false
+autoscaling:
+  enabled: false
+
+
+
+# --ServiceAccount A service account provides an identity for processes that run in a Pod, about more: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
+ServiceAccount:
+  # --Specifies whether a service account should be created
+  enabled: true
+  # --Annotations to add to the service account
+  annotations: {}
+
+# --PeerAuthentication defines how traffic will be tunneled (or not) to the sidecar.
+peerAuthentication:
+  # --enable PeerAuthentication
+  enabled: false
+
+
+container:
+# --port is the port your application runs under
+  port: 8080
+
+  # --image is the object to specify the image to run in the deployment
+image:
+  # --repository: is the registry of your application ex:556684128444.dkr.ecr.us-east-1.amazonaws.com/YOU-APP-ECR-REPO-NAME
+  # if empty this helm will auto generate the image using aws.registry/values.name:values.image.tag
+  repository: ""
+  # --pullPolicy is the prop to setup the behavior of pull police. options is: IfNotPresent \| allways
+  pullPolicy: IfNotPresent
+  # --especify the tag of your image to deploy
+  tag: "latest"
+
+imagePullSecrets:
+  name: ghcr-secret
+
+
+probe:
+  enabled: true
+
+livenessProbe:
+  httpGet:
+    path: /health-check/liveness
+    port: 8080
+  initialDelaySeconds: 15
+  periodSeconds: 10
+
+readinessProbe:
+  httpGet:
+    path: /health-check/readiness
+    port: 8080
+  initialDelaySeconds: 15
+  periodSeconds: 10
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+env: []
+  # examples:
+  # please note that when the value is a number, you must quote the value to cast to string!
+  # - name: ENVIROMENT
+  #   value: dev
+
+envFrom: []
+  # examples:
+  # please note that when the value is a number, you must quote the value to cast to string!
+  # - configMapRef
+  #     name: postgres-configs
+
+migration:
+  # -- enable liquibase migration
+  enabled: false
