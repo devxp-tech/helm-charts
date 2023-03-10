@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.1.71](https://img.shields.io/badge/Version-0.1.71-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.1.72](https://img.shields.io/badge/Version-0.1.72-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -42,6 +42,7 @@ Helm Charts for default DevXP-Tech Application
 | livenessProbe.periodSeconds | int | `10` |  |
 | migration.enabled | bool | `false` | enable liquibase migration |
 | name | string | `""` | name is the github repository name of this application deploy |
+| namespace.enabled | bool | `true` |  |
 | network | object | `{"domain":"diegoluisi.eti.br","service":{"port":80,"type":"ClusterIP"}}` | Network |
 | network.domain | string | `"diegoluisi.eti.br"` | domain Set Default Domain |
 | network.service | object | `{"port":80,"type":"ClusterIP"}` | service An abstract way to expose an application running on a set of Pods as a network service. |
