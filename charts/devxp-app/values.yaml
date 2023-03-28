@@ -10,6 +10,11 @@ namespace:
 # --cluster Set Cluster Name
 cluster: lgsk8sp1.grupologos.local
 
+# --deployment Disabled Deployment
+deployment:
+  # --enabled default false
+  enabled: false
+
 # -- Network
 network:
 # --domain Set Default Domain

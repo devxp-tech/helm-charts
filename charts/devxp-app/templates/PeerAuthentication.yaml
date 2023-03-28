@@ -1,5 +1,5 @@
 {{- if .Values.ingress.enabled }}
-  {{- if .Values.PeerAuthentication.enabled }}
+  {{- if .Values.peerAuthentication.enabled }}
 apiVersion: security.istio.io/v1beta1
 kind: PeerAuthentication
 metadata:
