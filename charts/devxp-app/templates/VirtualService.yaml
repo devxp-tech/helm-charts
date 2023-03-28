@@ -5,6 +5,8 @@ kind: VirtualService
 metadata:
   name: {{ .Values.name }}
   namespace: {{ include "namespace" . }}
+  annotations:
+    link.argocd.argoproj.io/external-link: https://{{ .Values.name }}.{{ .Values.network.domain }}
   labels:
     app: {{ .Values.name }}
     version: {{ .Values.image.tag }}
