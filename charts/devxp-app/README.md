@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.1.73](https://img.shields.io/badge/Version-0.1.73-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.1.74](https://img.shields.io/badge/Version-0.1.74-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -27,6 +27,8 @@ Helm Charts for default DevXP-Tech Application
 | autoscaling.targetCPUUtilizationPercentage | int | `70` | targetCPUUtilizationPercentage is the percentage of CPU utilization do Scaling |
 | cluster | string | `"lgsk8sp1.grupologos.local"` | cluster Set Cluster Name |
 | container.port | int | `8080` | port is the port your application runs under |
+| deployment | object | `{"enabled":false}` | deployment Disabled Deployment |
+| deployment.enabled | bool | `false` | enabled default false |
 | env | list | `[]` |  |
 | envFrom | list | `[]` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | pullPolicy is the prop to setup the behavior of pull police. options is: IfNotPresent \| allways |
