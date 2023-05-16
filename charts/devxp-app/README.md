@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.1.75](https://img.shields.io/badge/Version-0.1.75-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.1.76](https://img.shields.io/badge/Version-0.1.76-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -20,11 +20,13 @@ Helm Charts for default DevXP-Tech Application
 | affinity | object | `{}` |  |
 | argoRollouts | object | `{"enabled":true,"revisionHistoryLimit":5,"strategy":{"dynamicStableScale":true,"steps":[{"setWeight":5},{"pause":{"duration":"10s"}},{"setWeight":20},{"pause":{"duration":"10s"}},{"setWeight":40},{"pause":{"duration":"10s"}},{"setWeight":60},{"pause":{"duration":"10s"}},{"setWeight":80},{"pause":{"duration":"10s"}}]}}` | ResourceQuota provides constraints that limit aggregate resource consumption per namespace |
 | argoRollouts.enabled | bool | `true` | Specifies whether a resource quota should be created |
-| autoscaling | object | `{"enabled":true,"maxReplicas":4,"minReplicas":2,"targetCPUUtilizationPercentage":70}` | autoscaling is the main object of autoscaling |
+| autoscaling | object | `{"customRules":[],"enabled":true,"maxReplicas":2,"minReplicas":1,"targetCPUUtilizationPercentage":80,"targetMemoryUtilizationPercentage":80}` | autoscaling is the main object of autoscaling |
+| autoscaling.customRules | list | `[]` | customRules is a place to customize your application autoscaler using the original API available at: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/ |
 | autoscaling.enabled | bool | `true` | enabled is the flag to sinalize this funcionality is enabled |
-| autoscaling.maxReplicas | int | `4` | maxReplicas is the number of maximum scaling pods |
-| autoscaling.minReplicas | int | `2` | minReplicas is the number of mim pods to be running |
-| autoscaling.targetCPUUtilizationPercentage | int | `70` | targetCPUUtilizationPercentage is the percentage of CPU utilization do Scaling |
+| autoscaling.maxReplicas | int | `2` | maxReplicas is the number of maximum scaling pods |
+| autoscaling.minReplicas | int | `1` | minReplicas is the number of mim pods to be running |
+| autoscaling.targetCPUUtilizationPercentage | int | `80` | targetCPUUtilizationPercentage is the percentage of cpu when reached to scale new pods |
+| autoscaling.targetMemoryUtilizationPercentage | int | `80` | targetMemoryUtilizationPercentage is the percentage of memoty when reached to scale new pods |
 | cluster | string | `"lgsk8sp1.grupologos.local"` | cluster Set Cluster Name |
 | container.port | int | `8080` | port is the port your application runs under |
 | deployment | object | `{"enabled":false}` | deployment Disabled Deployment |
@@ -45,8 +47,8 @@ Helm Charts for default DevXP-Tech Application
 | migration.enabled | bool | `false` | enable liquibase migration |
 | name | string | `""` | name is the github repository name of this application deploy |
 | namespace.enabled | bool | `true` |  |
-| network | object | `{"domain":"diegoluisi.eti.br","service":{"port":80,"type":"ClusterIP"}}` | Network |
-| network.domain | string | `"diegoluisi.eti.br"` | domain Set Default Domain |
+| network | object | `{"domain":"devxp-tech.io","service":{"port":80,"type":"ClusterIP"}}` | Network |
+| network.domain | string | `"devxp-tech.io"` | domain Set Default Domain |
 | network.service | object | `{"port":80,"type":"ClusterIP"}` | service An abstract way to expose an application running on a set of Pods as a network service. |
 | network.service.port | int | `80` | port is the port your application runs under |
 | nodeSelector | object | `{}` |  |
@@ -59,6 +61,7 @@ Helm Charts for default DevXP-Tech Application
 | readinessProbe.httpGet.port | int | `8080` |  |
 | readinessProbe.initialDelaySeconds | int | `15` |  |
 | readinessProbe.periodSeconds | int | `10` |  |
+| replicaCount | int | `1` | replicaCount is used when autoscaling.enabled is false to set a manually number of pods |
 | resources.limits.cpu | string | `"100m"` |  |
 | resources.limits.memory | string | `"128Mi"` |  |
 | resources.requests.cpu | string | `"50m"` |  |
