@@ -69,3 +69,22 @@ Create the name of the service account to use
     {{- .Release.Namespace }}
   {{- end }}
 {{- end }}
+
+{{- define "hpa-version" }}
+  {{- if .Capabilities.APIVersions.Has "autoscaling/v2/HorizontalPodAutoscaler" }}
+    {{- "autoscaling/v2" }}
+  {{- else }}
+    {{- "autoscaling/v2beta2" }}
+  {{- end }}
+{{- end }}
+
+{{- define "hpa-targets" -}}
+name: {{ .Values.name }}
+{{- if .Values.argoRollouts.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+{{- else }}
+apiVersion: apps/v1
+kind: Deployment
+{{- end }}
+{{- end }}

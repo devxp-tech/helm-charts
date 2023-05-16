@@ -1,6 +1,6 @@
 {{- if .Values.autoscaling.enabled }}
 ---
-apiVersion: autoscaling/v2beta1
+apiVersion: {{ include "hpa-version" . }}
 kind: HorizontalPodAutoscaler
 metadata:
   name: {{ .Values.name }}
@@ -14,8 +14,23 @@ spec:
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   # targetCPUUtilizationPercentage: 80
   metrics:
+    {{- if .Values.autoscaling.targetMemoryUtilizationPercentage }}
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: {{ .Values.autoscaling.targetMemoryUtilizationPercentage }}
+    {{- end }}
+    {{- if .Values.autoscaling.targetCPUUtilizationPercentage }}
     - type: Resource
       resource:
         name: cpu
-        targetAverageUtilization: {{ .Values.autoscaling.targetCPUUtilizationPercentage }}
+        target:
+          type: Utilization
+          averageUtilization: {{ .Values.autoscaling.targetCPUUtilizationPercentage }}
+    {{- end }}
+    {{- with .Values.autoscaling.customRules }}
+    {{- . | toYaml | nindent 4 }}
+    {{- end }
 {{- end }}
