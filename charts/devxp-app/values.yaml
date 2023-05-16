@@ -17,12 +17,12 @@ deployment:
 
 # -- Network
 network:
-# --domain Set Default Domain
-  domain: diegoluisi.eti.br
+  # --domain Set Default Domain
+  domain: devxp-tech.io
   # --service An abstract way to expose an application running on a set of Pods as a network service.
   service:
     type: ClusterIP
-  # --port is the port your application runs under
+    # --port is the port your application runs under
     port: 80
 
 # --istioInjection enable istio injection
@@ -46,19 +46,32 @@ peerAuthentication:
   # --enable PeerAuthentication
   enabled: true
 
+# --replicaCount is used when autoscaling.enabled is false to set a manually number of pods
+replicaCount: 1
 # --autoscaling is the main object of autoscaling
 autoscaling:
   # --enabled is the flag to sinalize this funcionality is enabled
   enabled: true
   # --minReplicas is the number of mim pods to be running
-  minReplicas: 2
+  minReplicas: 1
   # --maxReplicas is the number of maximum scaling pods
-  maxReplicas: 4
-  # --targetCPUUtilizationPercentage is the percentage of CPU utilization do Scaling
-  targetCPUUtilizationPercentage: 70
+  maxReplicas: 2
+  # --targetCPUUtilizationPercentage is the percentage of cpu when reached to scale new pods
+  targetCPUUtilizationPercentage: 80
+  # --targetMemoryUtilizationPercentage is the percentage of memoty when reached to scale new pods
+  targetMemoryUtilizationPercentage: 80
+  # --customRules is a place to customize your application autoscaler using the original API available at: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
+  customRules:
+    []
+    # - type: Resource
+    #   resource:
+    #     name: memory
+    #     target:
+    #       type: Utilization
+    #       averageUtilization: 20
 
 container:
-# --port is the port your application runs under
+  # --port is the port your application runs under
   port: 8080
 
   # --image is the object to specify the image to run in the deployment
@@ -103,13 +116,15 @@ nodeSelector: {}
 tolerations: []
 affinity: {}
 
-env: []
+env:
+  []
   # examples:
   # please note that when the value is a number, you must quote the value to cast to string!
   # - name: ENVIROMENT
   #   value: dev
 
-envFrom: []
+envFrom:
+  []
   # examples:
   # please note that when the value is a number, you must quote the value to cast to string!
   # - configMapRef
