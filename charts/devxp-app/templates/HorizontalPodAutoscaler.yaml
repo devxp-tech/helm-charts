@@ -32,5 +32,5 @@ spec:
     {{- end }}
     {{- with .Values.autoscaling.customRules }}
     {{- . | toYaml | nindent 4 }}
-    {{- end }
+    {{- end }}
 {{- end }}
