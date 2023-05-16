@@ -1,18 +1,13 @@
 {{- if .Values.autoscaling.enabled }}
----
 apiVersion: {{ include "hpa-version" . }}
 kind: HorizontalPodAutoscaler
 metadata:
   name: {{ .Values.name }}
   namespace: {{ include "namespace" . }}
 spec:
-  scaleTargetRef:
-    apiVersion: argoproj.io/v1alpha1
-    kind: Rollout
-    name: {{ .Values.name }}
+  scaleTargetRef:  {{ include "hpa-targets" . | nindent 4 }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
-  # targetCPUUtilizationPercentage: 80
   metrics:
     {{- if .Values.autoscaling.targetMemoryUtilizationPercentage }}
     - type: Resource
