@@ -62,8 +62,10 @@ spec:
         livenessProbe: {{ toYaml .Values.livenessProbe | nindent 12 }}
         readinessProbe: {{ toYaml .Values.readinessProbe | nindent 12 }}
         {{- end }}
+      {{- if not .Values.imagePullSecrets.enabled }}
       imagePullSecrets:
         - name: {{ .Values.imagePullSecrets.name }}
+      {{- end }}
       nodeSelector: {{ toYaml (default dict .Values.nodeSelector) | nindent 8 }}
       affinity: {{ toYaml (default dict .Values.affinity) | nindent 8 }}
       tolerations: {{ toYaml (default list .Values.tolerations)  | nindent 8 }}

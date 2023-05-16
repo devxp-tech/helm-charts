@@ -85,6 +85,7 @@ image:
   tag: "latest"
 
 imagePullSecrets:
+  enabled: true
   name: ghcr-secret
 
 resources:

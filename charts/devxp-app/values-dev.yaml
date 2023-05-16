@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 
 # --name is the github repository name of this application deploy
-name: ""
+name: "test"
 
 network:
   service:
@@ -30,8 +30,6 @@ ingress:
 autoscaling:
   enabled: false
 
-
-
 # --ServiceAccount A service account provides an identity for processes that run in a Pod, about more: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
 ServiceAccount:
   # --Specifies whether a service account should be created
@@ -44,9 +42,8 @@ peerAuthentication:
   # --enable PeerAuthentication
   enabled: false
 
-
 container:
-# --port is the port your application runs under
+  # --port is the port your application runs under
   port: 8080
 
   # --image is the object to specify the image to run in the deployment
@@ -61,7 +58,6 @@ image:
 
 imagePullSecrets:
   name: ghcr-secret
-
 
 probe:
   enabled: true
@@ -84,13 +80,15 @@ nodeSelector: {}
 tolerations: []
 affinity: {}
 
-env: []
+env:
+  []
   # examples:
   # please note that when the value is a number, you must quote the value to cast to string!
   # - name: ENVIROMENT
   #   value: dev
 
-envFrom: []
+envFrom:
+  []
   # examples:
   # please note that when the value is a number, you must quote the value to cast to string!
   # - configMapRef
