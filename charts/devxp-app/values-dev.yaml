@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 
 # --name is the github repository name of this application deploy
-name: "test"
+name: "test2"
 
 network:
   service:
