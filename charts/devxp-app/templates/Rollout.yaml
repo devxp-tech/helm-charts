@@ -36,7 +36,7 @@ spec:
     metadata:
       labels:
         app: {{ .Values.name }}
-        version: '{{ .Values.image.tag }}'
+        version: "{{ .Values.image.tag }}"
         backstage.io/kubernetes-id: {{ .Values.name }}
     spec:
       {{- if not .Values.ServiceAccount.enabled }}
