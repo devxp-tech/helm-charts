@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.1.81](https://img.shields.io/badge/Version-0.1.81-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.1.82](https://img.shields.io/badge/Version-0.1.82-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -48,7 +48,7 @@ Helm Charts for default DevXP-Tech Application
 | migration.enabled | bool | `false` | enable liquibase migration |
 | name | string | `""` | name is the github repository name of this application deploy |
 | namespace.enabled | bool | `true` |  |
-| network | object | `{"domain":"devxp-tech.io","service":{"port":80,"type":"ClusterIP"}}` | Network |
+| network | object | `{"domain":"devxp-tech.io","gateways":"istio-system/istio-ingressgateway","service":{"port":80,"type":"ClusterIP"}}` | Network |
 | network.domain | string | `"devxp-tech.io"` | domain Set Default Domain |
 | network.service | object | `{"port":80,"type":"ClusterIP"}` | service An abstract way to expose an application running on a set of Pods as a network service. |
 | network.service.port | int | `80` | port is the port your application runs under |
