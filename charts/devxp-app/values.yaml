@@ -24,6 +24,7 @@ network:
     type: ClusterIP
     # --port is the port your application runs under
     port: 80
+  gateways: istio-system/istio-ingressgateway
 
 # --istioInjection enable istio injection
 istioInjection:

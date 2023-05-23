@@ -13,7 +13,7 @@ metadata:
     backstage.io/kubernetes-id: {{ .Values.name }}
 spec:
   gateways:
-  - istio-system/istio-ingressgateway
+  - {{ .Values.network.gateways }}
   hosts:
   - {{ .Values.name }}.{{ .Values.network.domain }}
   http:
