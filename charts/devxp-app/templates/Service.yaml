@@ -25,5 +25,5 @@ spec:
   ports:
     - port: {{ .Values.network.service.port }}
       targetPort: {{ .Values.container.port }}
-      nodePort: 30007
+      nodePort: {{ .Values.network.service.nodePort }}
   {{- end }}
