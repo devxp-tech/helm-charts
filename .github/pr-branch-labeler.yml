@@ -3,5 +3,9 @@ feature:
   head: "feature/*"
 
 # Apply label "bugfix" if head matches one of "bugfix/*" or "hotfix/*"
-bugfix:
+patch:
   head: ["bugfix/*", "hotfix/*"]
+
+# Apply label "feature" if head matches "feature/*"
+release:
+  head: "release/*"
