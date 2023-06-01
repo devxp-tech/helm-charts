@@ -1,4 +1,4 @@
-name: Bump version chart number
+name: Bump Chart Version 🆙
 
 on:
   pull_request:
@@ -15,19 +15,22 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          token: "${{secrets.COMMIT_SECRET}}"
+
       - name: Configure Git
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+
       - name: Get PR labels
         id: pr-labels
         uses: joerick/pr-labels-action@v1.0.6
+
       - name: Bump Version
         run: |
           set -ex
           pip install --no-cache-dir bump2version
           python ./.github/callBump2version.py ${{steps.pr-labels.outputs.labels}}
+
       - name: Push Results
         id: pushResults
         run: |
