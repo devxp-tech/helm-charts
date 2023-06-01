@@ -1,0 +1,12 @@
+Repo:
+  - "*"
+  - ".github/**"
+
+devxp-app:
+  - charts/devxp-app/**
+
+devxp-infra:
+  - charts/devxp-infra/**
+
+cluster-bootstrap:
+  - charts/cluster-bootstrap/**
