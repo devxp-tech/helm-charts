@@ -17,7 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Lint 🛎️
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
+
       - name: Run Chart Lint 🔎
         uses: helm/chart-testing-action@main
         with:
@@ -39,7 +40,8 @@ jobs:
           - v1.22.10
     steps:
       - name: Checkout Kubeval 🛎️
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
+
       - name: Run kubeval 🔎
         env:
           KUBERNETES_VERSION: ${{ matrix.k8s }}
@@ -89,7 +91,7 @@ jobs:
       - kubeval-chart
     steps:
       - name: Checkout Release 🛎️
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
       - name: Git Setup 🔨
         run: |
           git config user.name "$GITHUB_ACTOR"
