@@ -16,3 +16,4 @@ rules:
   - update
   - patch
 {{- end }}
+
