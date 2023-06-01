@@ -1,8 +1,7 @@
-minor:
+# Apply label "feature" if head matches "feature/*"
+feature:
   head: "feature/*"
 
-patch:
-  head: "hotfix/*"
-
-major:
-  head: "release/*"
+# Apply label "bugfix" if head matches one of "bugfix/*" or "hotfix/*"
+bugfix:
+  head: ["bugfix/*", "hotfix/*"]
