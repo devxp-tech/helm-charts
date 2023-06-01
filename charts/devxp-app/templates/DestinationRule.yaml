@@ -14,5 +14,3 @@ spec:
     labels:        # labels will be injected with canary rollouts-pod-template-hash value
       app: {{ .Values.name }}
 {{- end }}
-
-
