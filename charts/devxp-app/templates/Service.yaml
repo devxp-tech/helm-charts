@@ -27,4 +27,3 @@ spec:
       targetPort: {{ .Values.container.port }}
       nodePort: {{ .Values.network.service.nodePort }}
   {{- end }}
-
