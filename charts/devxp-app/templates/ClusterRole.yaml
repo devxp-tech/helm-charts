@@ -17,5 +17,3 @@ rules:
   - patch
 {{- end }}
 
-
-
