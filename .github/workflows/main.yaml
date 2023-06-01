@@ -216,3 +216,10 @@ jobs:
         with:
           commit_message: "[skip ci] :robot: Update Docs :zap:"
           repository: .
+
+  notify:
+    uses: devxp-tech/.github/.github/workflows/notify.yaml@main
+    if: always()
+    secrets: inherit
+    needs:
+      - generate-docs
