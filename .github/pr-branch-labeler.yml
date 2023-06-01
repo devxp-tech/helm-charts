@@ -2,7 +2,7 @@ minor:
   head: "feature/*"
 
 patch:
-  hotfix: "hotfix/*"
+  head: "hotfix/*"
 
 major:
   head: "release/*"
