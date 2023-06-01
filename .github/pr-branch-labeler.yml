@@ -1,0 +1,8 @@
+minor:
+  head: "feature/*"
+
+patch:
+  hotfix: "hotfix/*"
+
+major:
+  head: "release/*"
