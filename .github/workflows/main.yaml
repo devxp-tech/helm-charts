@@ -105,22 +105,6 @@ jobs:
             git push
           fi
 
-  release:
-    name: Chart Release 📦
-    runs-on: ubuntu-latest
-    needs:
-      - lint-chart
-      - kubeval-chart
-      - bump-versions
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v3
-
-      - name: Git Setup 🔨
-        run: |
-          git config user.name "$GITHUB_ACTOR"
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-
       - name: Run chart-releaser 📈
         uses: helm/chart-releaser-action@main
         env:
@@ -131,7 +115,7 @@ jobs:
     name: Generate Artifacts 📦
     runs-on: ubuntu-latest
     needs:
-      - release
+      - bump-versions
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
