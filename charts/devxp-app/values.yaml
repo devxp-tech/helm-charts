@@ -126,6 +126,7 @@ env:
   #   value: dev
 
 podAnnotations: {}
+serviceAnnotations: {}
 
 envFrom:
   []

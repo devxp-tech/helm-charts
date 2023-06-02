@@ -10,6 +10,10 @@ metadata:
     app: {{ .Values.name }}
     version: {{ .Values.image.tag }}
     backstage.io/kubernetes-id: {{ .Values.name }}
+  {{- with .Values.serviceAnnotations }}
+  annotations:
+    {{- toYaml . | nindent 8 }}
+  {{- end }}
 spec:
   type: {{ .Values.network.service.type }}
   selector:
