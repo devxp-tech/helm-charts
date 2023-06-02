@@ -31,7 +31,7 @@ Create chart name and version as used by the chart label.
 {{- end }}
 
 {{/*
-Common labels
+Create Common labels 
 */}}
 {{- define "devxp-app.labels" -}}
 helm.sh/chart: {{ include "devxp-app.chart" . }}
