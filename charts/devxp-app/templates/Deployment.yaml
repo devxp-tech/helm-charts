@@ -20,6 +20,10 @@ spec:
         app: {{ .Values.name }}
         version: {{ .Values.image.tag }}
         backstage.io/kubernetes-id: {{ .Values.name }}
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
     spec:
       {{- if not .Values.ServiceAccount.enabled }}
       serviceAccountName: {{ .Values.name }}
