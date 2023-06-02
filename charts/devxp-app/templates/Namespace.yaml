@@ -10,9 +10,10 @@ metadata:
     app.kubernetes.io/managed-by: Helm
     backstage.io/kubernetes-id: {{ .Values.name }}
     kubernetes.io/metadata.name: {{ .Values.name }}
-    {{- if .Values.istioInjection.enabled }}
-    istio-injection: enabled
-    {{- end }}
+  {{- with .Values.nsAnnotations }}
+  annotations:
+    {{- toYaml . | nindent 8 }}
+  {{- end }}
 spec:
   finalizers:
   - kubernetes
