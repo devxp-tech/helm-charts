@@ -3,18 +3,14 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: {{ include "namespace" . }}
-  annotations:
-    meta.helm.sh/release-name: {{ .Values.name }}
-    meta.helm.sh/release-namespace: {{ .Values.name }}
-  labels:
-    app.kubernetes.io/managed-by: Helm
-    backstage.io/kubernetes-id: {{ .Values.name }}
-    kubernetes.io/metadata.name: {{ .Values.name }}
   {{- with .Values.nsAnnotations }}
   annotations:
     {{- toYaml . | nindent 8 }}
   {{- end }}
-spec:
-  finalizers:
-  - kubernetes
+  {{- with .Values.nsLabels }}
+  labels:
+    {{- toYaml . | nindent 8 }}
+  {{- end }}
+spec: {}
+status: {}
 {{- end }}
