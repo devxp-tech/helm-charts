@@ -55,6 +55,7 @@ Helm Charts for default DevXP-Tech Application
 | nodeSelector | object | `{}` |  |
 | peerAuthentication | object | `{"enabled":true}` | PeerAuthentication defines how traffic will be tunneled (or not) to the sidecar. |
 | peerAuthentication.enabled | bool | `true` | enable PeerAuthentication |
+| podAnnotations | object | `{}` |  |
 | probe.enabled | bool | `true` |  |
 | quota | object | `{"enabled":true,"resources":{"hard":{"limits.cpu":"2","limits.memory":"2Gi","requests.cpu":"1","requests.memory":"1Gi"}}}` | ResourceQuota provides constraints that limit aggregate resource consumption per namespace |
 | quota.enabled | bool | `true` | Specifies whether a resource quota should be created |
