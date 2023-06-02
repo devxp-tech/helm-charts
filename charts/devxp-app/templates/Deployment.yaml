@@ -58,5 +58,3 @@ spec:
   minReadySeconds: 30
 {{- end }}
 {{- end }}
-
-
