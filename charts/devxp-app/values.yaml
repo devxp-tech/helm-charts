@@ -15,6 +15,13 @@ deployment:
   # --enabled default false
   enabled: false
 
+# --nsLabels
+nsLabels:
+  istio-injection: enabled
+nsAnnotations: {}
+podAnnotations: {}
+serviceAnnotations: {}
+
 # -- Network
 network:
   # --domain Set Default Domain
@@ -124,12 +131,6 @@ env:
   # please note that when the value is a number, you must quote the value to cast to string!
   # - name: ENVIROMENT
   #   value: dev
-
-nsLabels:
-  istio-injection: enabled
-nsAnnotations: {}
-podAnnotations: {}
-serviceAnnotations: {}
 
 envFrom:
   []
