@@ -1,11 +1,10 @@
 name: Main 🚀
 
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches:
-      - main
-    paths:
-      - "charts/**"
+      - 'main'
 
 jobs:
   env:
