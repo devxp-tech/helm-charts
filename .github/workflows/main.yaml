@@ -215,7 +215,7 @@ jobs:
         run: |
           if [[ $(git diff) ]];
           then
-            git add index.yaml
+            git add .
             git commit -m "[ci skip] :robot: [github actions actor] - Update Docs"
             git push
           else

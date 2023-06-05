@@ -42,6 +42,8 @@ network:
     type: ClusterIP
     # --port is the port your application runs under
     port: 80
+    nodePort: {}
+  # --gateways set default gateway for virtual-service
   gateways: istio-system/istio-ingressgateway
 
 # --istioInjection enable istio injection
