@@ -34,8 +34,10 @@ Create chart name and version as used by the chart label.
 Common labels
 */}}
 {{- define "devxp-app.labels" -}}
-helm.sh/chart: {{ include "devxp-app.chart" . }}
+app: {{ include "devxp-app.name" . }}
 version: {{ ($version := .Values.image.tag  | toString | quote) }}
+backstage.io/kubernetes-id: {{ .Values.name }}
+helm.sh/chart: {{ include "devxp-app.chart" . }}
 {{ include "devxp-app.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ $version }}

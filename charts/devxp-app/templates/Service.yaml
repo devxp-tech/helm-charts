@@ -4,6 +4,7 @@ kind: Service
 metadata:
   name: {{ .Values.name }}
   namespace: {{ include "namespace" . }}
+  labels: {{- include "devxp-app.labels" . | nindent 4 }}
   {{- with .Values.serviceAnnotations }}
   annotations:
   {{- if .Values.externalDns.enabled }}
@@ -11,7 +12,6 @@ metadata:
   {{- end }}
   {{ toYaml . | indent 4 }}
 {{- end }}
-  labels: {{- include "devxp-app.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.network.service.type }}
   selector:
