@@ -217,7 +217,7 @@ jobs:
           then
             git add .
             git commit -m "[ci skip] :robot: [github actions actor] - Update Docs"
-            git push
+            git push -f
           else
             echo "nothing to do!!!"
           fi
