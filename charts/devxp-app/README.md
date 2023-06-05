@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.1.84](https://img.shields.io/badge/Version-0.1.84-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.1.91](https://img.shields.io/badge/Version-0.1.91-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -27,20 +27,21 @@ Helm Charts for default DevXP-Tech Application
 | autoscaling.minReplicas | int | `1` | minReplicas is the number of mim pods to be running |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` | targetCPUUtilizationPercentage is the percentage of cpu when reached to scale new pods |
 | autoscaling.targetMemoryUtilizationPercentage | int | `80` | targetMemoryUtilizationPercentage is the percentage of memoty when reached to scale new pods |
-| cluster | string | `"lgsk8sp1.grupologos.local"` | cluster Set Cluster Name |
 | container.port | int | `8080` | port is the port your application runs under |
 | deployment | object | `{"enabled":false}` | deployment Disabled Deployment |
 | deployment.enabled | bool | `false` | enabled default false |
 | env | list | `[]` |  |
 | envFrom | list | `[]` |  |
+| externalDns.enabled | bool | `false` |  |
+| global.cluster | string | `"lgsk8sp1.grupologos.local"` | cluster Set Cluster Name |
+| global.commonLabels | object | `{}` | commonLabels set common labels for all resources |
 | image.pullPolicy | string | `"IfNotPresent"` | pullPolicy is the prop to setup the behavior of pull police. options is: IfNotPresent \| allways |
 | image.repository | string | `""` | repository: is the registry of your application ex:556684128444.dkr.ecr.us-east-1.amazonaws.com/YOU-APP-ECR-REPO-NAME if empty this helm will auto generate the image using aws.registry/values.name:values.image.tag |
 | image.tag | string | `"latest"` | especify the tag of your image to deploy |
-| imagePullSecrets.enabled | bool | `true` |  |
-| imagePullSecrets.name | string | `"ghcr-secret"` |  |
+| imagePullSecrets | object | `{"enabled":true,"name":"ghcr-secret"}` | imagePullSecrets secret used to download image on private container registry |
+| imagePullSecrets.enabled | bool | `true` | imagePullSecrets.enabled create secret do pull docker images in private registrys |
 | ingress | object | `{"enabled":true}` | ingress Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. |
 | ingress.enabled | bool | `true` | enable ingress |
-| istioInjection | object | `{"enabled":true}` | istioInjection enable istio injection |
 | livenessProbe.httpGet.path | string | `"/health-check/liveness"` |  |
 | livenessProbe.httpGet.port | int | `8080` |  |
 | livenessProbe.initialDelaySeconds | int | `15` |  |
@@ -48,11 +49,14 @@ Helm Charts for default DevXP-Tech Application
 | migration.enabled | bool | `false` | enable liquibase migration |
 | name | string | `""` | name is the github repository name of this application deploy |
 | namespace.enabled | bool | `true` |  |
-| network | object | `{"domain":"devxp-tech.io","gateways":"istio-system/istio-ingressgateway","service":{"port":80,"type":"ClusterIP"}}` | Network |
+| network | object | `{"domain":"devxp-tech.io","gateways":"istio-system/istio-ingressgateway","service":{"nodePort":{},"port":80,"type":"ClusterIP"}}` | Network |
 | network.domain | string | `"devxp-tech.io"` | domain Set Default Domain |
-| network.service | object | `{"port":80,"type":"ClusterIP"}` | service An abstract way to expose an application running on a set of Pods as a network service. |
+| network.gateways | string | `"istio-system/istio-ingressgateway"` | gateways set default gateway for virtual-service |
+| network.service | object | `{"nodePort":{},"port":80,"type":"ClusterIP"}` | service An abstract way to expose an application running on a set of Pods as a network service. |
 | network.service.port | int | `80` | port is the port your application runs under |
 | nodeSelector | object | `{}` |  |
+| nsAnnotations | object | `{}` |  |
+| nsLabels | object | `{"istio-injection":"enabled"}` | nsLabels |
 | peerAuthentication | object | `{"enabled":true}` | PeerAuthentication defines how traffic will be tunneled (or not) to the sidecar. |
 | peerAuthentication.enabled | bool | `true` | enable PeerAuthentication |
 | podAnnotations | object | `{}` |  |
@@ -64,12 +68,11 @@ Helm Charts for default DevXP-Tech Application
 | readinessProbe.initialDelaySeconds | int | `15` |  |
 | readinessProbe.periodSeconds | int | `10` |  |
 | replicaCount | int | `1` | replicaCount is used when autoscaling.enabled is false to set a manually number of pods |
-| resources.limits.cpu | string | `"100m"` |  |
-| resources.limits.memory | string | `"128Mi"` |  |
-| resources.requests.cpu | string | `"50m"` |  |
-| resources.requests.memory | string | `"64Mi"` |  |
+| resources | object | `{"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}` | resources set deployment resources |
 | sealedSecrets.enabled | bool | `true` |  |
 | sealedSecrets.encryptedData | string | `"AgDGBqpFurhI5BktCG/olnD7r2MuhAel/zkL1IL0BxrcaDUmR8JUf3TEkMqKbiRgb9iKYcwX7zVOXI4xDJeiyWyWDbckn8Yc+RBTw7qpKhh3kMUasPVo9blEcrKq4HjSEAEKapegBDT+H1LhjUToDoqwXVmGFEVYpiHtb0OA0OCtUuDZ2dYD4cLpMSVgZ/8hRfilRdD4PqXD+k1NEVZfRgKGl9fV0mazKm9e7w0rRI1brryhWx9+VZcvSi6RLHiELX7VOObxxjQ0W4gCuHKDRztgHoNDR+KVNum6YpVz8vOXQ/XpBxlASundsryNBAVcPwv0HYQDmsNFfMwXaLkLA+Hg6frWXi1CJvSrJc45U8RQ2sAfbCN6QQw1r6O+Lgqc2hmWnx3RzOva6zIq2UqUNRDrKxn99zZUCU4GpmVLFnj08ogq0p86zUXqzA6o1Qz1KRZu2S0QaQQyMquN4vqByXRfbXrgG5rtQRALsRG3o7q7OfOoy1sa1mF6kMyktpbawE7eT0k0FGPdjEtgg5FzLD88pj5OphL1aNTVzgSLVMpT0KY8GHVlB5AlMxz+ilB0bfSs+S5fGsY5u4iOpUAioAQ2lZH/aK8tMMug4pCRsYvDD6AUWlCupzGHhjVNeWDvhGpUG8anpr0htCxqLAGLJaMGV/hcuwbRzdxgKbPjqd/HFpzwi9ZN17IN1vtQhGm3xR781WTBAeLzU7XykzLh8VuUPhS6c8vdNsXXXYubSXrCAddAycXc5YThp/TzfOlPzn/3kkQZZRKUs3Qp393djTaEG75W/CpnQXG4Pnvk9a4swUCm2ZwNYCZdCjBccutcahlKa8mNG4sDeYbpLOG4ZICo2MuKNoJG2DqmemSUGKeThSyhW8v2CjoKqKhGSKbpUjI43c5dK4TueC88DYMZGX2TF5yOtXwmQbjsutAd3n2ELujLpg=="` |  |
+| serviceAnnotations | object | `{}` |  |
+| serviceLabels | object | `{}` |  |
 | tolerations | list | `[]` |  |
 
 ----------------------------------------------
