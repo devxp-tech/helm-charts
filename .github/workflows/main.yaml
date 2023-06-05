@@ -81,10 +81,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Configure Git 🔧
+      - name: Git setup 🔧
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
 
       - name: Get PR labels 🏷️
         id: pr-labels
@@ -123,7 +124,7 @@ jobs:
         with:
           ref: artifacts
 
-      - name: Git setup 🔨
+      - name: Git setup 🔧
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
@@ -167,7 +168,7 @@ jobs:
         with:
           ref: gh-pages
 
-      - name: git setup 🔨
+      - name: Git setup 🔧
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
@@ -196,26 +197,29 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
+
       - name: Generate Helm Docs 📦
         uses: docker://jnorwood/helm-docs:v1.7.0
         with:
           entrypoint: /usr/bin/helm-docs
           args: --chart-search-root /github/workspace
 
-      # - name: Commit changes 📦
-      #   uses: stefanzweifel/git-auto-commit-action@v4
-      #   with:
-      #     commit_message: "[skip ci] :robot: Update Docs :zap:"
-      #     repository: .
+      - name: Git setup 🔧
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
 
-      - name: Push Results
+      - name: Push Results 🚀
         id: pushResults
         run: |
-          if git merge-base --is-ancestor HEAD @{u} ; then
-            echo "No push necessary"
-          else
-            echo ":robot: Update Docs, Pushing now..."
+          if [[ $(git diff) ]];
+          then
+            git add index.yaml
+            git commit -m "[ci skip] :robot: [github actions actor] - Update Docs"
             git push
+          else
+            echo "nothing to do!!!"
           fi
 
   notify:
