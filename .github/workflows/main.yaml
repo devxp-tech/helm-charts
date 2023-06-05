@@ -194,18 +194,29 @@ jobs:
     needs:
       - index
     steps:
-      - name: Checkout Docs 🛎️
+      - name: Checkout 🛎️
         uses: actions/checkout@v3
       - name: Generate Helm Docs 📦
         uses: docker://jnorwood/helm-docs:v1.7.0
         with:
           entrypoint: /usr/bin/helm-docs
           args: --chart-search-root /github/workspace
-      - name: Commit changes 📦
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "[skip ci] :robot: Update Docs :zap:"
-          repository: .
+
+      # - name: Commit changes 📦
+      #   uses: stefanzweifel/git-auto-commit-action@v4
+      #   with:
+      #     commit_message: "[skip ci] :robot: Update Docs :zap:"
+      #     repository: .
+
+      - name: Push Results
+        id: pushResults
+        run: |
+          if git merge-base --is-ancestor HEAD @{u} ; then
+            echo "No push necessary"
+          else
+            echo ":robot: Update Docs, Pushing now..."
+            git push
+          fi
 
   notify:
     uses: devxp-tech/.github/.github/workflows/notify.yaml@main

@@ -31,15 +31,16 @@ Create chart name and version as used by the chart label.
 {{- end }}
 
 {{/*
-Create Common labels 
+Common labels
 */}}
 {{- define "devxp-app.labels" -}}
 helm.sh/chart: {{ include "devxp-app.chart" . }}
+version: {{ ($version := .Values.image.tag  | toString | quote) }}
 {{ include "devxp-app.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
-app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+app.kubernetes.io/version: {{ $version }}
 {{- end }}
-app.kubernetes.io/managed-by: {{ .Release.Service }}
+app.kubernetes.io/managed-by: argocd
 {{- end }}
 
 {{/*
@@ -60,7 +61,6 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
-
 
 {{- define "namespace" }}
   {{- if eq .Release.Namespace "default" }}

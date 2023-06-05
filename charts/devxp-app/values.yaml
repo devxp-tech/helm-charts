@@ -3,12 +3,17 @@
 # Declare variables to be passed into your templates.
 
 # --name is the github repository name of this application deploy
-name: ""
+name: "teste"
 
 namespace:
   enabled: true
+
 # --cluster Set Cluster Name
 cluster: lgsk8sp1.grupologos.local
+
+global:
+  commonLabels: {}
+  # team_name: dev
 
 # --deployment Disabled Deployment
 deployment:
@@ -18,9 +23,15 @@ deployment:
 # --nsLabels
 nsLabels:
   istio-injection: enabled
-nsAnnotations: {}
+nsAnnotations:
+  {}
+  # sidecar.jaegertracing.io/inject: "true"
 podAnnotations: {}
+
 serviceAnnotations: {}
+serviceLabels: {}
+externalDns:
+  enabled: false
 
 # -- Network
 network:
