@@ -163,10 +163,12 @@ jobs:
     needs:
       - artifacts
     steps:
-      - name: Chekcout gh-pages 🛎️
+      - name: Chekcout 🛎️
         uses: actions/checkout@v3
         with:
           ref: gh-pages
+          fetch-depth: 1
+      - run: git checkout HEAD^
 
       - name: Git setup 🔧
         run: |
@@ -193,10 +195,13 @@ jobs:
     name: Docs Generate 📝
     runs-on: ubuntu-latest
     needs:
-      - index
+      - artifacts
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - run: git checkout HEAD^
 
       - name: Generate Helm Docs 📦
         uses: docker://jnorwood/helm-docs:v1.7.0
@@ -227,4 +232,5 @@ jobs:
     if: always()
     secrets: inherit
     needs:
+      - index
       - generate-docs
