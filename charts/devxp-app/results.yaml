@@ -5,7 +5,7 @@ kind: Namespace
 metadata:
   name: teste-loki
   annotations:
-    backstage.io/kubernetes-id: teste-loki
+    backstage.io/kubernetes-id: teste
   labels:
     istio-injection: enabled
 spec: {}
@@ -18,8 +18,14 @@ metadata:
   name: teste
   namespace: teste-loki
   labels:
-    kubernetes.io/metadata.name: teste
+    app: devxp-app
+    version: "latest"
     backstage.io/kubernetes-id: teste
+    helm.sh/chart: devxp-app-0.1.89
+    app.kubernetes.io/name: devxp-app
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "latest"
+    app.kubernetes.io/managed-by: argocd
 spec: 
   hard:
     limits.cpu: "2"
@@ -33,6 +39,15 @@ kind: ServiceAccount
 metadata:
   name: teste
   namespace: teste-loki
+  labels:
+    app: devxp-app
+    version: "latest"
+    backstage.io/kubernetes-id: teste
+    helm.sh/chart: devxp-app-0.1.89
+    app.kubernetes.io/name: devxp-app
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "latest"
+    app.kubernetes.io/managed-by: argocd
 ---
 # Source: devxp-app/templates/ClusterRole.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -59,8 +74,10 @@ metadata:
   name: teste
   namespace: teste-loki
   labels:
-    helm.sh/chart: devxp-app-0.1.85
+    app: devxp-app
     version: "latest"
+    backstage.io/kubernetes-id: teste
+    helm.sh/chart: devxp-app-0.1.89
     app.kubernetes.io/name: devxp-app
     app.kubernetes.io/instance: release-name
     app.kubernetes.io/version: "latest"
@@ -137,6 +154,15 @@ kind: Rollout
 metadata:
   name: teste
   namespace: teste-loki
+  labels: 
+    app: devxp-app
+    version: "latest"
+    backstage.io/kubernetes-id: teste
+    helm.sh/chart: devxp-app-0.1.89
+    app.kubernetes.io/name: devxp-app
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "latest"
+    app.kubernetes.io/managed-by: argocd
 spec:
   revisionHistoryLimit: 5
   strategy:
@@ -159,10 +185,15 @@ spec:
       app: teste
   template:
     metadata:
-      labels:
-        app: teste
+      labels: 
+        app: devxp-app
         version: "latest"
         backstage.io/kubernetes-id: teste
+        helm.sh/chart: devxp-app-0.1.89
+        app.kubernetes.io/name: devxp-app
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "latest"
+        app.kubernetes.io/managed-by: argocd
     spec:
       containers:
       - name: teste
@@ -242,8 +273,10 @@ kind: Pod
 metadata:
   name: "release-name-devxp-app-test-connection"
   labels:
-    helm.sh/chart: devxp-app-0.1.85
+    app: devxp-app
     version: "latest"
+    backstage.io/kubernetes-id: teste
+    helm.sh/chart: devxp-app-0.1.89
     app.kubernetes.io/name: devxp-app
     app.kubernetes.io/instance: release-name
     app.kubernetes.io/version: "latest"

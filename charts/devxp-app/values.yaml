@@ -3,15 +3,15 @@
 # Declare variables to be passed into your templates.
 
 # --name is the github repository name of this application deploy
-name: "teste"
+name: ""
 
 namespace:
   enabled: true
 
-# --cluster Set Cluster Name
-cluster: lgsk8sp1.grupologos.local
-
 global:
+  # --cluster Set Cluster Name
+  cluster: lgsk8sp1.grupologos.local
+  # --commonLabels set common labels for all resources
   commonLabels: {}
   # team_name: dev
 

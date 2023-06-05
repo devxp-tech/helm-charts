@@ -4,7 +4,7 @@ kind: Namespace
 metadata:
   name: {{ include "namespace" . }}
   annotations:
-    backstage.io/kubernetes-id: {{ include "namespace" . }}
+    backstage.io/kubernetes-id: {{ .Values.name }}
   {{- with .Values.nsAnnotations }}
     {{- toYaml . | nindent 4 }}
   {{- end }}
