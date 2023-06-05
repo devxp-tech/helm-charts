@@ -47,10 +47,6 @@ spec:
       imagePullSecrets:
         - name: {{ .Values.imagePullSecrets.name }}
       {{- end }}
-      {{- if .Values.podAnnotations }}
-      annotations: {{ toYaml .Values.podAnnotations | nindent 8 }}
-      {{- end }}
-      labels: {{ include "devxp-app.labels" . | nindent 8 }}
       containers:
       - name: {{ .Values.name }}
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
