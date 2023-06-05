@@ -22,6 +22,7 @@ deployment:
 
 # --nsLabels
 nsLabels:
+  # enable istio-injection label on namespace
   istio-injection: enabled
 nsAnnotations:
   {}
@@ -105,10 +106,13 @@ image:
   # --especify the tag of your image to deploy
   tag: "latest"
 
+# --imagePullSecrets secret used to download image on private container registry
 imagePullSecrets:
+  # --imagePullSecrets.enabled create secret do pull docker images in private registrys
   enabled: true
   name: ghcr-secret
 
+# --resources set deployment resources
 resources:
   requests:
     cpu: "50m"
