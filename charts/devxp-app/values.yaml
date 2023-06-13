@@ -10,7 +10,7 @@ namespace:
 
 global:
   # --cluster Set Cluster Name
-  cluster: lgsk8sp1.grupologos.local
+  cluster: cluster.local
   # --commonLabels set common labels for all resources
   commonLabels: {}
   # team_name: dev
