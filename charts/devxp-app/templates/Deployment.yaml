@@ -6,6 +6,7 @@ metadata:
   name: {{ .Values.name }}
   namespace: {{ include "namespace" . }}
   labels: {{- include "devxp-app.labels" . | nindent 4 }}
+  annotations: {{- .Values.deployment.annotations | toYaml | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ default 1 .Values.replicaCount }}
@@ -23,21 +24,14 @@ spec:
       {{- end }}
       labels: {{- include "devxp-app.labels" . | nindent 8 }}
     spec:
-      {{- if not .Values.ServiceAccount.enabled }}
+      imagePullSecrets: {{- toYaml (default list .Values.imagePullSecrets.name) | nindent 8 }}
       serviceAccountName: {{ .Values.name }}
-      {{- end }}
       containers:
       - name: {{ .Values.name }}
-        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        image: {{ include "image" . | quote }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        env:
-        {{- with .Values.env }}
-          {{- toYaml . | nindent 8 }}
-        {{- end }}
-        envFrom:
-        {{- with .Values.envFrom }}
-          {{- toYaml . | nindent 8 }}
-        {{- end }}
+        env: {{- include "all-envs" . | nindent 12 }}
+        envFrom: {{- toYaml .Values.envFrom | nindent 12 }}
         ports:
         - name: http
           containerPort: {{ .Values.container.port }}
@@ -46,13 +40,10 @@ spec:
         livenessProbe: {{ toYaml .Values.livenessProbe | nindent 12 }}
         readinessProbe: {{ toYaml .Values.readinessProbe | nindent 12 }}
         {{- end }}
-      {{- if not .Values.imagePullSecrets.enabled }}
-      imagePullSecrets:
-        - name: {{ .Values.imagePullSecrets.name }}
-      {{- end }}
       nodeSelector: {{ toYaml (default dict .Values.nodeSelector) | nindent 8 }}
       affinity: {{ toYaml (default dict .Values.affinity) | nindent 8 }}
       tolerations: {{ toYaml (default list .Values.tolerations)  | nindent 8 }}
+      volumes: {{ include "all-volumes" . | nindent 8 }}
   minReadySeconds: 30
 {{- end }}
 {{- end }}

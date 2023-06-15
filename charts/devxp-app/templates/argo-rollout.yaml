@@ -40,9 +40,7 @@ spec:
       {{- end }}
       labels: {{ include "devxp-app.labels" . | nindent 8 }}
     spec:
-      {{- if not .Values.ServiceAccount.enabled }}
       serviceAccountName: {{ .Values.name }}
-      {{- end }}
       {{- if not .Values.imagePullSecrets.enabled }}
       imagePullSecrets:
         - name: {{ .Values.imagePullSecrets.name }}
@@ -52,7 +50,7 @@ spec:
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
-        {{- with .Values.env }}
+        {{- with .Values.envs }}
           {{- toYaml . | nindent 8 }}
         {{- end }}
         envFrom:
