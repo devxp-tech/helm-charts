@@ -1,15 +1,16 @@
 name: Main 🚀
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - "charts/**"
-  # pull_request:
-  #   types: [closed]
+  workflow_run:
+    workflows: ["Bump Chart Version ✨"]
+    branches: [main]
+    types:
+      - completed
+  # push:
   #   branches:
-  #     - 'main'
+  #     - main
+  #   paths:
+  #     - "charts/**"
 
 
 jobs:
