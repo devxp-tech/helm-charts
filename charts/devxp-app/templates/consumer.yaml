@@ -1,0 +1,45 @@
+{{- $name := .Values.name }}
+{{- $root := . }}
+{{- $consumer := $root.Values.consumers }}
+{{- range $consumer.list }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ ($consumername := printf "%s-consumer-%s" $name .name | replace "+" "_" | trunc 63 | trimSuffix "-" | lower) }}
+  namespace: {{ include "namespace" $root }}
+  labels: {{- ($labels := (include "all-labels-removed-istio-sidecar" (dict "root" $root "name" $consumername))) | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ $consumername }}
+  template:
+    metadata:
+      {{- with $root.Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels: {{- $labels | nindent 8 }}
+    spec:
+      terminationGracePeriodSeconds: {{ default "30" $consumer.terminationGracePeriodSeconds }}
+      restartPolicy: {{ default "Always" .restartPolicy }}
+      imagePullSecrets: {{- toYaml (default list $root.Values.imagePullSecrets) | nindent 8 }}
+      serviceAccountName: {{ $name }}
+      securityContext: {{ toYaml $root.Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .name }}
+          securityContext: {{ toYaml $root.Values.securityContext | nindent 12 }}
+          image: {{ include "image" $root | quote }}
+          imagePullPolicy: {{ $root.Values.image.pullPolicy }}
+          command: {{ toYaml (default list .command) | nindent 12 }}
+          args: {{ toYaml (default list .args) | nindent 12 }}
+          env: {{- (include "merged-envs" (dict "overrides" .envs "envs" $root.Values.envs )) | nindent 12 }}
+          envFrom: {{- toYaml $root.Values.envFrom | nindent 12 }}
+          {{- include "liveness-probe" (dict "probe" (default $root.Values.livenessProbe .livenessProbe) "port" $root.Values.container.port )  | nindent 10 }}
+          resources: {{- default $root.Values.resources .resources | toYaml | nindent 14 }}
+          volumeMounts: {{ $root.Values.volumeMounts | toYaml | nindent 12 }}
+      nodeSelector: {{ toYaml $root.Values.nodeSelector | nindent 12 }}
+      affinity: {{ toYaml $root.Values.affinity | nindent 12 }}
+      tolerations: {{ toYaml $root.Values.tolerations | nindent 12 }}
+      volumes: {{ include "all-volumes" $root | nindent 12 }}
+{{- end }}

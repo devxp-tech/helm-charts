@@ -4,9 +4,8 @@
 
 # --name is the github repository name of this application deploy
 name: ""
-
-namespace:
-  enabled: true
+nameOverride: {}
+fullnameOverride: {}
 
 global:
   # --cluster Set Cluster Name
@@ -15,24 +14,48 @@ global:
   commonLabels: {}
   # team_name: dev
 
+# --namespace
+namespace:
+  enabled: true
+  labels: {}
+  # enable istio-injection label on namespace
+  istio-injection: enabled
+  annotations: {}
+  # sidecar.jaegertracing.io/inject: "true"
+
 # --deployment Disabled Deployment
 deployment:
   # --enabled default false
   enabled: false
+  annotations: {}
 
-# --nsLabels
-nsLabels:
-  # enable istio-injection label on namespace
-  istio-injection: enabled
-nsAnnotations:
-  {}
-  # sidecar.jaegertracing.io/inject: "true"
-podAnnotations: {}
+# cronjobs list of cronjobs to be included in the application
+cronjobs:
+  # --suspend used to disable all cronjobs in the list
+  suspend: false
+  # --list is an array of spec for create multiples cronjobs
+  list:
+    []
+    # - name: cron1
+    #   schecule: "* * * * *"
+    #   command:
+    #     - echo "ok"
+# --consumers is the object to configure an array of consumers
+consumers:
+  # --terminationGracePeriodSeconds configures terminationGracePeriodSeconds
+  terminationGracePeriodSeconds: 30
+  # --list is the array of consumer definition
+  list:
+    []
+    # - name: required
+    #   command:
+    #     - required
 
-serviceAnnotations: {}
-serviceLabels: {}
-externalDns:
-  enabled: false
+service:
+  annotations: {}
+  labels: {}
+  externalDns:
+    enabled: false
 
 # -- Network
 network:
@@ -57,7 +80,7 @@ ingress:
   enabled: true
 
 # --ServiceAccount A service account provides an identity for processes that run in a Pod, about more: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
-ServiceAccount:
+serviceAccount:
   # --Specifies whether a service account should be created
   enabled: true
   # --Annotations to add to the service account
@@ -142,12 +165,28 @@ nodeSelector: {}
 tolerations: []
 affinity: {}
 
-env:
+podAnnotations: {}
+# --A security context defines privilege and access control settings for a Pod or Container. About more: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+podSecurityContext:
+  {}
+  # --fsGroup: 2000
+securityContext:
+  {}
+  # --capabilities:
+  # --drop:
+  # ---ALL
+  # --readOnlyRootFilesystem: true
+  # --runAsNonRoot: true
+  # --runAsUser: 1000
+
+envs:
   []
   # examples:
   # please note that when the value is a number, you must quote the value to cast to string!
   # - name: ENVIROMENT
   #   value: dev
+  # - name: ENVIROMENT1
+  #   value: true
 
 envFrom:
   []
@@ -155,6 +194,20 @@ envFrom:
   # please note that when the value is a number, you must quote the value to cast to string!
   # - configMapRef
   #     name: postgres-configs
+
+# --volumes specifies pod volumes
+volumes:
+  []
+  # - name: sensitive-config
+  #   secret:
+  #     secretName: app-secrets
+
+# --volumeMounts specifies where Kubernetes will mount Pod volumes
+volumeMounts:
+  []
+  # - name: sensitive-config
+  #   mountPath: /sensitive-config/
+  #   readOnly: true
 
 sealedSecrets:
   enabled: true

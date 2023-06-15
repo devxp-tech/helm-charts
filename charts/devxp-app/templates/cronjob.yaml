@@ -1,0 +1,42 @@
+{{- $name := .Values.name }}
+{{- $root := . }}
+{{- $crons := $root.Values.cronjobs }}
+{{- range $crons.list }}
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ ($cronname := printf "%s-cronjob-%s" $name .name | replace "+" "_" | trunc 63 | trimSuffix "-" | lower) }}
+  namespace: {{ include "namespace" $root }}
+  labels: {{- ($labels := (include "all-labels-removed-istio-sidecar" (dict "root" $root "name" $cronname))) | nindent 4 }}
+spec:
+  schedule: {{ .schedule | quote }}
+  suspend: {{ default $crons.suspend .suspend }}
+  concurrencyPolicy: {{ default "Replace" .concurrencyPolicy }}
+  failedJobsHistoryLimit: {{ default 1 .failedJobsHistoryLimit }}
+  successfulJobsHistoryLimit: {{ default 3 .successfulJobsHistoryLimit }}
+  jobTemplate:
+    spec:
+      backoffLimit: {{ default 6 .backoffLimit }}
+      template:
+        metadata:
+          labels: {{- $labels | nindent 12 }}
+        spec:
+          terminationGracePeriodSeconds: {{ default "30" .terminationGracePeriodSeconds }}
+          serviceAccountName: {{ $name }}
+          restartPolicy: {{ default "OnFailure" .restartPolicy }}
+          containers:
+          - name: {{ $cronname }}
+            image: {{ include "image" $root | quote }}
+            imagePullPolicy: {{ $root.Values.image.pullPolicy }}
+            command: {{ toYaml (default list .command) | nindent 14 }}
+            args: {{ toYaml (default list .args) | nindent 14 }}
+            resources: {{ default $root.Values.resources .resources | toYaml | nindent 14 }}
+            env: {{- (include "merged-envs" (dict "overrides" .envs "envs" $root.Values.envs )) | nindent 14 }}
+            envFrom: {{- toYaml $root.Values.envFrom | nindent 14 }}
+            volumeMounts: {{  toYaml $root.Values.volumeMounts | nindent 14 }}
+          nodeSelector: {{ toYaml $root.Values.nodeSelector | nindent 12 }}
+          affinity: {{ toYaml $root.Values.affinity | nindent 12 }}
+          tolerations: {{ toYaml $root.Values.tolerations | nindent 12 }}
+          volumes: {{ include "all-volumes" $root | nindent 12 }}
+{{- end }}
