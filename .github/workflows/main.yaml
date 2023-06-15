@@ -147,7 +147,7 @@ jobs:
         with:
           commit_message: ":robot: Update Docs :zap:"
           repository: .
-          # branch: artifacts
+          branch: main
 
   artifacts:
     name: Generate Artifacts 📦
