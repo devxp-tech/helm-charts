@@ -71,45 +71,6 @@ jobs:
     needs:
       - env
 
-  # bump-versions:
-  #   name: Bump Version 🆙
-  #   runs-on: ubuntu-latest
-  #   needs:
-  #     - lint-chart
-  #     - quality-gate
-  #     - kubeval-chart
-  #   steps:
-  #     - name: Checkout 🛎️
-  #       uses: actions/checkout@v3
-  #       with:
-  #         fetch-depth: 0
-
-  #     - name: Git setup 🔧
-  #       run: |
-  #         git config user.name "$GITHUB_ACTOR"
-  #         git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-  #         echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
-
-  #     - name: Get PR labels 🏷️
-  #       id: pr-labels
-  #       uses: joerick/pr-labels-action@v1.0.8
-
-  #     - name: Bump Version 🆙
-  #       run: |
-  #         set -ex
-  #         pip install --no-cache-dir bump2version
-  #         python ./.github/callBump2version.py ${{steps.pr-labels.outputs.labels}}
-
-  #     - name: Push Results
-  #       id: pushResults
-  #       run: |
-  #         if git merge-base --is-ancestor HEAD @{u} ; then
-  #           echo "No push necessary"
-  #         else
-  #           echo "Version bumps happened. Pushing now..."
-  #           git push
-  #         fi
-
   release:
     name: Chart Release ✨
     # depending on default permission settings for your org (contents being read-only or read-write for workloads), you will have to add permissions
@@ -137,16 +98,6 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v3
 
-      # - name: Get PR labels 🏷️
-      #   id: pr-labels
-      #   uses: joerick/pr-labels-action@v1.0.8
-
-      # - name: Bump Version 🆙
-      #   run: |
-      #     set -ex
-      #     pip install --no-cache-dir bump2version
-      #     python ./.github/callBump2version.py ${{steps.pr-labels.outputs.labels}}
-
       - name: Generate Helm Docs 📝
         uses: docker://jnorwood/helm-docs:latest
         with:
@@ -159,24 +110,12 @@ jobs:
           CR_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
           CR_SKIP_EXISTING: true
 
-      - name: Push Results
-        id: pushResults
-        run: |
-          if git merge-base --is-ancestor HEAD @{u} ; then
-            echo "No push necessary"
-          else
-            echo "Version bumps happened. Pushing now..."
-            git push
-          fi
-
-      # - name: Commit Changes
-      #   id: docs_updater
-      #   uses: stefanzweifel/git-auto-commit-action@v4.15.4
-      #   with:
-      #     commit_message: ":robot: Update Docs :zap:"
-      #     repository: .
-      #     branch: main
-      #     push_options: '--force'
+      - name: Commit Changes
+        id: docs_updater
+        uses: stefanzweifel/git-auto-commit-action@v4.15.4
+        with:
+          commit_message: ":robot: Update Docs :zap:"
+          repository: .
 
   artifacts:
     name: Generate Artifacts 📦
