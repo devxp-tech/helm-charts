@@ -3,15 +3,8 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: {{ include "namespace" . }}
-  annotations:
-    backstage.io/kubernetes-id: {{ .Values.name }}
-  {{- with .Values.nsAnnotations }}
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
-  {{- with .Values.nsLabels }}
-  labels:
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
+  annotations: {{- include "ns-annotaions" . | nindent 4 }}
+  labels: {{- include "ns-labels" . | nindent 4 }}
 spec: {}
 status: {}
 {{- end }}

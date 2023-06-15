@@ -19,7 +19,7 @@ namespace:
   enabled: true
   labels: {}
   # enable istio-injection label on namespace
-  istio-injection: enabled
+  istio: true
   annotations: {}
   # sidecar.jaegertracing.io/inject: "true"
 
