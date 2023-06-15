@@ -148,6 +148,7 @@ jobs:
           commit_message: ":robot: Update Docs :zap:"
           repository: .
           branch: main
+          push_options: '--force'
 
   artifacts:
     name: Generate Artifacts 📦
