@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.2.10](https://img.shields.io/badge/Version-0.2.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.2.11](https://img.shields.io/badge/Version-0.2.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -51,7 +51,7 @@ Helm Charts for default DevXP-Tech Application
 | migration.enabled | bool | `false` | enable liquibase migration |
 | name | string | `""` | name is the github repository name of this application deploy |
 | nameOverride | object | `{}` |  |
-| namespace | object | `{"annotations":{},"enabled":true,"istio-injection":"enabled","labels":{}}` | namespace |
+| namespace | object | `{"annotations":{},"enabled":true,"istio":true,"labels":{}}` | namespace |
 | network | object | `{"domain":"devxp-tech.io","gateways":"istio-system/istio-ingressgateway","service":{"nodePort":{},"port":80,"type":"ClusterIP"}}` | Network |
 | network.domain | string | `"devxp-tech.io"` | domain Set Default Domain |
 | network.gateways | string | `"istio-system/istio-ingressgateway"` | gateways set default gateway for virtual-service |
