@@ -1,10 +1,16 @@
 name: Main 🚀
 
 on:
-  pull_request:
-    types: [closed]
+  push:
     branches:
-      - 'main'
+      - main
+    paths:
+      - "charts/**"
+  # pull_request:
+  #   types: [closed]
+  #   branches:
+  #     - 'main'
+
 
 jobs:
   env:
@@ -135,15 +141,15 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v3
 
-      - name: Get PR labels 🏷️
-        id: pr-labels
-        uses: joerick/pr-labels-action@v1.0.8
+      # - name: Get PR labels 🏷️
+      #   id: pr-labels
+      #   uses: joerick/pr-labels-action@v1.0.8
 
-      - name: Bump Version 🆙
-        run: |
-          set -ex
-          pip install --no-cache-dir bump2version
-          python ./.github/callBump2version.py ${{steps.pr-labels.outputs.labels}}
+      # - name: Bump Version 🆙
+      #   run: |
+      #     set -ex
+      #     pip install --no-cache-dir bump2version
+      #     python ./.github/callBump2version.py ${{steps.pr-labels.outputs.labels}}
 
       - name: Generate Helm Docs 📝
         uses: docker://jnorwood/helm-docs:latest
@@ -153,8 +159,6 @@ jobs:
 
       - name: Run chart-releaser 📈
         uses: helm/chart-releaser-action@v1.5.0
-        with:
-          charts_repo_url: https://devxp-tech.github.io/helm-charts/
         env:
           CR_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
           CR_SKIP_EXISTING: true
