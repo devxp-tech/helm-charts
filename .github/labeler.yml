@@ -10,3 +10,6 @@ devxp-infra:
 
 cluster-bootstrap:
   - charts/cluster-bootstrap/**
+
+tooling:
+  - charts/tooling/**
