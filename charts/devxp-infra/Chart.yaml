@@ -3,7 +3,7 @@ name: devxp-infra
 description: Helm Charts for default DevXP-Tech Infrastructure
 icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
 type: application
-version: 0.0.7
+version: 0.0.8
 appVersion: 1.0.0
 maintainers:
   - name: diegoluisi
