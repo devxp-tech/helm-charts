@@ -111,6 +111,7 @@ jobs:
           fi
 
   release:
+    name: Chart Release ✨
     # depending on default permission settings for your org (contents being read-only or read-write for workloads), you will have to add permissions
     # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token
     needs:
@@ -130,6 +131,12 @@ jobs:
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
           echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
 
+      - name: Docs Generate 📝
+        uses: docker://jnorwood/helm-docs:latest
+        with:
+          entrypoint: /usr/bin/helm-docs
+          args: --chart-search-root /github/workspace
+
       - name: Install Helm 🔧
         uses: azure/setup-helm@v3
 
@@ -138,6 +145,13 @@ jobs:
         env:
           CR_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
           CR_SKIP_EXISTING: true
+
+      - name: commit changes
+        id: docs_updater
+        uses: stefanzweifel/git-auto-commit-action@v4.15.4
+        with:
+          commit_message: ":robot: Update Docs :zap:"
+          repository: .
 
   artifacts:
     name: Generate Artifacts 📦
@@ -217,40 +231,40 @@ jobs:
             echo "nothing to do!!!"
           fi
 
-  generate-docs:
-    name: Docs Generate 📝
-    runs-on: ubuntu-latest
-    needs:
-      - artifacts
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 1
+  # generate-docs:
+  #   name: Docs Generate 📝
+  #   runs-on: ubuntu-latest
+  #   needs:
+  #     - artifacts
+  #   steps:
+  #     - name: Checkout 🛎️
+  #       uses: actions/checkout@v3
+  #       with:
+  #         fetch-depth: 1
 
-      - name: Generate Helm Docs 📦
-        uses: docker://jnorwood/helm-docs:v1.7.0
-        with:
-          entrypoint: /usr/bin/helm-docs
-          args: --chart-search-root /github/workspace
+  #     - name: Generate Helm Docs 📦
+  #       uses: docker://jnorwood/helm-docs:v1.7.0
+  #       with:
+  #         entrypoint: /usr/bin/helm-docs
+  #         args: --chart-search-root /github/workspace
 
-      - name: Git setup 🔧
-        run: |
-          git config user.name "$GITHUB_ACTOR"
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-          echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
+  #     - name: Git setup 🔧
+  #       run: |
+  #         git config user.name "$GITHUB_ACTOR"
+  #         git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+  #         echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
 
-      - name: Push Results 🚀
-        id: pushResults
-        run: |
-          if [[ $(git diff) ]];
-          then
-            git add .
-            git commit -m "[ci skip] :robot: [github actions actor] - Update Docs"
-            git push -f
-          else
-            echo "nothing to do!!!"
-          fi
+  #     - name: Push Results 🚀
+  #       id: pushResults
+  #       run: |
+  #         if [[ $(git diff) ]];
+  #         then
+  #           git add .
+  #           git commit -m "[ci skip] :robot: [github actions actor] - Update Docs"
+  #           git push -f
+  #         else
+  #           echo "nothing to do!!!"
+  #         fi
 
   notify:
     uses: devxp-tech/.github/.github/workflows/notify.yaml@main
@@ -258,4 +272,3 @@ jobs:
     secrets: inherit
     needs:
       - index
-      - generate-docs
