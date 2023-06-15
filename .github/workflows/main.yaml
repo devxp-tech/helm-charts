@@ -3,15 +3,8 @@ name: Main 🚀
 on:
   workflow_run:
     workflows: ["bump"]
-    branches: [main]
     types:
       - completed
-  # push:
-  #   branches:
-  #     - main
-  #   paths:
-  #     - "charts/**"
-
 
 jobs:
   env:
