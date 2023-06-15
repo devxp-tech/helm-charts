@@ -40,10 +40,11 @@ spec:
         livenessProbe: {{ toYaml .Values.livenessProbe | nindent 12 }}
         readinessProbe: {{ toYaml .Values.readinessProbe | nindent 12 }}
         {{- end }}
+        volumeMounts: {{ toYaml (default list .Values.volumeMounts)  | nindent 12 }}
       nodeSelector: {{ toYaml (default dict .Values.nodeSelector) | nindent 8 }}
       affinity: {{ toYaml (default dict .Values.affinity) | nindent 8 }}
       tolerations: {{ toYaml (default list .Values.tolerations)  | nindent 8 }}
-      volumes: {{ include "all-volumes" . | nindent 8 }}
+      volumes: {{ toYaml (default list .Values.volumes)  | nindent 8 }}
   minReadySeconds: 30
 {{- end }}
 {{- end }}
