@@ -2,7 +2,7 @@ name: Main 🚀
 
 on:
   workflow_run:
-    workflows: ["Bump Chart Version ✨"]
+    workflows: ["bump"]
     branches: [main]
     types:
       - completed
