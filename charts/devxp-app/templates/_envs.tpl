@@ -2,7 +2,6 @@
 {{- $envs := dict }}
 {{- $secrets := dict }}
 {{- $list := list }}
-{{- $instanaSecrets := fromYaml (include "instana-envs" .) }}
 {{- $environments := .Values.envs }}
 {{- range $_, $value := $environments }}
   {{- if $value.value }}
@@ -11,13 +10,7 @@
     {{- $_ = set $secrets $value.name $value.valueFrom }}
   {{- end }}
 {{- end }}
-{{- range $_, $value := $instanaSecrets.envs }}
-  {{- if $value.value }}
-    {{- $_ = set $envs $value.name ($value.value | toString) }}
-  {{- else }}
-    {{- $_ = set $secrets $value.name $value.valueFrom }}
-  {{- end }}
-{{- end }}
+
 {{- range $key, $value := $envs }}
   {{- $list = append $list (dict "name" $key "value" $value) }}
 {{- end }}
