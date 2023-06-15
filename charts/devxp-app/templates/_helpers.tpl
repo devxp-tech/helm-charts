@@ -91,26 +91,6 @@ kind: Deployment
 {{- end }}
 {{- end }}
 
-{{- define "container-volumeMounts" -}}
-{{- $mounts := .Values.volumeMounts }}
-  {{- if .Values.nginx.shared.enabled }}
-    {{- $mounts = append $mounts (dict "name" "files" "mountPath" "/shared") }}
-  {{- end }}
-{{- toYaml $mounts}}
-{{- end -}}
-
-{{- define "all-volumes" }}
-{{- $volumes := .Values.volumes }}
-{{- $configName := toString (include "nginx-config-name" . ) }}
-{{- if .Values.nginx.enabled }}
-  {{- $volumes = append $volumes (dict "name" $configName "configMap" (dict "name" $configName ))}}
-  {{- if .Values.nginx.shared.enabled }}
-    {{- $volumes = append $volumes (dict "name" "files" "emptyDir" dict )}}
-  {{- end }}
-{{- end }}
-{{- toYaml $volumes }}
-{{- end }}
-
 {{/* Generate the default image string to deployment */}}
 {{- define "image" -}}
 {{- if not .Values.image.repository }}
