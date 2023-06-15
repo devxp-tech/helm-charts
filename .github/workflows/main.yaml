@@ -116,7 +116,9 @@ jobs:
     # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token
     needs:
       # - bump-versions
+      - lint-chart
       - quality-gate
+      - kubeval-chart
     permissions:
       contents: write
     runs-on: ubuntu-latest
