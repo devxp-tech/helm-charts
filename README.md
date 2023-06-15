@@ -4,6 +4,11 @@
 
 [![main](https://github.com/devxp-tech/helm-charts/actions/workflows/main.yaml/badge.svg)](https://github.com/devxp-tech/helm-charts/actions/workflows/main.yaml)
 [![pages-build-deployment](https://github.com/devxp-tech/helm-charts/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/devxp-tech/helm-charts/actions/workflows/pages/pages-build-deployment)
+[![Quality Gate Status](https://sonar.devxp-tech.io/api/project_badges/measure?project=helm-charts&metric=alert_status&token=sqb_76ba4a0f313d6ec94b247f9758522cb2d13e981b)](https://sonar.devxp-tech.io/dashboard?id=helm-charts)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/devxp-tech/helm-charts)
+![GitHub last commit](https://img.shields.io/github/last-commit/devxp-tech/helm-charts)
+![GitHub](https://img.shields.io/github/license/devxp-tech/helm-charts)
+![Twitter Follow](https://img.shields.io/twitter/follow/devxp_tech?style=social)
 
 ### 🖊️ Code of Conduct
 
