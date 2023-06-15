@@ -24,7 +24,10 @@ spec:
       {{- end }}
       labels: {{- include "devxp-app.labels" . | nindent 8 }}
     spec:
-      imagePullSecrets: {{- toYaml (default list .Values.imagePullSecrets.name) | nindent 8 }}
+      {{- if not .Values.imagePullSecrets.enabled }}
+      imagePullSecrets:
+        - name: {{ .Values.imagePullSecrets.name }}
+      {{- end }}
       serviceAccountName: {{ .Values.name }}
       containers:
       - name: {{ .Values.name }}
