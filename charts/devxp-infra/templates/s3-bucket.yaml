@@ -1,7 +1,7 @@
 {{- if .Values.bucket.enabled }}
 ---
 apiVersion: s3.aws.crossplane.io/v1beta1
-kind: Bucket
+kind: bucket
 metadata:
   name: devxp-{{ .Values.name }}
   namespace: {{ include "namespace" . }}
@@ -9,9 +9,9 @@ metadata:
     backstage.io/kubernetes-id: {{ .Values.name }}
 spec:
   forProvider:
-    acl: {{ .Values.Bucket.acl }}
-    locationConstraint: {{ .Values.Bucket.locationConstraint }}
-    objectLockEnabledForBucket: {{ .Values.Bucket.objectLockEnabledForBucket }}
+    acl: {{ .Values.bucket.acl }}
+    locationConstraint: {{ .Values.bucket.locationConstraint }}
+    objectLockEnabledForbucket: {{ .Values.bucket.objectLockEnabledForbucket }}
   providerConfigRef:
     name: {{ .Values.providerConfigRef }}
 {{- end }}

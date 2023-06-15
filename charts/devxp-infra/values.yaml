@@ -1,7 +1,7 @@
 name: ""
 providerConfigRef: default
 
-Bucket:
+bucket:
   enabled: false
   acl: private
   locationConstraint: us-east-1
