@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.2.12](https://img.shields.io/badge/Version-0.2.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.2.13](https://img.shields.io/badge/Version-0.2.13-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -44,8 +44,6 @@ Helm Charts for default DevXP-Tech Application
 | image.tag | string | `"latest"` | especify the tag of your image to deploy |
 | imagePullSecrets | object | `{"enabled":true,"name":"ghcr-secret"}` | imagePullSecrets secret used to download image on private container registry |
 | imagePullSecrets.enabled | bool | `true` | imagePullSecrets.enabled create secret do pull docker images in private registrys |
-| ingress | object | `{"enabled":true}` | ingress Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. |
-| ingress.enabled | bool | `true` | enable ingress |
 | livenessProbe.httpGet.path | string | `"/health-check/liveness"` |  |
 | livenessProbe.httpGet.port | int | `8080` |  |
 | livenessProbe.initialDelaySeconds | int | `15` |  |
