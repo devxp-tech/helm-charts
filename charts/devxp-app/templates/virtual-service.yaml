@@ -17,14 +17,21 @@ spec:
   hosts:
   - {{ .Values.name }}.{{ .Values.network.domain }}
   http:
+  {{- if .Values.argoRollouts.enabled }}
   - name: primary
     route:
     - destination:
+        subset: stable  # referenced in canary.trafficRouting.istio.destinationRule.stableSubsetName
         host: {{ .Values.name }}.{{ .Values.name }}.svc.{{ .Values.global.cluster }}
-        subset: stable
       weight: 100
     - destination:
         host: {{ .Values.name }}.{{ .Values.name }}.svc.{{ .Values.global.cluster }}
-        subset: canary  # referenced in canary.trafficRouting.istio.destinationRule.canarySubsetName
+        subset: canary # referenced in canary.trafficRouting.istio.destinationRule.canarySubsetName
       weight: 0
+  {{- else }}
+  - name: {{ .Values.name }}
+    route:
+    - destination:
+        host: {{ .Values.name }}.{{ .Values.name }}.svc.{{ .Values.global.cluster }}
+  {{- end }}
 {{- end }}
