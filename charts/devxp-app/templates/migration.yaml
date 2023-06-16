@@ -1,5 +1,4 @@
 {{- if .Values.migration.enabled }}
----
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -24,7 +23,7 @@ spec:
           image: {{ .Values.image.repository }}-migration:{{ .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-          {{- with .Values.env }}
+          {{- with .Values.envs }}
             {{- toYaml . | nindent 8 }}
           {{- end }}
           envFrom:

@@ -97,15 +97,6 @@ network:
   # --gateways set default gateway for virtual-service
   gateways: istio-system/istio-ingressgateway
 
-# --istioInjection enable istio injection
-# istioInjection:
-#   enabled: true
-
-# --ingress Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster.
-ingress:
-  # -- enable ingress
-  enabled: true
-
 # --ServiceAccount A service account provides an identity for processes that run in a Pod, about more: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
 serviceAccount:
   # --Specifies whether a service account should be created
