@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.2.7](https://img.shields.io/badge/Version-0.2.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.2.12](https://img.shields.io/badge/Version-0.2.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -15,8 +15,19 @@ Helm Charts for default DevXP-Tech Application
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
-| argoRollouts | object | `{"enabled":true,"revisionHistoryLimit":5,"strategy":{"dynamicStableScale":true,"steps":[{"setWeight":5},{"pause":{"duration":"10s"}},{"setWeight":20},{"pause":{"duration":"10s"}},{"setWeight":40},{"pause":{"duration":"10s"}},{"setWeight":60},{"pause":{"duration":"10s"}},{"setWeight":80},{"pause":{"duration":"10s"}}]}}` | ResourceQuota provides constraints that limit aggregate resource consumption per namespace |
 | argoRollouts.enabled | bool | `true` | Specifies whether a resource quota should be created |
+| argoRollouts.revisionHistoryLimit | int | `5` |  |
+| argoRollouts.strategy.dynamicStableScale | bool | `true` |  |
+| argoRollouts.strategy.steps[0].setWeight | int | `5` |  |
+| argoRollouts.strategy.steps[1].pause.duration | string | `"10s"` |  |
+| argoRollouts.strategy.steps[2].setWeight | int | `20` |  |
+| argoRollouts.strategy.steps[3].pause.duration | string | `"10s"` |  |
+| argoRollouts.strategy.steps[4].setWeight | int | `40` |  |
+| argoRollouts.strategy.steps[5].pause.duration | string | `"10s"` |  |
+| argoRollouts.strategy.steps[6].setWeight | int | `60` |  |
+| argoRollouts.strategy.steps[7].pause.duration | string | `"10s"` |  |
+| argoRollouts.strategy.steps[8].setWeight | int | `80` |  |
+| argoRollouts.strategy.steps[9].pause.duration | string | `"10s"` |  |
 | autoscaling | object | `{"customRules":[],"enabled":true,"maxReplicas":2,"minReplicas":1,"targetCPUUtilizationPercentage":80,"targetMemoryUtilizationPercentage":80}` | autoscaling is the main object of autoscaling |
 | autoscaling.customRules | list | `[]` | customRules is a place to customize your application autoscaler using the original API available at: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/ |
 | autoscaling.enabled | bool | `true` | enabled is the flag to sinalize this funcionality is enabled |
@@ -37,6 +48,7 @@ Helm Charts for default DevXP-Tech Application
 | fullnameOverride | object | `{}` |  |
 | global.cluster | string | `"cluster.local"` | cluster Set Cluster Name |
 | global.commonLabels | object | `{}` | commonLabels set common labels for all resources |
+| global.prometheus.server | string | `"http://prometheus-server.monitoring"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | pullPolicy is the prop to setup the behavior of pull police. options is: IfNotPresent \| allways |
 | image.repository | string | `""` | repository: is the registry of your application ex:556684128444.dkr.ecr.us-east-1.amazonaws.com/YOU-APP-ECR-REPO-NAME if empty this helm will auto generate the image using aws.registry/values.name:values.image.tag |
 | image.tag | string | `"latest"` | especify the tag of your image to deploy |
@@ -51,7 +63,7 @@ Helm Charts for default DevXP-Tech Application
 | migration.enabled | bool | `false` | enable liquibase migration |
 | name | string | `""` | name is the github repository name of this application deploy |
 | nameOverride | object | `{}` |  |
-| namespace | object | `{"annotations":{},"enabled":true,"istio-injection":"enabled","labels":{}}` | namespace |
+| namespace | object | `{"annotations":{},"enabled":true,"istio":true,"labels":{}}` | namespace |
 | network | object | `{"domain":"devxp-tech.io","gateways":"istio-system/istio-ingressgateway","service":{"nodePort":{},"port":80,"type":"ClusterIP"}}` | Network |
 | network.domain | string | `"devxp-tech.io"` | domain Set Default Domain |
 | network.gateways | string | `"istio-system/istio-ingressgateway"` | gateways set default gateway for virtual-service |

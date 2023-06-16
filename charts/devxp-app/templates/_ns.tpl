@@ -7,6 +7,7 @@
 {{- define "ns-labels" }}
 {{- $labels := .Values.namespace.labels }}
 {{- $_ := set $labels "app"  .Values.name }}
+{{- $_ = set $labels "app.kubernetes.io/instance"  .Values.name }}
 {{- if .Values.global.istio }}
 {{- $_ = set $labels "istio-injection"  "enabled" }}
 {{- end }}
