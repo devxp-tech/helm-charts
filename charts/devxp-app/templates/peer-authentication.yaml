@@ -1,4 +1,4 @@
-{{- if .Values.ingress.enabled }}
+{{- if .Values.global.istio }}
   {{- if .Values.peerAuthentication.enabled }}
 apiVersion: security.istio.io/v1beta1
 kind: PeerAuthentication

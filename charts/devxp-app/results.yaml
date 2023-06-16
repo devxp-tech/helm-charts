@@ -1,5 +1,5 @@
 ---
-# Source: devxp-app/templates/namespace.yaml
+# Source: devxp-app/templates/Namespace.yaml
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -8,6 +8,7 @@ metadata:
     backstage.io/kubernetes-id: test
   labels:
     app: test
+    app.kubernetes.io/instance: test
     istio-injection: enabled
     kubernetes.io/metadata.name: test
 spec: {}
@@ -23,7 +24,7 @@ metadata:
     app: test
     version: "latest"
     backstage.io/kubernetes-id: test
-    helm.sh/chart: devxp-app-0.2.7
+    helm.sh/chart: devxp-app-0.2.12
     app.kubernetes.io/name: devxp-app
     app.kubernetes.io/instance: release-name
     app.kubernetes.io/version: "latest"
@@ -45,7 +46,7 @@ metadata:
     app: test
     version: "latest"
     backstage.io/kubernetes-id: test
-    helm.sh/chart: devxp-app-0.2.7
+    helm.sh/chart: devxp-app-0.2.12
     app.kubernetes.io/name: devxp-app
     app.kubernetes.io/instance: release-name
     app.kubernetes.io/version: "latest"
@@ -79,7 +80,7 @@ metadata:
     app: test
     version: "latest"
     backstage.io/kubernetes-id: test
-    helm.sh/chart: devxp-app-0.2.7
+    helm.sh/chart: devxp-app-0.2.12
     app.kubernetes.io/name: devxp-app
     app.kubernetes.io/instance: release-name
     app.kubernetes.io/version: "latest"
@@ -104,7 +105,7 @@ metadata:
     app: test
     version: "latest"
     backstage.io/kubernetes-id: test
-    helm.sh/chart: devxp-app-0.2.7
+    helm.sh/chart: devxp-app-0.2.12
     app.kubernetes.io/name: devxp-app
     app.kubernetes.io/instance: release-name
     app.kubernetes.io/version: "latest"
@@ -140,7 +141,7 @@ metadata:
     app: test
     version: "latest"
     backstage.io/kubernetes-id: test
-    helm.sh/chart: devxp-app-0.2.7
+    helm.sh/chart: devxp-app-0.2.12
     app.kubernetes.io/name: devxp-app
     app.kubernetes.io/instance: release-name
     app.kubernetes.io/version: "latest"
@@ -209,7 +210,7 @@ metadata:
     app: test
     version: "latest"
     backstage.io/kubernetes-id: test
-    helm.sh/chart: devxp-app-0.2.7
+    helm.sh/chart: devxp-app-0.2.12
     app.kubernetes.io/name: devxp-app
     app.kubernetes.io/instance: release-name
     app.kubernetes.io/version: "latest"
@@ -242,7 +243,7 @@ spec:
         app: test
         version: "latest"
         backstage.io/kubernetes-id: test
-        helm.sh/chart: devxp-app-0.2.7
+        helm.sh/chart: devxp-app-0.2.12
         app.kubernetes.io/name: devxp-app
         app.kubernetes.io/instance: release-name
         app.kubernetes.io/version: "latest"
@@ -330,7 +331,7 @@ metadata:
     app: test
     version: "latest"
     backstage.io/kubernetes-id: test
-    helm.sh/chart: devxp-app-0.2.7
+    helm.sh/chart: devxp-app-0.2.12
     app.kubernetes.io/name: devxp-app
     app.kubernetes.io/instance: release-name
     app.kubernetes.io/version: "latest"
