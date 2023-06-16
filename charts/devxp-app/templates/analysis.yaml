@@ -16,7 +16,7 @@ spec:
     initialDelay: 30s
     interval: 20s
     successCondition: len(result) == 0 || isNaN(result[0]) || isInf(result[0]) || result[0] >= 0.95
-    failureLimit: 3
+    failureLimit: {{ .Values.argoRollouts.analyses.failureLimit }}
     provider:
       prometheus:
         address: {{ .Values.global.prometheus.server }}
