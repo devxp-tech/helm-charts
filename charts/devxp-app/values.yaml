@@ -37,7 +37,10 @@ argoRollouts:
   # --Specifies whether a resource quota should be created
   enabled: true
   revisionHistoryLimit: 5
-  analyses: true
+  analyses:
+    enabled: true
+    successCondition: 0.95
+    failureLimit: 3
   dynamicStableScale: true
   strategy:
     steps:
