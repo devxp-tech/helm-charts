@@ -1,4 +1,5 @@
-{{- if .Values.ingress.enabled }}
+{{- if .Values.argoRollouts.enabled }}
+{{- if not .Values.deployment.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
@@ -21,12 +22,13 @@ spec:
         query: >+
           sum(irate(istio_requests_total{
             reporter="source",
-            destination_service=~"{{args.service}}.{{args.namespace}}.svc.cluster.local",
+            destination_service=~"{{ .Values.name }}.{{ .Values.name }}.svc.{{ .Values.global.cluster }}",
             response_code!~"5.*"}[40s])
           )
           /
           sum(irate(istio_requests_total{
             reporter="source",
-            destination_service=~"{{args.service}}.{{args.namespace}}.svc.cluster.local"}[40s])
+            destination_service=~"{{ .Values.name }}.{{ .Values.name }}.svc.{{ .Values.global.cluster }}"}[40s])
           )
+{{- end }}
 {{- end }}

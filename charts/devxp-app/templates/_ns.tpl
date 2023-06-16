@@ -8,7 +8,7 @@
 {{- $labels := .Values.namespace.labels }}
 {{- $_ := set $labels "app"  .Values.name }}
 {{- $_ = set $labels "app.kubernetes.io/instance"  .Values.name }}
-{{- if .Values.namespace.istio }}
+{{- if .Values.global.istio }}
 {{- $_ = set $labels "istio-injection"  "enabled" }}
 {{- end }}
 {{- $_ = set $labels "kubernetes.io/metadata.name"  .Values.name }}
