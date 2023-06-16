@@ -1,5 +1,5 @@
 {{- if .Values.argoRollouts.enabled }}
-{{- if not .Values.deployment.enabled }}
+  {{- if not .Values.deployment.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
@@ -14,6 +14,17 @@ spec:
   revisionHistoryLimit: {{ default 5 .Values.argoRollouts.revisionHistoryLimit }}
   strategy:
     canary: #Indicates that the rollout should use the Canary strategy
+      analysis:
+        startingStep: 1   # index of step list, of when to start this analysis
+        args:
+        - name: service-name
+          value: {{ .Values.name }}.{{ .Values.name }}.svc.{{ .Values.global.cluster }}
+        - name: namespace
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        templates:
+          - templateName: {{ .Values.name }}
       {{- if .Values.argoRollouts.strategy.dynamicStableScale }}
       dynamicStableScale: true
       {{- else }}
@@ -70,7 +81,5 @@ spec:
       affinity: {{ toYaml (default dict .Values.affinity) | nindent 8 }}
       tolerations: {{ toYaml (default list .Values.tolerations)  | nindent 8 }}
   minReadySeconds: 30
+  {{- end }}
 {{- end }}
-{{- end }}
-
-
