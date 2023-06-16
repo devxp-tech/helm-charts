@@ -15,7 +15,7 @@ Helm Charts for default DevXP-Tech Application
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
-| argoRollouts | object | `{"analyses":true,"dynamicStableScale":true,"enabled":true,"revisionHistoryLimit":5,"strategy":{"steps":[{"setWeight":5},{"pause":{"duration":"10s"}},{"setWeight":20},{"pause":{"duration":"10s"}},{"setWeight":40},{"pause":{"duration":"10s"}},{"setWeight":60},{"pause":{"duration":"10s"}},{"setWeight":80},{"pause":{"duration":"10s"}}]}}` | argoRollouts enable Argo Rollouts Deployment |
+| argoRollouts | object | `{"analyses":{"enabled":true,"failureLimit":3,"successCondition":0.95},"dynamicStableScale":true,"enabled":true,"revisionHistoryLimit":5,"strategy":{"steps":[{"setWeight":5},{"pause":{"duration":"10s"}},{"setWeight":20},{"pause":{"duration":"10s"}},{"setWeight":40},{"pause":{"duration":"10s"}},{"setWeight":60},{"pause":{"duration":"10s"}},{"setWeight":80},{"pause":{"duration":"10s"}}]}}` | argoRollouts enable Argo Rollouts Deployment |
 | argoRollouts.enabled | bool | `true` | Specifies whether a resource quota should be created |
 | autoscaling | object | `{"customRules":[],"enabled":true,"maxReplicas":2,"minReplicas":1,"targetCPUUtilizationPercentage":80,"targetMemoryUtilizationPercentage":80}` | autoscaling is the main object of autoscaling |
 | autoscaling.customRules | list | `[]` | customRules is a place to customize your application autoscaler using the original API available at: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/ |
