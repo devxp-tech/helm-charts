@@ -17,7 +17,7 @@ spec:
       analysis:
         startingStep: 1   # index of step list, of when to start this analysis
         args:
-        - name: service-name
+        - name: service
           value: {{ .Values.name }}.{{ .Values.name }}.svc.{{ .Values.global.cluster }}
         - name: namespace
           valueFrom:
