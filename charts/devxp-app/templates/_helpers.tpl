@@ -94,8 +94,25 @@ kind: Deployment
 {{/* Generate the default image string to deployment */}}
 {{- define "image" -}}
 {{- if not .Values.image.repository }}
-{{- printf "%s/%s:%s" .Values.aws.registry .Values.name .Values.image.tag }}
+{{- printf "%s/%s:%s" .Values.image.repository .Values.name .Values.image.tag }}
 {{- else }}
 {{- printf "%s:%s" .Values.image.repository .Values.image.tag }}
 {{- end  }}
 {{- end  }}
+
+
+{{- define "vs-hosts" }}
+{{- $hosts := list }}
+{{- $name := .Values.name }}
+{{- $hosts = append $hosts (printf "%s.%s" $name .Values.network.domain) }}
+{{- if .Values.virtualServices.custom.hosts }}
+  {{- range $_, $host:= .Values.virtualServices.custom.hosts }}
+  {{- $hosts = append $hosts ($host) }}
+  {{- end }}
+{{- end }}
+{{- $hosts | toYaml }}
+{{- end }}
+
+
+
+
