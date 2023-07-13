@@ -71,6 +71,7 @@ cronjobs:
     #   schecule: "* * * * *"
     #   command:
     #     - echo "ok"
+
 # --consumers is the object to configure an array of consumers
 consumers:
   # --terminationGracePeriodSeconds configures terminationGracePeriodSeconds
@@ -100,6 +101,10 @@ network:
     nodePort: {}
   # --gateways set default gateway for virtual-service
   gateways: istio-system/istio-ingressgateway
+
+virtualServices:
+  custom:
+    hosts: []
 
 # --ServiceAccount A service account provides an identity for processes that run in a Pod, about more: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
 serviceAccount:

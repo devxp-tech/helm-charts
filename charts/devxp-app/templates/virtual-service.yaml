@@ -14,7 +14,7 @@ spec:
   gateways:
   - {{ .Values.network.gateways }}
   hosts:
-  - {{ .Values.name }}.{{ .Values.network.domain }}
+  {{- include "vs-hosts" . | nindent 2 }}
   http:
   {{- if .Values.argoRollouts.enabled }}
   - name: primary

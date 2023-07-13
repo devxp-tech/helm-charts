@@ -8,6 +8,7 @@ name: "test2"
 network:
   service:
     type: NodePort
+
 resources:
   requests:
     cpu: "200m"
@@ -26,6 +27,10 @@ quota:
 istio: false
 autoscaling:
   enabled: false
+
+virtualServices:
+  custom:
+    hosts: []
 
 # --ServiceAccount A service account provides an identity for processes that run in a Pod, about more: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
 ServiceAccount:
