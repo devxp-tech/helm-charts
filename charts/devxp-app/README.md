@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.2.17](https://img.shields.io/badge/Version-0.2.17-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.2.18](https://img.shields.io/badge/Version-0.2.18-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -84,6 +84,7 @@ Helm Charts for default DevXP-Tech Application
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.enabled | bool | `true` | Specifies whether a service account should be created |
 | tolerations | list | `[]` |  |
+| virtualServices.custom.hosts | list | `[]` |  |
 | volumeMounts | list | `[]` | volumeMounts specifies where Kubernetes will mount Pod volumes |
 | volumes | list | `[]` | volumes specifies pod volumes |
 
