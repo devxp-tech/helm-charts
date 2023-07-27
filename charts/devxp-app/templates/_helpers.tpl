@@ -72,12 +72,18 @@ Create the name of the service account to use
   {{- end }}
 {{- end }}
 
+
+{{/*
+Return the appropriate apiVersion for Horizontal Pod Autoscaler.
+*/}}
 {{- define "hpa-version" }}
-  {{- if .Capabilities.APIVersions.Has "autoscaling/v2/HorizontalPodAutoscaler" }}
-    {{- "autoscaling/v2" }}
-  {{- else }}
-    {{- "autoscaling/v2beta2" }}
-  {{- end }}
+{{- if $.Capabilities.APIVersions.Has "autoscaling/v2/HorizontalPodAutoscaler" }}
+{{- print "autoscaling/v2" }}
+{{- else if $.Capabilities.APIVersions.Has "autoscaling/v2beta2/HorizontalPodAutoscaler" }}
+{{- print "autoscaling/v2beta2" }}
+{{- else }}
+{{- print "autoscaling/v2beta1" }}
+{{- end }}
 {{- end }}
 
 {{- define "hpa-targets" -}}

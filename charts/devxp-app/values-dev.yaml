@@ -26,7 +26,11 @@ quota:
   enabled: false
 istio: false
 autoscaling:
-  enabled: false
+  enabled: true
+
+virtualServices:
+  custom:
+    hosts: []
 
 virtualServices:
   custom:
