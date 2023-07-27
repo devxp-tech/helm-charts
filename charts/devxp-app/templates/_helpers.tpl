@@ -86,6 +86,9 @@ Return the appropriate apiVersion for Horizontal Pod Autoscaler.
 {{- end }}
 {{- end }}
 
+{{/*
+Define deployment or argocd rollouts hpa target
+*/}}
 {{- define "hpa-targets" -}}
 name: {{ .Values.name }}
 {{- if .Values.argoRollouts.enabled }}
