@@ -82,7 +82,7 @@ Return the appropriate apiVersion for Horizontal Pod Autoscaler.
 {{- else if $.Capabilities.APIVersions.Has "autoscaling/v2beta2/HorizontalPodAutoscaler" }}
 {{- print "autoscaling/v2beta2" }}
 {{- else }}
-{{- print "autoscaling/v2beta1" }}
+{{- print "autoscaling/v2" }}
 {{- end }}
 {{- end }}
 
