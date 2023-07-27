@@ -32,10 +32,6 @@ virtualServices:
   custom:
     hosts: []
 
-virtualServices:
-  custom:
-    hosts: []
-
 # --ServiceAccount A service account provides an identity for processes that run in a Pod, about more: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
 ServiceAccount:
   # --Specifies whether a service account should be created
