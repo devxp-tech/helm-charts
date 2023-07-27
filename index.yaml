@@ -114,6 +114,21 @@ entries:
   devxp-app:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-07-27T18:55:17.55230006Z"
+    description: Helm Charts for default DevXP-Tech Application
+    digest: a7605c1609589c5cb636a670ff56eb5ee55ebf41c0dfbbeb9836fb9981993906
+    icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
+    maintainers:
+    - email: contato@diegoluisi.eti.br
+      name: diegoluisi
+      url: www.diegoluisi.eti.br
+    name: devxp-app
+    type: application
+    urls:
+    - https://github.com/devxp-tech/helm-charts/releases/download/devxp-app-0.2.19/devxp-app-0.2.19.tgz
+    version: 0.2.19
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-07-13T13:06:10.046101704Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: ad39c4ab2a06394b797611a8a97f356d6d1430ab2980ba20290e7421fc49949f
@@ -2129,4 +2144,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/devxp-tech/helm-charts/artifacts/web-application-0.1.8.tgz
     version: 0.1.8
-generated: "2023-07-13T13:06:09.946196763Z"
+generated: "2023-07-27T18:55:17.552729162Z"
