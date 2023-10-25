@@ -24,6 +24,7 @@ Helm Charts for DevXP-Tech Dev Application
 | image.repository | string | `""` | repository: is the registry of your application ex:556684128444.dkr.ecr.us-east-1.amazonaws.com/YOU-APP-ECR-REPO-NAME if empty this helm will auto generate the image using aws.registry/values.name:values.image.tag |
 | image.tag | string | `"latest"` | especify the tag of your image to deploy |
 | imagePullSecrets.enabled | bool | `false` |  |
+| imagePullSecrets.name | object | `{}` |  |
 | livenessProbe.httpGet.path | string | `"/health-check/liveness"` |  |
 | livenessProbe.httpGet.port | int | `8080` |  |
 | livenessProbe.initialDelaySeconds | int | `15` |  |
@@ -41,6 +42,9 @@ Helm Charts for DevXP-Tech Dev Application
 | resources.requests.memory | string | `"128Mi"` |  |
 | service.port | int | `80` |  |
 | service.type | string | `"ClusterIP"` |  |
+| serviceAccount | object | `{"annotations":{},"enabled":true}` | ServiceAccount A service account provides an identity for processes that run in a Pod, about more: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/ |
+| serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
+| serviceAccount.enabled | bool | `true` | Specifies whether a service account should be created |
 | tolerations | list | `[]` |  |
 
 ----------------------------------------------
