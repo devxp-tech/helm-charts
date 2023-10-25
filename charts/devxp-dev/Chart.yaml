@@ -3,7 +3,7 @@ name: devxp-dev
 description: Helm Charts for DevXP-Tech Dev Application
 icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
 type: application
-version: 0.0.0
+version: 0.0.1
 appVersion: 0.0.1
 maintainers:
   - name: diegoluisi
