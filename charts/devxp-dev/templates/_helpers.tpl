@@ -105,7 +105,7 @@ kind: Deployment
 {{- if not .Values.image.repository }}
 {{- printf "%s/%s:%s" .Values.image.repository .Values.name .Values.image.tag }}
 {{- else }}
-{{- printf "%s:%s" .Values.image.repository .Values.image.tag }}
+{{- printf "%s/%s:%s" .Values.image.repository .Values.name .Values.image.tag }}
 {{- end  }}
 {{- end  }}
 

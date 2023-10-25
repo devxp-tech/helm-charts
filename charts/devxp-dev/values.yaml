@@ -5,8 +5,9 @@
 # --name is the github repository name of this application deploy
 name: ""
 
-# deployment:
-#   enabled: true
+deployment:
+  enabled: true
+  annotations: {}
 
 resources:
   requests:
@@ -24,7 +25,7 @@ container:
 image:
   # --repository: is the registry of your application ex:556684128444.dkr.ecr.us-east-1.amazonaws.com/YOU-APP-ECR-REPO-NAME
   # if empty this helm will auto generate the image using aws.registry/values.name:values.image.tag
-  repository: ""
+  repository: "ghcr.io/devxp-tech"
   # --pullPolicy is the prop to setup the behavior of pull police. options is: IfNotPresent \| allways
   pullPolicy: IfNotPresent
   # --especify the tag of your image to deploy
@@ -48,8 +49,8 @@ nodeSelector: {}
 tolerations: []
 affinity: {}
 
-volumes: []
-volumeMounts: []
+volumes: {}
+volumeMounts: {}
 
 env:
   []
