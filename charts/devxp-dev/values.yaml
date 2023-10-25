@@ -48,6 +48,9 @@ nodeSelector: {}
 tolerations: []
 affinity: {}
 
+volumes: []
+volumeMounts: []
+
 env:
   []
   # examples:
