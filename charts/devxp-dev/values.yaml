@@ -5,8 +5,8 @@
 # --name is the github repository name of this application deploy
 name: ""
 
-deployment:
-  enabled: true
+# deployment:
+#   enabled: true
 
 resources:
   requests:
