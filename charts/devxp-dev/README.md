@@ -17,7 +17,6 @@ Helm Charts for DevXP-Tech Dev Application
 | affinity | object | `{}` |  |
 | autoscaling.enabled | bool | `false` |  |
 | container.port | int | `8080` | port is the port your application runs under |
-| deployment.enabled | bool | `true` |  |
 | env | list | `[]` |  |
 | envFrom | list | `[]` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | pullPolicy is the prop to setup the behavior of pull police. options is: IfNotPresent \| allways |
