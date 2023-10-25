@@ -22,7 +22,7 @@ spec:
       {{- end }}
       labels: {{- include "devxp-app.labels" . | nindent 8 }}
     spec:
-      {{- if not .Values.imagePullSecrets.enabled }}
+      {{- if .Values.imagePullSecrets.enabled }}
       imagePullSecrets:
         - name: {{ .Values.imagePullSecrets.name }}
       {{- end }}
