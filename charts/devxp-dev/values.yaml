@@ -5,6 +5,9 @@
 # --name is the github repository name of this application deploy
 name: ""
 
+deployment:
+  enabled: true
+
 resources:
   requests:
     cpu: "50m"
@@ -12,8 +15,6 @@ resources:
   limits:
     cpu: "100m"
     memory: "256Mi"
-deployment:
-  enabled: true
 
 container:
   # --port is the port your application runs under
@@ -66,6 +67,7 @@ autoscaling:
 
 imagePullSecrets:
   enabled: false
+  name: {}
 
 probe:
   enabled: true
@@ -73,3 +75,10 @@ probe:
 service:
   port: 80
   type: "ClusterIP"
+
+# --ServiceAccount A service account provides an identity for processes that run in a Pod, about more: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
+serviceAccount:
+  # --Specifies whether a service account should be created
+  enabled: true
+  # --Annotations to add to the service account
+  annotations: {}
