@@ -1,0 +1,75 @@
+# Default values for devxp-app.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# --name is the github repository name of this application deploy
+name: ""
+
+resources:
+  requests:
+    cpu: "50m"
+    memory: "128Mi"
+  limits:
+    cpu: "100m"
+    memory: "256Mi"
+deployment:
+  enabled: true
+
+container:
+  # --port is the port your application runs under
+  port: 8080
+
+  # --image is the object to specify the image to run in the deployment
+image:
+  # --repository: is the registry of your application ex:556684128444.dkr.ecr.us-east-1.amazonaws.com/YOU-APP-ECR-REPO-NAME
+  # if empty this helm will auto generate the image using aws.registry/values.name:values.image.tag
+  repository: ""
+  # --pullPolicy is the prop to setup the behavior of pull police. options is: IfNotPresent \| allways
+  pullPolicy: IfNotPresent
+  # --especify the tag of your image to deploy
+  tag: "latest"
+
+livenessProbe:
+  httpGet:
+    path: /health-check/liveness
+    port: 8080
+  initialDelaySeconds: 15
+  periodSeconds: 10
+
+readinessProbe:
+  httpGet:
+    path: /health-check/readiness
+    port: 8080
+  initialDelaySeconds: 15
+  periodSeconds: 10
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+env:
+  []
+  # examples:
+  # please note that when the value is a number, you must quote the value to cast to string!
+  # - name: ENVIROMENT
+  #   value: dev
+
+envFrom:
+  []
+  # examples:
+  # please note that when the value is a number, you must quote the value to cast to string!
+  # - configMapRef
+  #     name: postgres-configs
+
+autoscaling:
+  enabled: false
+
+imagePullSecrets:
+  enabled: false
+
+probe:
+  enabled: true
+
+service:
+  port: 80
+  type: "ClusterIP"
