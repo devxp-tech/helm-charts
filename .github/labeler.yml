@@ -5,6 +5,9 @@ repo:
 devxp-app:
   - charts/devxp-app/**
 
+devxp-dev:
+  - charts/devxp-dev/**
+
 devxp-infra:
   - charts/devxp-infra/**
 
