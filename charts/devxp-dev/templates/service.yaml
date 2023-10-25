@@ -8,27 +8,25 @@ metadata:
   {{- with .Values.serviceAnnotations }}
   annotations:
   {{- if .Values.externalDns.enabled }}
-    external-dns.alpha.kubernetes.io/hostname: {{ .Values.name }}.{{ .Values.network.domain }}
+    external-dns.alpha.kubernetes.io/hostname: {{ .Values.name }}.{{ .Values.domain }}
   {{- end }}
   {{ toYaml . | indent 4 }}
 {{- end }}
 spec:
-  type: {{ .Values.network.service.type }}
+  type: {{ .Values.service.type }}
   selector:
     app: {{ .Values.name }}
-  {{- if eq .Values.network.service.type "ClusterIP" }}
+  {{- if eq .Values.service.type "ClusterIP" }}
   ports:
   - name: tcp-node
-    port: {{ .Values.network.service.port }}
+    port: {{ .Values.service.port }}
     targetPort:  {{ .Values.container.port }}
     protocol: TCP
   {{- end }}
-  {{- if eq .Values.network.service.type "NodePort" }}
+  {{- if eq .Values.service.type "NodePort" }}
   ports:
-    - port: {{ .Values.network.service.port }}
+    - port: {{ .Values.service.port }}
       targetPort: {{ .Values.container.port }}
-      nodePort: {{ .Values.network.service.nodePort }}
+      nodePort: {{ .Values.service.nodePort }}
   {{- end }}
-
-
 
