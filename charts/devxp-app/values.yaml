@@ -112,6 +112,7 @@ serviceAccount:
   enabled: true
   # --Annotations to add to the service account
   annotations: {}
+  automountServiceAccountToken: true
 
 # --PeerAuthentication defines how traffic will be tunneled (or not) to the sidecar.
 peerAuthentication:
