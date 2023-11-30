@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.2.29](https://img.shields.io/badge/Version-0.2.29-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.2.30](https://img.shields.io/badge/Version-0.2.30-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -46,11 +46,13 @@ Helm Charts for default DevXP-Tech Application
 | image.tag | string | `"latest"` | especify the tag of your image to deploy |
 | imagePullSecrets | object | `{"enabled":true,"name":"ghcr-secret"}` | imagePullSecrets secret used to download image on private container registry |
 | imagePullSecrets.enabled | bool | `true` | imagePullSecrets.enabled create secret do pull docker images in private registrys |
-| istio | object | `{"enabled":true,"peerAuthentication":{"enabled":true,"mode":"PERMISSIVE"},"virtualServices":{"custom":{"hosts":[]}}}` | istio Set default Istio |
+| istio | object | `{"enabled":true,"gateways":"istio-system/istio-ingressgateway","peerAuthentication":{"enabled":true,"mode":"PERMISSIVE"},"virtualServices":{"custom":{"hosts":[]},"enabled":true}}` | istio Set default Istio |
+| istio.gateways | string | `"istio-system/istio-ingressgateway"` | gateways set default gateway for virtual-service |
 | istio.peerAuthentication | object | `{"enabled":true,"mode":"PERMISSIVE"}` | PeerAuthentication defines how traffic will be tunneled (or not) to the sidecar. |
 | istio.peerAuthentication.enabled | bool | `true` | enable peerAuthentication |
 | istio.peerAuthentication.mode | string | `"PERMISSIVE"` | set peerAuthentication mode, values (UNSET, DISABLE, PERMISSIVE, STRICT) |
-| istio.virtualServices | object | `{"custom":{"hosts":[]}}` | istio.virtualServices Set default Istio |
+| istio.virtualServices | object | `{"custom":{"hosts":[]},"enabled":true}` | istio.virtualServices Set Istio virtualServices parameters |
+| istio.virtualServices.enabled | bool | `true` | istio.virtualServices.enable Set Istio virtualServices enabled |
 | livenessProbe.httpGet.path | string | `"/health-check/liveness"` |  |
 | livenessProbe.httpGet.port | int | `8080` |  |
 | livenessProbe.initialDelaySeconds | int | `15` |  |
