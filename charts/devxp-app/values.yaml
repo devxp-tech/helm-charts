@@ -100,13 +100,14 @@ service:
   type: ClusterIP
   nodePort: {}
 
-
 # --istio Set default Istio
 istio:
   # enable istio-injection label on namespace
   enabled: true
-  # --istio.virtualServices Set default Istio
+  # --istio.virtualServices Set Istio virtualServices parameters
   virtualServices:
+    # --istio.virtualServices.enable Set Istio virtualServices enabled
+    enabled: true
     custom:
       hosts: []
   # --PeerAuthentication defines how traffic will be tunneled (or not) to the sidecar.
@@ -115,6 +116,8 @@ istio:
     enabled: true
     # --set peerAuthentication mode, values (UNSET, DISABLE, PERMISSIVE, STRICT)
     mode: PERMISSIVE
+  # --gateways set default gateway for virtual-service
+  gateways: istio-system/istio-ingressgateway
 
 # --ServiceAccount A service account provides an identity for processes that run in a Pod, about more: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
 serviceAccount:
