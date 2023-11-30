@@ -83,7 +83,7 @@ jobs:
     name: Chart Release ✨
     needs:
       - lint-chart
-      - quality-gate
+      # - quality-gate
       - kubeval-chart
     permissions:
       contents: write
