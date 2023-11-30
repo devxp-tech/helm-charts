@@ -38,7 +38,7 @@ Helm Charts for default DevXP-Tech Application
 | global.cluster | string | `"cluster.local"` | cluster Set Cluster Name |
 | global.commonLabels | object | `{}` | commonLabels set common labels for all resources |
 | global.istio | bool | `true` |  |
-| global.prometheus | object | `{"server":"http://prometheus-server.monitoring"}` | prometheus set prometheus server url |
+| global.prometheus | object | `{"server":"http://prometheus-prometheus.monitoring.svc.cluster.local:9090"}` | prometheus set prometheus server url |
 | image.pullPolicy | string | `"IfNotPresent"` | pullPolicy is the prop to setup the behavior of pull police. options is: IfNotPresent \| allways |
 | image.repository | string | `""` | repository: is the registry of your application ex:556684128444.dkr.ecr.us-east-1.amazonaws.com/YOU-APP-ECR-REPO-NAME if empty this helm will auto generate the image using aws.registry/values.name:values.image.tag |
 | image.tag | string | `"latest"` | especify the tag of your image to deploy |
