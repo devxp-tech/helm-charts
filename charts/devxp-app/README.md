@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.2.26](https://img.shields.io/badge/Version-0.2.26-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.2.28](https://img.shields.io/badge/Version-0.2.28-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -49,15 +49,13 @@ Helm Charts for default DevXP-Tech Application
 | livenessProbe.initialDelaySeconds | int | `15` |  |
 | livenessProbe.periodSeconds | int | `10` |  |
 | migration | object | `{"enabled":false}` | migration Set liquibase migration |
-| migration.enabled | bool | `false` | enable liquibase migration |
+| migration.enabled | bool | `false` | migration.enable liquibase migration |
 | name | string | `""` | name is the github repository name of this application deploy |
 | nameOverride | object | `{}` |  |
 | namespace | object | `{"annotations":{},"enabled":true,"labels":{}}` | namespace |
-| network | object | `{"domain":"devxp-tech.io","gateways":"istio-system/istio-ingressgateway","service":{"nodePort":{},"port":80,"type":"ClusterIP"}}` | Network |
+| network | object | `{"domain":"devxp-tech.io","gateways":"istio-system/istio-ingressgateway"}` | Network |
 | network.domain | string | `"devxp-tech.io"` | domain Set Default Domain |
 | network.gateways | string | `"istio-system/istio-ingressgateway"` | gateways set default gateway for virtual-service |
-| network.service | object | `{"nodePort":{},"port":80,"type":"ClusterIP"}` | service An abstract way to expose an application running on a set of Pods as a network service. |
-| network.service.port | int | `80` | port is the port your application runs under |
 | nodeSelector | object | `{}` |  |
 | peerAuthentication | object | `{"enabled":true,"mode":"PERMISSIVE"}` | PeerAuthentication defines how traffic will be tunneled (or not) to the sidecar. |
 | peerAuthentication.enabled | bool | `true` | enable peerAuthentication |
@@ -68,6 +66,7 @@ Helm Charts for default DevXP-Tech Application
 | quota | object | `{"enabled":true,"resources":{"hard":{"limits.cpu":"2","limits.memory":"2Gi","requests.cpu":"1","requests.memory":"1Gi"}}}` | ResourceQuota provides constraints that limit aggregate resource consumption per namespace |
 | quota.enabled | bool | `true` | Specifies whether a resource quota should be created |
 | quota.resources | object | `{"hard":{"limits.cpu":"2","limits.memory":"2Gi","requests.cpu":"1","requests.memory":"1Gi"}}` | resources Specifies the hard resources |
+| quota.resources.hard."requests.cpu" | string | `"1"` | requests.cpu Specifies the request cpu |
 | readinessProbe.httpGet.path | string | `"/health-check/readiness"` |  |
 | readinessProbe.httpGet.port | int | `8080` |  |
 | readinessProbe.initialDelaySeconds | int | `15` |  |
@@ -81,9 +80,18 @@ Helm Charts for default DevXP-Tech Application
 | service.annotations | object | `{}` |  |
 | service.externalDns.enabled | bool | `false` |  |
 | service.labels | object | `{}` |  |
+| service.nodePort | object | `{}` |  |
+| service.port.name | string | `"tcp-node"` |  |
+| service.port.port | int | `80` | port is the port your application runs under |
+| service.type | string | `"ClusterIP"` | service An abstract way to expose an application running on a set of Pods as a network service. |
 | serviceAccount | object | `{"annotations":{},"automountServiceAccountToken":true,"enabled":true}` | ServiceAccount A service account provides an identity for processes that run in a Pod, about more: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/ |
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.enabled | bool | `true` | Specifies whether a service account should be created |
+| serviceMonitor | object | `{"enabled":true,"interval":"60s","path":"/metrics","scheme":"http"}` | serviceMonitor Prometheus Service Monitor |
+| serviceMonitor.enabled | bool | `true` | serviceMonitor.enabled Enable Prometheus Service Monitor |
+| serviceMonitor.interval | string | `"60s"` | serviceMonitor.interval Path for Prometheus Service Monitor |
+| serviceMonitor.path | string | `"/metrics"` | serviceMonitor.path Path for Prometheus Service Monitor |
+| serviceMonitor.scheme | string | `"http"` | serviceMonitor.scheme Schema for Prometheus Service Monitor |
 | tolerations | list | `[]` |  |
 | virtualServices.custom.hosts | list | `[]` |  |
 | volumeMounts | list | `[]` | volumeMounts specifies where Kubernetes will mount Pod volumes |
