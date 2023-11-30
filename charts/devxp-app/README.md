@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.2.28](https://img.shields.io/badge/Version-0.2.28-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.2.29](https://img.shields.io/badge/Version-0.2.29-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -28,6 +28,7 @@ Helm Charts for default DevXP-Tech Application
 | consumers.list | list | `[]` | list is the array of consumer definition |
 | consumers.terminationGracePeriodSeconds | int | `30` | terminationGracePeriodSeconds configures terminationGracePeriodSeconds |
 | container.port | int | `8080` | port is the port your application runs under |
+| container.readOnlyRootFilesystem | bool | `true` |  |
 | cronjobs.list | list | `[]` | list is an array of spec for create multiples cronjobs |
 | cronjobs.suspend | bool | `false` | suspend used to disable all cronjobs in the list |
 | deployment | object | `{"annotations":{},"enabled":false}` | deployment Disabled Deployment |
@@ -37,13 +38,19 @@ Helm Charts for default DevXP-Tech Application
 | fullnameOverride | object | `{}` |  |
 | global.cluster | string | `"cluster.local"` | cluster Set Cluster Name |
 | global.commonLabels | object | `{}` | commonLabels set common labels for all resources |
-| global.istio | bool | `true` |  |
+| global.network | object | `{"domain":"devxp-tech.io"}` | Network |
+| global.network.domain | string | `"devxp-tech.io"` | domain Set Default Domain |
 | global.prometheus | object | `{"server":"http://prometheus-prometheus.monitoring.svc.cluster.local:9090"}` | prometheus set prometheus server url |
 | image.pullPolicy | string | `"IfNotPresent"` | pullPolicy is the prop to setup the behavior of pull police. options is: IfNotPresent \| allways |
 | image.repository | string | `""` | repository: is the registry of your application ex:556684128444.dkr.ecr.us-east-1.amazonaws.com/YOU-APP-ECR-REPO-NAME if empty this helm will auto generate the image using aws.registry/values.name:values.image.tag |
 | image.tag | string | `"latest"` | especify the tag of your image to deploy |
 | imagePullSecrets | object | `{"enabled":true,"name":"ghcr-secret"}` | imagePullSecrets secret used to download image on private container registry |
 | imagePullSecrets.enabled | bool | `true` | imagePullSecrets.enabled create secret do pull docker images in private registrys |
+| istio | object | `{"enabled":true,"peerAuthentication":{"enabled":true,"mode":"PERMISSIVE"},"virtualServices":{"custom":{"hosts":[]}}}` | istio Set default Istio |
+| istio.peerAuthentication | object | `{"enabled":true,"mode":"PERMISSIVE"}` | PeerAuthentication defines how traffic will be tunneled (or not) to the sidecar. |
+| istio.peerAuthentication.enabled | bool | `true` | enable peerAuthentication |
+| istio.peerAuthentication.mode | string | `"PERMISSIVE"` | set peerAuthentication mode, values (UNSET, DISABLE, PERMISSIVE, STRICT) |
+| istio.virtualServices | object | `{"custom":{"hosts":[]}}` | istio.virtualServices Set default Istio |
 | livenessProbe.httpGet.path | string | `"/health-check/liveness"` |  |
 | livenessProbe.httpGet.port | int | `8080` |  |
 | livenessProbe.initialDelaySeconds | int | `15` |  |
@@ -53,16 +60,11 @@ Helm Charts for default DevXP-Tech Application
 | name | string | `""` | name is the github repository name of this application deploy |
 | nameOverride | object | `{}` |  |
 | namespace | object | `{"annotations":{},"enabled":true,"labels":{}}` | namespace |
-| network | object | `{"domain":"devxp-tech.io","gateways":"istio-system/istio-ingressgateway"}` | Network |
-| network.domain | string | `"devxp-tech.io"` | domain Set Default Domain |
-| network.gateways | string | `"istio-system/istio-ingressgateway"` | gateways set default gateway for virtual-service |
 | nodeSelector | object | `{}` |  |
-| peerAuthentication | object | `{"enabled":true,"mode":"PERMISSIVE"}` | PeerAuthentication defines how traffic will be tunneled (or not) to the sidecar. |
-| peerAuthentication.enabled | bool | `true` | enable peerAuthentication |
-| peerAuthentication.mode | string | `"PERMISSIVE"` | set peerAuthentication mode, values (UNSET, DISABLE, PERMISSIVE, STRICT) |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` | A security context defines privilege and access control settings for a Pod or Container. About more: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/ |
-| probe.enabled | bool | `true` |  |
+| probe | object | `{"enabled":true}` | probe |
+| probe.enabled | bool | `true` | probe.enabled Enable liveness and readiness probe |
 | quota | object | `{"enabled":true,"resources":{"hard":{"limits.cpu":"2","limits.memory":"2Gi","requests.cpu":"1","requests.memory":"1Gi"}}}` | ResourceQuota provides constraints that limit aggregate resource consumption per namespace |
 | quota.enabled | bool | `true` | Specifies whether a resource quota should be created |
 | quota.resources | object | `{"hard":{"limits.cpu":"2","limits.memory":"2Gi","requests.cpu":"1","requests.memory":"1Gi"}}` | resources Specifies the hard resources |
@@ -77,15 +79,13 @@ Helm Charts for default DevXP-Tech Application
 | sealedSecrets.enabled | bool | `true` | enabled create a Sealed Secret in the namespace |
 | sealedSecrets.encryptedData | string | `"AgDGBqpFurhI5BktCG/olnD7r2MuhAel/zkL1IL0BxrcaDUmR8JUf3TEkMqKbiRgb9iKYcwX7zVOXI4xDJeiyWyWDbckn8Yc+RBTw7qpKhh3kMUasPVo9blEcrKq4HjSEAEKapegBDT+H1LhjUToDoqwXVmGFEVYpiHtb0OA0OCtUuDZ2dYD4cLpMSVgZ/8hRfilRdD4PqXD+k1NEVZfRgKGl9fV0mazKm9e7w0rRI1brryhWx9+VZcvSi6RLHiELX7VOObxxjQ0W4gCuHKDRztgHoNDR+KVNum6YpVz8vOXQ/XpBxlASundsryNBAVcPwv0HYQDmsNFfMwXaLkLA+Hg6frWXi1CJvSrJc45U8RQ2sAfbCN6QQw1r6O+Lgqc2hmWnx3RzOva6zIq2UqUNRDrKxn99zZUCU4GpmVLFnj08ogq0p86zUXqzA6o1Qz1KRZu2S0QaQQyMquN4vqByXRfbXrgG5rtQRALsRG3o7q7OfOoy1sa1mF6kMyktpbawE7eT0k0FGPdjEtgg5FzLD88pj5OphL1aNTVzgSLVMpT0KY8GHVlB5AlMxz+ilB0bfSs+S5fGsY5u4iOpUAioAQ2lZH/aK8tMMug4pCRsYvDD6AUWlCupzGHhjVNeWDvhGpUG8anpr0htCxqLAGLJaMGV/hcuwbRzdxgKbPjqd/HFpzwi9ZN17IN1vtQhGm3xR781WTBAeLzU7XykzLh8VuUPhS6c8vdNsXXXYubSXrCAddAycXc5YThp/TzfOlPzn/3kkQZZRKUs3Qp393djTaEG75W/CpnQXG4Pnvk9a4swUCm2ZwNYCZdCjBccutcahlKa8mNG4sDeYbpLOG4ZICo2MuKNoJG2DqmemSUGKeThSyhW8v2CjoKqKhGSKbpUjI43c5dK4TueC88DYMZGX2TF5yOtXwmQbjsutAd3n2ELujLpg=="` | encryptedData hash to create secret |
 | securityContext | object | `{}` | fsGroup: 2000 |
-| service.annotations | object | `{}` |  |
-| service.externalDns.enabled | bool | `false` |  |
-| service.labels | object | `{}` |  |
-| service.nodePort | object | `{}` |  |
-| service.port.name | string | `"tcp-node"` |  |
+| service | object | `{"annotations":{},"externalDns":{"enabled":false},"labels":{},"nodePort":{},"port":{"name":"tcp-node","port":80},"type":"ClusterIP"}` | service |
+| service.port | object | `{"name":"tcp-node","port":80}` | service.port Define the Service Port |
 | service.port.port | int | `80` | port is the port your application runs under |
 | service.type | string | `"ClusterIP"` | service An abstract way to expose an application running on a set of Pods as a network service. |
-| serviceAccount | object | `{"annotations":{},"automountServiceAccountToken":true,"enabled":true}` | ServiceAccount A service account provides an identity for processes that run in a Pod, about more: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/ |
+| serviceAccount | object | `{"annotations":{},"automountServiceAccountToken":true,"enabled":true,"name":{}}` | ServiceAccount A service account provides an identity for processes that run in a Pod, about more: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/ |
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
+| serviceAccount.automountServiceAccountToken | bool | `true` | serviceAccount.annotations Automont Service Account Token |
 | serviceAccount.enabled | bool | `true` | Specifies whether a service account should be created |
 | serviceMonitor | object | `{"enabled":true,"interval":"60s","path":"/metrics","scheme":"http"}` | serviceMonitor Prometheus Service Monitor |
 | serviceMonitor.enabled | bool | `true` | serviceMonitor.enabled Enable Prometheus Service Monitor |
@@ -93,7 +93,6 @@ Helm Charts for default DevXP-Tech Application
 | serviceMonitor.path | string | `"/metrics"` | serviceMonitor.path Path for Prometheus Service Monitor |
 | serviceMonitor.scheme | string | `"http"` | serviceMonitor.scheme Schema for Prometheus Service Monitor |
 | tolerations | list | `[]` |  |
-| virtualServices.custom.hosts | list | `[]` |  |
 | volumeMounts | list | `[]` | volumeMounts specifies where Kubernetes will mount Pod volumes |
 | volumes | list | `[]` | volumes specifies pod volumes |
 
