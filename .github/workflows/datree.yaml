@@ -23,4 +23,5 @@ jobs:
         env:
           DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }}
         run: |
+          datree config set offline local
           helm datree test ./charts/tooling --ignore-missing-schemas
