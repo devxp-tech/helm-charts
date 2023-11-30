@@ -1,9 +1,8 @@
 name: Datree 🔎
 on:
   workflow_dispatch:
-
   push:
-    branches: [ main ]
+    # branches: [ main ]
 
 env:
   DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }}
