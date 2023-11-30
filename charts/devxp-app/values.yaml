@@ -84,21 +84,22 @@ consumers:
     #     - required
 
 service:
+  port:
+    name: tcp-node
+    # --port is the port your application runs under
+    port: 80
   annotations: {}
   labels: {}
   externalDns:
     enabled: false
+  # --service An abstract way to expose an application running on a set of Pods as a network service.
+  type: ClusterIP
+  nodePort: {}
 
 # -- Network
 network:
   # --domain Set Default Domain
   domain: devxp-tech.io
-  # --service An abstract way to expose an application running on a set of Pods as a network service.
-  service:
-    type: ClusterIP
-    # --port is the port your application runs under
-    port: 80
-    nodePort: {}
   # --gateways set default gateway for virtual-service
   gateways: istio-system/istio-ingressgateway
 
@@ -261,5 +262,16 @@ quota:
 
 # --migration Set liquibase migration
 migration:
-  # -- enable liquibase migration
+  # -- migration.enable liquibase migration
   enabled: false
+
+# --serviceMonitor Prometheus Service Monitor
+serviceMonitor:
+  # --serviceMonitor.enabled Enable Prometheus Service Monitor
+  enabled: true
+  # --serviceMonitor.scheme Schema for Prometheus Service Monitor
+  scheme: http
+  # --serviceMonitor.path Path for Prometheus Service Monitor
+  path: /metrics
+  # --serviceMonitor.interval Path for Prometheus Service Monitor
+  interval: 60s
