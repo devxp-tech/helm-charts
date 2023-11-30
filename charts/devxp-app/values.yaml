@@ -253,6 +253,7 @@ quota:
   # --resources Specifies the hard resources
   resources:
     hard:
+      # --requests.cpu Specifies the request cpu
       requests.cpu: "1"
       requests.memory: 1Gi
       limits.cpu: "2"
