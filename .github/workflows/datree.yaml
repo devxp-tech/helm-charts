@@ -1,8 +1,9 @@
 name: Datree 🔎
 on:
-  workflow_dispatch:
-  push:
-    # branches: [ main ]
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
 
 env:
   DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }}

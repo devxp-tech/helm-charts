@@ -8,7 +8,7 @@ metadata:
   {{- with .Values.service.annotations }}
   annotations:
   {{- if .Values.externalDns.enabled }}
-    external-dns.alpha.kubernetes.io/hostname: {{ .Values.name }}.{{ .Values.network.domain }}
+    external-dns.alpha.kubernetes.io/hostname: {{ .Values.name }}.{{ .Values.global.network.domain }}
   {{- end }}
   {{ toYaml . | indent 4 }}
 {{- end }}
