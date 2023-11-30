@@ -49,7 +49,7 @@ app.kubernetes.io/managed-by: argocd
 Selector labels
 */}}
 {{- define "devxp-app.selectorLabels" -}}
-app.kubernetes.io/name: {{ .Values.name }}
+app.kubernetes.io/name: {{ include "devxp-app.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 

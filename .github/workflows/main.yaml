@@ -24,11 +24,11 @@ jobs:
       - name: Setup Python 🐍
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: '3.10'
           check-latest: true
 
       - name: Set up chart-testing 🔎
-        uses: helm/chart-testing-action@v2.4.0
+        uses: helm/chart-testing-action@v2.6.0
 
       - name: Run chart-testing (list-changed)
         id: list-changed
