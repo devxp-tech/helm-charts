@@ -116,8 +116,10 @@ serviceAccount:
 
 # --PeerAuthentication defines how traffic will be tunneled (or not) to the sidecar.
 peerAuthentication:
-  # --enable PeerAuthentication
+  # --enable peerAuthentication
   enabled: true
+  # --set peerAuthentication mode, values (UNSET, DISABLE, PERMISSIVE, STRICT)
+  mode: PERMISSIVE
 
 # --replicaCount is used when autoscaling.enabled is false to set a manually number of pods
 replicaCount: 1
