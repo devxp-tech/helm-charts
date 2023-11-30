@@ -13,11 +13,13 @@ global:
   # --commonLabels set common labels for all resources
   commonLabels: {}
   # team_name: dev
-  # enable istio-injection label on namespace
-  istio: true
   # --prometheus set prometheus server url
   prometheus:
     server: http://prometheus-prometheus.monitoring.svc.cluster.local:9090
+  # -- Network
+  network:
+    # --domain Set Default Domain
+    domain: devxp-tech.io
 
 # --namespace
 namespace:
@@ -83,7 +85,9 @@ consumers:
     #   command:
     #     - required
 
+# --service
 service:
+  # --service.port Define the Service Port
   port:
     name: tcp-node
     # --port is the port your application runs under
@@ -96,31 +100,32 @@ service:
   type: ClusterIP
   nodePort: {}
 
-# -- Network
-network:
-  # --domain Set Default Domain
-  domain: devxp-tech.io
+# --istio Set default Istio
+istio:
+  # enable istio-injection label on namespace
+  enabled: true
+  # --istio.virtualServices Set default Istio
+  virtualServices:
+    custom:
+      hosts: []
+  # --PeerAuthentication defines how traffic will be tunneled (or not) to the sidecar.
+  peerAuthentication:
+    # --enable peerAuthentication
+    enabled: true
+    # --set peerAuthentication mode, values (UNSET, DISABLE, PERMISSIVE, STRICT)
+    mode: PERMISSIVE
   # --gateways set default gateway for virtual-service
   gateways: istio-system/istio-ingressgateway
 
-virtualServices:
-  custom:
-    hosts: []
-
 # --ServiceAccount A service account provides an identity for processes that run in a Pod, about more: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
 serviceAccount:
+  name: {}
   # --Specifies whether a service account should be created
   enabled: true
   # --Annotations to add to the service account
   annotations: {}
+  # --serviceAccount.annotations Automont Service Account Token
   automountServiceAccountToken: true
-
-# --PeerAuthentication defines how traffic will be tunneled (or not) to the sidecar.
-peerAuthentication:
-  # --enable peerAuthentication
-  enabled: true
-  # --set peerAuthentication mode, values (UNSET, DISABLE, PERMISSIVE, STRICT)
-  mode: PERMISSIVE
 
 # --replicaCount is used when autoscaling.enabled is false to set a manually number of pods
 replicaCount: 1
@@ -149,6 +154,7 @@ autoscaling:
 container:
   # --port is the port your application runs under
   port: 8080
+  readOnlyRootFilesystem: true
 
   # --image is the object to specify the image to run in the deployment
 image:
@@ -175,7 +181,9 @@ resources:
     cpu: "100m"
     memory: "128Mi"
 
+# --probe
 probe:
+  # --probe.enabled Enable liveness and readiness probe
   enabled: true
 
 livenessProbe:

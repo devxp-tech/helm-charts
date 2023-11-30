@@ -1,0 +1,393 @@
+---
+# Source: devxp-app/templates/ns.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: monitoring
+  annotations:
+    backstage.io/kubernetes-id: teste
+  labels:
+    app: teste
+    istio-injection: enabled
+    kubernetes.io/metadata.name: teste
+spec: {}
+status: {}
+---
+# Source: devxp-app/templates/resource-quota.yaml
+kind: ResourceQuota
+apiVersion: v1
+metadata:
+  name: teste
+  namespace: monitoring
+  labels:
+    app: teste
+    version: "latest"
+    backstage.io/kubernetes-id: teste
+    helm.sh/chart: devxp-app-0.2.26
+    app.kubernetes.io/name: teste
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "latest"
+    app.kubernetes.io/managed-by: argocd
+spec:
+  hard:
+    limits.cpu: "2"
+    limits.memory: 2Gi
+    requests.cpu: "1"
+    requests.memory: 1Gi
+---
+# Source: devxp-app/templates/service-account.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: teste
+  namespace: monitoring
+  labels:
+    app: teste
+    version: "latest"
+    backstage.io/kubernetes-id: teste
+    helm.sh/chart: devxp-app-0.2.26
+    app.kubernetes.io/name: teste
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "latest"
+    app.kubernetes.io/managed-by: argocd
+  annotations: {}
+automountServiceAccountToken: true
+---
+# Source: devxp-app/templates/cluster-role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: teste
+rules:
+  - apiGroups:
+      - networking.istio.io
+    resources:
+      - virtualservices
+      - destinationrules
+    verbs:
+      - get
+      - list
+      - watch
+      - update
+      - patch
+---
+# Source: devxp-app/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: teste
+  namespace: monitoring
+  labels:
+    app: teste
+    version: "latest"
+    backstage.io/kubernetes-id: teste
+    helm.sh/chart: devxp-app-0.2.26
+    app.kubernetes.io/name: teste
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "latest"
+    app.kubernetes.io/managed-by: argocd
+spec:
+  type: ClusterIP
+  selector:
+    app: teste
+  ports:
+    - name: tcp-node
+      port: 80
+      targetPort: 8080
+      protocol: TCP
+---
+# Source: devxp-app/templates/hpa.yaml
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: teste
+  namespace: monitoring
+  labels:
+    app: teste
+    version: "latest"
+    backstage.io/kubernetes-id: teste
+    helm.sh/chart: devxp-app-0.2.26
+    app.kubernetes.io/name: teste
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "latest"
+    app.kubernetes.io/managed-by: argocd
+spec:
+  scaleTargetRef:
+    name: teste
+    apiVersion: argoproj.io/v1alpha1
+    kind: Rollout
+  minReplicas: 1
+  maxReplicas: 2
+  metrics:
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 80
+---
+# Source: devxp-app/templates/analysis.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: teste
+  namespace: monitoring
+  labels:
+    app: teste
+    version: "latest"
+    backstage.io/kubernetes-id: teste
+    helm.sh/chart: devxp-app-0.2.26
+    app.kubernetes.io/name: teste
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "latest"
+    app.kubernetes.io/managed-by: argocd
+spec:
+  # this analysis template requires a service name and namespace to be supplied to the query
+  args:
+    - name: service
+    - name: namespace
+  metrics:
+    - name: success-rate
+      initialDelay: 30s
+      interval: 20s
+      successCondition: len(result) == 0 || isNaN(result[0]) || isInf(result[0]) || result[0] >= 0.95
+      failureLimit: 3
+      provider:
+        prometheus:
+          address: http://prometheus-prometheus.monitoring.svc.cluster.local:9090
+          query: >+
+            sum(irate(istio_requests_total{
+              reporter="source",
+              destination_service=~"teste.teste.svc.cluster.local",
+              response_code!~"5.*"}[40s])
+            )
+            /
+            sum(irate(istio_requests_total{
+              reporter="source",
+              destination_service=~"teste.teste.svc.cluster.local"}[40s])
+            )
+---
+# Source: devxp-app/templates/destination-rule.yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: teste
+  namespace: monitoring
+spec:
+  host: teste.monitoring.svc.cluster.local
+  subsets:
+    - name: canary # referenced in canary.trafficRouting.istio.destinationRule.canarySubsetName
+      labels: # labels will be injected with canary rollouts-pod-template-hash value
+        app: teste
+    - name: stable # referenced in canary.trafficRouting.istio.destinationRule.stableSubsetName
+      labels: # labels will be injected with canary rollouts-pod-template-hash value
+        app: teste
+---
+# Source: devxp-app/templates/peer-authentication.yaml
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: teste
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: teste
+  mtls:
+    mode: PERMISSIVE
+---
+# Source: devxp-app/templates/argo-rollout.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: teste
+  namespace: monitoring
+  labels:
+    app: teste
+    version: "latest"
+    backstage.io/kubernetes-id: teste
+    helm.sh/chart: devxp-app-0.2.26
+    app.kubernetes.io/name: teste
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "latest"
+    app.kubernetes.io/managed-by: argocd
+  annotations: {}
+spec:
+  revisionHistoryLimit: 5
+  strategy:
+    canary: #Indicates that the rollout should use the Canary strategy
+      analysis:
+        startingStep: 1 # index of step list, of when to start this analysis
+        args:
+          - name: service
+            value: teste.teste.svc.cluster.local
+          - name: namespace
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+        templates:
+          - templateName: teste
+      steps:
+        - setWeight: 5
+        - pause:
+            duration: 10s
+        - setWeight: 20
+        - pause:
+            duration: 10s
+        - setWeight: 40
+        - pause:
+            duration: 10s
+        - setWeight: 60
+        - pause:
+            duration: 10s
+        - setWeight: 80
+        - pause:
+            duration: 10s
+      trafficRouting:
+        istio:
+          virtualService:
+            name: teste # required
+            routes:
+              - primary # required
+          destinationRule:
+            name: teste # required
+            canarySubsetName: canary # required
+            stableSubsetName: stable # required
+      maxSurge: "25%"
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: teste
+  template:
+    metadata:
+      labels:
+        app: teste
+        version: "latest"
+        backstage.io/kubernetes-id: teste
+        helm.sh/chart: devxp-app-0.2.26
+        app.kubernetes.io/name: teste
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "latest"
+        app.kubernetes.io/managed-by: argocd
+    spec:
+      serviceAccountName: teste
+      containers:
+        - name: teste
+          image: :latest
+          imagePullPolicy: IfNotPresent
+          env: []
+          envFrom: []
+          ports:
+            - name: http
+              containerPort: 8080
+          resources:
+            limits:
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 50m
+              memory: 64Mi
+      nodeSelector: {}
+      affinity: {}
+      tolerations: []
+  minReadySeconds: 30
+---
+# Source: devxp-app/templates/image-pull-secret.yaml
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  annotations:
+    sealedsecrets.bitnami.com/cluster-wide: "true"
+  creationTimestamp: null
+  name: ghcr-secret
+spec:
+  encryptedData:
+    .dockerconfigjson: AgDGBqpFurhI5BktCG/olnD7r2MuhAel/zkL1IL0BxrcaDUmR8JUf3TEkMqKbiRgb9iKYcwX7zVOXI4xDJeiyWyWDbckn8Yc+RBTw7qpKhh3kMUasPVo9blEcrKq4HjSEAEKapegBDT+H1LhjUToDoqwXVmGFEVYpiHtb0OA0OCtUuDZ2dYD4cLpMSVgZ/8hRfilRdD4PqXD+k1NEVZfRgKGl9fV0mazKm9e7w0rRI1brryhWx9+VZcvSi6RLHiELX7VOObxxjQ0W4gCuHKDRztgHoNDR+KVNum6YpVz8vOXQ/XpBxlASundsryNBAVcPwv0HYQDmsNFfMwXaLkLA+Hg6frWXi1CJvSrJc45U8RQ2sAfbCN6QQw1r6O+Lgqc2hmWnx3RzOva6zIq2UqUNRDrKxn99zZUCU4GpmVLFnj08ogq0p86zUXqzA6o1Qz1KRZu2S0QaQQyMquN4vqByXRfbXrgG5rtQRALsRG3o7q7OfOoy1sa1mF6kMyktpbawE7eT0k0FGPdjEtgg5FzLD88pj5OphL1aNTVzgSLVMpT0KY8GHVlB5AlMxz+ilB0bfSs+S5fGsY5u4iOpUAioAQ2lZH/aK8tMMug4pCRsYvDD6AUWlCupzGHhjVNeWDvhGpUG8anpr0htCxqLAGLJaMGV/hcuwbRzdxgKbPjqd/HFpzwi9ZN17IN1vtQhGm3xR781WTBAeLzU7XykzLh8VuUPhS6c8vdNsXXXYubSXrCAddAycXc5YThp/TzfOlPzn/3kkQZZRKUs3Qp393djTaEG75W/CpnQXG4Pnvk9a4swUCm2ZwNYCZdCjBccutcahlKa8mNG4sDeYbpLOG4ZICo2MuKNoJG2DqmemSUGKeThSyhW8v2CjoKqKhGSKbpUjI43c5dK4TueC88DYMZGX2TF5yOtXwmQbjsutAd3n2ELujLpg==
+  template:
+    metadata:
+      annotations:
+        sealedsecrets.bitnami.com/cluster-wide: "true"
+      creationTimestamp: null
+      name: ghcr-secret
+    type: kubernetes.io/dockerconfigjson
+---
+# Source: devxp-app/templates/service-monitor.yaml
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: teste
+  namespace: teste
+  labels:
+    app: teste
+    application: teste
+spec:
+  namespaceSelector:
+    matchNames:
+      - teste
+  selector:
+    matchLabels:
+      app: teste
+  endpoints:
+    - port: tcp-node
+      path: /metrics
+      scheme: http
+      interval: 60s
+---
+# Source: devxp-app/templates/virtual-service.yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: teste
+  namespace: monitoring
+  annotations:
+    link.argocd.argoproj.io/external-link: https://teste.devxp-tech.io
+  labels:
+    app: teste
+    version: latest
+    backstage.io/kubernetes-id: teste
+spec:
+  gateways:
+    - istio-system/istio-ingressgateway
+  hosts:
+    - teste.devxp-tech.io
+  http:
+    - name: primary
+      route:
+        - destination:
+            subset: stable # referenced in canary.trafficRouting.istio.destinationRule.stableSubsetName
+            host: teste.teste.svc.cluster.local
+          weight: 100
+        - destination:
+            host: teste.teste.svc.cluster.local
+            subset: canary # referenced in canary.trafficRouting.istio.destinationRule.canarySubsetName
+          weight: 0
+---
+# Source: devxp-app/templates/tests/test-connection.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "devxp-app-test-connection"
+  labels:
+    app: teste
+    version: "latest"
+    backstage.io/kubernetes-id: teste
+    helm.sh/chart: devxp-app-0.2.26
+    app.kubernetes.io/name: teste
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "latest"
+    app.kubernetes.io/managed-by: argocd
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ["wget"]
+      args: ["devxp-app:8080"]
+  restartPolicy: Never
