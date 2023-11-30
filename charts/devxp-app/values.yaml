@@ -17,7 +17,7 @@ global:
   istio: true
   # --prometheus set prometheus server url
   prometheus:
-    server: http://prometheus-server.monitoring
+    server: http://prometheus-prometheus.monitoring.svc.cluster.local:9090
 
 # --namespace
 namespace:
