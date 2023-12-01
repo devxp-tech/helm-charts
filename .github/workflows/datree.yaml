@@ -18,16 +18,14 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
-      # - name: Install Datree 🔨
-      #   run: |
-      #     helm plugin install https://github.com/datreeio/helm-datree
+      - name: Install Datree 🔨
+        run: |
+          helm plugin install https://github.com/datreeio/helm-datree
 
       - name: Set Datree in offline mode
         run: datree config set offline local
 
       - name: Datree test 🔥
-        # env:
-        #   DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }}
         run: |
           helm datree test --ignore-missing-schemas ./charts/devxp-app -- --set name=ci
 
