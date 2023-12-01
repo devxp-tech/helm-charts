@@ -17,29 +17,29 @@ jobs:
       image: dtzar/helm-kubectl:3.6.3
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Install Datree 🔨
-        run: curl https://get.datree.io | /bin/bash
+      # - name: Install Datree 🔨
+      #   run: curl https://get.datree.io | /bin/bash
 
-      - name: Install Helm Plugin 🔨
-        run: |
-          helm plugin install https://github.com/datreeio/helm-datree
+      # - name: Install Helm Plugin 🔨
+      #   run: |
+      #     helm plugin install https://github.com/datreeio/helm-datree
 
       - name: Set Datree in offline mode
         run: datree config set offline local
 
-      - name: Datree test 🔥
-        run: |
-          helm datree test --ignore-missing-schemas ./charts/devxp-app -- --set name=ci
+      # - name: Datree test 🔥
+      #   run: |
+      #     helm datree test --ignore-missing-schemas ./charts/devxp-app -- --set name=ci
 
-      # - name: Run Datree Policy Check
-      #   uses: datreeio/action-datree@main
-      #   with:
-      #     path: './charts/devxp-app'
-      #     cliArguments: '-o sarif'
-      #     isHelmChart: true
-      #     helmArguments: '--set name=ci'
+      - name: Run Datree Policy Check
+        uses: datreeio/action-datree@main
+        with:
+          path: './charts/devxp-app'
+          cliArguments: '-o sarif'
+          isHelmChart: true
+          helmArguments: '--set name=ci'
 
       - name: Upload analysis results to GitHub
         uses: github/codeql-action/upload-sarif@v2
