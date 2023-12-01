@@ -21,6 +21,10 @@ jobs:
       # - name: Install Datree 🔨
       #   run: |
       #     helm plugin install https://github.com/datreeio/helm-datree
+
+      - name: Set Datree in offline mode
+        run: datree config set offline local
+
       # - name: Datree test 🔥
       #   env:
       #     DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }}
