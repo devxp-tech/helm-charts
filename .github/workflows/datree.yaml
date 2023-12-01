@@ -1,10 +1,6 @@
 name: Datree 🔎
 on:
   workflow_dispatch:
-  issues:
-    types: [opened]
-  pull_request:
-    types: [opened]
 
 env:
   DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }}
@@ -33,7 +29,7 @@ jobs:
       #   run: |
       #     helm datree test --ignore-missing-schemas ./charts/devxp-app -- --set name=ci
 
-      - name: Run Datree Policy Check
+      - name: Run Datree Policy Check 🔥
         uses: datreeio/action-datree@main
         with:
           path: './charts/devxp-app'
