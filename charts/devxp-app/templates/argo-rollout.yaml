@@ -59,7 +59,7 @@ spec:
       {{- end }}
       containers:
       - name: {{ .Values.name }}
-        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag | quote }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env: {{- include "all-envs" . | nindent 12 }}
         envFrom: {{ toYaml .Values.envFrom | nindent 12 }}

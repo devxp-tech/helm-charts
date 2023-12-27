@@ -9,7 +9,7 @@ metadata:
     link.argocd.argoproj.io/external-link: https://{{ .Values.name }}.{{ .Values.global.network.domain }}
   labels:
     app: {{ .Values.name }}
-    version: {{ .Values.image.tag }}
+    version: {{ .Values.image.tag | quote }}
     backstage.io/kubernetes-id: {{ .Values.name }}
 spec:
   gateways:
