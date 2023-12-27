@@ -20,7 +20,7 @@ spec:
       restartPolicy: Never
       containers:
         - name: {{ .Values.name }}-migration
-          image: {{ .Values.image.repository }}-migration:{{ .Values.image.tag | quote }}
+          image: {{ .Values.image.repository }}-migration:{{ .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
           {{- with .Values.envs }}
