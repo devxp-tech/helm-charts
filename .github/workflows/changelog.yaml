@@ -19,8 +19,8 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: mogensen/helm-changelog:latest
-          options: --user $UID -v ${{ github.workspace }}:/data
-          run: "/app/helm-changelog"
+          options: -v ${{ github.workspace }}:/data
+          run: /app/helm-changelog --help
 
       - name: Commit New Changelog.md 📝
         run: |
