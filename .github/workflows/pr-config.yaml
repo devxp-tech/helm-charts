@@ -40,9 +40,9 @@ jobs:
 
     - name: Diff Results
       run: |
-        diff charts/devxp-dev/results.yaml results_new.yaml
+        diff charts/devxp-dev/results.yaml results_new.yaml > diff.yaml
 
     - name: PR comment with file
       uses: thollander/actions-comment-pull-request@v2
       with:
-        filePath: results_new.yaml
+        filePath: diff.yaml
