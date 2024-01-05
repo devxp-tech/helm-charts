@@ -202,16 +202,16 @@ jobs:
     needs:
       - index
     steps:
-      - name: Checkout Artifacts 🛎️ # Required to mount the Github Workspace to a volume
+      - name: Checkout 🛎️ # Required to mount the Github Workspace to a volume
         uses: actions/checkout@v3
 
       - name: Docker Run 🐳
         uses: addnab/docker-run-action@v3
         with:
           image: mogensen/helm-changelog:latest
-          options: -v ${{ github.workspace }}:/data
+          options: run -it --rm -v ${{ github.workspace }}:/data
 
-      - name: Commit New index.yaml 📝
+      - name: Commit New Changelog.md 📝
         run: |
           if [[ $(git diff) ]];
           then
