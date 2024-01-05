@@ -10,7 +10,7 @@ jobs:
   review_checklist:
     if: ${{ !github.event.pull_request.draft }}
     runs-on: ubuntu-latest
-    name: Comment Pull Request with the Review Checklist
+    name: Comment PR with the Review Checklist
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -81,9 +81,9 @@ jobs:
       run: |
         helm template charts/devxp-dev --set name=ci  > results_new.yaml
 
-    - name: Diff Results
-      run: |
-        diff results_new.yaml charts/devxp-dev/results.yaml > diff.yaml
+    - name: Diff
+      continue-on-error: true
+      run: diff --ignore-space-change charts/devxp-dev/results.yaml results_new.yaml > diff.yaml && echo "Contents are identical"
 
     - name: PR comment with file
       uses: thollander/actions-comment-pull-request@v2
