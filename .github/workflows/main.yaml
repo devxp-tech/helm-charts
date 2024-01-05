@@ -198,7 +198,7 @@ jobs:
 
   changelog:
     name: Update Changelog 📝
-    runs-on: helm-changelog:latest
+    runs-on: ubuntu-latest
     needs:
       - index
     steps:
