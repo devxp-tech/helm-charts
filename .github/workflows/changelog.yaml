@@ -1,0 +1,34 @@
+name: Changelog 🔎
+
+on:
+  workflow_dispatch:
+  # issues:
+  #   types: [opened]
+  # pull_request:
+  #   types: [opened]
+
+jobs:
+  changelog:
+    name: Update Changelog 📝
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️ # Required to mount the Github Workspace to a volume
+        uses: actions/checkout@v3
+
+      - name: Docker Run 🐳
+        uses: addnab/docker-run-action@v3
+        with:
+          image: mogensen/helm-changelog:latest
+          options: --user $UID it --rm -v ${{ github.workspace }}:/data
+          run: "/app/helm-changelog"
+
+      - name: Commit New Changelog.md 📝
+        run: |
+          if [[ $(git diff) ]];
+          then
+            git add Changelog.md
+            git commit -m "[ci skip] :robot: [github actions actor] - Add Changelog.md"
+            git push
+          else
+            echo "nothing to do!!!"
+          fi
