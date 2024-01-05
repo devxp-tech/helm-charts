@@ -20,7 +20,8 @@ jobs:
         with:
           image: mogensen/helm-changelog:latest
           options: -v ${{ github.workspace }}:/data
-          run: /app/helm-changelog -v debug
+          run: |
+            "/app/helm-changelog -v debug"
 
       - name: Commit New Changelog.md 📝
         run: |
