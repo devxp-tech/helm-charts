@@ -22,26 +22,45 @@ jobs:
       run: |
         for p in $(ls -l charts | awk '{print $9}'); do helm template charts/$p -f charts/$p/values-ci.yaml > charts/$p/$p-result.yaml ; done
 
-    - name: Upload cluster-bootstrap
+    - name: Upload devxp-app
       uses: actions/upload-artifact@v3
       with:
-        name: cluster-bootstrap-result.yaml
-        path: charts/cluster-bootstrap/cluster-bootstrap-result.yaml
+        name: devxp-app-result.yaml
+        path: charts/devxp-app/devxp-app-result.yaml
 
     - name: Checkout 🛎️
       uses: actions/checkout@v4
 
-    - name: Download cluster-bootstrap-result.yaml
+    - name: Download devxp-app-result.yaml
       uses: actions/download-artifact@v3
       with:
-        name: cluster-bootstrap-result.yaml
+        name: devxp-app-result.yaml
 
     - name: Print the final result
       shell: bash
       run: |
-        value=`cat cluster-bootstrap-result.yaml`
+        value=`cat devxp-app-result.yaml`
         echo The result is $value
 
+    - name: Upload devxp-app
+      uses: actions/upload-artifact@v3
+      with:
+        name: devxp-app-result.yaml
+        path: charts/devxp-app/devxp-app-result.yaml
+
+    - name: Checkout 🛎️
+      uses: actions/checkout@v4
+
+    - name: Download devxp-app-result.yaml
+      uses: actions/download-artifact@v3
+      with:
+        name: devxp-app-result.yaml
+
+    - name: Print the final result
+      shell: bash
+      run: |
+        value=`cat devxp-app-result.yaml`
+        echo The result is $value
 
     - name: Diff
       continue-on-error: true
