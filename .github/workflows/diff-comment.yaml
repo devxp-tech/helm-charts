@@ -1,4 +1,4 @@
-name: Pull Request Config 🤖
+name: Helm Diff 🤖
 
 on:
   workflow_dispatch:
@@ -20,15 +20,21 @@ jobs:
 
     - name: Generate Results from Main
       run: |
-        for p in $(ls -l charts | awk '{print $9}'); do helm template charts/$p -f charts/$p/values-ci.yaml > charts/$p/results.yaml ; done
+        for p in $(ls -l charts | awk '{print $9}'); do helm template charts/$p -f charts/$p/values-ci.yaml > charts/$p/$p-result.yaml ; done
+
+    - name: Upload cluster-bootstrap
+      uses: actions/upload-artifact@v3
+      with:
+        name: cluster-bootstrap-result.yaml
+        path: charts/cluster-bootstrap/git cluster-bootstrap-result.yaml
 
     - name: Diff
       continue-on-error: true
       run: diff --side-by-side --suppress-common-lines --ignore-space-change charts/devxp-dev/results.yaml results_new.yaml > diff.yaml && echo "Contents are identical"
 
-    - name: PR comment with file
-      uses: thollander/actions-comment-pull-request@v2
-      with:
-        comment_tag: show_diff
-        filePath: diff.yaml
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # - name: PR comment with file
+    #   uses: thollander/actions-comment-pull-request@v2
+    #   with:
+    #     comment_tag: show_diff
+    #     filePath: diff.yaml
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
