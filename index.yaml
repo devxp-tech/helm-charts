@@ -111,6 +111,21 @@ entries:
     urls:
     - https://raw.githubusercontent.com/devxp-tech/helm-charts/artifacts/cluster-bootstrap-0.1.0.tgz
     version: 0.1.0
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-01-06T18:40:44.818033244Z"
+    description: Helm Charts for cluster-bootstrap
+    digest: 34372229aebd2d5b238a3b6b4b81a103d87791893702e1d7b9508042a9e63dc9
+    icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
+    maintainers:
+    - email: contato@diegoluisi.eti.br
+      name: diegoluisi
+      url: www.diegoluisi.eti.br
+    name: cluster-bootstrap
+    type: application
+    urls:
+    - https://github.com/devxp-tech/helm-charts/releases/download/cluster-bootstrap-0.0.1/cluster-bootstrap-0.0.1.tgz
+    version: 0.0.1
   devxp-app:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -2400,4 +2415,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/devxp-tech/helm-charts/artifacts/web-application-0.1.8.tgz
     version: 0.1.8
-generated: "2024-01-05T17:00:14.345051968Z"
+generated: "2024-01-06T18:40:45.328809092Z"
