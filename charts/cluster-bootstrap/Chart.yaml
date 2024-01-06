@@ -1,0 +1,11 @@
+apiVersion: v2
+name: cluster-bootstrap
+description: Helm Charts for cluster-bootstrap
+icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
+type: application
+version: 0.0.1
+appVersion: 0.0.1
+maintainers:
+  - name: diegoluisi
+    email: contato@diegoluisi.eti.br
+    url: www.diegoluisi.eti.br
