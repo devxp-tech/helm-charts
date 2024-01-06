@@ -31,9 +31,16 @@ jobs:
     - name: Checkout 🛎️
       uses: actions/checkout@v4
 
-    - shell: bash
+    - name: Download cluster-bootstrap-result.yaml
+      uses: actions/download-artifact@v3
+      with:
+        name: cluster-bootstrap-result.yaml
+
+    - name: Print the final result
+      shell: bash
       run: |
-        cat cluster-bootstrap-result.yaml
+        value=`cat cluster-bootstrap-result.yaml`
+        echo The result is $value
 
 
     - name: Diff
