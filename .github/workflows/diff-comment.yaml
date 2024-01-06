@@ -20,51 +20,55 @@ jobs:
 
     - name: Generate Results from Main
       run: |
-        for p in $(ls -l charts | awk '{print $9}'); do helm template charts/$p -f charts/$p/values-ci.yaml > charts/$p/$p-result.yaml ; done
+        for p in $(ls -l charts | awk '{print $9}'); do helm template charts/$p -f charts/$p/values-ci.yaml > charts/$p/$p-main.yaml ; done
 
     - name: Upload devxp-app
       uses: actions/upload-artifact@v3
       with:
-        name: devxp-app-result.yaml
-        path: charts/devxp-app/devxp-app-result.yaml
+        name: devxp-app-main.yaml
+        path: charts/devxp-app/devxp-app-main.yaml
 
     - name: Checkout 🛎️
       uses: actions/checkout@v4
 
-    - name: Download devxp-app-result.yaml
+    - name: Download devxp-app-main.yaml
       uses: actions/download-artifact@v3
       with:
-        name: devxp-app-result.yaml
+        name: devxp-app-main.yaml
 
     - name: Print the final result
       shell: bash
       run: |
-        value=`cat devxp-app-result.yaml`
+        value=`cat devxp-app-main.yaml`
         echo The result is $value
 
     - name: Upload devxp-app
       uses: actions/upload-artifact@v3
       with:
-        name: devxp-app-result.yaml
-        path: charts/devxp-app/devxp-app-result.yaml
+        name: devxp-app-main.yaml
+        path: charts/devxp-app/devxp-app-main.yaml
 
     - name: Checkout 🛎️
       uses: actions/checkout@v4
 
-    - name: Download devxp-app-result.yaml
+    - name: Download devxp-app-main.yaml
       uses: actions/download-artifact@v3
       with:
-        name: devxp-app-result.yaml
+        name: devxp-app-main.yaml
 
-    - name: Print the final result
-      shell: bash
+    # - name: Print the final result
+    #   shell: bash
+    #   run: |
+    #     value=`cat devxp-app-main.yaml`
+    #     echo The result is $value
+
+    - name: Generate Results from PR
       run: |
-        value=`cat devxp-app-result.yaml`
-        echo The result is $value
+        for p in $(ls -l charts | awk '{print $9}'); do helm template charts/$p -f charts/$p/values-ci.yaml > charts/$p/$p-pr.yaml ; done
 
     - name: Diff
       continue-on-error: true
-      run: diff --side-by-side --suppress-common-lines --ignore-space-change charts/devxp-dev/results.yaml results_new.yaml > diff.yaml && echo "Contents are identical"
+      run: diff --side-by-side --suppress-common-lines --ignore-space-change devxp-app-main.yaml charts/devxp-app/devxp-app-pr.yaml  > diff.yaml && echo "Contents are identical"
 
     # - name: PR comment with file
     #   uses: thollander/actions-comment-pull-request@v2
