@@ -26,7 +26,15 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: cluster-bootstrap-result.yaml
-        path: charts/cluster-bootstrap/git cluster-bootstrap-result.yaml
+        path: charts/cluster-bootstrap/cluster-bootstrap-result.yaml
+
+    - name: Checkout 🛎️
+      uses: actions/checkout@v4
+
+    - shell: bash
+      run: |
+        cat cluster-bootstrap-result.yaml
+
 
     - name: Diff
       continue-on-error: true
