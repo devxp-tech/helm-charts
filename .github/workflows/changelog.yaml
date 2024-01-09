@@ -19,7 +19,7 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: mogensen/helm-changelog:latest
-          options: -v ${{ github.workspace }}:/
+          options: -v ${{ github.workspace }}:/data
           shell: bash
           run: |
             "/app/helm-changelog -v debug"
