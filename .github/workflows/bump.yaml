@@ -23,7 +23,7 @@ jobs:
 
       - name: Get PR labels 🏷️
         id: pr-labels
-        uses: joerick/pr-labels-action@v1.0.6
+        uses: joerick/pr-labels-action@v1.0.9
 
       - name: Bump Version ✨
         run: |
