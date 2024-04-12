@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: {{ .Values.name }}
+      {{- include "devxp-app.selectorLabels" $ | nindent 6 }}
   mtls:
     mode: {{ .Values.istio.peerAuthentication.mode }}
   {{- end }}

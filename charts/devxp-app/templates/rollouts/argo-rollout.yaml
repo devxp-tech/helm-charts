@@ -44,7 +44,7 @@ spec:
       maxUnavailable: 0
   selector:
     matchLabels:
-      app: {{ .Values.name }}
+      {{- include "devxp-app.selectorLabels" $ | nindent 6 }}
   template:
     metadata:
       {{- if .Values.podAnnotations }}
