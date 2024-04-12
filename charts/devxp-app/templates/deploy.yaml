@@ -15,7 +15,7 @@ spec:
     type: Recreate
   selector:
     matchLabels:
-      app: {{ .Values.name }}
+      {{- include "devxp-app.selectorLabels" $ | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}

@@ -275,13 +275,67 @@ migration:
   # -- migration.enable liquibase migration
   enabled: false
 
-# --serviceMonitor Prometheus Service Monitor
-serviceMonitor:
-  # --serviceMonitor.enabled Enable Prometheus Service Monitor
-  enabled: true
-  # --serviceMonitor.scheme Schema for Prometheus Service Monitor
-  scheme: http
-  # --serviceMonitor.path Path for Prometheus Service Monitor
-  path: /metrics
-  # --serviceMonitor.interval Path for Prometheus Service Monitor
-  interval: 60s
+monitoring:
+  rules:
+    # -- If enabled, create PrometheusRule resource with app recording rules
+    enabled: false
+    # -- Include alerting rules
+    alerting: true
+    # -- Alternative namespace to create recording rules PrometheusRule resource in
+    namespace: null
+    # -- Additional annotations for the rules PrometheusRule resource
+    annotations: {}
+    # -- Additional labels for the rules PrometheusRule resource
+    labels: {}
+    # -- Additional groups to add to the rules file
+    additionalGroups: []
+    # - name: additional-app-rules
+    #   rules:
+    #     - record: job:app_request_duration_seconds_bucket:sum_rate
+    #       expr: sum(rate(app_request_duration_seconds_bucket[1m])) by (le, job)
+    #     - record: job_route:app_request_duration_seconds_bucket:sum_rate
+    #       expr: sum(rate(app_request_duration_seconds_bucket[1m])) by (le, job, route)
+    #     - record: node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate
+    #       expr: sum(rate(container_cpu_usage_seconds_total[1m])) by (node, namespace, pod, container)
+
+  # Alerting rules for monitoring app
+  alerts:
+    # -- If enabled, create PrometheusRule resource with app alerting rules
+    enabled: false
+    # -- Alternative namespace to create alerting rules PrometheusRule resource in
+    namespace: null
+    # -- Additional annotations for the alerts PrometheusRule resource
+    annotations: {}
+    # -- Additional labels for the alerts PrometheusRule resource
+    labels: {}
+
+# ServiceMonitor configuration
+  serviceMonitor:
+    # -- If enabled, ServiceMonitor resources for Prometheus Operator are created
+    enabled: true
+    # -- Alternative namespace for ServiceMonitor resources
+    namespace: null
+    # -- Namespace selector for ServiceMonitor resources
+    namespaceSelector: {}
+    # -- ServiceMonitor annotations
+    annotations: {}
+    # -- Additional ServiceMonitor labels
+    labels: {}
+    # -- ServiceMonitor scrape interval
+    interval: 60s
+    # -- ServiceMonitor path to scrape
+    path: /metrics
+    # -- ServiceMonitor scrape timeout in Go duration format (e.g. 15s)
+    scrapeTimeout: null
+    # -- ServiceMonitor relabel configs to apply to samples before scraping
+    # https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#relabelconfig
+    relabelings: []
+    # -- ServiceMonitor will use http by default, but you can pick https as well
+    scheme: http
+    # -- ServiceMonitor will use these tlsConfig settings to make the health check requests
+    tlsConfig: null
+
+  # enabled: false
+  # scheme: http
+  # path: /metrics
+

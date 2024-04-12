@@ -1,0 +1,26 @@
+{{- if .Values.monitoring.rules.enabled }}
+{{- with .Values.monitoring.rules }}
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  labels:
+    {{- include "devxp-app.labels" $ | nindent 4 }}
+    {{- with .labels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  {{- with .annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  name: {{ include "devxp-app.fullname" $ }}-rules
+  namespace: {{ .namespace | default $.Release.Namespace }}
+spec:
+  groups:
+  {{- include "devxp-app.ruleGroupToYaml" ($.Files.Get "src/rules.yaml" | fromYaml).groups | indent 4 }}
+  {{- if .alerting }}
+  {{- include "devxp-app.ruleGroupToYaml" ($.Files.Get "src/alerts.yaml" | fromYaml).groups | indent 4 }}
+  {{- end }}
+  {{- include "devxp-app.ruleGroupToYaml" .additionalGroups | indent 4 }}
+{{- end }}
+{{- end }}

@@ -12,4 +12,11 @@ spec:
       image: busybox
       command: ['wget']
       args: ['{{ include "devxp-app.name" . }}:{{ .Values.container.port }}']
+      resources:
+          limits:
+            cpu: 10m
+            memory: 64Mi
+          requests:
+            cpu: 10m
+            memory: 64Mi
   restartPolicy: Never
