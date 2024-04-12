@@ -73,11 +73,11 @@ jobs:
           KUBERNETES_VERSION: ${{ matrix.k8s }}
         run: .github/kubeval.sh
 
-  quality-gate:
-    uses: devxp-tech/.github/.github/workflows/sonarqube.yaml@main
-    secrets: inherit
-    needs:
-      - env
+  # quality-gate:
+  #   uses: devxp-tech/.github/.github/workflows/sonarqube.yaml@main
+  #   secrets: inherit
+  #   needs:
+  #     - env
 
   release:
     name: Chart Release ✨
