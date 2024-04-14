@@ -17,7 +17,7 @@ jobs:
       image: dtzar/helm-kubectl:3.14.4
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Datree 🔨
         run: curl https://get.datree.io | /bin/bash
