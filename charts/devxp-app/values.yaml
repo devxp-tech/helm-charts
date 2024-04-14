@@ -15,7 +15,7 @@ global:
   # team_name: dev
   # --prometheus set prometheus server url
   prometheus:
-    server: http://prometheus-prometheus.monitoring.svc.cluster.local:9090
+    server: http://prometheus-community-kube-prometheus.monitoring.svc.cluster.local:9090
   # -- Network
   network:
     # --domain Set Default Domain
