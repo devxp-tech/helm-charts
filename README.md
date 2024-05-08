@@ -4,7 +4,7 @@
 
 [![main](https://github.com/devxp-tech/helm-charts/actions/workflows/main.yaml/badge.svg)](https://github.com/devxp-tech/helm-charts/actions/workflows/main.yaml)
 [![pages-build-deployment](https://github.com/devxp-tech/helm-charts/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/devxp-tech/helm-charts/actions/workflows/pages/pages-build-deployment)
-[![Quality Gate Status](https://sonar.devxp-tech.io/api/project_badges/measure?project=devxp-tech_helm-charts_AYwlqqtzK6u2xbedtTzd&metric=alert_status&token=sqb_baea02b22d7a1e5eaa9c30edf1f2a97d06494288)](https://sonar.devxp-tech.io/dashboard?id=devxp-tech_helm-charts_AYwlqqtzK6u2xbedtTzd)
+[![Quality Gate Status](https://sonar.devxp-tech.io/api/project_badges/measure?project=helm-charts&metric=alert_status&token=sqb_908f1e448016bb76992cf30bcd32ede237289a1c)](https://sonar.devxp-tech.io/dashboard?id=helm-charts)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/devxp-tech/helm-charts)
 ![GitHub last commit](https://img.shields.io/github/last-commit/devxp-tech/helm-charts)
 ![GitHub top language](https://img.shields.io/github/languages/top/devxp-tech/helm-charts)
