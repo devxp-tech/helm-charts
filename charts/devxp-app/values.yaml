@@ -5,6 +5,7 @@
 # --name is the github repository name of this application deploy
 name: ""
 nameOverride: {}
+# --fullnameOverride full override the name
 fullnameOverride: {}
 
 global:
