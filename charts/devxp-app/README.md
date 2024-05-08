@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.2.38](https://img.shields.io/badge/Version-0.2.38-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.2.39](https://img.shields.io/badge/Version-0.2.39-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -35,7 +35,7 @@ Helm Charts for default DevXP-Tech Application
 | deployment.enabled | bool | `false` | enabled default false |
 | envFrom | list | `[]` |  |
 | envs | list | `[]` |  |
-| fullnameOverride | object | `{}` |  |
+| fullnameOverride | object | `{}` | fullnameOverride full override the name |
 | global.cluster | string | `"cluster.local"` | cluster Set Cluster Name |
 | global.commonLabels | object | `{}` | commonLabels set common labels for all resources |
 | global.network | object | `{"domain":"devxp-tech.io"}` | Network |
