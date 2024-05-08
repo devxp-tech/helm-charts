@@ -1,18 +1,34 @@
 repo:
-  - "*"
-  - ".github/**"
+  - changed-files:
+    - any-glob-to-any-file:
+      - "*"
+      - ".github/**"
 
 devxp-app:
-  - charts/devxp-app/**
+  - changed-files:
+    - any-glob-to-any-file: 'charts/devxp-app/**'
 
 devxp-dev:
-  - charts/devxp-dev/**
+  - changed-files:
+    - any-glob-to-any-file: 'charts/devxp-dev/**'
 
 devxp-infra:
-  - charts/devxp-infra/**
+  - changed-files:
+    - any-glob-to-any-file: 'charts/devxp-infra/**'
 
 cluster-bootstrap:
-  - charts/cluster-bootstrap/**
+  - changed-files:
+    - any-glob-to-any-file: 'charts/cluster-bootstrap/**'
 
 tooling:
-  - charts/tooling/**
+  - changed-files:
+    - any-glob-to-any-file: 'charts/tooling/**'
+
+feature:
+  - head-branch: ['^feature', 'feature']
+
+hotfix:
+  - head-branch: ['^hotfix', 'hotfix', '^bugfix', 'bugfix']
+
+release:
+  - head-branch: ['^release', 'release']
