@@ -46,8 +46,8 @@ Helm Charts for default DevXP-Tech Application
 | image.tag | string | `"latest"` | especify the tag of your image to deploy |
 | imagePullSecrets | object | `{"enabled":true,"name":"ghcr-secret"}` | imagePullSecrets secret used to download image on private container registry |
 | imagePullSecrets.enabled | bool | `true` | imagePullSecrets.enabled create secret do pull docker images in private registrys |
-| istio | object | `{"enabled":true,"gateways":"istio-system/istio-ingressgateway","peerAuthentication":{"enabled":true,"mode":"PERMISSIVE"},"virtualServices":{"custom":{"hosts":[]},"enabled":true}}` | istio Set default Istio |
-| istio.gateways | string | `"istio-system/istio-ingressgateway"` | gateways set default gateway for virtual-service |
+| istio | object | `{"enabled":true,"gateways":"istio-ingress/istio-ingressgateway","peerAuthentication":{"enabled":true,"mode":"PERMISSIVE"},"virtualServices":{"custom":{"hosts":[]},"enabled":true}}` | istio Set default Istio |
+| istio.gateways | string | `"istio-ingress/istio-ingressgateway"` | gateways set default gateway for virtual-service |
 | istio.peerAuthentication | object | `{"enabled":true,"mode":"PERMISSIVE"}` | PeerAuthentication defines how traffic will be tunneled (or not) to the sidecar. |
 | istio.peerAuthentication.enabled | bool | `true` | enable peerAuthentication |
 | istio.peerAuthentication.mode | string | `"PERMISSIVE"` | set peerAuthentication mode, values (UNSET, DISABLE, PERMISSIVE, STRICT) |
