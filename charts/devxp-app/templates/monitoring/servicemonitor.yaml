@@ -15,7 +15,7 @@ spec:
     matchLabels:
       {{- include "devxp-app.selectorLabels" $ | nindent 6 }}
   endpoints:
-    - port: tcp-node
+    - port: {{ .Values.service.port.name }}
       {{- with .interval }}
       interval: {{ . }}
       {{- end }}
