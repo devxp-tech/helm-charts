@@ -327,7 +327,7 @@ monitoring:
     # -- ServiceMonitor path to scrape
     path: /metrics
     # -- ServiceMonitor scrape timeout in Go duration format (e.g. 15s)
-    scrapeTimeout: null
+    scrapeTimeout: 15s
     # -- ServiceMonitor relabel configs to apply to samples before scraping
     # https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#relabelconfig
     relabelings: []
