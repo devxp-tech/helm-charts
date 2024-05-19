@@ -16,20 +16,8 @@ spec:
       {{- include "devxp-app.selectorLabels" $ | nindent 6 }}
   endpoints:
     - port: {{ .Values.service.port.name }}
-      {{- with .interval }}
-      interval: {{ . }}
-      {{- end }}
-      {{- with .scrapeTimeout }}
-      scrapeTimeout: {{ . }}
-      {{- end }}
-      {{- with .path }}
-      path: {{ . }}
-      {{- end }}
-      {{- with .scheme }}
-      scheme: {{ . }}
-      {{- end }}
-      {{- with .tlsConfig }}
-      tlsConfig:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+      interval: {{ .Values.monitoring.serviceMonitor.interval }}
+      scrapeTimeout: {{ .Values.monitoring.serviceMonitor.scrapeTimeout }}
+      path: {{ .Values.monitoring.serviceMonitor.path }}
+      scheme: {{ .Values.monitoring.serviceMonitor.scheme }}
 {{- end }}
