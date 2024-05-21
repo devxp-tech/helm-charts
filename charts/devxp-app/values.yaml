@@ -277,6 +277,13 @@ migration:
   enabled: false
 
 monitoring:
+  actuator:
+    enabled: false
+    port:
+      name: prometheus
+      port: 8080
+      targetPort: 8080
+    path: /actuator/prometheus
   rules:
     # -- If enabled, create PrometheusRule resource with app recording rules
     enabled: false
@@ -335,4 +342,3 @@ monitoring:
     scheme: http
     # -- ServiceMonitor will use these tlsConfig settings to make the health check requests
     # tlsConfig: null
-
