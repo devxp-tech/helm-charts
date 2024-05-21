@@ -22,6 +22,12 @@ spec:
     port: {{ .Values.service.port.port }}
     targetPort:  {{ .Values.container.port }}
     protocol: TCP
+  {{- if .Values.monitoring.actuator.enabled }}
+  - name: {{ .Values.monitoring.actuator.port.name }}
+    port: {{ .Values.monitoring.actuator.port.port }}
+    targetPort:  {{ .Values.monitoring.actuator.port.targetPort }}
+    protocol: TCP
+  {{- end }}
   {{- end }}
   {{- if eq .Values.service.type "NodePort" }}
   ports:

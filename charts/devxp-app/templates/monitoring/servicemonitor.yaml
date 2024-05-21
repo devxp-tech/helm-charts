@@ -15,9 +15,18 @@ spec:
     matchLabels:
       app: {{ .Values.name }}
   endpoints:
+    {{- if not .Values.monitoring.actuator.enabled }}
     - port: {{ .Values.service.port.name }}
       interval: {{ .Values.monitoring.serviceMonitor.interval }}
       scrapeTimeout: {{ .Values.monitoring.serviceMonitor.scrapeTimeout }}
       path: {{ .Values.monitoring.serviceMonitor.path }}
       scheme: {{ .Values.monitoring.serviceMonitor.scheme }}
+    {{- end }}
+    {{- if .Values.monitoring.actuator.enabled }}
+    - port: {{ .Values.monitoring.actuator.port.name }}
+      interval: {{ .Values.monitoring.serviceMonitor.interval }}
+      scrapeTimeout: {{ .Values.monitoring.serviceMonitor.scrapeTimeout }}
+      path: {{ .Values.monitoring.actuator.path }}
+      scheme: {{ .Values.monitoring.serviceMonitor.scheme }}
+    {{- end }}
 {{- end }}
