@@ -4,7 +4,7 @@
 {{- $actuator := .actuator }}
 {{- $path := $probe.path }}
   {{- if $actuator.enabled }}
-    {{- $path = $actuator.path }}
+    {{- $path = $actuator.liveness.path }}
     {{- $port = $actuator.port.port }}
   {{- end }}
 {{- if $probe.enabled }}
