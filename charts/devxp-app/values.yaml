@@ -284,12 +284,14 @@ migration:
 monitoring:
   # -- If enabled, create default actuator path and metrics
   actuator:
-    enabled: false
+    enabled: true
     port:
       name: tcp-metrics
       port: 9090
       targetPort: 9090
     path: /actuator/prometheus
+    liveness:
+      path: /actuator/health/liveness
   rules:
     # -- If enabled, create PrometheusRule resource with app recording rules
     enabled: false
