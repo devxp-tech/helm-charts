@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.2.44](https://img.shields.io/badge/Version-0.2.44-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.2.45](https://img.shields.io/badge/Version-0.2.45-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -53,10 +53,7 @@ Helm Charts for default DevXP-Tech Application
 | istio.peerAuthentication.mode | string | `"PERMISSIVE"` | set peerAuthentication mode, values (UNSET, DISABLE, PERMISSIVE, STRICT) |
 | istio.virtualServices | object | `{"custom":{"hosts":[]},"enabled":true}` | istio.virtualServices Set Istio virtualServices parameters |
 | istio.virtualServices.enabled | bool | `true` | istio.virtualServices.enable Set Istio virtualServices enabled |
-| livenessProbe.httpGet.path | string | `"/health-check/liveness"` |  |
-| livenessProbe.httpGet.port | int | `8080` |  |
-| livenessProbe.initialDelaySeconds | int | `15` |  |
-| livenessProbe.periodSeconds | int | `10` |  |
+| livenessProbe | object | object | livenessprobe indicates whether the Container is running. |
 | migration | object | `{"enabled":false}` | migration Set liquibase migration |
 | migration.enabled | bool | `false` | migration.enable liquibase migration |
 | monitoring.actuator | object | `{"enabled":false,"path":"/actuator/prometheus","port":{"name":"tcp-metrics","port":9090,"targetPort":9090}}` | If enabled, create default actuator path and metrics |
