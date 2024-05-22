@@ -185,26 +185,28 @@ resources:
     memory: "128Mi"
 
 # --probe
-probe:
-  # --probe.enabled Enable liveness and readiness probe
-  enabled: true
+# probe:
+#   # --probe.enabled Enable liveness and readiness probe
+#   enabled: true
 
 ## Health Check
 # livenessProbe -- livenessprobe indicates whether the Container is running.
 # @default -- object
 livenessProbe:
-  httpGet:
-    path: /health-check/liveness
-    port: 8080
-  initialDelaySeconds: 15
+  enabled: true
+  path: /health-check/liveness
+  scheme: HTTP
+  exec: {}
+  # livenessProbe.initialDelaySeconds -- Number of seconds after the container has started before liveness probes are initiated
+  initialDelaySeconds: 5
+  # livenessProbe.timeoutSeconds -- Number of seconds after which the probe times out
+  timeoutSeconds: 3
+  # livenessProbe.periodSeconds -- How often (in seconds) to perform the probe
   periodSeconds: 10
-
-readinessProbe:
-  httpGet:
-    path: /health-check/readiness
-    port: 8080
-  initialDelaySeconds: 15
-  periodSeconds: 10
+  # livenessProbe.failureThreshold -- Minimum consecutive failures for the probe to be considered failed after having succeeded
+  failureThreshold: 3
+  # livenessProbe.successThreshold -- Minimum consecutive successes for the probe to be considered successful after having failed
+  successThreshold: 1
 
 nodeSelector: {}
 tolerations: []
