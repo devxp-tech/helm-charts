@@ -291,7 +291,7 @@ monitoring:
       targetPort: 9090
     path: /actuator/prometheus
     liveness:
-      path: /actuator/health/liveness
+      path: /actuator/health
   rules:
     # -- If enabled, create PrometheusRule resource with app recording rules
     enabled: false
