@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.2.43](https://img.shields.io/badge/Version-0.2.43-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.2.44](https://img.shields.io/badge/Version-0.2.44-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -59,11 +59,7 @@ Helm Charts for default DevXP-Tech Application
 | livenessProbe.periodSeconds | int | `10` |  |
 | migration | object | `{"enabled":false}` | migration Set liquibase migration |
 | migration.enabled | bool | `false` | migration.enable liquibase migration |
-| monitoring.actuator.enabled | bool | `false` |  |
-| monitoring.actuator.path | string | `"/actuator/prometheus"` |  |
-| monitoring.actuator.port.name | string | `"prometheus"` |  |
-| monitoring.actuator.port.port | int | `8080` |  |
-| monitoring.actuator.port.targetPort | int | `8080` |  |
+| monitoring.actuator | object | `{"enabled":false,"path":"/actuator/prometheus","port":{"name":"tcp-metrics","port":9090,"targetPort":9090}}` | If enabled, create default actuator path and metrics |
 | monitoring.alerts.annotations | object | `{}` | Additional annotations for the alerts PrometheusRule resource |
 | monitoring.alerts.enabled | bool | `false` | If enabled, create PrometheusRule resource with app alerting rules |
 | monitoring.alerts.labels | object | `{}` | Additional labels for the alerts PrometheusRule resource |
