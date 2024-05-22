@@ -277,12 +277,13 @@ migration:
   enabled: false
 
 monitoring:
+  # -- If enabled, create default actuator path and metrics
   actuator:
     enabled: false
     port:
-      name: prometheus
-      port: 8080
-      targetPort: 8080
+      name: tcp-metrics
+      port: 9090
+      targetPort: 9090
     path: /actuator/prometheus
   rules:
     # -- If enabled, create PrometheusRule resource with app recording rules
