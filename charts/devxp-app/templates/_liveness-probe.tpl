@@ -1,11 +1,17 @@
 {{- define "liveness-probe" }}
 {{- $probe := .probe }}
 {{- $port := .port }}
+{{- $actuator := .actuator }}
+{{- $path := $probe.path }}
+  {{- if $actuator.enabled }}
+    {{- $path = $actuator.path }}
+    {{- $port = $actuator.port.port }}
+  {{- end }}
 {{- if $probe.enabled }}
 livenessProbe:
   {{- if not $probe.exec }}
   httpGet:
-    path: {{ $probe.path }}
+    path: {{ $path }}
     scheme: {{ $probe.scheme}}
     port: {{ $port }}
   {{- else }}
