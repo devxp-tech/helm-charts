@@ -189,6 +189,9 @@ probe:
   # --probe.enabled Enable liveness and readiness probe
   enabled: true
 
+## Health Check
+# livenessProbe -- livenessprobe indicates whether the Container is running.
+# @default -- object
 livenessProbe:
   httpGet:
     path: /health-check/liveness

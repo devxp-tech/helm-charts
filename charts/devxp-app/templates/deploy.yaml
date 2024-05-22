@@ -42,11 +42,11 @@ spec:
         - name: {{ .Values.monitoring.actuator.port.name }}
           containerPort:  {{ .Values.monitoring.actuator.port.targetPort }}
         {{- end }}
-        resources: {{ toYaml .Values.resources | nindent 12 }}
         {{- if not .Values.probe.enabled }}
         livenessProbe: {{ toYaml .Values.livenessProbe | nindent 12 }}
         readinessProbe: {{ toYaml .Values.readinessProbe | nindent 12 }}
         {{- end }}
+        resources: {{ toYaml .Values.resources | nindent 12 }}
         volumeMounts: {{ toYaml (default list .Values.volumeMounts)  | nindent 12 }}
       nodeSelector: {{ toYaml (default dict .Values.nodeSelector) | nindent 8 }}
       affinity: {{ toYaml (default dict .Values.affinity) | nindent 8 }}
