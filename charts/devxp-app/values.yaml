@@ -177,12 +177,19 @@ imagePullSecrets:
 
 # --resources set deployment resources
 resources:
+  # --Resource requests are the minimum amount of CPU and memory that Kubernetes guarantees for the container
   requests:
+    # --The amount of CPU requested for the container
     cpu: "50m"
+    # --The amount of memory requested for the container
     memory: "64Mi"
+  # --Resource limits are the maximum amount of CPU and memory that the container is allowed to use
   limits:
+    # --The maximum amount of CPU the container can use
     cpu: "100m"
+    # --The maximum amount of memory the container can use
     memory: "128Mi"
+
 
 ## Health Check
 # --livenessProbe indicates whether the application is running and alive
