@@ -225,6 +225,21 @@ readinessProbe:
   # livenessProbe.successThreshold -- Minimum consecutive successes for the probe to be considered successful after having failed
   successThreshold: 1
 
+# Actuator
+actuator:
+  # -- If enabled, create default actuator path and metrics
+  enabled: true
+  port:
+    name: tcp-metrics
+    port: 9090
+    targetPort: 9090
+  metrics:
+    path: /actuator/prometheus
+  liveness:
+    path: /actuator/health/liveness
+  readiness:
+    path: /actuator/health/readiness
+
 nodeSelector: {}
 tolerations: []
 affinity: {}
@@ -359,18 +374,3 @@ monitoring:
     scheme: http
     # -- ServiceMonitor will use these tlsConfig settings to make the health check requests
     # tlsConfig: null
-
-# Actuator
-actuator:
-  # -- If enabled, create default actuator path and metrics
-  enabled: true
-  port:
-    name: tcp-metrics
-    port: 9090
-    targetPort: 9090
-  metrics:
-    path: /actuator/prometheus
-  liveness:
-    path: /actuator/health/liveness
-  readiness:
-    path: /actuator/health/readiness
