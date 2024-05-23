@@ -90,16 +90,22 @@ consumers:
 service:
   # --service.port Define the Service Port
   port:
+    # --Name of the port, used for service discovery
     name: tcp-node
-    # --port is the port your application runs under
+    # --Port is the port your application runs under
     port: 80
+  # --Annotations to add to the service
   annotations: {}
+  # --Labels to add to the service
   labels: {}
   externalDns:
+    # --Enable or disable external DNS for the service
     enabled: false
-  # --service An abstract way to expose an application running on a set of Pods as a network service.
+  # --Service An abstract way to expose an application running on a set of Pods as a network service.
   type: ClusterIP
+  # --The port to expose on each node in a cluster, only used if type is NodePort or LoadBalancer
   nodePort: {}
+
 
 # --istio Set default Istio
 istio:
