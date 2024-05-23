@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.2.53](https://img.shields.io/badge/Version-0.2.53-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.2.54](https://img.shields.io/badge/Version-0.2.54-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -14,13 +14,25 @@ Helm Charts for default DevXP-Tech Application
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| actuator.enabled | bool | `false` | If enabled, create default actuator path and metrics |
+| actuator.enabled | bool | `true` | If enabled, create default actuator path and metrics |
+| actuator.liveness.failureThreshold | int | `3` | Minimum consecutive failures for the probe to be considered failed after having succeeded |
+| actuator.liveness.initialDelaySeconds | int | `120` | Number of seconds after the container has started before readiness probes are initiated |
 | actuator.liveness.path | string | `"/actuator/health/liveness"` | The path to check liveness of the application |
+| actuator.liveness.periodSeconds | int | `10` | How often (in seconds) to perform the readiness probe |
+| actuator.liveness.scheme | string | `"HTTP"` | The scheme to use for the readiness probe (e.g., HTTP or HTTPS) |
+| actuator.liveness.successThreshold | int | `1` | Minimum consecutive successes for the probe to be considered successful after having failed |
+| actuator.liveness.timeoutSeconds | int | `3` | Number of seconds after which the readiness probe times out |
 | actuator.metrics.path | string | `"/actuator/prometheus"` | The path to expose Prometheus metrics |
 | actuator.port.name | string | `"tcp-metrics"` | The name of the port for actuator metrics |
 | actuator.port.port | int | `9090` | The port number for actuator metrics |
 | actuator.port.targetPort | int | `9090` | The target port in the container for actuator metrics |
+| actuator.readiness.failureThreshold | int | `3` | Minimum consecutive failures for the probe to be considered failed after having succeeded |
+| actuator.readiness.initialDelaySeconds | int | `120` | Number of seconds after the container has started before readiness probes are initiated |
 | actuator.readiness.path | string | `"/actuator/health/readiness"` | The path to check readiness of the application |
+| actuator.readiness.periodSeconds | int | `10` | How often (in seconds) to perform the readiness probe |
+| actuator.readiness.scheme | string | `"HTTP"` | The scheme to use for the readiness probe (e.g., HTTP or HTTPS) |
+| actuator.readiness.successThreshold | int | `1` | Minimum consecutive successes for the probe to be considered successful after having failed |
+| actuator.readiness.timeoutSeconds | int | `3` | Number of seconds after which the readiness probe times out |
 | affinity | object | `{}` | affinity allows you to define rules for pod scheduling based on node labels |
 | argoRollouts | object | `{"analyses":{"enabled":true,"failureLimit":3,"successCondition":0.95},"dynamicStableScale":true,"enabled":true,"revisionHistoryLimit":5,"strategy":{"steps":[{"setWeight":5},{"pause":{"duration":"10s"}},{"setWeight":20},{"pause":{"duration":"10s"}},{"setWeight":40},{"pause":{"duration":"10s"}},{"setWeight":60},{"pause":{"duration":"10s"}},{"setWeight":80},{"pause":{"duration":"10s"}}]}}` | argoRollouts enable Argo Rollouts Deployment |
 | argoRollouts.enabled | bool | `true` | Specifies whether a resource quota should be created |
