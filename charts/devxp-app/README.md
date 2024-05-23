@@ -14,14 +14,14 @@ Helm Charts for default DevXP-Tech Application
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| actuator.enabled | bool | `true` | If enabled, create default actuator path and metrics |
-| actuator.liveness.path | string | `"/actuator/health/liveness"` |  |
-| actuator.metrics.path | string | `"/actuator/prometheus"` |  |
-| actuator.port.name | string | `"tcp-metrics"` |  |
-| actuator.port.port | int | `9090` |  |
-| actuator.port.targetPort | int | `9090` |  |
-| actuator.readiness.path | string | `"/actuator/health/readiness"` |  |
-| affinity | object | `{}` |  |
+| actuator.enabled | bool | `false` | If enabled, create default actuator path and metrics |
+| actuator.liveness.path | string | `"/actuator/health/liveness"` | The path to check liveness of the application |
+| actuator.metrics.path | string | `"/actuator/prometheus"` | The path to expose Prometheus metrics |
+| actuator.port.name | string | `"tcp-metrics"` | The name of the port for actuator metrics |
+| actuator.port.port | int | `9090` | The port number for actuator metrics |
+| actuator.port.targetPort | int | `9090` | The target port in the container for actuator metrics |
+| actuator.readiness.path | string | `"/actuator/health/readiness"` | The path to check readiness of the application |
+| affinity | object | `{}` | affinity allows you to define rules for pod scheduling based on node labels |
 | argoRollouts | object | `{"analyses":{"enabled":true,"failureLimit":3,"successCondition":0.95},"dynamicStableScale":true,"enabled":true,"revisionHistoryLimit":5,"strategy":{"steps":[{"setWeight":5},{"pause":{"duration":"10s"}},{"setWeight":20},{"pause":{"duration":"10s"}},{"setWeight":40},{"pause":{"duration":"10s"}},{"setWeight":60},{"pause":{"duration":"10s"}},{"setWeight":80},{"pause":{"duration":"10s"}}]}}` | argoRollouts enable Argo Rollouts Deployment |
 | argoRollouts.enabled | bool | `true` | Specifies whether a resource quota should be created |
 | autoscaling | object | `{"customRules":[],"enabled":true,"maxReplicas":2,"minReplicas":1,"targetCPUUtilizationPercentage":80,"targetMemoryUtilizationPercentage":80}` | autoscaling is the main object of autoscaling |
@@ -60,15 +60,19 @@ Helm Charts for default DevXP-Tech Application
 | istio.peerAuthentication.mode | string | `"PERMISSIVE"` | set peerAuthentication mode, values (UNSET, DISABLE, PERMISSIVE, STRICT) |
 | istio.virtualServices | object | `{"custom":{"hosts":[]},"enabled":true}` | istio.virtualServices Set Istio virtualServices parameters |
 | istio.virtualServices.enabled | bool | `true` | istio.virtualServices.enable Set Istio virtualServices enabled |
-| livenessProbe | object | object | livenessprobe indicates whether the Container is running. |
+| livenessProbe | object | `{"enabled":true,"exec":{},"failureThreshold":3,"initialDelaySeconds":10,"path":"/health-check/liveness","periodSeconds":10,"scheme":"HTTP","successThreshold":1,"timeoutSeconds":3}` | livenessProbe indicates whether the application is running and alive |
+| livenessProbe.enabled | bool | `true` | Specifies whether the liveness probe is enabled |
+| livenessProbe.exec | object | `{}` | Specifies a command to run inside the container to determine liveness |
 | livenessProbe.failureThreshold | int | `3` | Minimum consecutive failures for the probe to be considered failed after having succeeded |
-| livenessProbe.initialDelaySeconds | int | `5` | Number of seconds after the container has started before liveness probes are initiated |
-| livenessProbe.periodSeconds | int | `10` | How often (in seconds) to perform the probe |
+| livenessProbe.initialDelaySeconds | int | `10` | Number of seconds after the container has started before liveness probes are initiated |
+| livenessProbe.path | string | `"/health-check/liveness"` | The HTTP path to check for liveness |
+| livenessProbe.periodSeconds | int | `10` | How often (in seconds) to perform the liveness probe |
+| livenessProbe.scheme | string | `"HTTP"` | The scheme to use for the liveness probe (e.g., HTTP or HTTPS) |
 | livenessProbe.successThreshold | int | `1` | Minimum consecutive successes for the probe to be considered successful after having failed |
-| livenessProbe.timeoutSeconds | int | `3` | Number of seconds after which the probe times out |
+| livenessProbe.timeoutSeconds | int | `3` | Number of seconds after which the liveness probe times out |
 | migration | object | `{"enabled":false}` | migration Set liquibase migration |
 | migration.enabled | bool | `false` | migration.enable liquibase migration |
-| monitoring | object | `{"alerts":{"annotations":{},"enabled":false,"labels":{},"namespace":null},"enabled":true,"rules":{"additionalGroups":[],"alerting":true,"annotations":{},"enabled":false,"labels":{},"namespace":null},"serviceMonitor":{"annotations":{},"enabled":true,"interval":"60s","labels":{},"namespace":null,"namespaceSelector":{},"path":"/metrics","relabelings":[],"scheme":"http","scrapeTimeout":"15s"}}` | monitoring Enable Monitoring Features |
+| monitoring | object | `{"alerts":{"annotations":{},"enabled":false,"labels":{},"namespace":null},"rules":{"additionalGroups":[],"alerting":true,"annotations":{},"enabled":false,"labels":{},"namespace":null},"serviceMonitor":{"annotations":{},"enabled":true,"interval":"60s","labels":{},"namespace":null,"namespaceSelector":{},"path":"/metrics","relabelings":[],"scheme":"http","scrapeTimeout":"15s"}}` | monitoring Enable Monitoring Features |
 | monitoring.alerts.annotations | object | `{}` | Additional annotations for the alerts PrometheusRule resource |
 | monitoring.alerts.enabled | bool | `false` | If enabled, create PrometheusRule resource with app alerting rules |
 | monitoring.alerts.labels | object | `{}` | Additional labels for the alerts PrometheusRule resource |
@@ -92,22 +96,23 @@ Helm Charts for default DevXP-Tech Application
 | name | string | `""` | name is the github repository name of this application deploy |
 | nameOverride | object | `{}` |  |
 | namespace | object | `{"annotations":{},"enabled":true,"labels":{}}` | namespace |
-| nodeSelector | object | `{}` |  |
-| podAnnotations | object | `{}` |  |
+| nodeSelector | object | `{}` | nodeSelector allows you to constrain a Pod to only be able to run on particular node(s) |
+| podAnnotations | object | `{}` | podAnnotations adds custom annotations to the pod |
 | podSecurityContext | object | `{}` | A security context defines privilege and access control settings for a Pod or Container. About more: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/ |
 | quota | object | `{"enabled":true,"resources":{"hard":{"limits.cpu":"2","limits.memory":"2Gi","requests.cpu":"1","requests.memory":"1Gi"}}}` | ResourceQuota provides constraints that limit aggregate resource consumption per namespace |
 | quota.enabled | bool | `true` | Specifies whether a resource quota should be created |
 | quota.resources | object | `{"hard":{"limits.cpu":"2","limits.memory":"2Gi","requests.cpu":"1","requests.memory":"1Gi"}}` | resources Specifies the hard resources |
 | quota.resources.hard."requests.cpu" | string | `"1"` | requests.cpu Specifies the request cpu |
-| readinessProbe.enabled | bool | `true` |  |
-| readinessProbe.exec | object | `{}` |  |
-| readinessProbe.failureThreshold | int | `3` |  |
-| readinessProbe.initialDelaySeconds | int | `5` |  |
-| readinessProbe.path | string | `"/health-check/readiness"` |  |
-| readinessProbe.periodSeconds | int | `10` |  |
-| readinessProbe.scheme | string | `"HTTP"` |  |
-| readinessProbe.successThreshold | int | `1` |  |
-| readinessProbe.timeoutSeconds | int | `3` |  |
+| readinessProbe | object | `{"enabled":true,"exec":{},"failureThreshold":3,"initialDelaySeconds":10,"path":"/health-check/readiness","periodSeconds":10,"scheme":"HTTP","successThreshold":1,"timeoutSeconds":3}` | readinessProbe indicates whether the application is ready to serve requests |
+| readinessProbe.enabled | bool | `true` | Specifies whether the readiness probe is enabled |
+| readinessProbe.exec | object | `{}` | Specifies a command to run inside the container to determine readiness |
+| readinessProbe.failureThreshold | int | `3` | Minimum consecutive failures for the probe to be considered failed after having succeeded |
+| readinessProbe.initialDelaySeconds | int | `10` | Number of seconds after the container has started before readiness probes are initiated |
+| readinessProbe.path | string | `"/health-check/readiness"` | The HTTP path to check for readiness |
+| readinessProbe.periodSeconds | int | `10` | How often (in seconds) to perform the readiness probe |
+| readinessProbe.scheme | string | `"HTTP"` | The scheme to use for the readiness probe (e.g., HTTP or HTTPS) |
+| readinessProbe.successThreshold | int | `1` | Minimum consecutive successes for the probe to be considered successful after having failed |
+| readinessProbe.timeoutSeconds | int | `3` | Number of seconds after which the readiness probe times out |
 | replicaCount | int | `1` | replicaCount is used when autoscaling.enabled is false to set a manually number of pods |
 | resources | object | `{"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}` | resources set deployment resources |
 | sealedSecrets | object | `{"enabled":true,"encryptedData":"AgDGBqpFurhI5BktCG/olnD7r2MuhAel/zkL1IL0BxrcaDUmR8JUf3TEkMqKbiRgb9iKYcwX7zVOXI4xDJeiyWyWDbckn8Yc+RBTw7qpKhh3kMUasPVo9blEcrKq4HjSEAEKapegBDT+H1LhjUToDoqwXVmGFEVYpiHtb0OA0OCtUuDZ2dYD4cLpMSVgZ/8hRfilRdD4PqXD+k1NEVZfRgKGl9fV0mazKm9e7w0rRI1brryhWx9+VZcvSi6RLHiELX7VOObxxjQ0W4gCuHKDRztgHoNDR+KVNum6YpVz8vOXQ/XpBxlASundsryNBAVcPwv0HYQDmsNFfMwXaLkLA+Hg6frWXi1CJvSrJc45U8RQ2sAfbCN6QQw1r6O+Lgqc2hmWnx3RzOva6zIq2UqUNRDrKxn99zZUCU4GpmVLFnj08ogq0p86zUXqzA6o1Qz1KRZu2S0QaQQyMquN4vqByXRfbXrgG5rtQRALsRG3o7q7OfOoy1sa1mF6kMyktpbawE7eT0k0FGPdjEtgg5FzLD88pj5OphL1aNTVzgSLVMpT0KY8GHVlB5AlMxz+ilB0bfSs+S5fGsY5u4iOpUAioAQ2lZH/aK8tMMug4pCRsYvDD6AUWlCupzGHhjVNeWDvhGpUG8anpr0htCxqLAGLJaMGV/hcuwbRzdxgKbPjqd/HFpzwi9ZN17IN1vtQhGm3xR781WTBAeLzU7XykzLh8VuUPhS6c8vdNsXXXYubSXrCAddAycXc5YThp/TzfOlPzn/3kkQZZRKUs3Qp393djTaEG75W/CpnQXG4Pnvk9a4swUCm2ZwNYCZdCjBccutcahlKa8mNG4sDeYbpLOG4ZICo2MuKNoJG2DqmemSUGKeThSyhW8v2CjoKqKhGSKbpUjI43c5dK4TueC88DYMZGX2TF5yOtXwmQbjsutAd3n2ELujLpg=="}` | sealedSecrets enable creation of a secret to pull images |
@@ -122,7 +127,7 @@ Helm Charts for default DevXP-Tech Application
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.automountServiceAccountToken | bool | `true` | serviceAccount.annotations Automont Service Account Token |
 | serviceAccount.enabled | bool | `true` | Specifies whether a service account should be created |
-| tolerations | list | `[]` |  |
+| tolerations | list | `[]` | tolerations allows the pods to schedule onto nodes with taints |
 | volumeMounts | list | `[]` | volumeMounts specifies where Kubernetes will mount Pod volumes |
 | volumes | list | `[]` | volumes specifies pod volumes |
 
