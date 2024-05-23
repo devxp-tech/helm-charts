@@ -207,6 +207,23 @@ livenessProbe:
   failureThreshold: 3
   # livenessProbe.successThreshold -- Minimum consecutive successes for the probe to be considered successful after having failed
   successThreshold: 1
+# livenessProbe -- livenessprobe indicates whether the Container is running.
+# @default -- object
+readinessProbe:
+  enabled: true
+  path: /health-check/readiness
+  scheme: HTTP
+  exec: {}
+  # livenessProbe.initialDelaySeconds -- Number of seconds after the container has started before liveness probes are initiated
+  initialDelaySeconds: 5
+  # livenessProbe.timeoutSeconds -- Number of seconds after which the probe times out
+  timeoutSeconds: 3
+  # livenessProbe.periodSeconds -- How often (in seconds) to perform the probe
+  periodSeconds: 10
+  # livenessProbe.failureThreshold -- Minimum consecutive failures for the probe to be considered failed after having succeeded
+  failureThreshold: 3
+  # livenessProbe.successThreshold -- Minimum consecutive successes for the probe to be considered successful after having failed
+  successThreshold: 1
 
 nodeSelector: {}
 tolerations: []
@@ -281,17 +298,9 @@ migration:
   # -- migration.enable liquibase migration
   enabled: false
 
+# --monitoring Enable Monitoring Features
 monitoring:
-  # -- If enabled, create default actuator path and metrics
-  actuator:
-    enabled: true
-    port:
-      name: tcp-metrics
-      port: 9090
-      targetPort: 9090
-    path: /actuator/prometheus
-    liveness:
-      path: /actuator/health
+  enabled: true
   rules:
     # -- If enabled, create PrometheusRule resource with app recording rules
     enabled: false
@@ -350,3 +359,18 @@ monitoring:
     scheme: http
     # -- ServiceMonitor will use these tlsConfig settings to make the health check requests
     # tlsConfig: null
+
+
+actuator:
+  # -- If enabled, create default actuator path and metrics
+  enabled: true
+  port:
+    name: tcp-metrics
+    port: 9090
+    targetPort: 9090
+  metrics:
+    path: /actuator/prometheus
+  liveness:
+    path: /actuator/health/liveness
+  readiness:
+    path: /actuator/health/readiness

@@ -66,12 +66,13 @@ spec:
         ports:
         - name: http
           containerPort: {{ .Values.container.port }}
-        {{- if .Values.monitoring.actuator.enabled }}
-        - name: {{ .Values.monitoring.actuator.port.name }}
-          containerPort:  {{ .Values.monitoring.actuator.port.targetPort }}
+        {{- if .Values.actuator.enabled }}
+        - name: {{ .Values.actuator.port.name }}
+          containerPort:  {{ .Values.actuator.port.targetPort }}
         {{- end }}
         resources: {{ toYaml .Values.resources | nindent 12 }}
-        {{- include "liveness-probe" ( dict "probe" .Values.livenessProbe "port" .Values.container.port "actuator" .Values.monitoring.actuator ) | nindent 8 }}
+        {{- include "liveness-probe" ( dict "probe" .Values.livenessProbe "port" .Values.container.port "actuator" .Values.actuator ) | nindent 8 }}
+        {{- include "readiness-probe" ( dict "probe" .Values.readinessProbe "port" .Values.container.port "actuator" .Values.actuator ) | nindent 8 }}
       nodeSelector: {{ toYaml (default dict .Values.nodeSelector) | nindent 8 }}
       affinity: {{ toYaml (default dict .Values.affinity) | nindent 8 }}
       tolerations: {{ toYaml (default list .Values.tolerations)  | nindent 8 }}

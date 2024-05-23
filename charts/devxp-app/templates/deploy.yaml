@@ -38,11 +38,12 @@ spec:
         ports:
         - name: http
           containerPort: {{ .Values.container.port }}
-        {{- if .Values.monitoring.actuator.enabled }}
-        - name: {{ .Values.monitoring.actuator.port.name }}
-          containerPort:  {{ .Values.monitoring.actuator.port.targetPort }}
+        {{- if .Values.actuator.enabled }}
+        - name: {{ .Values.actuator.port.name }}
+          containerPort:  {{ .Values.actuator.port.targetPort }}
         {{- end }}
-        {{- include "liveness-probe" ( dict "probe" .Values.livenessProbe "port" .Values.container.port "actuator" .Values.monitoring.actuator ) | nindent 8 }}
+        {{- include "liveness-probe" ( dict "probe" .Values.livenessProbe "port" .Values.container.port "actuator" .Values.actuator ) | nindent 8 }}
+        {{- include "readiness-probe" ( dict "probe" .Values.readinessProbe "port" .Values.container.port "actuator" .Values.actuator ) | nindent 8 }}
         resources: {{ toYaml .Values.resources | nindent 12 }}
         volumeMounts: {{ toYaml (default list .Values.volumeMounts)  | nindent 12 }}
       nodeSelector: {{ toYaml (default dict .Values.nodeSelector) | nindent 8 }}
