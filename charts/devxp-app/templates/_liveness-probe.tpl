@@ -12,8 +12,8 @@ livenessProbe:
   {{- if not $probe.exec }}
   httpGet:
     path: {{ $path }}
-    scheme: {{ $probe.scheme}}
     port: {{ $port }}
+    scheme: {{ $probe.scheme}}
   {{- else }}
   exec: {{- $probe.exec | toYaml | nindent 4 }}
   {{- end }}
