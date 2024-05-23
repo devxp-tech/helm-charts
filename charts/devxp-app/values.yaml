@@ -190,61 +190,83 @@ resources:
 #   enabled: true
 
 ## Health Check
-# livenessProbe -- livenessprobe indicates whether the Container is running.
-# @default -- object
+# --livenessProbe indicates whether the application is running and alive
 livenessProbe:
+  # --Specifies whether the liveness probe is enabled
   enabled: true
+  # --The HTTP path to check for liveness
   path: /health-check/liveness
+  # --The scheme to use for the liveness probe (e.g., HTTP or HTTPS)
   scheme: HTTP
+  # --Specifies a command to run inside the container to determine liveness
   exec: {}
-  # livenessProbe.initialDelaySeconds -- Number of seconds after the container has started before liveness probes are initiated
+  # --Number of seconds after the container has started before liveness probes are initiated
   initialDelaySeconds: 10
-  # livenessProbe.timeoutSeconds -- Number of seconds after which the probe times out
+  # --Number of seconds after which the liveness probe times out
   timeoutSeconds: 3
-  # livenessProbe.periodSeconds -- How often (in seconds) to perform the probe
+  # --How often (in seconds) to perform the liveness probe
   periodSeconds: 10
-  # livenessProbe.failureThreshold -- Minimum consecutive failures for the probe to be considered failed after having succeeded
+  # --Minimum consecutive failures for the probe to be considered failed after having succeeded
   failureThreshold: 3
-  # livenessProbe.successThreshold -- Minimum consecutive successes for the probe to be considered successful after having failed
-  successThreshold: 1
-# livenessProbe -- livenessprobe indicates whether the Container is running.
-# @default -- object
-readinessProbe:
-  enabled: true
-  path: /health-check/readiness
-  scheme: HTTP
-  exec: {}
-  # livenessProbe.initialDelaySeconds -- Number of seconds after the container has started before liveness probes are initiated
-  initialDelaySeconds: 10
-  # livenessProbe.timeoutSeconds -- Number of seconds after which the probe times out
-  timeoutSeconds: 3
-  # livenessProbe.periodSeconds -- How often (in seconds) to perform the probe
-  periodSeconds: 10
-  # livenessProbe.failureThreshold -- Minimum consecutive failures for the probe to be considered failed after having succeeded
-  failureThreshold: 3
-  # livenessProbe.successThreshold -- Minimum consecutive successes for the probe to be considered successful after having failed
+  # --Minimum consecutive successes for the probe to be considered successful after having failed
   successThreshold: 1
 
-# Actuator
+
+# --readinessProbe indicates whether the application is ready to serve requests
+readinessProbe:
+  # --Specifies whether the readiness probe is enabled
+  enabled: true
+  # --The HTTP path to check for readiness
+  path: /health-check/readiness
+  # --The scheme to use for the readiness probe (e.g., HTTP or HTTPS)
+  scheme: HTTP
+  # --Specifies a command to run inside the container to determine readiness
+  exec: {}
+  # --Number of seconds after the container has started before readiness probes are initiated
+  initialDelaySeconds: 10
+  # --Number of seconds after which the readiness probe times out
+  timeoutSeconds: 3
+  # --How often (in seconds) to perform the readiness probe
+  periodSeconds: 10
+  # --Minimum consecutive failures for the probe to be considered failed after having succeeded
+  failureThreshold: 3
+  # --Minimum consecutive successes for the probe to be considered successful after having failed
+  successThreshold: 1
+
+
+# Actuator settings for exposing application metrics and health checks
 actuator:
   # -- If enabled, create default actuator path and metrics
   enabled: true
   port:
+    # -- The name of the port for actuator metrics
     name: tcp-metrics
+    # -- The port number for actuator metrics
     port: 9090
+    # -- The target port in the container for actuator metrics
     targetPort: 9090
   metrics:
+    # -- The path to expose Prometheus metrics
     path: /actuator/prometheus
   liveness:
+    # -- The path to check liveness of the application
     path: /actuator/health/liveness
   readiness:
+    # -- The path to check readiness of the application
     path: /actuator/health/readiness
 
+# --nodeSelector allows you to constrain a Pod to only be able to run on particular node(s)
 nodeSelector: {}
+
+# --tolerations allows the pods to schedule onto nodes with taints
 tolerations: []
+
+# --affinity allows you to define rules for pod scheduling based on node labels
 affinity: {}
 
+# --podAnnotations adds custom annotations to the pod
 podAnnotations: {}
+
 # --A security context defines privilege and access control settings for a Pod or Container. About more: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 podSecurityContext:
   {}
