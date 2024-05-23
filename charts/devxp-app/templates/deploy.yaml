@@ -42,8 +42,8 @@ spec:
         - name: {{ .Values.actuator.port.name }}
           containerPort:  {{ .Values.actuator.port.targetPort }}
         {{- end }}
-        {{- include "liveness-probe" ( dict "liveness" .Values.livenessProbe "port" .Values.container.port "actuator" .Values.actuator ) | nindent 8 }}
-        {{- include "readiness-probe" ( dict "readiness" .Values.readinessProbe "port" .Values.container.port "actuator" .Values.actuator ) | nindent 8 }}
+        {{- include "liveness-probe" ( dict "liveness" .Values.livenessProbe "port" .Values.container.port "actuator" .Values.actuator ) | indent 8 }}
+        {{- include "readiness-probe" ( dict "readiness" .Values.readinessProbe "port" .Values.container.port "actuator" .Values.actuator ) | indent 8 }}
         resources: {{ toYaml .Values.resources | nindent 12 }}
         volumeMounts: {{ toYaml (default list .Values.volumeMounts)  | nindent 12 }}
       nodeSelector: {{ toYaml (default dict .Values.nodeSelector) | nindent 8 }}

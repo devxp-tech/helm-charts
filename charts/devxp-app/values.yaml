@@ -238,7 +238,7 @@ readinessProbe:
 # Actuator settings for exposing application metrics and health checks
 actuator:
   # -- If enabled, create default actuator path and metrics
-  enabled: false
+  enabled: true
   port:
     # -- The name of the port for actuator metrics
     name: tcp-metrics
@@ -252,9 +252,33 @@ actuator:
   liveness:
     # -- The path to check liveness of the application
     path: /actuator/health/liveness
+    # --The scheme to use for the readiness probe (e.g., HTTP or HTTPS)
+    scheme: HTTP
+    # --Number of seconds after the container has started before readiness probes are initiated
+    initialDelaySeconds: 120
+    # --Number of seconds after which the readiness probe times out
+    timeoutSeconds: 3
+    # --How often (in seconds) to perform the readiness probe
+    periodSeconds: 10
+    # --Minimum consecutive failures for the probe to be considered failed after having succeeded
+    failureThreshold: 3
+    # --Minimum consecutive successes for the probe to be considered successful after having failed
+    successThreshold: 1
   readiness:
     # -- The path to check readiness of the application
     path: /actuator/health/readiness
+    # --The scheme to use for the readiness probe (e.g., HTTP or HTTPS)
+    scheme: HTTP
+    # --Number of seconds after the container has started before readiness probes are initiated
+    initialDelaySeconds: 120
+    # --Number of seconds after which the readiness probe times out
+    timeoutSeconds: 3
+    # --How often (in seconds) to perform the readiness probe
+    periodSeconds: 10
+    # --Minimum consecutive failures for the probe to be considered failed after having succeeded
+    failureThreshold: 3
+    # --Minimum consecutive successes for the probe to be considered successful after having failed
+    successThreshold: 1
 
 # --nodeSelector allows you to constrain a Pod to only be able to run on particular node(s)
 nodeSelector: {}
