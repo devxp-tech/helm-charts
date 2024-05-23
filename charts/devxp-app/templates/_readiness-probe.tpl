@@ -3,24 +3,27 @@
 {{- $port := .port }}
 {{- $actuator := .actuator }}
 {{- $path := $readiness.path }}
+{{- $data := $readiness }}
+
 {{- if $readiness.enabled }}
   {{- if $actuator.enabled }}
     {{- $path = $actuator.readiness.path }}
     {{- $port = $actuator.port.port }}
+    {{- $data = $actuator.readiness }}
   {{- end }}
 readinessProbe:
   {{- if not $readiness.exec }}
   httpGet:
     path: {{ $path }}
     port: {{ $port }}
-    scheme: {{ $readiness.scheme}}
+    scheme: {{ $data.scheme}}
   {{- else }}
-  exec: {{- $readiness.exec | toYaml | nindent 4 }}
+  exec: {{- $data.exec | toYaml | nindent 4 }}
   {{- end }}
-  initialDelaySeconds: {{ $readiness.initialDelaySeconds }}
-  timeoutSeconds: {{ $readiness.timeoutSeconds }}
-  periodSeconds: {{ $readiness.periodSeconds }}
-  failureThreshold: {{ $readiness.failureThreshold }}
-  successThreshold: {{ $readiness.successThreshold }}
+  initialDelaySeconds: {{ $data.initialDelaySeconds }}
+  timeoutSeconds: {{ $data.timeoutSeconds }}
+  periodSeconds: {{ $data.periodSeconds }}
+  failureThreshold: {{ $data.failureThreshold }}
+  successThreshold: {{ $data.successThreshold }}
 {{- end }}
 {{- end -}}

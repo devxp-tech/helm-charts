@@ -3,24 +3,27 @@
 {{- $port := .port }}
 {{- $actuator := .actuator }}
 {{- $path := $liveness.path }}
+{{- $data := $liveness }}
+
 {{- if $liveness.enabled }}
   {{- if $actuator.enabled }}
     {{- $path = $actuator.liveness.path }}
     {{- $port = $actuator.port.port }}
+    {{- $data = $actuator.liveness }}
   {{- end }}
 livenessProbe:
   {{- if not $liveness.exec }}
   httpGet:
     path: {{ $path }}
     port: {{ $port }}
-    scheme: {{ $liveness.scheme}}
+    scheme: {{ $data.scheme}}
   {{- else }}
-  exec: {{- $liveness.exec | toYaml | nindent 4 }}
+  exec: {{- $data.exec | toYaml | nindent 4 }}
   {{- end }}
-  initialDelaySeconds: {{ $liveness.initialDelaySeconds }}
-  timeoutSeconds: {{ $liveness.timeoutSeconds }}
-  periodSeconds: {{ $liveness.periodSeconds }}
-  failureThreshold: {{ $liveness.failureThreshold }}
-  successThreshold: {{ $liveness.successThreshold }}
+  initialDelaySeconds: {{ $data.initialDelaySeconds }}
+  timeoutSeconds: {{ $data.timeoutSeconds }}
+  periodSeconds: {{ $data.periodSeconds }}
+  failureThreshold: {{ $data.failureThreshold }}
+  successThreshold: {{ $data.successThreshold }}
 {{- end }}
 {{- end -}}
