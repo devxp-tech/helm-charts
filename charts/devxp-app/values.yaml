@@ -184,11 +184,6 @@ resources:
     cpu: "100m"
     memory: "128Mi"
 
-# --probe
-# probe:
-#   # --probe.enabled Enable liveness and readiness probe
-#   enabled: true
-
 ## Health Check
 # --livenessProbe indicates whether the application is running and alive
 livenessProbe:
@@ -237,7 +232,7 @@ readinessProbe:
 # Actuator settings for exposing application metrics and health checks
 actuator:
   # -- If enabled, create default actuator path and metrics
-  enabled: true
+  enabled: false
   port:
     # -- The name of the port for actuator metrics
     name: tcp-metrics
