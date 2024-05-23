@@ -337,7 +337,6 @@ migration:
 
 # --monitoring Enable Monitoring Features
 monitoring:
-  enabled: true
   rules:
     # -- If enabled, create PrometheusRule resource with app recording rules
     enabled: false
