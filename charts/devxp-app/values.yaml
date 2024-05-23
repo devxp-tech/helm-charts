@@ -190,7 +190,6 @@ resources:
     # --The maximum amount of memory the container can use
     memory: "128Mi"
 
-
 ## Health Check
 # --livenessProbe indicates whether the application is running and alive
 livenessProbe:

@@ -1,26 +1,26 @@
 {{- define "liveness-probe" }}
-{{- $probe := .probe }}
+{{- $liveness := .liveness }}
 {{- $port := .port }}
 {{- $actuator := .actuator }}
-{{- $path := $probe.path }}
+{{- $path := $liveness.path }}
+{{- if $liveness.enabled }}
   {{- if $actuator.enabled }}
     {{- $path = $actuator.liveness.path }}
     {{- $port = $actuator.port.port }}
   {{- end }}
-{{- if $probe.enabled }}
 livenessProbe:
-  {{- if not $probe.exec }}
+  {{- if not $liveness.exec }}
   httpGet:
     path: {{ $path }}
     port: {{ $port }}
-    scheme: {{ $probe.scheme}}
+    scheme: {{ $liveness.scheme}}
   {{- else }}
-  exec: {{- $probe.exec | toYaml | nindent 4 }}
+  exec: {{- $liveness.exec | toYaml | nindent 4 }}
   {{- end }}
-  initialDelaySeconds: {{ $probe.initialDelaySeconds }}
-  timeoutSeconds: {{ $probe.timeoutSeconds }}
-  periodSeconds: {{ $probe.periodSeconds }}
-  failureThreshold: {{ $probe.failureThreshold }}
-  successThreshold: {{ $probe.successThreshold }}
+  initialDelaySeconds: {{ $liveness.initialDelaySeconds }}
+  timeoutSeconds: {{ $liveness.timeoutSeconds }}
+  periodSeconds: {{ $liveness.periodSeconds }}
+  failureThreshold: {{ $liveness.failureThreshold }}
+  successThreshold: {{ $liveness.successThreshold }}
 {{- end }}
 {{- end -}}

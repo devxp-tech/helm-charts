@@ -1,26 +1,26 @@
 {{- define "readiness-probe" }}
-{{- $probe := .probe }}
+{{- $readiness := .readiness }}
 {{- $port := .port }}
 {{- $actuator := .actuator }}
-{{- $path := $probe.path }}
+{{- $path := $readiness.path }}
+{{- if $readiness.enabled }}
   {{- if $actuator.enabled }}
     {{- $path = $actuator.readiness.path }}
     {{- $port = $actuator.port.port }}
   {{- end }}
-{{- if $probe.enabled }}
 readinessProbe:
-  {{- if not $probe.exec }}
+  {{- if not $readiness.exec }}
   httpGet:
     path: {{ $path }}
     port: {{ $port }}
-    scheme: {{ $probe.scheme}}
+    scheme: {{ $readiness.scheme}}
   {{- else }}
-  exec: {{- $probe.exec | toYaml | nindent 4 }}
+  exec: {{- $readiness.exec | toYaml | nindent 4 }}
   {{- end }}
-  initialDelaySeconds: {{ $probe.initialDelaySeconds }}
-  timeoutSeconds: {{ $probe.timeoutSeconds }}
-  periodSeconds: {{ $probe.periodSeconds }}
-  failureThreshold: {{ $probe.failureThreshold }}
-  successThreshold: {{ $probe.successThreshold }}
+  initialDelaySeconds: {{ $readiness.initialDelaySeconds }}
+  timeoutSeconds: {{ $readiness.timeoutSeconds }}
+  periodSeconds: {{ $readiness.periodSeconds }}
+  failureThreshold: {{ $readiness.failureThreshold }}
+  successThreshold: {{ $readiness.successThreshold }}
 {{- end }}
 {{- end -}}
