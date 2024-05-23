@@ -360,7 +360,7 @@ monitoring:
     # -- ServiceMonitor will use these tlsConfig settings to make the health check requests
     # tlsConfig: null
 
-
+# Actuator
 actuator:
   # -- If enabled, create default actuator path and metrics
   enabled: true
