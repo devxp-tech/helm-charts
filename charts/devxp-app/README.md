@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.2.56](https://img.shields.io/badge/Version-0.2.56-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.2.57](https://img.shields.io/badge/Version-0.2.57-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -14,7 +14,7 @@ Helm Charts for default DevXP-Tech Application
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| actuator.enabled | bool | `true` | If enabled, create default actuator path and metrics |
+| actuator.enabled | bool | `false` | If enabled, create default actuator path and metrics |
 | actuator.liveness.failureThreshold | int | `3` | Minimum consecutive failures for the probe to be considered failed after having succeeded |
 | actuator.liveness.initialDelaySeconds | int | `120` | Number of seconds after the container has started before readiness probes are initiated |
 | actuator.liveness.path | string | `"/actuator/health/liveness"` | The path to check liveness of the application |
