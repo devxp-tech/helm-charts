@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.2.58](https://img.shields.io/badge/Version-0.2.58-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.2.59](https://img.shields.io/badge/Version-0.2.59-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -16,6 +16,7 @@ Helm Charts for default DevXP-Tech Application
 |-----|------|---------|-------------|
 | actuator.enabled | bool | `false` | If enabled, create default actuator path and metrics |
 | actuator.liveness.failureThreshold | int | `3` | Minimum consecutive failures for the probe to be considered failed after having succeeded |
+| actuator.liveness.httpHeaders | list | `[]` |  |
 | actuator.liveness.initialDelaySeconds | int | `120` | Number of seconds after the container has started before readiness probes are initiated |
 | actuator.liveness.path | string | `"/actuator/health/liveness"` | The path to check liveness of the application |
 | actuator.liveness.periodSeconds | int | `10` | How often (in seconds) to perform the readiness probe |
@@ -27,6 +28,7 @@ Helm Charts for default DevXP-Tech Application
 | actuator.port.port | int | `9090` | The port number for actuator metrics |
 | actuator.port.targetPort | int | `9090` | The target port in the container for actuator metrics |
 | actuator.readiness.failureThreshold | int | `3` | Minimum consecutive failures for the probe to be considered failed after having succeeded |
+| actuator.readiness.httpHeaders | list | `[]` |  |
 | actuator.readiness.initialDelaySeconds | int | `120` | Number of seconds after the container has started before readiness probes are initiated |
 | actuator.readiness.path | string | `"/actuator/health/readiness"` | The path to check readiness of the application |
 | actuator.readiness.periodSeconds | int | `10` | How often (in seconds) to perform the readiness probe |
@@ -72,7 +74,7 @@ Helm Charts for default DevXP-Tech Application
 | istio.peerAuthentication.mode | string | `"PERMISSIVE"` | set peerAuthentication mode, values (UNSET, DISABLE, PERMISSIVE, STRICT) |
 | istio.virtualServices | object | `{"custom":{"hosts":[]},"enabled":true}` | istio.virtualServices Set Istio virtualServices parameters |
 | istio.virtualServices.enabled | bool | `true` | istio.virtualServices.enable Set Istio virtualServices enabled |
-| livenessProbe | object | `{"enabled":true,"exec":{},"failureThreshold":3,"httpGet":{"httpHeaders":[]},"initialDelaySeconds":10,"path":"/health-check/liveness","periodSeconds":10,"scheme":"HTTP","successThreshold":1,"timeoutSeconds":3}` | livenessProbe indicates whether the application is running and alive |
+| livenessProbe | object | `{"enabled":true,"exec":{},"failureThreshold":3,"httpHeaders":[],"initialDelaySeconds":10,"path":"/health-check/liveness","periodSeconds":10,"scheme":"HTTP","successThreshold":1,"timeoutSeconds":3}` | livenessProbe indicates whether the application is running and alive |
 | livenessProbe.enabled | bool | `true` | Specifies whether the liveness probe is enabled |
 | livenessProbe.exec | object | `{}` | Specifies a command to run inside the container to determine liveness |
 | livenessProbe.failureThreshold | int | `3` | Minimum consecutive failures for the probe to be considered failed after having succeeded |
@@ -115,7 +117,7 @@ Helm Charts for default DevXP-Tech Application
 | quota.enabled | bool | `true` | Specifies whether a resource quota should be created |
 | quota.resources | object | `{"hard":{"limits.cpu":"2","limits.memory":"2Gi","requests.cpu":"1","requests.memory":"1Gi"}}` | resources Specifies the hard resources |
 | quota.resources.hard."requests.cpu" | string | `"1"` | requests.cpu Specifies the request cpu |
-| readinessProbe | object | `{"enabled":true,"exec":{},"failureThreshold":3,"httpGet":{"httpHeaders":[]},"initialDelaySeconds":10,"path":"/health-check/readiness","periodSeconds":10,"scheme":"HTTP","successThreshold":1,"timeoutSeconds":3}` | readinessProbe indicates whether the application is ready to serve requests |
+| readinessProbe | object | `{"enabled":true,"exec":{},"failureThreshold":3,"httpHeaders":[],"initialDelaySeconds":10,"path":"/health-check/readiness","periodSeconds":10,"scheme":"HTTP","successThreshold":1,"timeoutSeconds":3}` | readinessProbe indicates whether the application is ready to serve requests |
 | readinessProbe.enabled | bool | `true` | Specifies whether the readiness probe is enabled |
 | readinessProbe.exec | object | `{}` | Specifies a command to run inside the container to determine readiness |
 | readinessProbe.failureThreshold | int | `3` | Minimum consecutive failures for the probe to be considered failed after having succeeded |
