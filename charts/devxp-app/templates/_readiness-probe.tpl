@@ -4,19 +4,28 @@
 {{- $actuator := .actuator }}
 {{- $path := $readiness.path }}
 {{- $data := $readiness }}
+{{- $headers := $readiness.httpGet.httpHeaders }}
 
 {{- if $readiness.enabled }}
   {{- if $actuator.enabled }}
-    {{- $path = $actuator.readiness.path }}
     {{- $port = $actuator.port.port }}
+    {{- $path = $actuator.readiness.path }}
     {{- $data = $actuator.readiness }}
+    {{- $headers = $actuator.readiness.httpGet.httpHeaders }}
   {{- end }}
 readinessProbe:
   {{- if not $readiness.exec }}
   httpGet:
-    path: {{ $path }}
     port: {{ $port }}
-    scheme: {{ $data.scheme}}
+    path: {{ $path }}
+    scheme: {{ $data.scheme }}
+    {{- if $headers }}
+    httpHeaders:
+      {{- range $headers }}
+      - name: {{ .name }}
+        value: {{ .value }}
+      {{- end }}
+    {{- end }}
   {{- else }}
   exec: {{- $data.exec | toYaml | nindent 4 }}
   {{- end }}
@@ -26,4 +35,4 @@ readinessProbe:
   failureThreshold: {{ $data.failureThreshold }}
   successThreshold: {{ $data.successThreshold }}
 {{- end }}
-{{- end -}}
+{{- end }}
