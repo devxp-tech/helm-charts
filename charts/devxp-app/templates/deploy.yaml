@@ -18,10 +18,11 @@ spec:
       {{- include "devxp-app.selectorLabels" $ | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
       annotations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+        {{- include "instrumentation-annotations" . | nindent 8 }}
+        {{- if .Values.podAnnotations }}
+        {{- toYaml .Values.podAnnotations | nindent 8 }}
+        {{- end }}
       labels: {{- include "devxp-app.labels" . | nindent 8 }}
     spec:
       {{- if not .Values.imagePullSecrets.enabled }}
