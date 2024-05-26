@@ -4,14 +4,14 @@
 {{- $actuator := .actuator }}
 {{- $path := $liveness.path }}
 {{- $data := $liveness }}
-{{- $headers := $liveness.httpGet.httpHeaders }}
+{{- $headers := $liveness.httpHeaders }}
 
 {{- if $liveness.enabled }}
   {{- if $actuator.enabled }}
     {{- $port = $actuator.port.port }}
     {{- $path = $actuator.liveness.path }}
     {{- $data = $actuator.liveness }}
-    {{- $headers = $actuator.liveness.httpGet.httpHeaders }}
+    {{- $headers = $actuator.liveness.httpHeaders }}
   {{- end }}
 livenessProbe:
   {{- if not $liveness.exec }}

@@ -217,8 +217,7 @@ livenessProbe:
   failureThreshold: 3
   # --Minimum consecutive successes for the probe to be considered successful after having failed
   successThreshold: 1
-  httpGet:
-    httpHeaders: []
+  httpHeaders: []
 
 
 # --readinessProbe indicates whether the application is ready to serve requests
@@ -241,8 +240,7 @@ readinessProbe:
   failureThreshold: 3
   # --Minimum consecutive successes for the probe to be considered successful after having failed
   successThreshold: 1
-  httpGet:
-    httpHeaders: []
+  httpHeaders: []
 
 # Actuator settings for exposing application metrics and health checks
 actuator:
@@ -273,6 +271,7 @@ actuator:
     failureThreshold: 3
     # --Minimum consecutive successes for the probe to be considered successful after having failed
     successThreshold: 1
+    httpHeaders: []
   readiness:
     # -- The path to check readiness of the application
     path: /actuator/health/readiness
@@ -288,6 +287,7 @@ actuator:
     failureThreshold: 3
     # --Minimum consecutive successes for the probe to be considered successful after having failed
     successThreshold: 1
+    httpHeaders: []
 
 # --nodeSelector allows you to constrain a Pod to only be able to run on particular node(s)
 nodeSelector: {}
