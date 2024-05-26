@@ -4,19 +4,28 @@
 {{- $actuator := .actuator }}
 {{- $path := $liveness.path }}
 {{- $data := $liveness }}
+{{- $headers := $liveness.httpGet.httpHeaders }}
 
 {{- if $liveness.enabled }}
   {{- if $actuator.enabled }}
-    {{- $path = $actuator.liveness.path }}
     {{- $port = $actuator.port.port }}
+    {{- $path = $actuator.liveness.path }}
     {{- $data = $actuator.liveness }}
+    {{- $headers = $actuator.liveness.httpGet.httpHeaders }}
   {{- end }}
 livenessProbe:
   {{- if not $liveness.exec }}
   httpGet:
-    path: {{ $path }}
     port: {{ $port }}
-    scheme: {{ $data.scheme}}
+    path: {{ $path }}
+    scheme: {{ $data.scheme }}
+    {{- if $headers }}
+    httpHeaders:
+      {{- range $headers }}
+      - name: {{ .name }}
+        value: {{ .value }}
+      {{- end }}
+    {{- end }}
   {{- else }}
   exec: {{- $data.exec | toYaml | nindent 4 }}
   {{- end }}
@@ -26,4 +35,4 @@ livenessProbe:
   failureThreshold: {{ $data.failureThreshold }}
   successThreshold: {{ $data.successThreshold }}
 {{- end }}
-{{- end -}}
+{{- end }}
