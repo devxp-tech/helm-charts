@@ -4,14 +4,14 @@
 {{- $actuator := .actuator }}
 {{- $path := $readiness.path }}
 {{- $data := $readiness }}
-{{- $headers := $readiness.httpGet.httpHeaders }}
+{{- $headers := $readiness.httpHeaders }}
 
 {{- if $readiness.enabled }}
   {{- if $actuator.enabled }}
     {{- $port = $actuator.port.port }}
     {{- $path = $actuator.readiness.path }}
     {{- $data = $actuator.readiness }}
-    {{- $headers = $actuator.readiness.httpGet.httpHeaders }}
+    {{- $headers = $actuator.readiness.httpHeaders }}
   {{- end }}
 readinessProbe:
   {{- if not $readiness.exec }}
