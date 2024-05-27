@@ -1,0 +1,33 @@
+apiVersion: opentelemetry.io/v1alpha1
+kind: Instrumentation
+metadata:
+  name: {{ .Values.name }}
+spec:
+  exporter:
+    endpoint: http://otel-collector.observability.svc.cluster.local:4317 #4318
+  propagators:
+    - tracecontext
+    - baggage
+  sampler:
+    type: parentbased_traceidratio
+    argument: "1"
+  dotnet:
+    env:
+      - name: OTEL_SERVICE_NAME
+        value: {{ .Values.name }}
+  go:
+    env:
+      - name: OTEL_SERVICE_NAME
+        value: {{ .Values.name }}
+  java:
+    env:
+      - name: OTEL_SERVICE_NAME
+        value: {{ .Values.name }}
+  nodejs:
+    env:
+      - name: OTEL_SERVICE_NAME
+        value: {{ .Values.name }}
+  python:
+    env:
+      - name: OTEL_SERVICE_NAME
+        value: {{ .Values.name }}
