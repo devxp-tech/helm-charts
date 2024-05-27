@@ -1,3 +1,4 @@
+{{- if .Values.instrumentation }}
 apiVersion: opentelemetry.io/v1alpha1
 kind: Instrumentation
 metadata:
@@ -31,3 +32,4 @@ spec:
     env:
       - name: OTEL_SERVICE_NAME
         value: {{ .Values.name }}
+{{- end }}
