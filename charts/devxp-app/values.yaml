@@ -26,7 +26,7 @@ global:
     domain: devxp-tech.io
   # --otel sets the endpoint for OpenTelemetry collector
   otel:
-    endpoint: http://otel-collector.observability.svc.cluster.local:4318 #4317
+    endpoint: http://otel-collector.observability.svc.cluster.local:4317 #4318
 
 
 # --namespace configuration
