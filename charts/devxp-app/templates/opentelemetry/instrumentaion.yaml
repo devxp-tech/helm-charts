@@ -5,7 +5,7 @@ metadata:
   name: {{ .Values.name }}
 spec:
   exporter:
-    endpoint: http://otel-collector.observability.svc.cluster.local:4317 #4318
+    endpoint: {{ .Values.global.otel.endpoint }}
   propagators:
     - tracecontext
     - baggage
