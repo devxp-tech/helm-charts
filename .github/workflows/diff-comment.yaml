@@ -39,7 +39,7 @@ jobs:
 
     - name: Diff
       continue-on-error: true
-      run: diff --side-by-side --suppress-common-lines --ignore-space-change charts/devxp-dev/results.yaml results_new.yaml > diff.yaml && echo "Contents are identical"
+      run: diff --side-by-side --suppress-common-lines --ignore-space-change main_branch/charts/devxp-app/result.yaml pr_branch/charts/devxp-app/results_new.yaml > diff.yaml && echo "Contents are identical"
 
     - name: PR comment with file
       uses: thollander/actions-comment-pull-request@v2
