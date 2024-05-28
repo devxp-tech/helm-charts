@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.2.62](https://img.shields.io/badge/Version-0.2.62-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.2.63](https://img.shields.io/badge/Version-0.2.63-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -37,7 +37,22 @@ Helm Charts for default DevXP-Tech Application
 | actuator.readiness.timeoutSeconds | int | `3` | Number of seconds after which the readiness probe times out |
 | affinity | object | `{}` | affinity allows you to define rules for pod scheduling based on node labels |
 | argoRollouts | object | `{"analyses":{"enabled":true,"failureLimit":3,"successCondition":0.95},"dynamicStableScale":true,"enabled":true,"revisionHistoryLimit":5,"strategy":{"steps":[{"setWeight":5},{"pause":{"duration":"10s"}},{"setWeight":20},{"pause":{"duration":"10s"}},{"setWeight":40},{"pause":{"duration":"10s"}},{"setWeight":60},{"pause":{"duration":"10s"}},{"setWeight":80},{"pause":{"duration":"10s"}}]}}` | argoRollouts enable Argo Rollouts Deployment |
-| argoRollouts.enabled | bool | `true` | Specifies whether a resource quota should be created |
+| argoRollouts.analyses.enabled | bool | `true` | Specifies whether analysis runs should be created during the rollout |
+| argoRollouts.analyses.failureLimit | int | `3` | Specifies the maximum number of failed analysis runs allowed before the rollout fails |
+| argoRollouts.analyses.successCondition | float | `0.95` | Specifies the success condition for the analysis, as a percentage |
+| argoRollouts.dynamicStableScale | bool | `true` | Specifies whether the stable ReplicaSet should be dynamically scaled during rollout |
+| argoRollouts.enabled | bool | `true` | Specifies whether Argo Rollouts is enabled |
+| argoRollouts.revisionHistoryLimit | int | `5` | Specifies the number of old ReplicaSets to retain for rollback purposes |
+| argoRollouts.strategy.steps[0] | object | `{"setWeight":5}` | Sets the percentage of traffic to send to the new version |
+| argoRollouts.strategy.steps[1] | object | `{"pause":{"duration":"10s"}}` | Pauses the rollout for a specified duration |
+| argoRollouts.strategy.steps[2] | object | `{"setWeight":20}` | Sets the percentage of traffic to send to the new version |
+| argoRollouts.strategy.steps[3] | object | `{"pause":{"duration":"10s"}}` | Pauses the rollout for a specified duration |
+| argoRollouts.strategy.steps[4] | object | `{"setWeight":40}` | Sets the percentage of traffic to send to the new version |
+| argoRollouts.strategy.steps[5] | object | `{"pause":{"duration":"10s"}}` | Pauses the rollout for a specified duration |
+| argoRollouts.strategy.steps[6] | object | `{"setWeight":60}` | Sets the percentage of traffic to send to the new version |
+| argoRollouts.strategy.steps[7] | object | `{"pause":{"duration":"10s"}}` | Pauses the rollout for a specified duration |
+| argoRollouts.strategy.steps[8] | object | `{"setWeight":80}` | Sets the percentage of traffic to send to the new version |
+| argoRollouts.strategy.steps[9] | object | `{"pause":{"duration":"10s"}}` | Pauses the rollout for a specified duration |
 | autoscaling | object | `{"customRules":[],"enabled":true,"maxReplicas":2,"minReplicas":1,"targetCPUUtilizationPercentage":80,"targetMemoryUtilizationPercentage":80}` | autoscaling is the main object of autoscaling |
 | autoscaling.customRules | list | `[]` | customRules is a place to customize your application autoscaler using the original API available at: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/ |
 | autoscaling.enabled | bool | `true` | enabled is the flag to sinalize this funcionality is enabled |
@@ -53,15 +68,17 @@ Helm Charts for default DevXP-Tech Application
 | cronjobs.list | list | `[]` | list is an array of spec for create multiples cronjobs |
 | cronjobs.suspend | bool | `false` | suspend used to disable all cronjobs in the list |
 | deployment | object | `{"annotations":{},"enabled":false}` | deployment Disabled Deployment |
-| deployment.enabled | bool | `false` | enabled default false |
+| deployment.annotations | object | `{}` | Annotations to be added to the deployment |
+| deployment.enabled | bool | `false` | default is false |
 | envFrom | list | `[]` |  |
 | envs | list | `[]` |  |
-| fullnameOverride | object | `{}` | fullnameOverride full override the name |
-| global.cluster | string | `"cluster.local"` | cluster Set Cluster Name |
-| global.commonLabels | object | `{}` | commonLabels set common labels for all resources |
-| global.network | object | `{"domain":"devxp-tech.io"}` | Network |
-| global.network.domain | string | `"devxp-tech.io"` | domain Set Default Domain |
-| global.prometheus | object | `{"server":"http://prometheus-community-kube-prometheus.monitoring.svc.cluster.local:9090"}` | prometheus set prometheus server url |
+| fullnameOverride | object | `{}` | fullnameOverride allows full override of the name |
+| global.cluster | string | `"cluster.local"` | cluster sets the Cluster Name |
+| global.commonLabels | object | `{}` | commonLabels sets common labels for all resources |
+| global.network | object | `{"domain":"devxp-tech.io"}` | Network configuration |
+| global.network.domain | string | `"devxp-tech.io"` | domain sets the Default Domain |
+| global.otel | object | `{"endpoint":"http://otel-collector.observability.svc.cluster.local:4318"}` | otel sets the endpoint for OpenTelemetry collector |
+| global.prometheus | object | `{"server":"http://prometheus-community-kube-prometheus.monitoring.svc.cluster.local:9090"}` | prometheus sets the Prometheus server URL |
 | image.pullPolicy | string | `"IfNotPresent"` | pullPolicy is the prop to setup the behavior of pull police. options is: IfNotPresent \| allways |
 | image.repository | string | `""` | repository: is the registry of your application ex:556684128444.dkr.ecr.us-east-1.amazonaws.com/YOU-APP-ECR-REPO-NAME if empty this helm will auto generate the image using aws.registry/values.name:values.image.tag |
 | image.tag | string | `"latest"` | especify the tag of your image to deploy |
@@ -108,9 +125,12 @@ Helm Charts for default DevXP-Tech Application
 | monitoring.serviceMonitor.relabelings | list | `[]` | ServiceMonitor relabel configs to apply to samples before scraping https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#relabelconfig |
 | monitoring.serviceMonitor.scheme | string | `"http"` | ServiceMonitor will use http by default, but you can pick https as well |
 | monitoring.serviceMonitor.scrapeTimeout | string | `"15s"` | ServiceMonitor scrape timeout in Go duration format (e.g. 15s) |
-| name | string | `""` | name is the github repository name of this application deploy |
-| nameOverride | object | `{}` |  |
-| namespace | object | `{"annotations":{},"enabled":true,"labels":{}}` | namespace |
+| name | string | `""` | name is the GitHub repository name of this application deployment |
+| nameOverride | object | `{}` | nameOverride allows partial override of the name |
+| namespace | object | `{"annotations":{},"enabled":true,"labels":{}}` | namespace configuration |
+| namespace.annotations | object | `{}` | Annotations to be added to the namespace |
+| namespace.enabled | bool | `true` | Specifies whether the namespace is enabled |
+| namespace.labels | object | `{}` | Labels to be added to the namespace |
 | nodeSelector | object | `{}` | nodeSelector allows you to constrain a Pod to only be able to run on particular node(s) |
 | podAnnotations | object | `{}` | podAnnotations adds custom annotations to the pod |
 | podSecurityContext | object | `{}` | A security context defines privilege and access control settings for a Pod or Container. About more: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/ |
