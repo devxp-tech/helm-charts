@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.2.63](https://img.shields.io/badge/Version-0.2.63-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.2.64](https://img.shields.io/badge/Version-0.2.64-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -77,7 +77,7 @@ Helm Charts for default DevXP-Tech Application
 | global.commonLabels | object | `{}` | commonLabels sets common labels for all resources |
 | global.network | object | `{"domain":"devxp-tech.io"}` | Network configuration |
 | global.network.domain | string | `"devxp-tech.io"` | domain sets the Default Domain |
-| global.otel | object | `{"endpoint":"http://otel-collector.observability.svc.cluster.local:4318"}` | otel sets the endpoint for OpenTelemetry collector |
+| global.otel | object | `{"endpoint":"http://otel-collector.observability.svc.cluster.local:4317"}` | otel sets the endpoint for OpenTelemetry collector |
 | global.prometheus | object | `{"server":"http://prometheus-community-kube-prometheus.monitoring.svc.cluster.local:9090"}` | prometheus sets the Prometheus server URL |
 | image.pullPolicy | string | `"IfNotPresent"` | pullPolicy is the prop to setup the behavior of pull police. options is: IfNotPresent \| allways |
 | image.repository | string | `""` | repository: is the registry of your application ex:556684128444.dkr.ecr.us-east-1.amazonaws.com/YOU-APP-ECR-REPO-NAME if empty this helm will auto generate the image using aws.registry/values.name:values.image.tag |
