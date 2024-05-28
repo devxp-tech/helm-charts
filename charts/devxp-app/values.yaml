@@ -2,66 +2,97 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-# --name is the github repository name of this application deploy
+# --name is the GitHub repository name of this application deployment
 name: ""
+
+# --nameOverride allows partial override of the name
 nameOverride: {}
-# --fullnameOverride full override the name
+
+# --fullnameOverride allows full override of the name
 fullnameOverride: {}
 
 global:
-  # --cluster Set Cluster Name
+  # --cluster sets the Cluster Name
   cluster: cluster.local
-  # --commonLabels set common labels for all resources
+  # --commonLabels sets common labels for all resources
   commonLabels: {}
   # team_name: dev
-  # --prometheus set prometheus server url
+  # --prometheus sets the Prometheus server URL
   prometheus:
-    server: http://prometheus-community-kube-prometheus.monitoring.svc.cluster.local:9090 #set new endpoint
-  # -- Network
+    server: http://prometheus-community-kube-prometheus.monitoring.svc.cluster.local:9090 # set new endpoint
+  # -- Network configuration
   network:
-    # --domain Set Default Domain
+    # --domain sets the Default Domain
     domain: devxp-tech.io
+  # --otel sets the endpoint for OpenTelemetry collector
+  otel:
+    endpoint: http://otel-collector.observability.svc.cluster.local:4318 #4317
 
-# --namespace
+
+# --namespace configuration
 namespace:
+  # --Specifies whether the namespace is enabled
   enabled: true
+  # --Labels to be added to the namespace
   labels: {}
+  # --Annotations to be added to the namespace
   annotations: {}
+  # --Example annotation to enable Jaeger tracing sidecar injection
   # sidecar.jaegertracing.io/inject: "true"
+
 
 # --deployment Disabled Deployment
 deployment:
-  # --enabled default false
+  # --Specifies whether the standard deployment is enabled
+  # --default is false
   enabled: false
+  # --Annotations to be added to the deployment
   annotations: {}
+
 
 # --argoRollouts enable Argo Rollouts Deployment
 argoRollouts:
-  # --Specifies whether a resource quota should be created
+  # --Specifies whether Argo Rollouts is enabled
   enabled: true
+  # --Specifies the number of old ReplicaSets to retain for rollback purposes
   revisionHistoryLimit: 5
   analyses:
+    # --Specifies whether analysis runs should be created during the rollout
     enabled: true
+    # --Specifies the success condition for the analysis, as a percentage
     successCondition: 0.95
+    # --Specifies the maximum number of failed analysis runs allowed before the rollout fails
     failureLimit: 3
+  # --Specifies whether the stable ReplicaSet should be dynamically scaled during rollout
   dynamicStableScale: true
   strategy:
     steps:
+      # --Sets the percentage of traffic to send to the new version
       - setWeight: 5
+      # --Pauses the rollout for a specified duration
       - pause:
           duration: 10s
+      # --Sets the percentage of traffic to send to the new version
       - setWeight: 20
+      # --Pauses the rollout for a specified duration
       - pause:
           duration: 10s
+      # --Sets the percentage of traffic to send to the new version
       - setWeight: 40
+      # --Pauses the rollout for a specified duration
       - pause:
           duration: 10s
+      # --Sets the percentage of traffic to send to the new version
       - setWeight: 60
+      # --Pauses the rollout for a specified duration
       - pause:
           duration: 10s
+      # --Sets the percentage of traffic to send to the new version
       - setWeight: 80
+      # --Pauses the rollout for a specified duration
       - pause:
           duration: 10s
+
 
 # cronjobs list of cronjobs to be included in the application
 cronjobs:
