@@ -5,7 +5,7 @@ on:
   issues:
     types: [opened, reopened]
   pull_request:
-    types: [opened, reopened]
+    types: [opened, reopened, synchronize]
 
 jobs:
   helm-diff:
@@ -14,7 +14,7 @@ jobs:
       pull-requests: write
 
     steps:
-    - name: Checkout 🛎️
+    - name: Checkout main branch 🛎️
       uses: actions/checkout@v4
       with:
         ref: main
@@ -22,9 +22,8 @@ jobs:
 
     - name: Generate Results from Main
       run: |
-        helm template main_branch/charts/devxp-app/ -f main_branch/charts/devxp-app/values-ci.yaml > ../result.yaml
-
-        #for p in $(ls -l charts | awk '{print $9}'); do helm template charts/$p -f charts/$p/values-ci.yaml > charts/$p/results.yaml ; done
+        helm template main_branch/charts/devxp-app/ -f main_branch/charts/devxp-app/values-ci.yaml > result.yaml
+        ls -l result.yaml # Debugging: List the result.yaml file to confirm its creation
 
     - name: Checkout PR branch
       uses: actions/checkout@v4
@@ -33,11 +32,15 @@ jobs:
 
     - name: Run helm template on PR branch
       run: |
-        helm template pr_branch/charts/devxp-app/ -f pr_branch/charts/devxp-app/values-ci.yaml > ../result_new.yaml
+        helm template pr_branch/charts/devxp-app/ -f pr_branch/charts/devxp-app/values-ci.yaml > result_new.yaml
+        ls -l result_new.yaml # Debugging: List the result_new.yaml file to confirm its creation
 
     - name: Diff
       continue-on-error: true
-      run: diff --side-by-side --suppress-common-lines --ignore-space-change result.yaml result_new.yaml > diff.yaml && echo "Contents are identical"
+      run: |
+        ls -l # Debugging: List all files in the workspace to verify the presence of result.yaml and result_new.yaml
+        diff --side-by-side --suppress-common-lines --ignore-space-change result.yaml result_new.yaml > diff.yaml || echo "Differences found"
+        ls -l diff.yaml # Debugging: List the diff.yaml file to confirm its creation
 
     - name: PR comment with file
       uses: thollander/actions-comment-pull-request@v2
