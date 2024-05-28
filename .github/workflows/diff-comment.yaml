@@ -37,17 +37,13 @@ jobs:
         cd pr_branch/charts/devxp-app
         helm template . -f values-ci.yaml > ../result_new.yaml
 
-    - name: Install yq for YAML comparison
-      run: sudo apt-get install -y yq
+    - name: Diff
+      continue-on-error: true
+      run: diff --side-by-side --suppress-common-lines --ignore-space-change charts/devxp-dev/results.yaml results_new.yaml > diff.yaml && echo "Contents are identical"
 
-    - name: Compare YAML files
-      run: |
-        diff_output=$(diff -u result.yaml result_new.yaml || true)
-        echo "$diff_output" > diff.txt
-
-    - name: Comment diff on PR
-      if: success()
-      uses: marocchino/sticky-pull-request-comment@v2
+    - name: PR comment with file
+      uses: thollander/actions-comment-pull-request@v2
       with:
-        path: diff.txt
-        token: ${{ secrets.GITHUB_TOKEN }}
+        comment_tag: show_diff
+        filePath: diff.yaml
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
