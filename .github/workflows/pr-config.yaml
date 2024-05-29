@@ -117,9 +117,13 @@ jobs:
           base_name=$(basename "$new_result" .yaml)
           main_result="results/result_${base_name#result_new_}.yaml"
           echo "## Changes in ${base_name#result_new_}:" >> diff.yaml
+          echo '```diff' >> diff.yaml
           diff --side-by-side --suppress-common-lines --ignore-space-change "$main_result" "$new_result" >> diff.yaml || echo "Differences found in $new_result"
+          echo '```' >> diff.yaml
           echo -e "\n\n" >> diff.yaml
         done
+        cat diff.yaml # Debugging: Output the diff file to confirm its creation
+
 
     - name: PR comment with file 📝
       if: always()
