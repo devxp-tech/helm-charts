@@ -4,4 +4,5 @@
 
 # --name is the github repository name of this application deploy
 name: "ci"
-
+actuator:
+  enabled: true
