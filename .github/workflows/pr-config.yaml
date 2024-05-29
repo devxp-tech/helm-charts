@@ -17,10 +17,10 @@ jobs:
     if: ${{ !github.event.pull_request.draft }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      - name: Comment PR
+      - name: Comment PR 📝
         uses: thollander/actions-comment-pull-request@v2
         with:
           comment_includes: 'Review Checklist'
@@ -54,7 +54,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   auto-assign:
-    name: Auto Assign PR
+    name: Auto Assign PR 🏷️
     uses: devxp-tech/.github/.github/workflows/auto-assign.yaml@main
     secrets: inherit
     with:
@@ -62,7 +62,7 @@ jobs:
       numOfAssignee: 1
 
   triage:
-    name: Pull Request Triage
+    name: Pull Request Triage 🏷️
     runs-on: ubuntu-latest
     steps:
       - name: Label PRs
@@ -70,14 +70,14 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Label Chart
+      - name: Label Chart 🏷️
         uses: actions/labeler@v5
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           sync-labels: true
 
   helm-diff:
-    name: Comment PR with Differences
+    name: Comment PR with Differences 📝
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
@@ -115,17 +115,17 @@ jobs:
     - name: Generate Helm Diff 📄
       continue-on-error: true
       run: |
-        echo "Generating diffs..." > diff.yaml
+        echo "# Charts Differences:" > diff.yaml
         for new_result in results_new/result_new_*.yaml; do
           base_name=$(basename "$new_result" .yaml)
           main_result="results/result_${base_name#result_new_}.yaml"
-          echo "Diff for ${base_name#result_new_}:" >> diff.yaml
+          echo "## Diff for ${base_name#result_new_}:" >> diff.yaml
           diff --side-by-side --suppress-common-lines --ignore-space-change "$main_result" "$new_result" >> diff.yaml || echo "Differences found in $new_result"
           echo -e "\n\n" >> diff.yaml
         done
         cat diff.yaml # Debugging: Output the diff file to confirm its creation
 
-    - name: PR comment with file 🤖
+    - name: PR comment with file 📝
       if: always()
       uses: thollander/actions-comment-pull-request@v2
       with:
