@@ -13,9 +13,9 @@ on:
 
 jobs:
   review_checklist:
+    name: Comment PR with the Review Checklist
     if: ${{ !github.event.pull_request.draft }}
     runs-on: ubuntu-latest
-    name: Comment PR with the Review Checklist
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -54,6 +54,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   auto-assign:
+    name: Auto Assign PR
     uses: devxp-tech/.github/.github/workflows/auto-assign.yaml@main
     secrets: inherit
     with:
@@ -61,6 +62,7 @@ jobs:
       numOfAssignee: 1
 
   triage:
+    name: Pull Request Triage
     runs-on: ubuntu-latest
     steps:
       - name: Label PRs
@@ -75,6 +77,7 @@ jobs:
           sync-labels: true
 
   helm-diff:
+    name: Comment PR with Helm Differences
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
@@ -88,8 +91,11 @@ jobs:
 
     - name: Generate Results from Main
       run: |
-        helm template main_branch/charts/devxp-app/ -f main_branch/charts/devxp-app/values-ci.yaml > result.yaml
-        ls -l result.yaml # Debugging: List the result.yaml file to confirm its creation
+        for dir in main_branch/charts/*/; do
+          chart_name=$(basename "$dir")
+          helm template "$dir" -f "$dir/values-ci.yaml" > "result_$chart_name.yaml"
+        done
+        ls -l result_*.yaml # Debugging: List the result_*.yaml files to confirm their creation
 
     - name: Checkout PR branch
       uses: actions/checkout@v4
@@ -98,17 +104,26 @@ jobs:
 
     - name: Run helm template on PR branch
       run: |
-        helm template pr_branch/charts/devxp-app/ -f pr_branch/charts/devxp-app/values-ci.yaml > result_new.yaml
-        ls -l result_new.yaml # Debugging: List the result_new.yaml file to confirm its creation
+        for dir in pr_branch/charts/*/; do
+          chart_name=$(basename "$dir")
+          helm template "$dir" -f "$dir/values-ci.yaml" > "result_new_$chart_name.yaml"
+        done
+        ls -l result_new_* # Debugging: List the result_new_*.yaml files to confirm their creation
 
     - name: Diff
       continue-on-error: true
       run: |
-        diff --side-by-side --suppress-common-lines --ignore-space-change result.yaml result_new.yaml > diff.yaml || echo "Differences found"
+        ls -l # Debugging: List all files in the workspace to verify the presence of result_*.yaml and result_new_*.yaml
+        for new_result in result_new_*.yaml; do
+          base_name=$(basename "$new_result" .yaml)
+          main_result="result_${base_name#result_new_}.yaml"
+          diff --side-by-side --suppress-common-lines --ignore-space-change "$main_result" "$new_result" > "diff_${base_name}.yaml" || echo "Differences found in $new_result"
+        done
+        ls -l diff_*.yaml # Debugging: List the diff_*.yaml files to confirm their creation
 
-    - name: Comment diff on PR
-      if: success()
-      uses: marocchino/sticky-pull-request-comment@v2
+    - name: PR comment with file
+      uses: thollander/actions-comment-pull-request@v2
       with:
-        path: diff.yaml
+        comment_tag: show_diff
+        filePath: diff_*.yaml
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
