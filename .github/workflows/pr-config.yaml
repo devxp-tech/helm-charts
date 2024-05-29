@@ -1,6 +1,7 @@
 name: Pull Request Config 🤖
 
 permissions:
+  issues: write
   pull-requests: write
 
 on:
