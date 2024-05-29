@@ -77,6 +77,7 @@ jobs:
           sync-labels: true
 
   helm-diff:
+    name: Comment PR with Differences
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
@@ -88,7 +89,7 @@ jobs:
         ref: main
         path: main_branch
 
-    - name: Generate Results from Main
+    - name: Generate Results from Main 📄
       run: |
         mkdir -p results
         for dir in main_branch/charts/*/; do
@@ -97,12 +98,12 @@ jobs:
         done
         ls -l results # Debugging: List the result_*.yaml files to confirm their creation
 
-    - name: Checkout PR branch
+    - name: Checkout PR branch 🛎️
       uses: actions/checkout@v4
       with:
         path: pr_branch
 
-    - name: Run helm template on PR branch
+    - name: Generate Results from PR branch 📄
       run: |
         mkdir -p results_new
         for dir in pr_branch/charts/*/; do
@@ -111,7 +112,7 @@ jobs:
         done
         ls -l results_new # Debugging: List the result_new_*.yaml files to confirm their creation
 
-    - name: Diff
+    - name: Generate Helm Diff 📄
       continue-on-error: true
       run: |
         echo "Generating diffs..." > diff.yaml
@@ -124,7 +125,7 @@ jobs:
         done
         cat diff.yaml # Debugging: Output the diff file to confirm its creation
 
-    - name: PR comment with file
+    - name: PR comment with file 🤖
       if: always()
       uses: thollander/actions-comment-pull-request@v2
       with:
