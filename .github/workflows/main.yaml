@@ -196,37 +196,37 @@ jobs:
             echo "nothing to do!!!"
           fi
 
-  changelog:
-    name: Update Changelog 📝
-    runs-on: ubuntu-latest
-    needs:
-      - index
-    steps:
-      - name: Checkout 🛎️ # Required to mount the Github Workspace to a volume
-        uses: actions/checkout@v4
+  # changelog:
+  #   name: Update Changelog 📝
+  #   runs-on: ubuntu-latest
+  #   needs:
+  #     - index
+  #   steps:
+  #     - name: Checkout 🛎️ # Required to mount the Github Workspace to a volume
+  #       uses: actions/checkout@v4
 
-      - name: Docker Run 🐳
-        uses: addnab/docker-run-action@v3
-        with:
-          image: mogensen/helm-changelog:latest
-          options: -v ${{ github.workspace }}:/data
-          run: "/app/helm-changelog"
+  #     - name: Docker Run 🐳
+  #       uses: addnab/docker-run-action@v3
+  #       with:
+  #         image: mogensen/helm-changelog:latest
+  #         options: -v ${{ github.workspace }}:/data
+  #         run: "/app/helm-changelog"
 
-      - name: Commit New Changelog.md 📝
-        run: |
-          if [[ $(git diff) ]];
-          then
-            git add Changelog.md
-            git commit -m "[ci skip] :robot: [github actions actor] - Add Changelog.md"
-            git push
-          else
-            echo "nothing to do!!!"
-          fi
+  #     - name: Commit New Changelog.md 📝
+  #       run: |
+  #         if [[ $(git diff) ]];
+  #         then
+  #           git add Changelog.md
+  #           git commit -m "[ci skip] :robot: [github actions actor] - Add Changelog.md"
+  #           git push
+  #         else
+  #           echo "nothing to do!!!"
+  #         fi
 
   notify:
     uses: devxp-tech/.github/.github/workflows/notify.yaml@main
     if: always()
     secrets: inherit
     needs:
-      # - index
-      - changelog
+      - index
+      # - changelog
