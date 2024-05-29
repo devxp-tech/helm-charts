@@ -1,10 +1,14 @@
 name: Pull Request Config 🤖
 
+permissions:
+  pull-requests: write
+
 on:
+  workflow_dispatch:
   issues:
     types: [opened, reopened]
   pull_request:
-    types: [opened, reopened]
+    types: [opened, reopened, synchronize]
 
 jobs:
   review_checklist:
@@ -73,21 +77,37 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
-    steps:
-    - name: Checkout 🛎️
-      uses: actions/checkout@v4
 
-    - name: Generate Results
+    steps:
+    - name: Checkout main branch 🛎️
+      uses: actions/checkout@v4
+      with:
+        ref: main
+        path: main_branch
+
+    - name: Generate Results from Main
       run: |
-        helm template charts/devxp-dev --set name=ci  > results_new.yaml
+        helm template main_branch/charts/devxp-app/ -f main_branch/charts/devxp-app/values-ci.yaml > result.yaml
+        ls -l result.yaml # Debugging: List the result.yaml file to confirm its creation
+
+    - name: Checkout PR branch
+      uses: actions/checkout@v4
+      with:
+        path: pr_branch
+
+    - name: Run helm template on PR branch
+      run: |
+        helm template pr_branch/charts/devxp-app/ -f pr_branch/charts/devxp-app/values-ci.yaml > result_new.yaml
+        ls -l result_new.yaml # Debugging: List the result_new.yaml file to confirm its creation
 
     - name: Diff
       continue-on-error: true
-      run: diff --side-by-side --suppress-common-lines --ignore-space-change charts/devxp-dev/results.yaml results_new.yaml > diff.yaml && echo "Contents are identical"
+      run: |
+        diff --side-by-side --suppress-common-lines --ignore-space-change result.yaml result_new.yaml > diff.yaml || echo "Differences found"
 
-    - name: PR comment with file
-      uses: thollander/actions-comment-pull-request@v2
+    - name: Comment diff on PR
+      if: success()
+      uses: marocchino/sticky-pull-request-comment@v2
       with:
-        comment_tag: show_diff
-        filePath: diff.yaml
+        path: diff.yaml
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
