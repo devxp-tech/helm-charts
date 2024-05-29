@@ -1,9 +1,9 @@
 # Default values for devxp-app.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-## Teste Remove Me
 
 # --name is the github repository name of this application deploy
 name: "ci"
 actuator:
   enabled: false
+
