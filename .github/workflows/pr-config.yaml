@@ -23,7 +23,6 @@ jobs:
       - name: Comment PR 📝
         uses: thollander/actions-comment-pull-request@v2
         with:
-          comment_includes: 'Review Checklist'
           message: |
             ### Review Checklist
 
@@ -96,7 +95,6 @@ jobs:
           chart_name=$(basename "$dir")
           helm template "$dir" -f "$dir/values-ci.yaml" > "results/result_${chart_name}.yaml"
         done
-        ls -l results # Debugging: List the result_*.yaml files to confirm their creation
 
     - name: Checkout PR branch 🛎️
       uses: actions/checkout@v4
@@ -110,7 +108,6 @@ jobs:
           chart_name=$(basename "$dir")
           helm template "$dir" -f "$dir/values-ci.yaml" > "results_new/result_new_${chart_name}.yaml"
         done
-        ls -l results_new # Debugging: List the result_new_*.yaml files to confirm their creation
 
     - name: Generate Helm Diff 📄
       continue-on-error: true
@@ -119,11 +116,14 @@ jobs:
         for new_result in results_new/result_new_*.yaml; do
           base_name=$(basename "$new_result" .yaml)
           main_result="results/result_${base_name#result_new_}.yaml"
-          echo "## Diff for ${base_name#result_new_}:" >> diff.yaml
+          echo "## Changes in ${base_name#result_new_}:" >> diff.yaml
+          echo '```diff' >> diff.yaml
           diff --side-by-side --suppress-common-lines --ignore-space-change "$main_result" "$new_result" >> diff.yaml || echo "Differences found in $new_result"
+          echo '```' >> diff.yaml
           echo -e "\n\n" >> diff.yaml
         done
         cat diff.yaml # Debugging: Output the diff file to confirm its creation
+
 
     - name: PR comment with file 📝
       if: always()
