@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.2.70](https://img.shields.io/badge/Version-0.2.70-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.2.71](https://img.shields.io/badge/Version-0.2.71-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -104,7 +104,7 @@ Helm Charts for default DevXP-Tech Application
 | livenessProbe.timeoutSeconds | int | `3` | Number of seconds after which the liveness probe times out |
 | migration | object | `{"enabled":false}` | migration Set liquibase migration |
 | migration.enabled | bool | `false` | migration.enable liquibase migration |
-| monitoring | object | `{"alerts":{"annotations":{},"enabled":false,"labels":{},"namespace":null},"rules":{"additionalGroups":[],"alerting":true,"annotations":{},"enabled":false,"labels":{},"namespace":null},"serviceMonitor":{"annotations":{},"enabled":true,"interval":"60s","labels":{},"namespace":null,"namespaceSelector":{},"path":"/metrics","relabelings":[],"scheme":"http","scrapeTimeout":"15s"}}` | monitoring Enable Monitoring Features |
+| monitoring | object | `{"alerts":{"annotations":{},"enabled":false,"labels":{},"namespace":null},"rules":{"additionalGroups":[],"alerting":true,"annotations":{},"enabled":false,"labels":{},"namespace":null},"serviceMonitor":{"annotations":{},"enabled":false,"interval":"60s","labels":{},"namespace":null,"namespaceSelector":{},"path":"/metrics","relabelings":[],"scheme":"http","scrapeTimeout":"15s"}}` | monitoring Enable Monitoring Features |
 | monitoring.alerts.annotations | object | `{}` | Additional annotations for the alerts PrometheusRule resource |
 | monitoring.alerts.enabled | bool | `false` | If enabled, create PrometheusRule resource with app alerting rules |
 | monitoring.alerts.labels | object | `{}` | Additional labels for the alerts PrometheusRule resource |
@@ -116,7 +116,7 @@ Helm Charts for default DevXP-Tech Application
 | monitoring.rules.labels | object | `{}` | Additional labels for the rules PrometheusRule resource |
 | monitoring.rules.namespace | string | `nil` | Alternative namespace to create recording rules PrometheusRule resource in |
 | monitoring.serviceMonitor.annotations | object | `{}` | ServiceMonitor annotations |
-| monitoring.serviceMonitor.enabled | bool | `true` | If enabled, ServiceMonitor resources for Prometheus Operator are created |
+| monitoring.serviceMonitor.enabled | bool | `false` | If enabled, ServiceMonitor resources for Prometheus Operator are created |
 | monitoring.serviceMonitor.interval | string | `"60s"` | ServiceMonitor scrape interval |
 | monitoring.serviceMonitor.labels | object | `{}` | Additional ServiceMonitor labels |
 | monitoring.serviceMonitor.namespace | string | `nil` | Alternative namespace for ServiceMonitor resources |
@@ -137,7 +137,10 @@ Helm Charts for default DevXP-Tech Application
 | quota | object | `{"enabled":true,"resources":{"hard":{"limits.cpu":"2","limits.memory":"2Gi","requests.cpu":"1","requests.memory":"1Gi"}}}` | ResourceQuota provides constraints that limit aggregate resource consumption per namespace |
 | quota.enabled | bool | `true` | Specifies whether a resource quota should be created |
 | quota.resources | object | `{"hard":{"limits.cpu":"2","limits.memory":"2Gi","requests.cpu":"1","requests.memory":"1Gi"}}` | resources Specifies the hard resources |
-| quota.resources.hard."requests.cpu" | string | `"1"` | requests.cpu Specifies the request cpu |
+| quota.resources.hard."limits.cpu" | string | `"2"` | limits.cpu Specifies the total CPU limits allowed for all pods in the namespace |
+| quota.resources.hard."limits.memory" | string | `"2Gi"` | limits.memory Specifies the total memory limits allowed for all pods in the namespace |
+| quota.resources.hard."requests.cpu" | string | `"1"` | requests.cpu Specifies the total CPU requests allowed for all pods in the namespace |
+| quota.resources.hard."requests.memory" | string | `"1Gi"` | requests.memory Specifies the total memory requests allowed for all pods in the namespace |
 | readinessProbe | object | `{"enabled":true,"exec":{},"failureThreshold":3,"httpHeaders":[],"initialDelaySeconds":10,"path":"/health-check/readiness","periodSeconds":10,"scheme":"HTTP","successThreshold":1,"timeoutSeconds":3}` | readinessProbe indicates whether the application is ready to serve requests |
 | readinessProbe.enabled | bool | `true` | Specifies whether the readiness probe is enabled |
 | readinessProbe.exec | object | `{}` | Specifies a command to run inside the container to determine readiness |
