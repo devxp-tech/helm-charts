@@ -392,11 +392,15 @@ quota:
   # --resources Specifies the hard resources
   resources:
     hard:
-      # --requests.cpu Specifies the request cpu
+      # --requests.cpu Specifies the total CPU requests allowed for all pods in the namespace
       requests.cpu: "1"
+      # --requests.memory Specifies the total memory requests allowed for all pods in the namespace
       requests.memory: 1Gi
+      # --limits.cpu Specifies the total CPU limits allowed for all pods in the namespace
       limits.cpu: "2"
+      # --limits.memory Specifies the total memory limits allowed for all pods in the namespace
       limits.memory: 2Gi
+
 
 # --migration Set liquibase migration
 migration:
@@ -441,7 +445,7 @@ monitoring:
 # ServiceMonitor configuration
   serviceMonitor:
     # -- If enabled, ServiceMonitor resources for Prometheus Operator are created
-    enabled: true
+    enabled: false
     # -- Alternative namespace for ServiceMonitor resources
     namespace: null
     # -- Namespace selector for ServiceMonitor resources
