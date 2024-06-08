@@ -12,7 +12,9 @@ instrumentation.opentelemetry.io/inject-java: "true"
   {{- else if eq .Values.instrumentation "nodejs" -}}
 instrumentation.opentelemetry.io/inject-nodejs: "true"
   {{- else if eq .Values.instrumentation "python" -}}
-instrumentation.opentelemetry.io/inject-python: "true"
+instrumentation.opentelemetry.io/inject-python: "true" 
+  {{- else if eq .Values.instrumentation "nginx" -}}
+instrumentation.opentelemetry.io/inject-nginx: "true"
   {{- end -}}
 {{- end -}}
 {{- end -}}
