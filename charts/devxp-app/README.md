@@ -37,13 +37,13 @@ Helm Charts for default DevXP-Tech Application
 | actuator.readiness.successThreshold | int | `1` | Minimum consecutive successes for the probe to be considered successful after having failed |
 | actuator.readiness.timeoutSeconds | int | `3` | Number of seconds after which the readiness probe times out |
 | affinity | object | `{}` | affinity allows you to define rules for pod scheduling based on node labels |
-| argoRollouts | object | `{"analyses":{"enabled":true,"failureLimit":3,"successCondition":0.95},"dynamicStableScale":true,"enabled":true,"revisionHistoryLimit":5,"strategy":{"steps":[{"setWeight":5},{"pause":{"duration":"10s"}},{"setWeight":20},{"pause":{"duration":"10s"}},{"setWeight":40},{"pause":{"duration":"10s"}},{"setWeight":60},{"pause":{"duration":"10s"}},{"setWeight":80},{"pause":{"duration":"10s"}}]}}` | argoRollouts enable Argo Rollouts Deployment |
+| argoRollouts | object | `{"analyses":{"enabled":true,"failureLimit":3,"successCondition":0.95},"dynamicStableScale":true,"enabled":true,"revisionHistoryLimit":3,"strategy":{"steps":[{"setWeight":5},{"pause":{"duration":"10s"}},{"setWeight":20},{"pause":{"duration":"10s"}},{"setWeight":40},{"pause":{"duration":"10s"}},{"setWeight":60},{"pause":{"duration":"10s"}},{"setWeight":80},{"pause":{"duration":"10s"}}]}}` | argoRollouts enable Argo Rollouts Deployment |
 | argoRollouts.analyses.enabled | bool | `true` | Specifies whether analysis runs should be created during the rollout |
 | argoRollouts.analyses.failureLimit | int | `3` | Specifies the maximum number of failed analysis runs allowed before the rollout fails |
 | argoRollouts.analyses.successCondition | float | `0.95` | Specifies the success condition for the analysis, as a percentage |
 | argoRollouts.dynamicStableScale | bool | `true` | Specifies whether the stable ReplicaSet should be dynamically scaled during rollout |
 | argoRollouts.enabled | bool | `true` | Specifies whether Argo Rollouts is enabled |
-| argoRollouts.revisionHistoryLimit | int | `5` | Specifies the number of old ReplicaSets to retain for rollback purposes |
+| argoRollouts.revisionHistoryLimit | int | `3` | Specifies the number of old ReplicaSets to retain for rollback purposes |
 | argoRollouts.strategy.steps[0] | object | `{"setWeight":5}` | Sets the percentage of traffic to send to the new version |
 | argoRollouts.strategy.steps[1] | object | `{"pause":{"duration":"10s"}}` | Pauses the rollout for a specified duration |
 | argoRollouts.strategy.steps[2] | object | `{"setWeight":20}` | Sets the percentage of traffic to send to the new version |
