@@ -55,7 +55,7 @@ argoRollouts:
   # --Specifies whether Argo Rollouts is enabled
   enabled: true
   # --Specifies the number of old ReplicaSets to retain for rollback purposes
-  revisionHistoryLimit: 5
+  revisionHistoryLimit: 3
   analyses:
     # --Specifies whether analysis runs should be created during the rollout
     enabled: true
