@@ -119,6 +119,8 @@ consumers:
 
 # --service
 service:
+  # --service.enabled to enable and disable the creation of service
+  enabled: true
   # --Service An abstract way to expose an application running on a set of Pods as a network service.
   type: ClusterIP
   # --service.port Define the Service Port
@@ -131,6 +133,7 @@ service:
   annotations: {}
   # --Labels to add to the service
   labels: {}
+  # --service.externalDns to enable and disable the creation of external DNS
   externalDns:
     # --Enable or disable external DNS for the service
     enabled: false

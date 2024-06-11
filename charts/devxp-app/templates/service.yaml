@@ -1,3 +1,4 @@
+{{- if .Values.service.enabled }}
 ---
 apiVersion: v1
 kind: Service
@@ -29,6 +30,4 @@ spec:
       targetPort: {{ .Values.container.port }}
       nodePort: {{ .Values.service.nodePort }}
   {{- end }}
-
-
-
+{{- end }}
