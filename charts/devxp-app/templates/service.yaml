@@ -16,21 +16,15 @@ spec:
   type: {{ .Values.service.type }}
   selector:
     app: {{ .Values.name }}
-  {{- if eq .Values.service.type "ClusterIP" }}
   ports:
-  - name: {{ .Values.service.port.name }}
-    port: {{ .Values.service.port.port }}
-    targetPort:  {{ .Values.container.port }}
-    protocol: TCP
-  {{- if .Values.actuator.enabled }}
-  - name: {{ .Values.actuator.port.name }}
-    port: {{ .Values.actuator.port.port }}
-    targetPort:  {{ .Values.actuator.port.targetPort }}
-    protocol: TCP
-  {{- end }}
+  {{- if eq .Values.service.type "ClusterIP" }}
+    - name: {{ .Values.service.port.name }}
+      port: {{ .Values.service.port.port }}
+      targetPort:  {{ .Values.container.port }}
+      protocol: TCP
+  {{- include "service" (dict "service" .Values.service "actuator" .Values.actuator "monitor" .Values.monitoring) | indent 2 }}
   {{- end }}
   {{- if eq .Values.service.type "NodePort" }}
-  ports:
     - port: {{ .Values.service.port }}
       targetPort: {{ .Values.container.port }}
       nodePort: {{ .Values.service.nodePort }}

@@ -119,6 +119,8 @@ consumers:
 
 # --service
 service:
+  # --Service An abstract way to expose an application running on a set of Pods as a network service.
+  type: ClusterIP
   # --service.port Define the Service Port
   port:
     # --Name of the port, used for service discovery
@@ -132,8 +134,6 @@ service:
   externalDns:
     # --Enable or disable external DNS for the service
     enabled: false
-  # --Service An abstract way to expose an application running on a set of Pods as a network service.
-  type: ClusterIP
   # --The port to expose on each node in a cluster, only used if type is NodePort or LoadBalancer
   nodePort: {}
 
@@ -284,6 +284,8 @@ actuator:
     port: 9090
     # -- The target port in the container for actuator metrics
     targetPort: 9090
+    # -- The protocol used to service
+    protocol: TCP
   metrics:
     # -- The path to expose Prometheus metrics
     path: /actuator/prometheus
@@ -466,4 +468,9 @@ monitoring:
     # -- ServiceMonitor will use http by default, but you can pick https as well
     scheme: http
     # -- ServiceMonitor will use these tlsConfig settings to make the health check requests
-    # tlsConfig: null
+    extraPort:
+      enabled: false
+      name: tcp-metrics
+      number: 9090
+      targetPort: 9090
+      protocol: TCP
