@@ -18,12 +18,10 @@
     {{- $port = $monitor.extraPort.name }}
     {{- $path = $monitor.path }}
   {{- end }}  
-monitoring:
-  serviceMonitor:
-    - port: {{ $port }}  
-      interval: {{ $interval }}
-      scrapeTimeout: {{ $scrapeTimeout }}
-      path: {{ $path }}
-      scheme: {{ $scheme }}
+- port: {{ $port }}  
+  interval: {{ $interval }}
+  scrapeTimeout: {{ $scrapeTimeout }}
+  path: {{ $path }}
+  scheme: {{ $scheme }}
 {{- end }}
 {{- end }}
