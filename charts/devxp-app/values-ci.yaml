@@ -4,5 +4,10 @@
 
 # --name is the github repository name of this application deploy
 name: "ci"
+monitoring:
+  serviceMonitor:
+    enabled: true
+    extraPort:
+      enabled: true
 actuator:
-  enabled: true
+  enabled: false

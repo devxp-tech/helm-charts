@@ -15,18 +15,5 @@ spec:
     matchLabels:
       app.kubernetes.io/name: {{ .Values.name }}
   endpoints:
-    {{- if not .Values.actuator.enabled }}
-    - port: {{ .Values.service.port.name }}
-      interval: {{ .Values.monitoring.serviceMonitor.interval }}
-      scrapeTimeout: {{ .Values.monitoring.serviceMonitor.scrapeTimeout }}
-      path: {{ .Values.monitoring.serviceMonitor.path }}
-      scheme: {{ .Values.monitoring.serviceMonitor.scheme }}
-    {{- end }}
-    {{- if .Values.actuator.enabled }}
-    - port: {{ .Values.actuator.port.name }}
-      interval: {{ .Values.monitoring.serviceMonitor.interval }}
-      scrapeTimeout: {{ .Values.monitoring.serviceMonitor.scrapeTimeout }}
-      path: {{ .Values.actuator.metrics.path }}
-      scheme: {{ .Values.monitoring.serviceMonitor.scheme }}
-    {{- end }}
+    {{- include "service-monitor" ( dict "monitor" .Values.monitoring "port" .Values.service.port.name "actuator" .Values.actuator ) | indent 4 }}
 {{- end }}
