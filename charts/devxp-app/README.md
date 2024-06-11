@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.2.73](https://img.shields.io/badge/Version-0.2.73-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.2.74](https://img.shields.io/badge/Version-0.2.74-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -26,6 +26,7 @@ Helm Charts for default DevXP-Tech Application
 | actuator.metrics.path | string | `"/actuator/prometheus"` | The path to expose Prometheus metrics |
 | actuator.port.name | string | `"tcp-metrics"` | The name of the port for actuator metrics |
 | actuator.port.port | int | `9090` | The port number for actuator metrics |
+| actuator.port.protocol | string | `"TCP"` | The protocol used to service |
 | actuator.port.targetPort | int | `9090` | The target port in the container for actuator metrics |
 | actuator.readiness.failureThreshold | int | `3` | Minimum consecutive failures for the probe to be considered failed after having succeeded |
 | actuator.readiness.httpHeaders | list | `[]` |  |
@@ -104,7 +105,7 @@ Helm Charts for default DevXP-Tech Application
 | livenessProbe.timeoutSeconds | int | `3` | Number of seconds after which the liveness probe times out |
 | migration | object | `{"enabled":false}` | migration Set liquibase migration |
 | migration.enabled | bool | `false` | migration.enable liquibase migration |
-| monitoring | object | `{"alerts":{"annotations":{},"enabled":false,"labels":{},"namespace":null},"rules":{"additionalGroups":[],"alerting":true,"annotations":{},"enabled":false,"labels":{},"namespace":null},"serviceMonitor":{"annotations":{},"enabled":false,"interval":"60s","labels":{},"namespace":null,"namespaceSelector":{},"path":"/metrics","relabelings":[],"scheme":"http","scrapeTimeout":"15s"}}` | monitoring Enable Monitoring Features |
+| monitoring | object | `{"alerts":{"annotations":{},"enabled":false,"labels":{},"namespace":null},"rules":{"additionalGroups":[],"alerting":true,"annotations":{},"enabled":false,"labels":{},"namespace":null},"serviceMonitor":{"annotations":{},"enabled":false,"extraPort":{"enabled":false,"name":"tcp-metrics","number":9090,"protocol":"TCP","targetPort":9090},"interval":"60s","labels":{},"namespace":null,"namespaceSelector":{},"path":"/metrics","relabelings":[],"scheme":"http","scrapeTimeout":"15s"}}` | monitoring Enable Monitoring Features |
 | monitoring.alerts.annotations | object | `{}` | Additional annotations for the alerts PrometheusRule resource |
 | monitoring.alerts.enabled | bool | `false` | If enabled, create PrometheusRule resource with app alerting rules |
 | monitoring.alerts.labels | object | `{}` | Additional labels for the alerts PrometheusRule resource |
@@ -117,6 +118,7 @@ Helm Charts for default DevXP-Tech Application
 | monitoring.rules.namespace | string | `nil` | Alternative namespace to create recording rules PrometheusRule resource in |
 | monitoring.serviceMonitor.annotations | object | `{}` | ServiceMonitor annotations |
 | monitoring.serviceMonitor.enabled | bool | `false` | If enabled, ServiceMonitor resources for Prometheus Operator are created |
+| monitoring.serviceMonitor.extraPort | object | `{"enabled":false,"name":"tcp-metrics","number":9090,"protocol":"TCP","targetPort":9090}` | ServiceMonitor will use these tlsConfig settings to make the health check requests |
 | monitoring.serviceMonitor.interval | string | `"60s"` | ServiceMonitor scrape interval |
 | monitoring.serviceMonitor.labels | object | `{}` | Additional ServiceMonitor labels |
 | monitoring.serviceMonitor.namespace | string | `nil` | Alternative namespace for ServiceMonitor resources |
