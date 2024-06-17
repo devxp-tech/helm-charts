@@ -15,7 +15,7 @@ spec:
   gateways:
   - {{ .Values.istio.gateways }}
   hosts:
-  {{- include "vs-hosts" . | nindent 2 }}
+  {{- include "vs-hosts" . | indent 2 }}
   http:
   {{- if .Values.argoRollouts.enabled }}
   - name: primary
