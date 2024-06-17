@@ -9,4 +9,3 @@
 {{- end }}
 {{- $hosts | toYaml | nindent 2 }}
 {{- end }}
-
