@@ -3,7 +3,7 @@ entries:
   cluster-bootstrap:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.712205539Z"
+    created: "2024-06-17T11:41:17.039286377Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: 96e931bad177e617beae2e0c90571b35d3ed229484f6c8eeca3e9c4f38c8241e
     name: cluster-bootstrap
@@ -13,7 +13,7 @@ entries:
     version: 0.1.10
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.713664168Z"
+    created: "2024-06-17T11:41:17.040763418Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: a27dcaf0f81e5cc22a16b0d8b45f4eecf30ecdc539a644df1d5d4e1037ba612a
     name: cluster-bootstrap
@@ -23,7 +23,7 @@ entries:
     version: 0.1.9
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.713482701Z"
+    created: "2024-06-17T11:41:17.040572882Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: c18aa98b575b83a71b8a3ba162dcac95f16f4aa282f7ac95e93c76071720f4a3
     name: cluster-bootstrap
@@ -33,7 +33,7 @@ entries:
     version: 0.1.8
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.713290073Z"
+    created: "2024-06-17T11:41:17.04038437Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: 7e81acc2cf387bdadfa98ac677538aa6b16920197ef18ff4b2964405fcc4ffd0
     name: cluster-bootstrap
@@ -43,7 +43,7 @@ entries:
     version: 0.1.7
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.713102856Z"
+    created: "2024-06-17T11:41:17.040186821Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: 52471bb333575cffda41396c7d53ebe17561af2b7186e2220d85aff8eb921f46
     name: cluster-bootstrap
@@ -53,7 +53,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.712940023Z"
+    created: "2024-06-17T11:41:17.040001394Z"
     description: Set of helm charts for Kubernetes Cluster bootstrap
     digest: 5a56d58caa49423bfcfefaff011d2d233b588cce2919ded2bcce6976e8097b2b
     name: cluster-bootstrap
@@ -63,7 +63,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.712772272Z"
+    created: "2024-06-17T11:41:17.039825936Z"
     description: Set of helm charts for Kubernetes Cluster bootstrap
     digest: 575dd85f9ca057f6059830bf3f579b533e9afb98de4e2beec4809549b5037c50
     name: cluster-bootstrap
@@ -73,7 +73,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.712585124Z"
+    created: "2024-06-17T11:41:17.039632995Z"
     description: A Helm chart for Kubernetes
     digest: d81191dfa82b0d3ea98857dd330488a5ddf42823773fb8b49f4869030be4193e
     name: cluster-bootstrap
@@ -83,7 +83,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.712415179Z"
+    created: "2024-06-17T11:41:17.039475221Z"
     description: A Helm chart for Kubernetes
     digest: 281412c136aa9ce7a87e565e44851c2f8aadc08a70d43d625d47611ef06651e6
     name: cluster-bootstrap
@@ -93,7 +93,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.71197427Z"
+    created: "2024-06-17T11:41:17.03907932Z"
     description: A Helm chart for Kubernetes
     digest: 099f8ec1cbb0ea144224c27f86704ce2d01b964379d2ab45c68e722e6a671caa
     name: cluster-bootstrap
@@ -103,7 +103,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.711804755Z"
+    created: "2024-06-17T11:41:17.038894845Z"
     description: A Helm chart for Kubernetes
     digest: 7d78c837daa583e75ac5953a6be2b264efa061b72a95fec47c441964df5905f5
     name: cluster-bootstrap
@@ -113,7 +113,7 @@ entries:
     version: 0.1.0
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2024-06-11T12:17:17.711639077Z"
+    created: "2024-06-17T11:41:17.038740116Z"
     description: Helm Charts for cluster-bootstrap
     digest: 34372229aebd2d5b238a3b6b4b81a103d87791893702e1d7b9508042a9e63dc9
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -129,7 +129,7 @@ entries:
   devxp-app:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-17T11:40:53.315020479Z"
+    created: "2024-06-17T11:41:17.183029155Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: b30b9064468d47d18816cfacb8f73a2b29122e08658e1330abeaaa54945b1ff9
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -140,11 +140,11 @@ entries:
     name: devxp-app
     type: application
     urls:
-    - https://github.com/devxp-tech/helm-charts/releases/download/devxp-app-0.2.77/devxp-app-0.2.77.tgz
+    - https://raw.githubusercontent.com/devxp-tech/helm-charts/artifacts/devxp-app-0.2.77.tgz
     version: 0.2.77
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.857173568Z"
+    created: "2024-06-17T11:41:17.180662913Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: b11050335bfc38ed86d7069781884c11ecf5638fc0a2122ccf43ed2db0a83529
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -159,7 +159,7 @@ entries:
     version: 0.2.76
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.855809575Z"
+    created: "2024-06-17T11:41:17.178416934Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 0f0413d193cf9ecbb0ba568c8d877ebd2253b3c22a2bd700db5ca8231e16f7c1
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -174,7 +174,7 @@ entries:
     version: 0.2.75
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.854472932Z"
+    created: "2024-06-17T11:41:17.177100503Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 813012fa309b41c5a3bfef088adf2abb508c8f06858252bd5bd190ad08424fc9
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -189,7 +189,7 @@ entries:
     version: 0.2.74
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.852424677Z"
+    created: "2024-06-17T11:41:17.175816894Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 744c98b3548d9d36ce505bfa13e25a567573f22ef5a206e3a2fdb21693bd4ed1
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -204,7 +204,7 @@ entries:
     version: 0.2.73
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.851101931Z"
+    created: "2024-06-17T11:41:17.174557048Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: cc70805f16d08a4ab04c7b3c4a75060ff34b5f8991e7217e690b3b9ac8b181ed
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -219,7 +219,7 @@ entries:
     version: 0.2.72
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.849802057Z"
+    created: "2024-06-17T11:41:17.173232703Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: c2cc58184f703e17692eb5f29cccb972d17845feb10466312aba5c880aa1f112
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -234,7 +234,7 @@ entries:
     version: 0.2.71
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.848498135Z"
+    created: "2024-06-17T11:41:17.171208058Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 11cbe000a24f3bab65b8bdf89a95dd537514257808a15da44c18752578dd903c
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -249,7 +249,7 @@ entries:
     version: 0.2.70
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.846270979Z"
+    created: "2024-06-17T11:41:17.169090138Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 782fc4bf96dc4e85834523f7961db7a87201a5ef21f87195a1e7a835016228a6
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -264,7 +264,7 @@ entries:
     version: 0.2.69
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.843954016Z"
+    created: "2024-06-17T11:41:17.167837306Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 276e2fe7fc4fb2d8aa0ff1d6493a6e45bff100673f23e7b16de1e9ba6c0ed13d
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -279,7 +279,7 @@ entries:
     version: 0.2.68
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.84269047Z"
+    created: "2024-06-17T11:41:17.166585466Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 6e0e6230d391682c1110e3b64bd0b5b12e281801ea7faca449f33b11725e3a9e
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -294,7 +294,7 @@ entries:
     version: 0.2.67
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.841391267Z"
+    created: "2024-06-17T11:41:17.165273323Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 5a3f228f4888d42778ec64492ba0f41a47933ef7e722c2e2a097557ee50a301b
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -309,7 +309,7 @@ entries:
     version: 0.2.66
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.840068721Z"
+    created: "2024-06-17T11:41:17.163723288Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 6e4fb7f6f94016f4e3057ec70af425739d195f73bbc3fc82165cf75f79a01c98
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -324,7 +324,7 @@ entries:
     version: 0.2.65
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.838746596Z"
+    created: "2024-06-17T11:41:17.16214604Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 0b43a2c73f29704ab1a825f5dea4008dbcaa9ef5dcdbce02266c9e6b2b798ca6
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -339,7 +339,7 @@ entries:
     version: 0.2.64
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.837448354Z"
+    created: "2024-06-17T11:41:17.16091013Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 285b7a0a0c4544ea7d6185f1eaa9fa25c81d6d248927ff6f7e9b7ce5b2f71a62
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -354,7 +354,7 @@ entries:
     version: 0.2.63
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.83488781Z"
+    created: "2024-06-17T11:41:17.159668609Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 87b1daec4ea88e60f57c3668eec3c6a7626e2b3b414a57f42766099f6fb59d23
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -369,7 +369,7 @@ entries:
     version: 0.2.62
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.833608505Z"
+    created: "2024-06-17T11:41:17.158464759Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: c23dcf58433a820426ac3e15b19b74a88dae91abfacbf4cc0c19c55a7917f51f
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -384,7 +384,7 @@ entries:
     version: 0.2.61
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.832366518Z"
+    created: "2024-06-17T11:41:17.157187701Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 1d5cada93715fc4be03ba81101f60cbd69fbad907365151d8e388d331ce24827
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -399,7 +399,7 @@ entries:
     version: 0.2.60
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.830233156Z"
+    created: "2024-06-17T11:41:17.154591528Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 15321b1532dae7ab51ec35f98bd3320b67c4697d8b12d019093e79e38e3c4806
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -414,7 +414,7 @@ entries:
     version: 0.2.59
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.828925348Z"
+    created: "2024-06-17T11:41:17.153370105Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 7b6e49d19bdce52f7054194d7152b4699a2f6490c44b977f63807ca8a1f8486a
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -429,7 +429,7 @@ entries:
     version: 0.2.58
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.826470559Z"
+    created: "2024-06-17T11:41:17.152205778Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: d3d2a0de20ac0d13cbc5440f51cefdf4c49702eeb3a09f8d4118a390b3bdbec3
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -444,7 +444,7 @@ entries:
     version: 0.2.57
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.825232079Z"
+    created: "2024-06-17T11:41:17.151009452Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 34dc89b7191f4289ab6685b92867eaecdd25eaa86a10e7e8777d5cb3baef5052
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -459,7 +459,7 @@ entries:
     version: 0.2.56
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.823953124Z"
+    created: "2024-06-17T11:41:17.149568989Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 8185fd762f5fae56aa25964d8b9d415cb118ec726dee1f27a6e38dc098c70e05
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -474,7 +474,7 @@ entries:
     version: 0.2.55
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.822252606Z"
+    created: "2024-06-17T11:41:17.148139016Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 4938eb88511db21a5f93d78b8c181fc3856bfb4351d9e4e5ce71d0a53bae1976
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -489,7 +489,7 @@ entries:
     version: 0.2.54
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.820886879Z"
+    created: "2024-06-17T11:41:17.146263316Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: d0d80d57ab9fa428f9149337984646c684a37896191a08e1024ea7ba08514c60
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -504,7 +504,7 @@ entries:
     version: 0.2.53
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.819468173Z"
+    created: "2024-06-17T11:41:17.145134706Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 445d5a3619a1d842b479cdeea1876468c949480fcb2cb3e2b546494539d07ca5
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -519,7 +519,7 @@ entries:
     version: 0.2.52
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.817821365Z"
+    created: "2024-06-17T11:41:17.144004834Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: a8f953573699700d69d6e10eea0041e4c65a462e15b2e8ddd37086281d70c683
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -534,7 +534,7 @@ entries:
     version: 0.2.51
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.816713988Z"
+    created: "2024-06-17T11:41:17.142889279Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 1cf266ab181de044ac67debebb48467d8e62eab2b271bc6115f04c52a5cb3e63
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -549,7 +549,7 @@ entries:
     version: 0.2.50
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.815567439Z"
+    created: "2024-06-17T11:41:17.141733969Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: a267a471830b9e9468957480f7fa9c81c22d2d9c5b8e70a7229f209317c2f12e
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -564,7 +564,7 @@ entries:
     version: 0.2.49
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.814454242Z"
+    created: "2024-06-17T11:41:17.140603827Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: b017137b213a18f497321815a545b1ac247ec6a2b16d6899c2609060af0e908a
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -579,7 +579,7 @@ entries:
     version: 0.2.48
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.813375709Z"
+    created: "2024-06-17T11:41:17.138842788Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: ba8068cddb3f1a65db7dc7518fe7b9d12ef5597063dcda69e52c41a8d9f0e770
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -594,7 +594,7 @@ entries:
     version: 0.2.47
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.812283941Z"
+    created: "2024-06-17T11:41:17.137505729Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 35a9cb5322f44f4fccacdccc3518b7543400d4bed96d77fc7a41a704485a8847
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -609,7 +609,7 @@ entries:
     version: 0.2.46
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.810524123Z"
+    created: "2024-06-17T11:41:17.13645794Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 7b07c4cb797c1a165fe2c4ecca3bdcf74c854aad3a158666ccf8a3277dd5d854
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -624,7 +624,7 @@ entries:
     version: 0.2.45
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.809466308Z"
+    created: "2024-06-17T11:41:17.135389402Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 2391d2b5e92cafb12ec6a052baaba6a17e750dc05d72cb5be680b1cedebae042
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -639,7 +639,7 @@ entries:
     version: 0.2.44
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.808430685Z"
+    created: "2024-06-17T11:41:17.134337475Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 673b38409a9a137d344d39b33fefe7f2eedff668fbe69d7d29acb45952ad1c9a
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -654,7 +654,7 @@ entries:
     version: 0.2.43
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.807351922Z"
+    created: "2024-06-17T11:41:17.133265221Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 27a5bf66794fd1bac09b7b34298cbb948da85e87964fc5669dcfd3115f699579
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -669,7 +669,7 @@ entries:
     version: 0.2.42
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.806311239Z"
+    created: "2024-06-17T11:41:17.132229786Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 4e1abc7edd761372ba1b4a15b06c0388980a69ab56256fa22b7ef2e28833d034
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -684,7 +684,7 @@ entries:
     version: 0.2.41
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.805284432Z"
+    created: "2024-06-17T11:41:17.130987944Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 2095e25af72e194eb65813746cf73211e414dc073652d6a6ee7d0a988f0d904d
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -699,7 +699,7 @@ entries:
     version: 0.2.40
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.80415245Z"
+    created: "2024-06-17T11:41:17.129461832Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: b9ae22e9e56ba0c448da316da9c0e8c8e122b78c8ff8a36707760102f875c860
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -714,7 +714,7 @@ entries:
     version: 0.2.39
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.802303045Z"
+    created: "2024-06-17T11:41:17.128423841Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: c49e87da9a9722815237318b11443aef7926f71564a87e4794b7f710eef64edf
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -729,7 +729,7 @@ entries:
     version: 0.2.38
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.801274355Z"
+    created: "2024-06-17T11:41:17.127412661Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 2a1cab2c26853354cbea1b728ad0deaefd9f29ec4df507c1aef9827ddb06b0e1
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -744,7 +744,7 @@ entries:
     version: 0.2.37
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.800182407Z"
+    created: "2024-06-17T11:41:17.126370683Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 5ef7c51ee82742d32a4c1d5972782a3b8119192c5f5d7d34c988e2f51f6852cb
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -759,7 +759,7 @@ entries:
     version: 0.2.36
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.799171089Z"
+    created: "2024-06-17T11:41:17.125321722Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: a3ff1524dd8cb50507bfab73a40bcc9649ecf2555a41ef9a23336e605bb03c0c
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -774,7 +774,7 @@ entries:
     version: 0.2.35
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.798145996Z"
+    created: "2024-06-17T11:41:17.124281738Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 49643444c9dfb7872de8e9afcd978fe61e3a2caa3769cbd9205f2415c2c22f43
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -789,7 +789,7 @@ entries:
     version: 0.2.34
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.797208495Z"
+    created: "2024-06-17T11:41:17.123184106Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: f45fb6289c6cbb53a25924d62eb7daeaf4429fdef3234d37c4f79078fc40596e
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -804,7 +804,7 @@ entries:
     version: 0.2.33
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.79617202Z"
+    created: "2024-06-17T11:41:17.121649437Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 178f181c5c7aa6402f3cc23a2528c4dc3cf3d943412f0bfccc8bd31553f93a41
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -819,7 +819,7 @@ entries:
     version: 0.2.32
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.794321062Z"
+    created: "2024-06-17T11:41:17.120696375Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 5b326cb426fc795295a9b23c4dca88c0f8ddc13be3ad642525c3f4c5b5b117a4
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -834,7 +834,7 @@ entries:
     version: 0.2.31
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.793348736Z"
+    created: "2024-06-17T11:41:17.119790873Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 9f1b36b3fa452dc0a983470d3fd83252ed33563d2c1c1bc19bf0634dbb6cb77e
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -849,7 +849,7 @@ entries:
     version: 0.2.30
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.792393923Z"
+    created: "2024-06-17T11:41:17.118879329Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 7eef46a220e355abe52df5a10f49ddaeb01e38b9e6658a208f2f0c739cf5e37a
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -864,7 +864,7 @@ entries:
     version: 0.2.29
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.791415035Z"
+    created: "2024-06-17T11:41:17.117893075Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 802a1a362aad5e4a6fcc175797c38bcc7eed6a02bdc96a3755c45beb10bf75d4
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -879,7 +879,7 @@ entries:
     version: 0.2.28
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.790486761Z"
+    created: "2024-06-17T11:41:17.11698642Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 961a3b62739535dcdd9c455d13fab3386efdbf987bb4628fd9c8b879414799b8
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -894,7 +894,7 @@ entries:
     version: 0.2.27
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.789611035Z"
+    created: "2024-06-17T11:41:17.116074746Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 58ce5af1c127cea823fbbcb74bc01b60e128eaf0ecaf1b3b16aa988a35c2c8ee
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -909,7 +909,7 @@ entries:
     version: 0.2.26
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.78868236Z"
+    created: "2024-06-17T11:41:17.114451932Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 67fa33592a3eb9d1a82d434d916fd8f003eb618d690477abe50c978bd01668fb
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -924,7 +924,7 @@ entries:
     version: 0.2.23
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.787552113Z"
+    created: "2024-06-17T11:41:17.113548694Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: c49469ee6e337495f00ab737b2acc03bcc08ea724a5398462d94ff278954e1a2
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -939,7 +939,7 @@ entries:
     version: 0.2.22
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.786163905Z"
+    created: "2024-06-17T11:41:17.11267478Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 1155a1dc78dc5d0a5dd7e9cbd90ba49ab25933f26f314a55e1265b6327558ffb
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -954,7 +954,7 @@ entries:
     version: 0.2.21
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.785273642Z"
+    created: "2024-06-17T11:41:17.11182416Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 0f027fef2141e65c0b6dd420d6520ecbf910e8689277179da89676fa75d8e42e
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -969,7 +969,7 @@ entries:
     version: 0.2.20
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.784406512Z"
+    created: "2024-06-17T11:41:17.110967969Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: a7605c1609589c5cb636a670ff56eb5ee55ebf41c0dfbbeb9836fb9981993906
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -984,7 +984,7 @@ entries:
     version: 0.2.19
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.783510047Z"
+    created: "2024-06-17T11:41:17.110077545Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: ad39c4ab2a06394b797611a8a97f356d6d1430ab2980ba20290e7421fc49949f
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -999,7 +999,7 @@ entries:
     version: 0.2.18
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.782624712Z"
+    created: "2024-06-17T11:41:17.109207529Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: db6b1cfecc96cc4633fabbf29a4c8c360c27db83fa5c316086ebe578a81de1bc
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1014,7 +1014,7 @@ entries:
     version: 0.2.17
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.781754586Z"
+    created: "2024-06-17T11:41:17.108308538Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 6f71e5c10657d9fa2794f3a6368d3ce0f0f953dc0211b43082608f8a587564f5
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1029,7 +1029,7 @@ entries:
     version: 0.2.16
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.780855767Z"
+    created: "2024-06-17T11:41:17.106596615Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: eada659a0cb1a72c85348ef5f11544f61cb7a5b0359f1adfa3e7fbefb9ceee88
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1044,7 +1044,7 @@ entries:
     version: 0.2.15
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.779100836Z"
+    created: "2024-06-17T11:41:17.105716179Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 0ac8d23f9467ebc15f5b0a93e59eef0c939b4ad34e250258a1c5164ca3896c69
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1059,7 +1059,7 @@ entries:
     version: 0.2.14
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.778243805Z"
+    created: "2024-06-17T11:41:17.104835433Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 75ace6bd0ae43d97c45e12dc39863b760dc47a026d7d49eb8d365afe2bb5bc12
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1074,7 +1074,7 @@ entries:
     version: 0.2.13
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.777329467Z"
+    created: "2024-06-17T11:41:17.103962862Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: cf9abb5858b41bb022d2265f46dc74b445db188f05800b01925702cd38d09cf9
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1089,7 +1089,7 @@ entries:
     version: 0.2.12
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.776449061Z"
+    created: "2024-06-17T11:41:17.103112161Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 603b24d69ad79e53c2c9ead349ea6dc3c9fb52e09103be6c67595521bb15f152
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1104,7 +1104,7 @@ entries:
     version: 0.2.11
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.775591218Z"
+    created: "2024-06-17T11:41:17.102187222Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: ae84d23e0aade5da6bff4ae98e3f9945a2a1e31f6c0b678d7e47c5e959529b6c
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1119,7 +1119,7 @@ entries:
     version: 0.2.10
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.858843158Z"
+    created: "2024-06-17T11:41:17.184687075Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 6a37a38d84c0f9d2b30050e979e9f462f64d1f920cbb25c6d962c3a77db43593
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1134,7 +1134,7 @@ entries:
     version: 0.2.9
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.858004861Z"
+    created: "2024-06-17T11:41:17.1838716Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 550f7fbd74713f89661499d048f69cfe424e7925e4ae189ebf412e774a88238e
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1149,7 +1149,7 @@ entries:
     version: 0.2.8
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.84713281Z"
+    created: "2024-06-17T11:41:17.169926892Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 11018528395f4fd8e4db37e5728a721d1069e47cfd894451e648e8e38f59a4ee
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1163,7 +1163,7 @@ entries:
     version: 0.2.7
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.831110806Z"
+    created: "2024-06-17T11:41:17.155407042Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 8fdb682faada51abb80a3c009a3988dba507da188e650bd9e8aa4e71ae126dc9
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1177,7 +1177,7 @@ entries:
     version: 0.2.6
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.774766817Z"
+    created: "2024-06-17T11:41:17.101344006Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 427df556fcbfbe9102fe8e16a54ed06e9a1df287175b6e48ad6fd38a1afb1a19
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1191,7 +1191,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.77391225Z"
+    created: "2024-06-17T11:41:17.099715525Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: a964a428a27bd8edb0cd53bcf995b13336a91ea7ef2bf391373afd64ad02af6e
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1205,7 +1205,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.773052293Z"
+    created: "2024-06-17T11:41:17.098874152Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 76a4ab2b3ded428eeb55cf5fd156ed3c5d65b79ee7992abdd0a2a6a97c94a22f
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1219,7 +1219,7 @@ entries:
     version: 0.1.99
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.771441884Z"
+    created: "2024-06-17T11:41:17.098002272Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 362bc9e190dfb2ee1b80abbba4524c91420d66192213e8ed0fddeca1478e07b3
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1233,7 +1233,7 @@ entries:
     version: 0.1.98
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.770612795Z"
+    created: "2024-06-17T11:41:17.097177179Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: eed145a40367ce1a7e8ae2fd18240a47eabc5dbba25e699ac80cce94ae276dad
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1247,7 +1247,7 @@ entries:
     version: 0.1.97
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.769785148Z"
+    created: "2024-06-17T11:41:17.096363078Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: d0d8a68503261d3b1d4f7f11833ca21c525b45bf762179b03e054b7130d1aa88
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1261,7 +1261,7 @@ entries:
     version: 0.1.96
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.76895166Z"
+    created: "2024-06-17T11:41:17.0954873Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: e36a23fdf62450696b37228400ed9488c1a67667e21a796d88f8ec436a22b07f
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1275,7 +1275,7 @@ entries:
     version: 0.1.95
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.76820327Z"
+    created: "2024-06-17T11:41:17.094769478Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: c8a0f65152cfaee69c2a8469e6ea74a3afb296060eb96d66e4175ff08aead99d
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1289,7 +1289,7 @@ entries:
     version: 0.1.94
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.767471521Z"
+    created: "2024-06-17T11:41:17.093997295Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: af402614881dae2ac8d7ccef8ddaa2b1e52f9a7b572c7f6891da79c17624bdd9
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1303,7 +1303,7 @@ entries:
     version: 0.1.93
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.766762755Z"
+    created: "2024-06-17T11:41:17.0926749Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 8e641f671d93007e04da104a4dd73867cdee7b4a81ba797977e970785639c2a8
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1317,7 +1317,7 @@ entries:
     version: 0.1.92
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.766038279Z"
+    created: "2024-06-17T11:41:17.091945957Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 66ebff49d372c07840762b742d30ed5831e1ecd6ac6272614dd9e60b06ce131a
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1331,7 +1331,7 @@ entries:
     version: 0.1.91
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.765125763Z"
+    created: "2024-06-17T11:41:17.091236691Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 4c479ca000a26d1456cc599480bbfbefd9b0d9cf24beaec57c7a561705f85a2c
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1345,7 +1345,7 @@ entries:
     version: 0.1.90
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.763509552Z"
+    created: "2024-06-17T11:41:17.090137507Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 5420e2b70f49dc38b41f1b06e38bd84eb876b9455c86436905d79a4d05374bde
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1359,7 +1359,7 @@ entries:
     version: 0.1.89
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.762800986Z"
+    created: "2024-06-17T11:41:17.089435655Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 628550cd7e3ff72aa93ab51d6f839895bf383e40eff48b2c2699c78666c94351
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1373,7 +1373,7 @@ entries:
     version: 0.1.88
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.762099874Z"
+    created: "2024-06-17T11:41:17.088760232Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 46da7a2e8e9341ae4c3fc5fad01eb98e8be656a79b96fd7530c5523f1cebee91
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1387,7 +1387,7 @@ entries:
     version: 0.1.87
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.76141917Z"
+    created: "2024-06-17T11:41:17.088038453Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 9acd770a2f5ea6a4e695d91deb6a085f04eb878a6fea4db36a66b77b818c94c6
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1401,7 +1401,7 @@ entries:
     version: 0.1.86
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.760728798Z"
+    created: "2024-06-17T11:41:17.087360155Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 2ee913f8c32769f429bde5625c17f33dfc631e640ba21a2f6ffe65a6dc729abf
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1415,7 +1415,7 @@ entries:
     version: 0.1.83
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.76003538Z"
+    created: "2024-06-17T11:41:17.086647493Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: dfa8a03823a954baacaf2678ad15ae3c0d122e1a0a240791bf2ccf0408dd464e
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1429,7 +1429,7 @@ entries:
     version: 0.1.82
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.759381005Z"
+    created: "2024-06-17T11:41:17.08531761Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 7980bdfadb934b25d2404611d76e57cdc1818a7a027f163256d18e08830c81e5
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1443,7 +1443,7 @@ entries:
     version: 0.1.81
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.75866761Z"
+    created: "2024-06-17T11:41:17.084524667Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: b3c0791ffc82b8d541b01b0f186a66f60670164a7b8df01c3981040e0d38fe22
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1457,7 +1457,7 @@ entries:
     version: 0.1.80
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.757254637Z"
+    created: "2024-06-17T11:41:17.083532502Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 9d71aa0d47afdb52a9fa6294e572ed34b86d235fd03472e67cfab603764a90db
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1471,7 +1471,7 @@ entries:
     version: 0.1.79
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.756127675Z"
+    created: "2024-06-17T11:41:17.082881966Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 1a2d04b81c0838b130679cef8e26c956e34e42b6a6ec7ed8509117985d9565b4
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1485,7 +1485,7 @@ entries:
     version: 0.1.78
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.755451258Z"
+    created: "2024-06-17T11:41:17.082196605Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 111400d68ebef0129118295256ffbb496e79253860a1286410f3cac8555bd596
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1499,7 +1499,7 @@ entries:
     version: 0.1.77
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.754798616Z"
+    created: "2024-06-17T11:41:17.081540298Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 432273e7a6dfcd84aeafb1689dc0bed82d2456484e2d3224365cb5cba0ee3367
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1513,7 +1513,7 @@ entries:
     version: 0.1.76
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.754145242Z"
+    created: "2024-06-17T11:41:17.080883931Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 27cb1a88999ea161775f6dd9fdb14e0928dd277ae6b599201686b43c7094a2cb
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1527,7 +1527,7 @@ entries:
     version: 0.1.75
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.753482431Z"
+    created: "2024-06-17T11:41:17.08022543Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: f0c18a1bf1b64cc857e274111aa74a63d8c9b4045ecae3c30c886c9e6402f05d
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1541,7 +1541,7 @@ entries:
     version: 0.1.74
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.752850618Z"
+    created: "2024-06-17T11:41:17.079568462Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: cc339ec1e7a108e458267a7ca9c6fddcb7a04b4a05f2b597ba79120f01afe57d
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1555,7 +1555,7 @@ entries:
     version: 0.1.73
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.75219454Z"
+    created: "2024-06-17T11:41:17.078434222Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: b156f414daa9a93af6a740009fa6518f8af7a48f026d9d033b9a3e7f84dc994b
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1569,7 +1569,7 @@ entries:
     version: 0.1.72
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.751564189Z"
+    created: "2024-06-17T11:41:17.077539179Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 14d67c46b487f894a0a759c09cca7277c7734d17eea8a458fd0e37bfb88df028
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1583,7 +1583,7 @@ entries:
     version: 0.1.71
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.750920634Z"
+    created: "2024-06-17T11:41:17.076937444Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: c6f5f90dcc6c538151b6a9f1b6a517cd1d2d85ddee2254ff31a69e21497de61f
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1597,7 +1597,7 @@ entries:
     version: 0.1.70
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.749181598Z"
+    created: "2024-06-17T11:41:17.075969755Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 7875e738a3774146161b95ae0042b9e4bad52f0238e0660ddfe62ae7f3a40df2
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1611,7 +1611,7 @@ entries:
     version: 0.1.69
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.748554203Z"
+    created: "2024-06-17T11:41:17.075380654Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 34eb18a7d3b7a8db1f723124e894157b2e0c086de67ee7661866a86ddf7ca8c6
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1625,7 +1625,7 @@ entries:
     version: 0.1.68
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.747941134Z"
+    created: "2024-06-17T11:41:17.074799136Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 458509e0ed16a5a3d9fceeaf23f20516871c67a9def163781e54c83562e98afc
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1639,7 +1639,7 @@ entries:
     version: 0.1.67
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.747359534Z"
+    created: "2024-06-17T11:41:17.074178476Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: a4425018b24a225a0e9f7f2c0bbdce9031f4f921dcce61008c41b912120c6373
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1653,7 +1653,7 @@ entries:
     version: 0.1.66
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.746773997Z"
+    created: "2024-06-17T11:41:17.073566412Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 37207de90a3409197a383f5b7f6827ee90451f41dfb78c06bfc2c686aeac39b9
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1667,7 +1667,7 @@ entries:
     version: 0.1.65
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.746149587Z"
+    created: "2024-06-17T11:41:17.07292342Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: c1d0b2e9ee9c0cf0fd99b6f444f5baf4e70ff80b41dd07c2b28554d09c9c2770
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1681,7 +1681,7 @@ entries:
     version: 0.1.64
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.74555332Z"
+    created: "2024-06-17T11:41:17.072235614Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 074dfb44fb15c98f040b31792563702e44602a7b3e9c9e1bdb3bf82b8aba4836
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1695,7 +1695,7 @@ entries:
     version: 0.1.62
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.744961451Z"
+    created: "2024-06-17T11:41:17.071364856Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 3647dbcc19c572b0db977bafc7ecc381b333d70f0180b908b990d54573ab07bc
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1709,7 +1709,7 @@ entries:
     version: 0.1.61
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.744329347Z"
+    created: "2024-06-17T11:41:17.070478259Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: d44ba91c11b28f55db138de2f09179799599ea7c6eb550f554f0240d67c0a04e
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1723,7 +1723,7 @@ entries:
     version: 0.1.60
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.742969728Z"
+    created: "2024-06-17T11:41:17.069392379Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 3e1753eaa9965178686868456bb0f511fecb48540ad1b4e9424b610928e081a9
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1737,7 +1737,7 @@ entries:
     version: 0.1.59
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.741953672Z"
+    created: "2024-06-17T11:41:17.068774214Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 1f96680bc89682bc12e6766dff8f7bd7429ef239119559c524535a8e7b9dfe32
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1751,7 +1751,7 @@ entries:
     version: 0.1.58
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.741379415Z"
+    created: "2024-06-17T11:41:17.068190643Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: c14f59847a4ed282a197681e241138814b9a6e1d125242bd00d1eb7740f08d06
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1765,7 +1765,7 @@ entries:
     version: 0.1.57
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.740795Z"
+    created: "2024-06-17T11:41:17.067595781Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 6160c2504cead6c17ac09789ee6da21651005717ef059fe83cf0ac70338c1682
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1779,7 +1779,7 @@ entries:
     version: 0.1.56
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.740156394Z"
+    created: "2024-06-17T11:41:17.067014344Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 8aa2676eb2292db57464ea493256b0783276b71733a3d435881f9e791e666887
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1793,7 +1793,7 @@ entries:
     version: 0.1.55
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.739548906Z"
+    created: "2024-06-17T11:41:17.066430543Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: d15041543d37e3db024538d834b9a1a3a6bbd31f6af41c5833ec2836c5b6cb45
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1807,7 +1807,7 @@ entries:
     version: 0.1.54
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.738957958Z"
+    created: "2024-06-17T11:41:17.065800755Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 2c66ede88e3ed6fadbb987512686500c37452de287b1c0f35fcc2ff32872d3f4
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1821,7 +1821,7 @@ entries:
     version: 0.1.53
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.738331525Z"
+    created: "2024-06-17T11:41:17.065204561Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 934d061848749f42096fcf83c452a4c18bf3c94c3517acd65c7c4608438fec6f
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1835,7 +1835,7 @@ entries:
     version: 0.1.52
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.737549162Z"
+    created: "2024-06-17T11:41:17.064582237Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 91e2698aa88437b5e46a4caede84f9b503e755b508e636c9de35ad986a62a485
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1849,7 +1849,7 @@ entries:
     version: 0.1.51
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.736524329Z"
+    created: "2024-06-17T11:41:17.063264945Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: e4cd1816051275862f43e3b00e199a26fba0fbd4aff7fd4073eec49febc17017
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1863,7 +1863,7 @@ entries:
     version: 0.1.50
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.734964041Z"
+    created: "2024-06-17T11:41:17.062322924Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 90f7c06c994a1828357aab7ce87a2e127d28582f557e3a7748c3cde0d61b7d59
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1877,7 +1877,7 @@ entries:
     version: 0.1.49
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.734102191Z"
+    created: "2024-06-17T11:41:17.061724435Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 4cf86522feed480dab6ea9c0eaca9bd44135908e5ad2661dcf4558f1b098428c
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1891,7 +1891,7 @@ entries:
     version: 0.1.48
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.733525269Z"
+    created: "2024-06-17T11:41:17.061125636Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: dfb1604cd412edc13d44b463d69c72a5b6c9357473076fa89884f73113bd1acc
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1905,7 +1905,7 @@ entries:
     version: 0.1.47
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.732993021Z"
+    created: "2024-06-17T11:41:17.060617987Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 2d7bb1e4d6b8ff1662419bbb88528c58d56bc593739c5bb2434236cc0a932793
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1919,7 +1919,7 @@ entries:
     version: 0.1.46
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.732370114Z"
+    created: "2024-06-17T11:41:17.060108414Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 48cba82ad3f0132bc81bbbabafbcb230f712b311bf0a7bb4573f15a6e59e360a
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1933,7 +1933,7 @@ entries:
     version: 0.1.45
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.731817277Z"
+    created: "2024-06-17T11:41:17.059591117Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 063d12375547f88cf1b829de90ec77018766d66bfbed597699ce18e5fdc4a2f4
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1947,7 +1947,7 @@ entries:
     version: 0.1.44
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.731291821Z"
+    created: "2024-06-17T11:41:17.059053582Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: a5b3578dac93e14c90610de292fa38bcbb81e36d87d2228a40810fe009dd0d34
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1961,7 +1961,7 @@ entries:
     version: 0.1.43
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.73075786Z"
+    created: "2024-06-17T11:41:17.058525205Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 824b5effed8fb9dec4f4a17b21ba3e53183efca0797cf45894b47e6c1f77d168
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1975,7 +1975,7 @@ entries:
     version: 0.1.42
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.730200074Z"
+    created: "2024-06-17T11:41:17.0579447Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: ff72b12163032ea694163a5f863058c4979f06cbbb4b795dd23cfbd9022dfaf6
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -1989,7 +1989,7 @@ entries:
     version: 0.1.40
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.729351348Z"
+    created: "2024-06-17T11:41:17.05642213Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 259f38860c72c078be7f5dded1b468043dc63be83871ee802efb8e5ce8b58f1e
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2003,7 +2003,7 @@ entries:
     version: 0.1.39
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.728775749Z"
+    created: "2024-06-17T11:41:17.055871972Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 09dfb665f2f62a087bae8acb03db3dda05197ea99955d5ce9f6460486a6fc011
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2017,7 +2017,7 @@ entries:
     version: 0.1.38
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.727442463Z"
+    created: "2024-06-17T11:41:17.055384962Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: dc709b37ed21122dbd508cfce384cca1e54e36d5aa28008c2e2e805858b4b612
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2031,7 +2031,7 @@ entries:
     version: 0.1.37
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.726952633Z"
+    created: "2024-06-17T11:41:17.054900195Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: c02bb5a66e23298836940c3a376c4623bfb5df9fc1e7ad19f731efcdb8dcdf8e
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2045,7 +2045,7 @@ entries:
     version: 0.1.36
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.726505663Z"
+    created: "2024-06-17T11:41:17.054456957Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 48447c0b0a5d04f7282752434b0f04cc6ac4b71faec3ad9ca9fba367d6dd88ad
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2059,7 +2059,7 @@ entries:
     version: 0.1.35
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.726057731Z"
+    created: "2024-06-17T11:41:17.053985295Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 3908e941d2ba1039ca36a36c39d7b4027d3dda412204276b0f10164b40398d03
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2073,7 +2073,7 @@ entries:
     version: 0.1.34
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.725615309Z"
+    created: "2024-06-17T11:41:17.053546004Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 988de7ea157140b3bbc502dd55f2f3e224380917c1297989dc89a265793935de
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2087,7 +2087,7 @@ entries:
     version: 0.1.33
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.725156497Z"
+    created: "2024-06-17T11:41:17.053101373Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 360ba079201de69e8ce61fc37ecb25f4a730b0f82301ced824bcbdb61b82c039
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2101,7 +2101,7 @@ entries:
     version: 0.1.32
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.724696433Z"
+    created: "2024-06-17T11:41:17.052635612Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 7b51f1233c63d7b9dc801797b7bfda816ff50eac90bd3cb48f83f227a6d0db40
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2115,7 +2115,7 @@ entries:
     version: 0.1.31
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.72419978Z"
+    created: "2024-06-17T11:41:17.052097566Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 30ee098ee88744c99f7d2adf3d119d5f4bf9b924f73e774f489a9bffda9cfa90
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2129,7 +2129,7 @@ entries:
     version: 0.1.30
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.723522643Z"
+    created: "2024-06-17T11:41:17.051177296Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 311f82b87b102eee4e639b7acfb4d97e73b8e80890db35f0ef0142bdb1c354b4
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2143,7 +2143,7 @@ entries:
     version: 0.1.29
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.723120416Z"
+    created: "2024-06-17T11:41:17.050426222Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 9016e15e0f11811e1505ba3fc7c784b1aa85b9612d6098c97dce1c1df9572aab
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2157,7 +2157,7 @@ entries:
     version: 0.1.28
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.72270793Z"
+    created: "2024-06-17T11:41:17.049305467Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 6155d570bed79d2efdbde49e460f39d530bbe747b2232c6678b855209c32cdd9
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2171,7 +2171,7 @@ entries:
     version: 0.1.27
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.722281588Z"
+    created: "2024-06-17T11:41:17.048899859Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 86161847118fe00bc7a7916769e105d88e01be3e616d8388f68850157413b4ff
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2185,7 +2185,7 @@ entries:
     version: 0.1.26
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.721229182Z"
+    created: "2024-06-17T11:41:17.048538112Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 92308f09b27324e2b05eeca43e73393379e82046acd3bf1e8ffb2f67a9f57568
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2199,7 +2199,7 @@ entries:
     version: 0.1.25
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.720849046Z"
+    created: "2024-06-17T11:41:17.048185213Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 267fec5a8f93d696c1efecd5f24dc26c80258b97603ec5f133d502cef995fd00
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2213,7 +2213,7 @@ entries:
     version: 0.1.24
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.720455114Z"
+    created: "2024-06-17T11:41:17.04782536Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: d606cd2d792ad9938049a6b87b9d626aab34cfae351dc170f3c0f3d2814a3ab7
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2227,7 +2227,7 @@ entries:
     version: 0.1.23
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.720018323Z"
+    created: "2024-06-17T11:41:17.047465828Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 07de5ee8029b998277eb84b4ed9eeaa3c00ae5bb8dd74b585d168765f8e3ecd6
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2241,7 +2241,7 @@ entries:
     version: 0.1.22
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.71965034Z"
+    created: "2024-06-17T11:41:17.047104523Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: ea45dd4092a588ad3e4a4d9a5883fc6e566b9294fb597fb02f964559e4a41d7c
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2255,7 +2255,7 @@ entries:
     version: 0.1.20
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.718878256Z"
+    created: "2024-06-17T11:41:17.046337829Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 61539eac6204a609f8b5089e46e39289c9d2151d133b1e455516cf7cf60f9f2f
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2269,7 +2269,7 @@ entries:
     version: 0.1.19
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.718518478Z"
+    created: "2024-06-17T11:41:17.045935898Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 900d3a53eccc72a9540e62b04f9620319dc0fde83cca0081eb578ae19cb50e41
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2283,7 +2283,7 @@ entries:
     version: 0.1.18
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.718161164Z"
+    created: "2024-06-17T11:41:17.045572108Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: c5ac6c918e30e6dc52a0356407e8ec93e15465ad29536ea4ce0595e241e54a94
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2297,7 +2297,7 @@ entries:
     version: 0.1.17
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.7178034Z"
+    created: "2024-06-17T11:41:17.04522028Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 5829ab85c0a7ae54ce0d254949f0009dd8776f21f239a66767515306efce4e5b
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2311,7 +2311,7 @@ entries:
     version: 0.1.16
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.717468127Z"
+    created: "2024-06-17T11:41:17.044866589Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 46f4126e94173d413cf21e33b87059ae53eda8ba82079dba60181b525a3d238d
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2325,7 +2325,7 @@ entries:
     version: 0.1.15
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.717116304Z"
+    created: "2024-06-17T11:41:17.044452054Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: f39597dce71ef54927adaeb58e4164d69cbad6ba286b8d8d5aa8ab816a13f997
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2339,7 +2339,7 @@ entries:
     version: 0.1.14
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.716768017Z"
+    created: "2024-06-17T11:41:17.044013725Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 9af29dbfa8b59be926ea6cedb3e0a0ab77e746283386bb9dd0bf7dbdac4e11a3
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2353,7 +2353,7 @@ entries:
     version: 0.1.13
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.716417075Z"
+    created: "2024-06-17T11:41:17.043034744Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 6e7bc6ef0d707cac2d4ee44ec71ce5c56cecc751654a5e12eb89a881376728bf
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2367,7 +2367,7 @@ entries:
     version: 0.1.12
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.716020028Z"
+    created: "2024-06-17T11:41:17.042281486Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 73dee1176a0eb500e10d6759f46fb9bb19cddee45cb20fa5c87a81685d2f28b1
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2381,7 +2381,7 @@ entries:
     version: 0.1.11
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.71535337Z"
+    created: "2024-06-17T11:41:17.041875868Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 552e58e36ebc020d2dc1b94604fd6073d022b7b9563fe98f506e621856204b77
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2395,7 +2395,7 @@ entries:
     version: 0.1.10
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.763850986Z"
+    created: "2024-06-17T11:41:17.090520372Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 854cf4322375f2efb358aea6f89b19355833b47ea65cad491536c931fca574f4
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2409,7 +2409,7 @@ entries:
     version: 0.1.9
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.757987597Z"
+    created: "2024-06-17T11:41:17.083874622Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: fab8c309528cfc0e0f6ccf29bb72bf5cd3df8633d9468d2e843247a1ad7f6999
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2423,7 +2423,7 @@ entries:
     version: 0.1.8
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.749521148Z"
+    created: "2024-06-17T11:41:17.076329076Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 32baa119fc87b9525e4f0cf96db531bb0ada3390ae4e09974e33a00df5b7bddd
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2437,7 +2437,7 @@ entries:
     version: 0.1.7
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.743697994Z"
+    created: "2024-06-17T11:41:17.069733367Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: eb3b07061a6f8ba758519dbfd62cfa0dbbd16479150cb9d7e7dd26f58ce50cec
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2451,7 +2451,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.735769477Z"
+    created: "2024-06-17T11:41:17.062662809Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: a7aa4b8a7123d4d6a72fe5409ac81fb7b1215b088ceb323208803cef7b500cdf
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2465,7 +2465,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.729686941Z"
+    created: "2024-06-17T11:41:17.056742098Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 0b6c0de7686832f5003c377f0f37da78e85852151b1858d2dca72db705e34f5a
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2479,7 +2479,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.723800799Z"
+    created: "2024-06-17T11:41:17.051572083Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: 316f84b927f97f8332574a702ed637be2735963ce164d15d3490a654d1355a4f
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2493,7 +2493,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2024-06-11T12:17:17.719274892Z"
+    created: "2024-06-17T11:41:17.046727588Z"
     description: Helm Charts for default DevXP-Tech Application
     digest: a385f1693aed6fbf849afa17283c1864597a6f2aca91bdf5ac63612b67434452
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2507,7 +2507,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.714383724Z"
+    created: "2024-06-17T11:41:17.041521145Z"
     description: A Helm chart for Kubernetes
     digest: 3f289bcada28ba89a318f0c316149fe93787d1e70df9bb850c18107fd07836e1
     name: devxp-app
@@ -2517,7 +2517,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.714012555Z"
+    created: "2024-06-17T11:41:17.041142898Z"
     description: A Helm chart for Kubernetes
     digest: 150bc30e1bffe40a4996bf39cc8e038931eb652ced7d6b9a9943d00fac19d25a
     name: devxp-app
@@ -2528,7 +2528,7 @@ entries:
   devxp-dev:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2024-06-11T12:17:17.86041116Z"
+    created: "2024-06-17T11:41:17.18619887Z"
     description: Helm Charts for DevXP-Tech Dev Application
     digest: 4d7a16aea65a1d4c86ac79c9677bac9517fc24e9d18edd7508e4a424c16d04d7
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2543,7 +2543,7 @@ entries:
     version: 0.0.3
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2024-06-11T12:17:17.859968167Z"
+    created: "2024-06-17T11:41:17.185783865Z"
     description: Helm Charts for DevXP-Tech Dev Application
     digest: 30145d3b9a069cc536523653a2aa89cba3646e186a573165c6637444476c9efd
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2558,7 +2558,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2024-06-11T12:17:17.85959236Z"
+    created: "2024-06-17T11:41:17.185398454Z"
     description: Helm Charts for DevXP-Tech Dev Application
     digest: 3ca9361d9b8b590f6299b63c65737fc39bc6ec75c782bd53763dc348135e1fb8
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2573,7 +2573,7 @@ entries:
     version: 0.0.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.859214458Z"
+    created: "2024-06-17T11:41:17.185044452Z"
     description: Helm Charts for DevXP-Tech Dev Application
     digest: d9309a8eeefc4f3ebf744f86e5e4f3ded80b8e548288de6bfb7f31b667af9353
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2589,7 +2589,7 @@ entries:
   devxp-infra:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.862895694Z"
+    created: "2024-06-17T11:41:17.187954833Z"
     description: A Helm chart for Kubernetes
     digest: 3eb734490cce4f92579d01a7b6b822336c4d265291fd75e5212394060035e052
     name: devxp-infra
@@ -2599,7 +2599,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.862588163Z"
+    created: "2024-06-17T11:41:17.187679899Z"
     description: Helm Charts for default DevXP-Tech Infrastructure
     digest: b902d7c89f269f973e3b2906de667ff37f9766dbcaf59b66b012ed9512f50d1a
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2613,7 +2613,7 @@ entries:
     version: 0.0.9
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.862385827Z"
+    created: "2024-06-17T11:41:17.187492299Z"
     description: Helm Charts for default DevXP-Tech Infrastructure
     digest: 473bb2d7c40ee02575af4f9b7793d0476a8d3c82c7773271d43078013b9b6393
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2627,7 +2627,7 @@ entries:
     version: 0.0.8
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.862209229Z"
+    created: "2024-06-17T11:41:17.187316119Z"
     description: Helm Charts for default DevXP-Tech Infrastructure
     digest: de84db69438af18be7dfd9e0dc725f945269d92897db4b235a42eef4f0033749
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2641,7 +2641,7 @@ entries:
     version: 0.0.7
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.862029626Z"
+    created: "2024-06-17T11:41:17.187126304Z"
     description: Helm Charts for default DevXP-Tech Infrastructure
     digest: 4b355c558b749e31b4afe56c1bd61ba7b862df004a5db92406f429309d1a8a27
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2655,7 +2655,7 @@ entries:
     version: 0.0.6
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.861840996Z"
+    created: "2024-06-17T11:41:17.186939545Z"
     description: Helm Charts for default DevXP-Tech Infrastructure
     digest: 74e4fcec0e186639cbda51c9a48bb53b813fa48c6775438f9e2ad4500ba4d870
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2669,7 +2669,7 @@ entries:
     version: 0.0.5
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.86163905Z"
+    created: "2024-06-17T11:41:17.186732298Z"
     description: Helm Charts for default DevXP-Tech Infrastructure
     digest: 851e0ce88e37dc3711cdc5956983d4687a6befbd6e02b81b3c8adcffae4c0df1
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2683,7 +2683,7 @@ entries:
     version: 0.0.3
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-11T12:17:17.861230622Z"
+    created: "2024-06-17T11:41:17.186561058Z"
     description: Helm Charts for default DevXP-Tech Infrastructure
     digest: 3b5a0a26e28db162cc257f566d8b05f808571e7795caf960c994523d28c331b5
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2697,7 +2697,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.860908664Z"
+    created: "2024-06-17T11:41:17.186403553Z"
     description: A Helm chart for Kubernetes
     digest: e642a37941a32ca8e81192a335897a38116cd1b94e535b24ade5c2f57678ffe1
     name: devxp-infra
@@ -2708,7 +2708,7 @@ entries:
   tooling:
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2024-06-11T12:17:17.893504979Z"
+    created: "2024-06-17T11:41:17.218079691Z"
     description: Helm Charts to Bootstrap Kubernetes Cluster
     digest: 53550da9662a20d2854498a18b8913ef3cee8dc9c68685ce3ee13d8e0871f632
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2722,7 +2722,7 @@ entries:
     version: 1.20.0
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2024-06-11T12:17:17.885963013Z"
+    created: "2024-06-17T11:41:17.211274439Z"
     description: Helm Charts to Bootstrap Kubernetes Cluster
     digest: 6ef00b3d095ec7da0b271deb677debe5f7aa1946ee75304b08ae35134d5c95ed
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2736,7 +2736,7 @@ entries:
     version: 0.1.28
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2024-06-11T12:17:17.884858141Z"
+    created: "2024-06-17T11:41:17.210154476Z"
     description: Helm Charts to Bootstrap Kubernetes Cluster
     digest: 1a6d75f9da70b86a5ceb4687b9cbbeeba239dc99404717f94b19f653f05b7d30
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2750,7 +2750,7 @@ entries:
     version: 0.1.27
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2024-06-11T12:17:17.883734855Z"
+    created: "2024-06-17T11:41:17.20879435Z"
     description: Helm Charts to Bootstrap Kubernetes Cluster
     digest: 3d91b56b04bb083675e9ba372a04ba20dbbc7c6cdc1bfa7f4661496214d1b446
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2764,7 +2764,7 @@ entries:
     version: 0.1.26
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2024-06-11T12:17:17.882636145Z"
+    created: "2024-06-17T11:41:17.207285319Z"
     description: Helm Charts to Bootstrap Kubernetes Cluster
     digest: e2a7af788a06e5bd20f1883204987d6973bbe48715692373562f17319bcf0c80
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2778,7 +2778,7 @@ entries:
     version: 0.1.25
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2024-06-11T12:17:17.881480498Z"
+    created: "2024-06-17T11:41:17.206163792Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: f7400fb5c83680df7524864c9caf899f76ba5593125d22a94bc34a50d32ec779
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2789,7 +2789,7 @@ entries:
     version: 0.1.24
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2024-06-11T12:17:17.879642615Z"
+    created: "2024-06-17T11:41:17.205115012Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: 4d80be3fb49421053c1b9eaaf5626f04b6212e4828a94881526ff05904bad61f
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2800,7 +2800,7 @@ entries:
     version: 0.1.23
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2024-06-11T12:17:17.878563231Z"
+    created: "2024-06-17T11:41:17.204044992Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: 521105be8329035616de81b200b5c9e39d60000e5061058cd5f715230bcee2bc
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2811,7 +2811,7 @@ entries:
     version: 0.1.22
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2024-06-11T12:17:17.877505537Z"
+    created: "2024-06-17T11:41:17.203000529Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: d8369445717e2bd49f44f9187563e0b13f2edd7e8bc541eed70f841cde6054e2
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2822,7 +2822,7 @@ entries:
     version: 0.1.21
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2024-06-11T12:17:17.876484671Z"
+    created: "2024-06-17T11:41:17.201907286Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: 29345c571d6a9418f69e8c45934610c81d5829f847873e2470452cf151e1e5f0
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2833,7 +2833,7 @@ entries:
     version: 0.1.20
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2024-06-11T12:17:17.875427137Z"
+    created: "2024-06-17T11:41:17.200877621Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: c6af877ff82dfbc52d7ba5f8a25aab72dd18763f7c35d64b565c184789e96a41
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2844,7 +2844,7 @@ entries:
     version: 0.1.19
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2024-06-11T12:17:17.874382347Z"
+    created: "2024-06-17T11:41:17.199820054Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: 21fd3b3b75d73c8f42bdf9b1bfa5af9cb7963681cd9a7427f43e623416fe02b3
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2855,7 +2855,7 @@ entries:
     version: 0.1.18
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2024-06-11T12:17:17.873324251Z"
+    created: "2024-06-17T11:41:17.198095834Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: de7a4b21d099f807e645726035ed966ef9c68366b981725ca0a98df277c684af
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2866,7 +2866,7 @@ entries:
     version: 0.1.17
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.872285833Z"
+    created: "2024-06-17T11:41:17.197067762Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: 40b644ca24b2b938b2dcf43afb91b31cf93d731a2b9def43b5f1d61d7ef86191
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2877,7 +2877,7 @@ entries:
     version: 0.1.16
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.87119098Z"
+    created: "2024-06-17T11:41:17.196068494Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: 665bbe798bfd3c82d3971a1f9d9889c1cc1b8217198bf2442d962f58f10bf713
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2888,7 +2888,7 @@ entries:
     version: 0.1.15
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.869486655Z"
+    created: "2024-06-17T11:41:17.195089744Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: 082fe0997168421ac063735de9e7385bbc13dae15128a0869dd8f8c3a11bb554
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2899,7 +2899,7 @@ entries:
     version: 0.1.14
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.868478593Z"
+    created: "2024-06-17T11:41:17.194112517Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: e92c3d6adbccb17e2e339be92dc41751fb769437872bca4768c44b0a6c7a98d7
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2910,7 +2910,7 @@ entries:
     version: 0.1.13
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.867449241Z"
+    created: "2024-06-17T11:41:17.193175356Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: 2a5a71e3e3af2c71eb7e007623fd7f6346a4f4515d608ae0d3627f66b6687c9e
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2921,7 +2921,7 @@ entries:
     version: 0.1.12
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.86649566Z"
+    created: "2024-06-17T11:41:17.192228606Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: bfaeb8589ed8496f9028543da1f1cbd1dfabd1d6cdd49c8815ce8a84ea951360
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2932,7 +2932,7 @@ entries:
     version: 0.1.11
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.865534495Z"
+    created: "2024-06-17T11:41:17.191313074Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: 41e7d2f87a54460cb2644ab418c668ef21ec490afb4cc215165c041f275e27df
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2943,7 +2943,7 @@ entries:
     version: 0.1.10
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.892399536Z"
+    created: "2024-06-17T11:41:17.216980105Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: 2f4f6e8922772ca3f52d370d32c6f8c133f03383d21cfc2a22a86dde06e1cd69
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2954,7 +2954,7 @@ entries:
     version: 0.1.9
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.891391664Z"
+    created: "2024-06-17T11:41:17.21605731Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: ab198c4e110c200007b7a284f7d35b3f9ea740b67bd9947efd79be25ec805ccc
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2965,7 +2965,7 @@ entries:
     version: 0.1.8
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.89010233Z"
+    created: "2024-06-17T11:41:17.215089611Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: a64886f70514f17571db8f098e878cd1e21f8beb998d4d606af2871b2f952489
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2976,7 +2976,7 @@ entries:
     version: 0.1.7
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.888852319Z"
+    created: "2024-06-17T11:41:17.214078541Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: 979c1a0b168d985a79874e20ff4f0557a27b718cd597589d85d29446764f54af
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2987,7 +2987,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.88780859Z"
+    created: "2024-06-17T11:41:17.21309902Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: 5fc0ad5083cfbdf97b4b04965d70f1eadebfeca72b7a6548749c9ae5c8b57b15
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -2998,7 +2998,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.886826517Z"
+    created: "2024-06-17T11:41:17.212100273Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: 38774962c7ca994fe9a03dc1b0900992173024b917db4935e0a3ae22b7abe9b6
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -3009,7 +3009,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.864591854Z"
+    created: "2024-06-17T11:41:17.190340035Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: c380335478eb8acd68e3af516a6314ad70e6e3466a0bb4fc3855c5c85bede7eb
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -3020,7 +3020,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.863744811Z"
+    created: "2024-06-17T11:41:17.189484236Z"
     description: Helm Charts to Kubernetes Cluster Bootstrap
     digest: 22c846e141de4fa833135303a0ae312a02dc5660b014074dbde4326598c5220a
     icon: https://github.com/devxp-tech/helm-charts/blob/main/charts/tooling/helm-icon.png
@@ -3032,7 +3032,7 @@ entries:
   web-application:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.893919198Z"
+    created: "2024-06-17T11:41:17.218918249Z"
     description: A Helm chart for Kubernetes
     digest: d7676869667c1214a2ede354d6bcbefe6f6d9ab487fc90a7d0d31b13220edf49
     name: web-application
@@ -3042,7 +3042,7 @@ entries:
     version: 0.1.13
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.894626452Z"
+    created: "2024-06-17T11:41:17.220087574Z"
     description: A Helm chart for Kubernetes
     digest: 5bbc870c00545dbe75a5324782add2f40489dd9195ae07c23e11cfdcd2582c30
     name: web-application
@@ -3052,7 +3052,7 @@ entries:
     version: 0.1.9
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-11T12:17:17.89427545Z"
+    created: "2024-06-17T11:41:17.219720238Z"
     description: A Helm chart for Kubernetes
     digest: 0a982869eb98b322d15d5e3f4ba5c2c31fd24f420ccf69fb594e2252e466f881
     name: web-application
@@ -3060,4 +3060,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/devxp-tech/helm-charts/artifacts/web-application-0.1.8.tgz
     version: 0.1.8
-generated: "2024-06-17T11:40:53.315498512Z"
+generated: "2024-06-17T11:41:17.038442911Z"
