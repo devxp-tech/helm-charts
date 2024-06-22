@@ -9,6 +9,7 @@ spec:
   propagators:
     - tracecontext
     - baggage
+    - b3
   sampler:
     type: parentbased_traceidratio
     argument: "1"
@@ -16,20 +17,30 @@ spec:
     env:
       - name: OTEL_SERVICE_NAME
         value: {{ .Values.name }}
+      - name: OTEL_LOGS_EXPORTER
+        value: otlp
   go:
     env:
       - name: OTEL_SERVICE_NAME
         value: {{ .Values.name }}
+      - name: OTEL_LOGS_EXPORTER
+        value: otlp
   java:
     env:
       - name: OTEL_SERVICE_NAME
         value: {{ .Values.name }}
+      - name: OTEL_LOGS_EXPORTER
+        value: otlp
   nodejs:
     env:
       - name: OTEL_SERVICE_NAME
         value: {{ .Values.name }}
+      - name: OTEL_LOGS_EXPORTER
+        value: otlp
   python:
     env:
       - name: OTEL_SERVICE_NAME
         value: {{ .Values.name }}
+      - name: OTEL_LOGS_EXPORTER
+        value: otlp
 {{- end }}
