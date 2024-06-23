@@ -7,7 +7,8 @@ Return the appropriate annotations for instrumentation based on the language
 instrumentation.opentelemetry.io/inject-dotnet: "true"
   {{- else if eq .Values.instrumentation "go" -}}
 instrumentation.opentelemetry.io/inject-go: "true"
-sidecar.opentelemetry.io/inject: "true"
+instrumentation.opentelemetry.io/otel-go-auto-target-exe: '/app'
+sidecar.opentelemetry.io/inject: "sidecar"
   {{- else if eq .Values.instrumentation "java" -}}
 instrumentation.opentelemetry.io/inject-java: "true"
   {{- else if eq .Values.instrumentation "nodejs" -}}
