@@ -61,9 +61,15 @@ argoRollouts:
     # --Specifies whether analysis runs should be created during the rollout
     enabled: true
     # --Specifies the success condition for the analysis, as a percentage
-    successCondition: 0.95
+    successCondition: "len(result) == 0 || isNaN(result[0]) || isInf(result[0]) || result[0] >= 0.95"
     # --Specifies the maximum number of failed analysis runs allowed before the rollout fails
     failureLimit: 3
+    # Name of the metric to be used in the analysis template
+    metricName: "success-rate"
+    # The initial delay before the first measurement is taken
+    initialDelay: "30s"
+    # The interval between each measurement
+    interval: "20s"
   # --Specifies whether the stable ReplicaSet should be dynamically scaled during rollout
   dynamicStableScale: true
   strategy:
