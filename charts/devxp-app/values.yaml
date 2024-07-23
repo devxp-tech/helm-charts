@@ -19,7 +19,8 @@ global:
   # team_name: dev
   # --prometheus sets the Prometheus server URL
   prometheus:
-    server: http://prometheus-community-kube-prometheus.monitoring.svc.cluster.local:9090 # set new endpoint
+    # --server sets prometheus endpoint
+    server: http://mimir-nginx.monitoring.svc:80/prometheus
   # -- Network configuration
   network:
     # --domain sets the Default Domain
