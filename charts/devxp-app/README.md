@@ -1,6 +1,6 @@
 # devxp-app
 
-![Version: 0.2.81](https://img.shields.io/badge/Version-0.2.81-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.2.82](https://img.shields.io/badge/Version-0.2.82-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Helm Charts for default DevXP-Tech Application
 
@@ -37,10 +37,10 @@ Helm Charts for default DevXP-Tech Application
 | actuator.readiness.successThreshold | int | `1` | Minimum consecutive successes for the probe to be considered successful after having failed |
 | actuator.readiness.timeoutSeconds | int | `3` | Number of seconds after which the readiness probe times out |
 | affinity | object | `{}` | affinity allows you to define rules for pod scheduling based on node labels |
-| argoRollouts | object | `{"analyses":{"enabled":true,"failureLimit":3,"successCondition":0.95},"dynamicStableScale":true,"enabled":true,"revisionHistoryLimit":3,"strategy":{"steps":[{"setWeight":5},{"pause":{"duration":"10s"}},{"setWeight":20},{"pause":{"duration":"10s"}},{"setWeight":40},{"pause":{"duration":"10s"}},{"setWeight":60},{"pause":{"duration":"10s"}},{"setWeight":80},{"pause":{"duration":"10s"}}]}}` | argoRollouts enable Argo Rollouts Deployment |
+| argoRollouts | object | `{"analyses":{"enabled":true,"failureLimit":3,"initialDelay":"30s","interval":"20s","metricName":"success-rate","successCondition":"len(result) == 0 || isNaN(result[0]) || isInf(result[0]) || result[0] >= 0.95"},"dynamicStableScale":true,"enabled":true,"revisionHistoryLimit":3,"strategy":{"steps":[{"setWeight":5},{"pause":{"duration":"10s"}},{"setWeight":20},{"pause":{"duration":"10s"}},{"setWeight":40},{"pause":{"duration":"10s"}},{"setWeight":60},{"pause":{"duration":"10s"}},{"setWeight":80},{"pause":{"duration":"10s"}}]}}` | argoRollouts enable Argo Rollouts Deployment |
 | argoRollouts.analyses.enabled | bool | `true` | Specifies whether analysis runs should be created during the rollout |
 | argoRollouts.analyses.failureLimit | int | `3` | Specifies the maximum number of failed analysis runs allowed before the rollout fails |
-| argoRollouts.analyses.successCondition | float | `0.95` | Specifies the success condition for the analysis, as a percentage |
+| argoRollouts.analyses.successCondition | string | `"len(result) == 0 || isNaN(result[0]) || isInf(result[0]) || result[0] >= 0.95"` | Specifies the success condition for the analysis, as a percentage |
 | argoRollouts.dynamicStableScale | bool | `true` | Specifies whether the stable ReplicaSet should be dynamically scaled during rollout |
 | argoRollouts.enabled | bool | `true` | Specifies whether Argo Rollouts is enabled |
 | argoRollouts.revisionHistoryLimit | int | `3` | Specifies the number of old ReplicaSets to retain for rollback purposes |
