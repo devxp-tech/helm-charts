@@ -1,4 +1,3 @@
-{{- if .Values.deployment.enabled }}
 {{- if not .Values.argoRollouts.enabled }}
 apiVersion: apps/v1
 kind: Deployment
@@ -18,11 +17,7 @@ spec:
       {{- include "devxp-app.selectorLabels" $ | nindent 6 }}
   template:
     metadata:
-      annotations:
-        {{- include "instrumentation-annotations" . | nindent 8 }}
-        {{- if .Values.podAnnotations }}
-        {{- toYaml .Values.podAnnotations | nindent 8 }}
-        {{- end }}
+      annotations: {{- include "all-pod-annotations" . | nindent 8 }}
       labels: {{- include "devxp-app.labels" . | nindent 8 }}
     spec:
       {{- if not .Values.imagePullSecrets.enabled }}
@@ -53,7 +48,3 @@ spec:
       volumes: {{ toYaml (default list .Values.volumes)  | nindent 8 }}
   minReadySeconds: 30
 {{- end }}
-{{- end }}
-
-
-

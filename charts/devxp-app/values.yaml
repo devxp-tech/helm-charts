@@ -46,7 +46,7 @@ namespace:
 deployment:
   # --Specifies whether the standard deployment is enabled
   # --default is false
-  enabled: false
+
   # --Annotations to be added to the deployment
   annotations: {}
 
@@ -333,7 +333,9 @@ actuator:
     httpHeaders: []
 
 # --instrumentation set default auto-instrumentation, allowed values dotnet, go, java, nodejs and python
-instrumentation: {}
+instrumentation:
+  enabled: false
+  language: ""
 
 # --nodeSelector allows you to constrain a Pod to only be able to run on particular node(s)
 nodeSelector: {}

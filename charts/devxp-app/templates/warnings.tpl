@@ -8,6 +8,18 @@
   {{- fail ".Values.container.port must not be empty and a fully qualified integer app port" -}}
 {{- end -}}
 
+{{/*Validating if instrumentations is enabled and has valid language selected*/}}
+{{- if .Values.instrumentation.enabled -}}
+  {{- $language := .Values.instrumentation.language -}}
+  {{- $validLanguages := list "go" "java" "nodejs" "dotnet" "python" "nginx" -}}
+  {{- if not $language -}}
+    {{- fail "When .Values.instrumentation.enable is on, you need to spedify a language" -}}
+  {{- end -}}
+  {{- if not (has $language $validLanguages) -}}
+    {{- fail (printf "Invalid instrumentation Language: %s. This value should be one of: %s" $language (join ", " $validLanguages)) -}}
+  {{- end -}}
+{{- end -}}
+
 
 
 
