@@ -1,5 +1,4 @@
 {{- if .Values.argoRollouts.enabled }}
-{{- if not .Values.deployment.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
@@ -31,5 +30,4 @@ spec:
               reporter="source",
               destination_service=~"{{ .Values.name }}.{{ .Values.name }}.svc.{{ .Values.global.cluster }}"}[40s])
             )
-{{- end }}
 {{- end }}

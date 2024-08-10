@@ -1,6 +1,4 @@
-{{- if .Values.istio.enabled }}
-  {{- if .Values.argoRollouts.enabled }}
-    {{- if not .Values.deployment.enabled }}
+{{- if and .Values.istio.enabled .Values.argoRollouts.enabled }}
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
@@ -15,6 +13,4 @@ spec:
   - name: stable   # referenced in canary.trafficRouting.istio.destinationRule.stableSubsetName
     labels:        # labels will be injected with canary rollouts-pod-template-hash value
       app: {{ .Values.name }}
-    {{- end }}
-  {{- end }}
 {{- end }}

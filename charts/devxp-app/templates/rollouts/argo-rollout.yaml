@@ -1,5 +1,4 @@
 {{- if .Values.argoRollouts.enabled }}
-  {{- if not .Values.deployment.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
@@ -47,11 +46,7 @@ spec:
       {{- include "devxp-app.selectorLabels" $ | nindent 6 }}
   template:
     metadata:
-      annotations:
-        {{- include "instrumentation-annotations" . | nindent 8 }}
-        {{- if .Values.podAnnotations }}
-        {{- toYaml .Values.podAnnotations | nindent 8 }}
-        {{- end }}
+      annotations: {{- include "all-pod-annotations" . | nindent 8 }}
       labels: {{ include "devxp-app.labels" . | nindent 8 }}
     spec:
       serviceAccountName: {{ .Values.name }}
@@ -79,5 +74,4 @@ spec:
       affinity: {{ toYaml (default dict .Values.affinity) | nindent 8 }}
       tolerations: {{ toYaml (default list .Values.tolerations)  | nindent 8 }}
   minReadySeconds: 30
-  {{- end }}
 {{- end }}

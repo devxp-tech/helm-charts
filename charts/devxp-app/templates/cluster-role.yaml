@@ -1,5 +1,4 @@
 {{- if .Values.argoRollouts.enabled }}
-{{- if not .Values.deployment.enabled }}
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -16,5 +15,4 @@ rules:
   - watch
   - update
   - patch
-{{- end }}
 {{- end }}
