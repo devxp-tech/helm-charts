@@ -13,12 +13,31 @@ spec:
   sampler:
     type: parentbased_traceidratio
     argument: "1"
-  {{- $language := .Values.instrumentation }}
-  {{- $envVars := dict "name" "OTEL_SERVICE_NAME" "value" .Values.name }}
-  {{- with $language }}
-  {{- $envVars := append $envVars (dict "name" "OTEL_LOGS_EXPORTER" "value" "otlp") }}
-  {{- end }}
-  {{ $language }}:
+  dotnet:
+    env:
+      - name: OTEL_SERVICE_NAME
+        value: {{ .Values.name }}
+      - name: OTEL_LOGS_EXPORTER
+        value: otlp
+  go:
+    env:
+      - name: OTEL_SERVICE_NAME
+        value: {{ .Values.name }}
+      - name: OTEL_LOGS_EXPORTER
+        value: otlp
+  java:
+    env:
+      - name: OTEL_SERVICE_NAME
+        value: {{ .Values.name }}
+      - name: OTEL_LOGS_EXPORTER
+        value: otlp
+  nodejs:
+    env:
+      - name: OTEL_SERVICE_NAME
+        value: {{ .Values.name }}
+      - name: OTEL_LOGS_EXPORTER
+        value: otlp
+  python:
     env:
       - name: OTEL_SERVICE_NAME
         value: {{ .Values.name }}
