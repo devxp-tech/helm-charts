@@ -13,14 +13,9 @@
   {{- $language := .Values.instrumentation.language -}}
   {{- $validLanguages := list "go" "java" "nodejs" "dotnet" "python" "nginx" -}}
   {{- if not $language -}}
-    {{- fail "When .Values.instrumentation.enable is on, you need to spedify a language" -}}
+    {{- fail (printf "When .Values.instrumentation.enable is true them .Values.instrumentation.language can not be empty. Use one of: %s" (join ", " $validLanguages)) -}}
   {{- end -}}
   {{- if not (has $language $validLanguages) -}}
     {{- fail (printf "Invalid instrumentation Language: %s. This value should be one of: %s" $language (join ", " $validLanguages)) -}}
   {{- end -}}
 {{- end -}}
-
-
-
-
-
