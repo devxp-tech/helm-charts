@@ -17,7 +17,7 @@ jobs:
       - env
     steps:
       - name: Checkout Lint 🛎️
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -66,7 +66,7 @@ jobs:
           - v1.22.10
     steps:
       - name: Checkout Kubeval 🛎️
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Run kubeval 🔎
         env:
@@ -90,7 +90,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -126,7 +126,7 @@ jobs:
       - release
     steps:
       - name: Checkout Artifacts 🛎️
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: artifacts
 
@@ -170,7 +170,7 @@ jobs:
       - artifacts
     steps:
       - name: Chekcout 🛎️
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: gh-pages
           fetch-depth: 1
