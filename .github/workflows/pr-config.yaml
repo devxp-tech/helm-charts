@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Comment PR 📝
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@v3
         with:
           message: |
             ### Review Checklist
@@ -127,7 +127,7 @@ jobs:
 
     - name: PR comment with file 📝
       if: always()
-      uses: thollander/actions-comment-pull-request@v2
+      uses: thollander/actions-comment-pull-request@v3
       with:
         comment_tag: show_diff
         filePath: diff.yaml
