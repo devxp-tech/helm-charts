@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️ # Required to mount the Github Workspace to a volume
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Docker Run 🐳
         uses: addnab/docker-run-action@v3
