@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Comment PR 📝
         uses: thollander/actions-comment-pull-request@v2
@@ -83,7 +83,7 @@ jobs:
 
     steps:
     - name: Checkout main branch 🛎️
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
       with:
         ref: main
         path: main_branch
@@ -97,7 +97,7 @@ jobs:
         done
 
     - name: Checkout PR branch 🛎️
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
       with:
         path: pr_branch
 
